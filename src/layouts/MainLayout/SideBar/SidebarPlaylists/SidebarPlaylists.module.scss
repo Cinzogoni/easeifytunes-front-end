@@ -1,0 +1,30 @@
+.playlists {
+  width: 302px;
+  height: 100%;
+  padding: 0 24px;
+
+  background-image: var(--parent-background-color);
+  border: var(--main-border);
+  border-radius: var(--main-border-radius);
+}
+
+.heading {
+  margin: 18px 0;
+  font-size: 1.1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  color: var(--main-move-color);
+}
+
+.frame {
+  height: 100%;
+  max-height: calc(100% - 92.766px);
+  border: var(--main-border);
+  border-radius: var(--main-border-radius);
+  background-color: rgba(12, 12, 20, 0.8);
+}

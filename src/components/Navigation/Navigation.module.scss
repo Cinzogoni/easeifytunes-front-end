@@ -1,0 +1,19 @@
+.link {
+  display: flex;
+  align-items: center;
+}
+
+.link-route {
+  font-size: 1.3rem;
+  transition: transform 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 892px) {
+  .link-route {
+    font-size: 0.8rem;
+  }
+}

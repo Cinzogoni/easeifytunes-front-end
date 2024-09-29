@@ -1,0 +1,74 @@
+import classNames from "classnames/bind";
+import styles from "./NewReleasesBox.module.scss";
+
+import { useAudioPlayer } from "../AudioPlayerProvider";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+  faEllipsisVertical,
+  faHeadphones,
+  faInfo,
+} from "@fortawesome/free-solid-svg-icons";
+import Player from "../Player";
+import TrackInfo from "~/layouts/MainLayout/Popper/TrackInfo";
+
+const cx = classNames.bind(styles);
+
+function NewReleasesBox({
+  trackId,
+  trackLink,
+  trackTitle,
+  trackPerformer,
+  trackAvatar,
+  trackType,
+}) {
+  const { currentTrackId, handlePlay, handlePause, listeners } =
+    useAudioPlayer();
+
+  return (
+    <div className={cx("container")}>
+      <div className={cx("frame")}>
+        <img className={cx("avatar")} src={trackAvatar} alt={trackTitle} />
+
+        <Player
+          trackId={trackId}
+          trackLink={trackLink}
+          trackTitle={trackTitle}
+          trackPerformer={trackPerformer}
+          //
+          isStatus={trackId === currentTrackId}
+          onPlay={() =>
+            handlePlay(trackId, { trackTitle, trackPerformer }, trackLink)
+          }
+          onPause={() => handlePause(trackId)}
+        />
+      </div>
+
+      <div className={cx("menu")}>
+        <div className={cx("streams")}>
+          <FontAwesomeIcon className={cx("headphone")} icon={faHeadphones} />
+          <div className={cx("listens")}>
+            <h6 className={cx("listener")}>{listeners[trackId] || 0}</h6>
+          </div>
+        </div>
+
+        <TrackInfo
+          trackPerformer={trackPerformer}
+          trackTitle={trackTitle}
+          trackType={trackType}
+        >
+          <div className={cx("info")}>
+            <FontAwesomeIcon className={cx("icon")} icon={faInfo} />
+          </div>
+        </TrackInfo>
+
+        <div className={cx("more-function")}>
+          <FontAwesomeIcon className={cx("more")} icon={faEllipsisVertical} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default NewReleasesBox;

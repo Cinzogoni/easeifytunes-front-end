@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  margin-top: 18px;
+  object-fit: cover;
+  border-radius: var(--main-border-radius);
+  border: var(--main-border);
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.desc {
+  width: 200px;
+  height: 78px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 0.8rem;
+  margin: 2px 0;
+}
+
+.role {
+  font-size: 0.7rem;
+  margin: 2px 0;
+  opacity: 0.6;
+}
