@@ -58,8 +58,7 @@ input {
 .title-box {
   display: flex;
   align-items: center;
-  padding: 20px 0;
-
+  flex-wrap: wrap;
   background-color: var(--popper-background-color);
   border: var(--main-border);
   border-radius: var(--main-border-radius);
@@ -72,8 +71,8 @@ input {
 .title-4 {
   font-size: 1rem;
   line-height: 1.6;
-  margin: 0 10px 0 0;
-  padding: 0 10px;
+  margin: 15px;
+  padding: 2px 4px;
   border-radius: 10px;
   border: var(--main-border);
   background-image: var(--child-background-color);

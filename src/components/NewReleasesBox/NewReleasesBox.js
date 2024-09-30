@@ -11,7 +11,7 @@ import {
   faInfo,
 } from "@fortawesome/free-solid-svg-icons";
 import Player from "../Player";
-import TrackInfo from "~/layouts/MainLayout/Popper/TrackInfo";
+import TrackPopper from "~/layouts/MainLayout/Popper/TrackPopper";
 
 const cx = classNames.bind(styles);
 
@@ -53,7 +53,7 @@ function NewReleasesBox({
           </div>
         </div>
 
-        <TrackInfo
+        <TrackPopper
           trackPerformer={trackPerformer}
           trackTitle={trackTitle}
           trackType={trackType}
@@ -61,7 +61,7 @@ function NewReleasesBox({
           <div className={cx("info")}>
             <FontAwesomeIcon className={cx("icon")} icon={faInfo} />
           </div>
-        </TrackInfo>
+        </TrackPopper>
 
         <div className={cx("more-function")}>
           <FontAwesomeIcon className={cx("more")} icon={faEllipsisVertical} />

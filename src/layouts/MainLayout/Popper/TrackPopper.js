@@ -1,9 +1,9 @@
 import Tippy from "@tippyjs/react/headless";
 import classNames from "classnames/bind";
-import styles from "./TrackInfo.module.scss";
+import styles from "./TrackPopper.module.scss";
 
 const cx = classNames.bind(styles);
-function TrackInfo({ children, trackPerformer, trackTitle, trackType }) {
+function TrackPopper({ children, trackPerformer, trackTitle, trackType }) {
   return (
     <Tippy
       render={(attrs) => (
@@ -26,4 +26,4 @@ function TrackInfo({ children, trackPerformer, trackTitle, trackType }) {
   );
 }
 
-export default TrackInfo;
+export default TrackPopper;
