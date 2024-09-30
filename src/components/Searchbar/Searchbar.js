@@ -141,7 +141,7 @@ function Searchbar() {
                       .filter((item) => item.trackTitle && item.trackPerformer)
                       .map((item) => (
                         <MusicTrackItem
-                          key={item.id}
+                          key={`track_${item.id}`}
                           trackAvatar={item.trackAvatar}
                           trackPerformer={item.trackPerformer}
                           trackTitle={item.trackTitle}
@@ -156,7 +156,7 @@ function Searchbar() {
                       .filter((item) => item.stageName && item.role)
                       .map((item) => (
                         <MusicMakerItems
-                          key={item.id}
+                          key={`music-maker_${item.id}`}
                           musicMakerAvatar={item.avatar}
                           musicMakerStageName={item.stageName}
                           musicMakerRole={item.role}
@@ -172,7 +172,7 @@ function Searchbar() {
                       .map((albumItem) =>
                         albumItem.tracks.map((track) => (
                           <AlbumItem
-                            key={track.id}
+                            key={`album_${track.id}`}
                             albumAvatar={track.trackAvatar}
                             albumName={track.trackType}
                             albumPerformer={track.trackPerformer}
@@ -192,7 +192,7 @@ function Searchbar() {
                       .map((podcastItem) =>
                         podcastItem.audios.map((audio) => (
                           <PodcastItem
-                            key={audio.id}
+                            key={`podcast_${audio.id}`}
                             podcastAvatar={audio.avatar}
                             podcastPerformer={audio.performer}
                             podcastTitle={audio.title}

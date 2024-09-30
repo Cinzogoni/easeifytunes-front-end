@@ -4,7 +4,7 @@ const apiTest01 = {
   getTrendingSongs: () => {
     return [
       {
-        id: 0,
+        id: `trend_0`,
         trackAvatar:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQnqK4XzbJZxveM9f3yeN1fdOrE1dE-scufg&s",
         trackPerformer: "The Southern RamBlers",
@@ -14,7 +14,7 @@ const apiTest01 = {
           mp3Type[`TrendingSongs/Country Roads - The Southern RamBlers`],
       },
       {
-        id: 1,
+        id: `trend_1`,
         trackAvatar:
           "https://i1.sndcdn.com/artworks-8Rp7TfVysyNpTfz4-vL8qiw-t500x500.jpg",
         trackPerformer: "Tommy Richman",
@@ -23,7 +23,7 @@ const apiTest01 = {
         trackLink: mp3Type[`TrendingSongs/Tommy Richman  MILLION DOLLAR BABY`],
       },
       {
-        id: 2,
+        id: `trend_2`,
         trackAvatar: "https://i.ytimg.com/vi/O--xuWCZwMc/maxresdefault.jpg",
         trackPerformer: "The Weeknd, JENNIE, Lily-Rose Depp",
         trackTitle: "One Of The Girls",
@@ -34,7 +34,7 @@ const apiTest01 = {
           ],
       },
       {
-        id: 3,
+        id: `trend_3`,
         trackAvatar:
           "https://i1.sndcdn.com/artworks-RNzGbycq58c5Dt0Y-2Egb8A-t500x500.jpg",
         trackPerformer: "cassö, RAYE, D-Block Europe",
@@ -43,7 +43,7 @@ const apiTest01 = {
         trackLink: mp3Type[`TrendingSongs/cassö RAYE DBlock Europe  Prada`],
       },
       {
-        id: 4,
+        id: `trend_4`,
         trackAvatar: "https://i.ytimg.com/vi/HqUaJbF_uO4/maxresdefault.jpg",
         trackPerformer: "ryansanon",
         trackTitle: "MOVE YO BODY",
@@ -51,7 +51,7 @@ const apiTest01 = {
         trackLink: mp3Type[`TrendingSongs/Bryansanon  MOVE YO BODY sped up`],
       },
       {
-        id: 5,
+        id: `trend_5`,
         trackAvatar:
           "https://i1.sndcdn.com/artworks-zNtihhLynoXyysS2-uKqohg-t500x500.jpg",
         trackPerformer: "Jack Harlow",
@@ -60,7 +60,7 @@ const apiTest01 = {
         trackLink: mp3Type["TrendingSongs/Jack Harlow  Lovin On Me"],
       },
       {
-        id: 6,
+        id: `trend_6`,
         trackAvatar:
           "https://i.ytimg.com/vi/AI_-afRgwv0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDHO_ybMzpdU-EZM9RJMTQuYMHs1Q",
         trackPerformer: "Alexia",
@@ -69,7 +69,7 @@ const apiTest01 = {
         trackLink: mp3Type[`TrendingSongs/Alexia  Oh This Love`],
       },
       {
-        id: 7,
+        id: `trend_7`,
         trackAvatar: "https://i.ytimg.com/vi/8l9mwcximOs/maxresdefault.jpg",
         trackPerformer: "310babii, Tyga, Blueface, Mustard",
         trackTitle: "Soak City",

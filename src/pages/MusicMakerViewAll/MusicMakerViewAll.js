@@ -92,7 +92,7 @@ function MusicMakerViewAll() {
                 <input
                   ref={inputRef}
                   className={cx("search-input")}
-                  placeholder="music maker..."
+                  placeholder="music makers..."
                   spellCheck={false}
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}

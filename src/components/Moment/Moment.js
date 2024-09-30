@@ -22,6 +22,7 @@ function Moment() {
   const [width, setWidth] = useState(window.innerWidth);
   const [scrollIndex, setScrollIndex] = useState(0);
   const [activeMove, setActiveMove] = useState(null);
+  const [activeVideoId, setActiveVideoId] = useState(null);
 
   const calculateBoxesPerSlide = () => {
     if (width >= 1600) {
@@ -81,6 +82,10 @@ function Moment() {
     return `translateX(-${scrollIndex * slideWidth}%)`;
   };
 
+  const handleVideoPlay = (id) => {
+    setActiveVideoId(id);
+  };
+
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
@@ -137,6 +142,8 @@ function Moment() {
                         link={video.link}
                         date={video.date}
                         name={video.name}
+                        isPlaying={activeVideoId === video.id}
+                        onPlay={() => handleVideoPlay(video.id)}
                       />
                     </div>
                   </div>

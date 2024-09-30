@@ -51,12 +51,13 @@
 
 .song-box {
   width: 400px;
-  height: 330px;
+  height: 243px;
   background-image: var(--child-background-color);
   border: var(--main-border);
   border-radius: var(--main-border-radius);
   display: flex;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
