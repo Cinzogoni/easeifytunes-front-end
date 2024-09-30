@@ -107,7 +107,7 @@ function Moment() {
                   transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
                 }}
               />
-              <Navigation id={cx("new-releases-viewAll")} />
+              <Navigation id={cx("moment-viewAll")} />
             </div>
           </div>
 
@@ -135,6 +135,7 @@ function Moment() {
                       <MomentBox
                         id={video.id}
                         link={video.link}
+                        date={video.date}
                         name={video.name}
                       />
                     </div>

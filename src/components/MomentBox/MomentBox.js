@@ -1,20 +1,23 @@
 import classNames from "classnames/bind";
 import styles from "./MomentBox.module.scss";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 const cx = classNames.bind(styles);
 
-function MomentBox({ link, name }) {
-  const videoRef = useRef(null);
-
+function MomentBox({ link, date, name }) {
   return (
     <div className={cx("wrapper")}>
-      <div className={cx("video-box")}></div>
-
-      <video ref={videoRef} className={cx("video-player")} width="300" controls>
+      <video className={cx("video-player")} controls controlsList="nodownload">
         <source src={link} type="video/mp4" />
       </video>
+
+      <div className={cx("video-box")}>
+        <div className={cx("info")}>
+          <h6 className={cx("date")}>{date}</h6>
+          <h6 className={cx("title")}>{name}</h6>
+        </div>
+      </div>
     </div>
   );
 }

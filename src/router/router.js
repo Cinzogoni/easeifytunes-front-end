@@ -9,6 +9,7 @@ import NewReleasesViewAll from "~/pages/NewReleasesViewAll";
 import MusicMakerViewAll from "~/pages/MusicMakerViewAll";
 import AlbumViewAll from "~/pages/AlbumViewAll";
 import PodcastViewAll from "~/pages/PodcastViewAll";
+import MomentViewAll from "~/pages/MomentViewAll";
 
 import config from "~/config";
 
@@ -38,6 +39,11 @@ const publicRouter = [
   {
     path: config.routes.podcastViewAll,
     component: PodcastViewAll,
+    layout: true,
+  },
+  {
+    path: config.routes.momentViewAll,
+    component: MomentViewAll,
     layout: true,
   },
 ];

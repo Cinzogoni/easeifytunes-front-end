@@ -10,6 +10,7 @@ const routesConfig = {
   musicMakersViewAll: `/musicMakersViewAll`,
   albumViewAll: `/albumViewAll`,
   podcastViewAll: `/podcastViewAll`,
+  momentViewAll: `/momentViewAll`,
 };
 
 export default routesConfig;

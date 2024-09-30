@@ -23,6 +23,9 @@ function Navigation({ id }) {
     case "podcast-viewAll":
       linkTo = config.routes.podcastViewAll;
       break;
+    case "moment-viewAll":
+      linkTo = config.routes.momentViewAll;
+      break;
     default:
       linkTo = "/";
       break;
