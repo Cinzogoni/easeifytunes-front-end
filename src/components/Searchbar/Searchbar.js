@@ -39,8 +39,8 @@ function Searchbar() {
     const apiResults = [
       ...apiTest.getNewReleases(),
       ...apiTest01.getTrendingSongs(),
-      ...apiMusicMaker.MusicMaker(),
-      ...apiPodcast.Podcast(),
+      ...apiMusicMaker.getMusicMaker(),
+      ...apiPodcast.getPodcast(),
     ];
 
     const filteredResults = apiResults.filter((item) => {

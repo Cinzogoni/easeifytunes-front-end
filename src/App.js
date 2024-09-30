@@ -12,7 +12,6 @@ import config from "./config";
 
 import { publicRouter } from "./router";
 import MainLayout from "./layouts/MainLayout";
-import Home from "./pages/Home";
 
 import { AudioPlayerProvider } from "./components/AudioPlayerProvider";
 import { TrackInfoProvider } from "./components/TrackInfoProvider";
@@ -47,7 +46,7 @@ function AppContent() {
     const currentRoute = publicRouter.find(
       (route) => route.path === location.pathname
     );
-    setComponent(currentRoute ? currentRoute.component : Home);
+    setComponent(currentRoute);
   }, [location.pathname]);
 
   return (

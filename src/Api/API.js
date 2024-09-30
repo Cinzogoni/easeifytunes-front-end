@@ -1,5 +1,5 @@
 const apiMusicMaker = {
-  MusicMaker: () => {
+  getMusicMaker: () => {
     return [
       {
         id: 0,

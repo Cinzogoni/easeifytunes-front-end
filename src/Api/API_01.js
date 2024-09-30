@@ -1,5 +1,5 @@
 const apiPodcast = {
-  Podcast: () => {
+  getPodcast: () => {
     return [
       {
         id: 0,

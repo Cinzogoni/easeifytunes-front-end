@@ -24,7 +24,7 @@ const apiTest = {
       {
         id: 2,
         trackAvatar:
-          "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/4/8/f/f/48ffdb72c21e5865fa0f2f1f269f0e16.jpg",
+          "https://cdn-images.vtv.vn/thumb_w/640/2019/7/26/suni-1-1564110056335604663063.jpg",
         trackPerformer: "Suni Hạ Linh ft. Lou Hoàng",
         trackTitle: "Không Sao Mà Em Đây Rồi",
         trackType: "Single",
