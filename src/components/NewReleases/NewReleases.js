@@ -14,6 +14,8 @@ import GridSystem from "../GridSystem";
 import NewReleasesBox from "../NewReleasesBox";
 
 import { useTrackInfo } from "../TrackInfoProvider";
+import routesConfig from "~/config/routes";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 function NewReleases() {
@@ -131,9 +133,16 @@ function NewReleases() {
                   colMo={cx("mo-12")}
                 >
                   <div className={cx("boxes")}>
+                    <Link
+                      className={cx("link")}
+                      to={routesConfig.track.replace(
+                        ":trackTitle",
+                        track.trackTitle
+                      )}
+                    />
                     <div className={cx("song-box")}>
                       <NewReleasesBox
-                        trackId={`new_${track.id}`}
+                        trackId={track.id}
                         trackLink={track.trackLink}
                         trackAvatar={track.trackAvatar}
                         trackTitle={track.trackTitle}

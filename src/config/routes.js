@@ -3,6 +3,7 @@ const routesConfig = {
   search: `/search`,
   setting: `/setting`,
   track: `/track/:trackTitle`,
+  podcast: `/podcast/:podcastTitle`,
   playlistPage: `/playlistPage/:musicMakerStageName`,
   albumPage: `/albumPage/:albumName`,
   podcastPage: `/podcastPage/:podcastTitle`,

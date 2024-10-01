@@ -9,7 +9,12 @@ const cx = classNames.bind(styles);
 function MusicTrackItem({ trackAvatar, trackTitle, trackPerformer }) {
   return (
     <div className={cx("wrapper")}>
-      <Link to={routesConfig.track.replace(":trackTitle", trackTitle)}>
+      <Link
+        to={routesConfig.track.replace(
+          ":trackTitle",
+          encodeURIComponent(trackTitle)
+        )}
+      >
         <div className={cx("info-box")}>
           <img className={cx("avatar")} src={trackAvatar} alt={trackTitle} />
           <div>

@@ -14,9 +14,7 @@ function PodcastItem({
 }) {
   return (
     <div className={cx("wrapper")}>
-      <Link
-        to={routesConfig.podcastPage.replace(`:podcastTitle`, podcastTitle)}
-      >
+      <Link to={routesConfig.podcast.replace(`:podcastTitle`, podcastTitle)}>
         <div className={cx("audio-info")}>
           <img
             className={cx("avatar")}

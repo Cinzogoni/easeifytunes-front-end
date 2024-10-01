@@ -14,6 +14,8 @@ import GridSystem from "../GridSystem";
 import AlbumBox from "../AlbumBox";
 
 import { useTrackInfo } from "../TrackInfoProvider";
+import routesConfig from "~/config/routes";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 function Album() {
@@ -138,13 +140,22 @@ function Album() {
                     <div className={cx("boxes")}>
                       <div className={cx("song-box")}>
                         {album.tracks.map((track) => (
-                          <AlbumBox
+                          <Link
                             key={track.id}
-                            albumId={`album_${track.id}`}
-                            albumAvatar={track.trackAvatar}
-                            albumName={track.trackType}
-                            albumPerformer={track.trackPerformer}
-                          />
+                            className={cx("link")}
+                            to={routesConfig.albumPage.replace(
+                              `:albumName`,
+                              track.trackType
+                            )}
+                          >
+                            <AlbumBox
+                              key={track.id}
+                              albumId={`album_${track.id}`}
+                              albumAvatar={track.trackAvatar}
+                              albumName={track.trackType}
+                              albumPerformer={track.trackPerformer}
+                            />
+                          </Link>
                         ))}
                       </div>
                     </div>

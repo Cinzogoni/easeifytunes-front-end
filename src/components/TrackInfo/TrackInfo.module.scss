@@ -27,10 +27,24 @@
 
 .title {
   font-size: 1.2rem;
+  margin: 5px 0;
 }
 
 .performer {
   font-size: 1rem;
+  margin: 5px 0;
+}
+
+.type {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin: 5px 0;
+}
+
+.genre {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin: 5px 0;
 }
 
 @media (min-width: 895px) and (max-width: 1037px) {
@@ -41,10 +55,24 @@
 
   .title {
     font-size: 1rem;
+    margin: 5px 0;
   }
 
   .performer {
     font-size: 0.8rem;
+    margin: 5px 0;
+  }
+
+  .type {
+    font-size: 0.6rem;
+    opacity: 0.6;
+    margin: 5px 0;
+  }
+
+  .genre {
+    font-size: 0.6rem;
+    opacity: 0.6;
+    margin: 5px 0;
   }
 }
 
@@ -56,9 +84,23 @@
 
   .title {
     font-size: 0.7rem;
+    margin: 5px 0;
   }
 
   .performer {
     font-size: 0.5rem;
+    margin: 5px 0;
+  }
+
+  .type {
+    font-size: 0.3rem;
+    opacity: 0.6;
+    margin: 5px 0;
+  }
+
+  .genre {
+    font-size: 0.3rem;
+    opacity: 0.6;
+    margin: 5px 0;
   }
 }

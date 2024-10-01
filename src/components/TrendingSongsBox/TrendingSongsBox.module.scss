@@ -50,6 +50,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+}
+
+.link {
+  position: absolute;
+  width: 160px;
+  height: 62px;
 }
 
 .title {

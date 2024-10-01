@@ -14,6 +14,8 @@ import GridSystem from "../GridSystem";
 import PodcastBox from "../PodcastBox";
 
 import { useTrackInfo } from "../TrackInfoProvider";
+import routesConfig from "~/config/routes";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 function Podcast() {
@@ -131,13 +133,20 @@ function Podcast() {
                   colMo={cx("mo-12")}
                 >
                   <div className={cx("boxes")}>
-                    <div className={cx("song-box")}>
-                      <PodcastBox
-                        podcastId={`podcast_${podcast.id}`}
-                        podcastAvatar={podcast.avatar}
-                        podcastTopic={podcast.topic}
-                      />
-                    </div>
+                    <Link
+                      to={routesConfig.podcastPage.replace(
+                        `:podcastTitle`,
+                        podcast.topic
+                      )}
+                    >
+                      <div className={cx("song-box")}>
+                        <PodcastBox
+                          podcastId={`podcast_${podcast.id}`}
+                          podcastAvatar={podcast.avatar}
+                          podcastTopic={podcast.topic}
+                        />
+                      </div>
+                    </Link>
                   </div>
                 </GridSystem>
               ))}

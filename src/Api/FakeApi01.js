@@ -10,6 +10,7 @@ const apiTest01 = {
         trackPerformer: "The Southern RamBlers",
         trackTitle: "Country Roads",
         trackType: "Single",
+        trackGenre: "Country",
         trackLink:
           mp3Type[`TrendingSongs/Country Roads - The Southern RamBlers`],
       },
@@ -20,6 +21,7 @@ const apiTest01 = {
         trackPerformer: "Tommy Richman",
         trackTitle: "MILLION DOLLAR BABY",
         trackType: "Single",
+        trackGenre: "HipHop",
         trackLink: mp3Type[`TrendingSongs/Tommy Richman  MILLION DOLLAR BABY`],
       },
       {
@@ -28,6 +30,7 @@ const apiTest01 = {
         trackPerformer: "The Weeknd, JENNIE, Lily-Rose Depp",
         trackTitle: "One Of The Girls",
         trackType: "Single",
+        trackGenre: "RnB/Soul",
         trackLink:
           mp3Type[
             `TrendingSongs/The Weeknd JENNIE LilyRose Depp One Of The Girls`
@@ -40,6 +43,7 @@ const apiTest01 = {
         trackPerformer: "cassö, RAYE, D-Block Europe",
         trackTitle: "Prada",
         trackType: "Single",
+        trackGenre: "Pop",
         trackLink: mp3Type[`TrendingSongs/cassö RAYE DBlock Europe  Prada`],
       },
       {
@@ -48,6 +52,7 @@ const apiTest01 = {
         trackPerformer: "ryansanon",
         trackTitle: "MOVE YO BODY",
         trackType: "Single",
+        trackGenre: "Pop",
         trackLink: mp3Type[`TrendingSongs/Bryansanon  MOVE YO BODY sped up`],
       },
       {
@@ -57,6 +62,7 @@ const apiTest01 = {
         trackPerformer: "Jack Harlow",
         trackTitle: "Lovin' On Me",
         trackType: "Single",
+        trackGenre: "HipHop",
         trackLink: mp3Type["TrendingSongs/Jack Harlow  Lovin On Me"],
       },
       {
@@ -66,6 +72,7 @@ const apiTest01 = {
         trackPerformer: "Alexia",
         trackTitle: "Oh, This Love",
         trackType: "Single",
+        trackGenre: "Pop",
         trackLink: mp3Type[`TrendingSongs/Alexia  Oh This Love`],
       },
       {
@@ -74,27 +81,30 @@ const apiTest01 = {
         trackPerformer: "310babii, Tyga, Blueface, Mustard",
         trackTitle: "Soak City",
         trackType: "Single",
+        trackGenre: "HipHop",
         trackLink:
           mp3Type[
             "TrendingSongs/310babii Tyga Blueface Mustard  Soak City left do it right do it"
           ],
       },
       {
-        id: 8,
+        id: `trend_8`,
         trackAvatar:
           "https://i1.sndcdn.com/artworks-q7abtyyfxgKAcEPG-pdCXcA-t500x500.jpg",
         trackPerformer: "Isabel LaRosa",
         trackTitle: "favorite",
         trackType: "Single",
+        trackGenre: "Moombahton",
         trackLink: mp3Type[`TrendingSongs/Isabel LaRosa  favorite`],
       },
       {
-        id: 9,
+        id: `trend_9`,
         trackAvatar:
           "https://i1.sndcdn.com/artworks-000509687238-dwnjjr-t500x500.jpg",
         trackPerformer: "Ava Max",
         trackTitle: "Sweet but Psycho",
         trackType: "Single",
+        trackGenre: "Pop",
         trackLink: mp3Type[`TrendingSongs/Sweet but Psycho - Ava Max`],
       },
     ];

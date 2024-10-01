@@ -51,6 +51,18 @@ function Player({
   playTimeFooter,
   actionsFooterLeft,
   actionsFooterRight,
+  //TrackInfo
+  frameTrackInfoResize,
+  playtimeTrackInfo,
+  timeStartTrackInfo,
+  timeEndTrackInfo,
+  randomTrackInfo,
+  actionTrackInfoLeft,
+  actionTrackInfoRight,
+  prevTrackInfo,
+  nextTrackInfo,
+  playerTrackInfo,
+  volumeBarTrackInfo,
 }) {
   const {
     playerRefs,
@@ -224,7 +236,8 @@ function Player({
           show: show && isStatus && !isTrackEnded,
         },
         { frameResize },
-        { frameFooterResize }
+        { frameFooterResize },
+        { frameTrackInfoResize }
       )}
     >
       {/* AudioPlayer Footer */}
@@ -243,8 +256,13 @@ function Player({
       </div>
 
       {/* AudioPlayer Footer */}
-      <div className={cx("play-time", { playTimeFooter })}>
-        <h6 className={cx("time-start")} ref={timeStartRef}>
+      <div
+        className={cx("play-time", { playTimeFooter }, { playtimeTrackInfo })}
+      >
+        <h6
+          className={cx("time-start", { timeStartTrackInfo })}
+          ref={timeStartRef}
+        >
           {formatTime(currentTime)}
         </h6>
 
@@ -268,7 +286,7 @@ function Player({
           </div>
         </div>
 
-        <h6 className={cx("time-end")} ref={timeEndRef}>
+        <h6 className={cx("time-end", { timeEndTrackInfo })} ref={timeEndRef}>
           {formatTime(duration)}
         </h6>
       </div>
@@ -295,8 +313,14 @@ function Player({
         )}
 
         {/* AudioPlayer Footer */}
-        <div className={cx("actions", { actionsFooterLeft })}>
-          <div className={cx("randomTrack-bg")}>
+        <div
+          className={cx(
+            "actions",
+            { actionsFooterLeft },
+            { actionTrackInfoLeft }
+          )}
+        >
+          <div className={cx("randomTrack-bg", { randomTrackInfo })}>
             <FontAwesomeIcon
               className={cx("actions-footer")}
               icon={faShuffle}
@@ -342,7 +366,7 @@ function Player({
             <FontAwesomeIcon className={cx("actions-footer")} icon={faPause} />
           </div>
 
-          <div className={cx("prevTrack-bg")}>
+          <div className={cx("prevTrack-bg", { prevTrackInfo })}>
             <FontAwesomeIcon
               className={cx("actions-footer")}
               icon={faBackwardFast}
@@ -352,7 +376,12 @@ function Player({
         {/* ---------------- */}
         {(!isStatus || isTrackEnded) && (
           <div
-            className={cx("player-btn", { playBtn }, { playerFooterBtn })}
+            className={cx(
+              "player-btn",
+              { playBtn },
+              { playerFooterBtn },
+              { playerTrackInfo }
+            )}
             onClick={handlePlayClick}
           >
             <div className={cx("play-box")}>
@@ -379,8 +408,14 @@ function Player({
         )}
 
         {/* AudioPlayer Footer */}
-        <div className={cx("actions", { actionsFooterRight })}>
-          <div className={cx("nextTrack-bg")}>
+        <div
+          className={cx(
+            "actions",
+            { actionsFooterRight },
+            { actionTrackInfoRight }
+          )}
+        >
+          <div className={cx("nextTrack-bg", { nextTrackInfo })}>
             <FontAwesomeIcon
               className={cx("actions-footer")}
               icon={faForwardFast}
@@ -395,7 +430,7 @@ function Player({
           </div>
 
           <div
-            className={cx("volume-bar")}
+            className={cx("volume-bar", { volumeBarTrackInfo })}
             ref={volumeBarRef}
             onMouseDown={handleMouseDownVolume}
           >

@@ -2,6 +2,7 @@ import Home from "~/pages/Home";
 import Search from "~/pages/Search";
 import Setting from "~/pages/Setting";
 import Track from "~/pages/Track";
+import PodcastAudio from "~/pages/PodcastAudio";
 import PlaylistPage from "~/pages/PlaylistPage";
 import AlbumPage from "~/pages/AlbumPage";
 import PodcastPage from "~/pages/PodcastPage";
@@ -18,6 +19,7 @@ const publicRouter = [
   { path: config.routes.search, component: Search, layout: true },
   { path: config.routes.setting, component: Setting, layout: true },
   { path: config.routes.track, component: Track, layout: true },
+  { path: config.routes.podcast, component: PodcastAudio, layout: true },
   { path: config.routes.playlistPage, component: PlaylistPage, layout: true },
   { path: config.routes.albumPage, component: AlbumPage, layout: true },
   { path: config.routes.podcastPage, component: PodcastPage, layout: true },

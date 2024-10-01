@@ -1,7 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./TrendingSongsBox.module.scss";
 
-import { useState } from "react";
 import { useAudioPlayer } from "../AudioPlayerProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +10,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import Player from "../Player";
+import { Link } from "react-router-dom";
+import routesConfig from "~/config/routes";
 
 const cx = classNames.bind(styles);
 function TrendingSongsBox({ tracks }) {
@@ -37,17 +38,17 @@ function TrendingSongsBox({ tracks }) {
           stopIcon
           waveformBox
           //
-          trackId={`trend_${track.id}`}
+          trackId={track.id}
           trackLink={track.trackLink}
           trackAvatar={track.trackAvatar}
           trackTitle={track.trackTitle}
           trackPerformer={track.trackPerformer}
           trackType={track.trackType}
           //
-          isStatus={`trend_${track.id}` === currentTrackId}
+          isStatus={track.id === currentTrackId}
           onPlay={() =>
             handlePlay(
-              `trend_${track.id}`,
+              track.id,
               {
                 trackTitle: track.trackTitle,
                 trackPerformer: track.trackPerformer,
@@ -61,6 +62,11 @@ function TrendingSongsBox({ tracks }) {
         <div className={cx("info")}>
           <h4 className={cx("title")}>{track.trackTitle}</h4>
           <h5 className={cx("performer")}>{track.trackPerformer}</h5>
+
+          <Link
+            className={cx("link")}
+            to={routesConfig.track.replace(":trackTitle", track.trackTitle)}
+          />
         </div>
 
         <div className={cx("menu")}>

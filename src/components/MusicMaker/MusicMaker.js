@@ -14,6 +14,8 @@ import GridSystem from "../GridSystem";
 import MusicMakerBox from "../MusicMakerBox";
 
 import { useTrackInfo } from "../TrackInfoProvider";
+import routesConfig from "~/config/routes";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 function MusicMaker() {
@@ -131,14 +133,21 @@ function MusicMaker() {
                   colMo={cx("mo-12")}
                 >
                   <div className={cx("boxes")}>
-                    <div className={cx("song-box")}>
-                      <MusicMakerBox
-                        Id={`musicMaker_${artist.id}`}
-                        avatar={artist.avatar}
-                        stageName={artist.stageName}
-                        role={artist.role}
-                      />
-                    </div>
+                    <Link
+                      to={routesConfig.playlistPage.replace(
+                        `:musicMakerStageName`,
+                        artist.stageName
+                      )}
+                    >
+                      <div className={cx("song-box")}>
+                        <MusicMakerBox
+                          Id={`musicMaker_${artist.id}`}
+                          avatar={artist.avatar}
+                          stageName={artist.stageName}
+                          role={artist.role}
+                        />
+                      </div>
+                    </Link>
                   </div>
                 </GridSystem>
               ))}

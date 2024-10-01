@@ -134,7 +134,7 @@ audio {
   width: 28px;
   height: 28px;
   margin: 0 auto;
-  color: var(outer-background-color);
+  color: black;
 }
 
 .stopper-btn {
@@ -162,7 +162,7 @@ audio {
 .stop {
   width: 28px;
   height: 28px;
-  color: var(outer-background-color);
+  color: black;
 }
 
 .info {
@@ -579,4 +579,57 @@ audio {
 .frame:not(.show) .stopperFooterBtn {
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
+}
+
+//TrackInfo
+.frameTrackInfoResize {
+  display: inline-block;
+  position: static;
+  transform: translate(0px, 18px);
+  width: 304px;
+  height: 80px;
+  background-image: var(--child-background-color);
+  border: var(--main-border);
+  border-radius: var(--main-border-radius);
+}
+
+.playtimeTrackInfo {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 280px;
+}
+
+.randomTrackInfo,
+.prevTrackInfo,
+.nextTrackInfo {
+  display: none;
+}
+
+.timeStartTrackInfo,
+.timeEndTrackInfo {
+  margin: 0 10px;
+}
+
+.actionTrackInfoLeft {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.actionTrackInfoRight {
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.playerTrackInfo {
+  opacity: 1;
+  width: 60px;
+  height: 40px;
+}
+
+.volumeBarTrackInfo {
+  width: 36px;
 }
