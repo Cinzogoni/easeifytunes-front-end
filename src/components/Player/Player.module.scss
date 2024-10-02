@@ -583,21 +583,24 @@ audio {
 
 //TrackInfo
 .frameTrackInfoResize {
-  display: inline-block;
   position: static;
-  transform: translate(0px, 18px);
-  width: 304px;
-  height: 80px;
+  display: inline-block;
+  width: 255px;
+  height: 58px;
+  transform: translate(0px, 13px);
   background-image: var(--child-background-color);
   border: var(--main-border);
   border-radius: var(--main-border-radius);
 }
 
+.playerTrackInfoResize {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 .playtimeTrackInfo {
-  display: flex;
-  align-items: center;
-  height: 30px;
-  width: 280px;
+  display: none;
 }
 
 .randomTrackInfo,
@@ -606,30 +609,48 @@ audio {
   display: none;
 }
 
-.timeStartTrackInfo,
-.timeEndTrackInfo {
-  margin: 0 10px;
-}
-
 .actionTrackInfoLeft {
-  width: 200px;
+  width: 100px;
   display: flex;
   align-items: center;
   justify-content: end;
 }
 
 .actionTrackInfoRight {
-  width: 200px;
+  width: 104px;
   display: flex;
   align-items: center;
 }
 
 .playerTrackInfo {
   opacity: 1;
-  width: 60px;
+  width: 40px;
   height: 40px;
+}
+
+.stopperTrackInfo {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 49.5%;
+  transform: translateX(-49.5%);
 }
 
 .volumeBarTrackInfo {
   width: 36px;
+}
+
+@media (min-width: 893px) and (max-width: 1037px) {
+  .frameTrackInfoResize {
+    height: 53px;
+    transform: translate(0px, 4px);
+  }
+}
+
+@media (min-width: 850px) and (max-width: 892px) {
+  .frameTrackInfoResize {
+    width: 265px;
+    height: 66px;
+    transform: translate(0px, 4px);
+  }
 }

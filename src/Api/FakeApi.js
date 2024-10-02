@@ -11,6 +11,7 @@ const apiTest = {
         trackTitle: "The HeavyWeight",
         trackType: "Single",
         trackGenre: "Country",
+        trackLyric: "",
         trackLink: mp3Type[`NewReleases/TheHeavyWeight-Kenny Price`],
       },
       {
@@ -31,6 +32,69 @@ const apiTest = {
         trackTitle: "Không Sao Mà Em Đây Rồi",
         trackType: "Single",
         trackGenre: "Pop/Ballad",
+        trackLyric: `Verse 1\n
+        Hình như anh đang say hình như anh không vui\n
+        Kể cho em nghe đi vì sao anh buồn thế\n
+        Nếu muốn khóc hãy cứ khóc trên vai em này\n
+        Đừng cứ mãi ôm lấy nỗi đau như vậy\n
+        Hình như mưa đang rơi\n
+        Hình như anh đang chơi vơi\n
+        Này người em thương ơi lại em ôm vào lòng\n
+        Cứ để cho thế giới kia quay cuồng\n
+        Em sẽ giữ cho anh phut giây yên bình\n
+        Thế giới của mình nhỏ thôi\n
+        Chỉ cần em thấy anh vui\n
+        Chorus\n
+        Không sao mà em đây rồi\n
+        Anh ơi buồn cứ khóc\n
+        Bao lâu nay anh đã cố mạnh mẽ rồi\n
+        Chỉ một lần thôi, chỉ một lần này thôi\n
+        Hãy để em được vỗ về nỗi buồn của anh\n
+        Như bao lần anh đã từng bên em\n
+        Khi em khóc giờ là luc em bên anh khi anh cần\n
+        Hãy cứ yếu đuối đi anh\n
+        Nếu muốn cứ khóc đi anh\n
+        Rồi ngày mai tất cả mọi thứ sẽ qua anh à\n
+        Verse 2\n
+        Có lắm luc quanh anh cuộc\n
+        Đời chỉ toàn nặng nề, chơi vơi\n
+        Cứ nói sẽ không sao, im ok\n
+        Nhưng thật lòng thì yếu đuối\n
+        Người đàn ông cố tỏ ra mình vui\n
+        Là tim họ giữ nước mắt đừng rơi\n
+        Đâu ai hay trong anh suy tư lại nhiều đến thế\n
+        Một chut say rồi quên nên\n
+        Em chớ muộn phiền ohhh\n
+        Chorus\n
+        Không sao mà em đây rồi\n
+        Anh ơi buồn cứ khóc\n
+        Bao lâu nay anh đã cố mạnh mẽ rồi\n
+        Chỉ một lần thôi, chỉ một lần này thôi\n
+        Hãy để em được vỗ về nỗi buồn của anh\n
+        Như bao lần anh đã từng bên em\n
+        Khi em khóc giờ là luc em bên anh khi anh cần\n
+        Hãy cứ yếu đuối đi anh\n
+        Nếu muốn cứ khóc đi anh\n
+        Rồi ngày mai tất cả mọi thứ sẽ qua anh à\n
+        Bridge\n
+        Cũng có khi anh nên thế này\n
+        Cứ khóc đi cho qua hết ngày\n
+        Nép trong vòng tay em này mình cùng ấm áp\n
+        Phố đêm mưa rơi cũng buồn\n
+        Hãy để em trao cho anh một chut yêu thương\n
+        Rồi mai chàng trai như mọi ngày lại về với em\n
+        Chorus\n
+        Không sao mà em đây rồi\n
+        Anh ơi buồn cứ khóc\n
+        Bao lâu nay anh đã cố mạnh mẽ rồi\n
+        Chỉ một lần thôi, chỉ một lần này thôi\n
+        Hãy để em được vỗ về nỗi buồn của anh\n
+        Như bao lần anh đã từng bên em\n
+        Khi em khóc giờ là luc em bên anh khi anh cần\n
+        Hãy cứ yếu đuối đi anh\n
+        Nếu muốn cứ khóc đi anh\n
+        Rồi ngày mai tất cả mọi thứ sẽ qua anh à\n
+        `,
         trackLink:
           mp3Type[
             `NewReleases/KHÔNG SAO MÀ EM ĐÂY RỒI - SUNI HẠ LINH ft Lou Hoàng`

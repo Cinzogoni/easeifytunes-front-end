@@ -63,3 +63,9 @@
     background: rgba(150, 150, 150, 1);
   }
 }
+
+@media (max-width: 850px) {
+  .sidebar {
+    display: none;
+  }
+}

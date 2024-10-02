@@ -10,22 +10,29 @@ const cx = classNames.bind(styles);
 function Track() {
   const { newReleases, trendingSongs } = useTrackInfo();
   const { trackTitle } = useParams();
-  console.log("New Releases:", newReleases);
-  console.log("Trending Songs:", trendingSongs);
 
   const allTrack = [...newReleases, ...trendingSongs];
 
   const track = allTrack.find((t) => t.trackTitle === trackTitle);
 
+  const lyrics = track.trackLyric ? track.trackLyric.split("\n") : [];
+
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
-        <div className={cx("frame")}>
-          <TrackInfo track={track} />
+        <div className={cx("speaker")}></div>
+        <div className={cx("box")}>
+          <div className={cx("frame")}>
+            <TrackInfo track={track} />
+          </div>
         </div>
         <div className={cx("lyric-box")}>
           <div className={cx("lyric")}>
-            <h4 className={cx("lyric-line")}>Lyric line </h4>
+            {lyrics.map((line, index) => (
+              <h4 key={index} className={cx("lyric-line")}>
+                {line}
+              </h4>
+            ))}
           </div>
         </div>
       </div>

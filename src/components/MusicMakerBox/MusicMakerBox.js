@@ -3,7 +3,7 @@ import styles from "./MusicMakerBox.module.scss";
 
 const cx = classNames.bind(styles);
 
-function MusicMakerBox({ Id, avatar, stageName, role }) {
+function MusicMakerBox({ avatar, stageName, role }) {
   return (
     <div className={cx("container")}>
       <div className={cx("frame")}>

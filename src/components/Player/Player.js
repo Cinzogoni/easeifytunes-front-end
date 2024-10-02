@@ -53,15 +53,15 @@ function Player({
   actionsFooterRight,
   //TrackInfo
   frameTrackInfoResize,
+  playerTrackInfoResize,
   playtimeTrackInfo,
-  timeStartTrackInfo,
-  timeEndTrackInfo,
   randomTrackInfo,
   actionTrackInfoLeft,
   actionTrackInfoRight,
   prevTrackInfo,
   nextTrackInfo,
   playerTrackInfo,
+  stopperTrackInfo,
   volumeBarTrackInfo,
 }) {
   const {
@@ -259,10 +259,7 @@ function Player({
       <div
         className={cx("play-time", { playTimeFooter }, { playtimeTrackInfo })}
       >
-        <h6
-          className={cx("time-start", { timeStartTrackInfo })}
-          ref={timeStartRef}
-        >
+        <h6 className={cx("time-start")} ref={timeStartRef}>
           {formatTime(currentTime)}
         </h6>
 
@@ -286,13 +283,20 @@ function Player({
           </div>
         </div>
 
-        <h6 className={cx("time-end", { timeEndTrackInfo })} ref={timeEndRef}>
+        <h6 className={cx("time-end")} ref={timeEndRef}>
           {formatTime(duration)}
         </h6>
       </div>
       {/* ---------------- */}
 
-      <div className={cx("player", { playerResize }, { playerFooterResize })}>
+      <div
+        className={cx(
+          "player",
+          { playerResize },
+          { playerFooterResize },
+          { playerTrackInfoResize }
+        )}
+      >
         {isStatus && !isTrackEnded && (
           <div
             className={cx(
@@ -395,7 +399,12 @@ function Player({
 
         {isStatus && !isTrackEnded && (
           <div
-            className={cx("stopper-btn", { stopBtn }, { stopperFooterBtn })}
+            className={cx(
+              "stopper-btn",
+              { stopBtn },
+              { stopperFooterBtn },
+              { stopperTrackInfo }
+            )}
             onClick={handlePauseClick}
           >
             <div className={cx("stop-box")}>
