@@ -315,7 +315,7 @@ audio {
   top: 0;
 }
 
-.zoom {
+.library {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -326,10 +326,10 @@ audio {
   margin-right: 12px;
 }
 
-.expand {
+.folder {
   color: var(--main-move-color);
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
 }
 
 .sign {
@@ -584,7 +584,6 @@ audio {
 //TrackInfo
 .frameTrackInfoResize {
   position: static;
-  display: inline-block;
   width: 255px;
   height: 58px;
   transform: translate(0px, 13px);
@@ -610,16 +609,17 @@ audio {
 }
 
 .actionTrackInfoLeft {
-  width: 100px;
+  width: 103px;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
 }
 
 .actionTrackInfoRight {
-  width: 104px;
+  width: 103px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .playerTrackInfo {
@@ -632,12 +632,17 @@ audio {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 49.5%;
-  transform: translateX(-49.5%);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .volumeBarTrackInfo {
-  width: 36px;
+  width: 32px;
+  margin-right: 9px;
+}
+
+.volumeBGTrackInfo {
+  margin-left: 4px;
 }
 
 @media (min-width: 893px) and (max-width: 1037px) {

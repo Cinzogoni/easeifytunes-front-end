@@ -20,12 +20,10 @@ function Track() {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
-        <div className={cx("speaker")}></div>
-        <div className={cx("box")}>
-          <div className={cx("frame")}>
-            <TrackInfo track={track} />
-          </div>
+        <div className={cx("frame")}>
+          <TrackInfo track={track} />
         </div>
+
         <div className={cx("lyric-box")}>
           <div className={cx("lyric")}>
             {lyrics.map((line, index) => (

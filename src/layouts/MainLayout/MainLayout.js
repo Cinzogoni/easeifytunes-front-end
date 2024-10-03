@@ -3,9 +3,6 @@ import styles from "./MainLayout.module.scss";
 
 import Header from "./Header";
 import AudioPlayer from "./AudioPlayer";
-import CallAction from "./CallAction";
-
-import AuthService from "~/services/authService.js";
 
 import PropTypes from "prop-types";
 import Sidebar from "./SideBar/Sidebar";
@@ -31,7 +28,7 @@ function MainLayout({ children }) {
 
       {/* ----- FOOTER ----- */}
       <footer className={cx("footer")}>
-        {AuthService() ? <AudioPlayer /> : <CallAction />}
+        <AudioPlayer />
       </footer>
     </div>
   );

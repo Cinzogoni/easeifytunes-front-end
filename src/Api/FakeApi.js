@@ -22,6 +22,58 @@ const apiTest = {
         trackTitle: "Bởi Vì Là Khi Yêu",
         trackType: "Single",
         trackGenre: "Pop/Ballad",
+        trackLyric: `Verse 1\n
+        Nói cho em đi\n
+        Liệu yêu một người bằng hết con tin là đúng hay đang sai\n
+        Mà sao anh ơi em cứ buồn hoài như thế\n
+        Nước mắt rơi nhiều như thế yeh\n
+        Và nói cho em nghe\n
+        Em có yêu anh như những lời ngọt ngào anh thường vẫn nói mà đôi khi\n
+        Tim em tan ra làm trăm lần\n
+        Em cô đơn dù đang gần gần người mặc em yêu\n
+        PreChorus\n
+        Trong tình yêu ai yêu nhiều hơn có phải sai lầm\n
+        Trong tình yêu ai yêu nhiểu hơn chắc chắn là sai lầm\n
+        Chorus\n
+        Bởi vì là khi yêu\n
+        Em yêu anh yêu hơn chính bản thân em\n
+        Nên đôi khi em quên mất em cũng biết buồn quên mất em cũng biết đau\n
+        Cứ thế khiến vết thương nơi con tim em càng thêm sâu\n
+        Bởi vì là khi yêu\n
+        Em đâu quan tâm sẽ nhận lại bao nhiêu\n
+        Nên đôi khi vô tâm với cảm xúc chính mình trao hết bao nhiêu chân tình\n
+        Để rồi nhận lấy những nước mắt khi yêu\n
+        Em khóc\n
+        Verse 2\n
+        Lại một lời nói dối ngập ngừng trên môi rằng sẽ qua nhanh thôi\n
+        Dẫu cho nỗi buồn hoài chồng lên nhau mặc thời gian đang trôi\n
+        Người cố gắng đi tìm phút giây bình yên\n
+        Người thì cứ vứt bao cảm xúc ra ngoài hiên no\n
+        Có phải chỉ một mình em cần tình yêu này\n
+        Khi mà anh như đã sắp đi khỏi nơi đây\n
+        Sao anh không nói với em một câu (sao anh không nói với em một câu)\n
+        Sao em vẫn cứ yêu anh đậm sâu\n
+        Chorus
+        Bởi vì là khi yêu\n
+        Em yêu anh yêu hơn chính bản thân em\n
+        Nên đôi khi em quên mất em cũng biết buồn quên mất em cũng biết đau\n
+        Cứ thế khiến vết thương nơi con tim em càng thêm sâu\n
+        Bởi vì là khi yêu\n
+        Em đâu quan tâm sẽ nhận lại bao nhiêu\n
+        Nên đôi khi vô tâm với cảm xúc chính mình trao hết bao nhiêu chân tình\n
+        Để rồi nhận lấy những nước mắt khi yêu\n
+        Em khóc\n
+        Bởi vì là khi yêu\n
+        Bởi vì là khi yêu\n
+        Em yêu anh yêu hơn chính bản thân em no\n
+        Nên đôi khi em quên mất em cũng biết buồn quên mất em cũng biết đau\n
+        Cứ thế khiến vết thương nơi con tim em càng thêm sâu\n
+        Bởi vì là khi yêu oh\n
+        Em đâu quan tâm sẽ nhận lại bao nhiêu no\n
+        Nên đôi khi vô tâm với cảm xúc chính mình trao hết bao nhiêu chân tình\n
+        Để rồi nhận lấy những nước mắt khi yêu\n
+        Em khóc oh uhm\n`,
+        trackStreamed: `5000`,
         trackLink: mp3Type[`NewReleases/BoiViLaKhiYeu-LyLy`],
       },
       {
@@ -95,6 +147,7 @@ const apiTest = {
         Nếu muốn cứ khóc đi anh\n
         Rồi ngày mai tất cả mọi thứ sẽ qua anh à\n
         `,
+        trackStreamed: `6800`,
         trackLink:
           mp3Type[
             `NewReleases/KHÔNG SAO MÀ EM ĐÂY RỒI - SUNI HẠ LINH ft Lou Hoàng`

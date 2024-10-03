@@ -36,7 +36,9 @@ function TrackInfo({ track }) {
                 className={cx("listeners")}
                 icon={faHeadphones}
               />
-              <h6 className={cx("streamed")}>1,000,000</h6>
+              <h6 className={cx("streamed")}>
+                {new Intl.NumberFormat().format(track.trackStreamed || 0)}
+              </h6>
             </div>
             <div className={cx("share")}>
               <FontAwesomeIcon className={cx("link")} icon={faLink} />
@@ -79,6 +81,7 @@ function TrackInfo({ track }) {
             prevTrackInfo
             nextTrackInfo
             volumeBarTrackInfo
+            volumeBGTrackInfo
           />
         </div>
       </div>

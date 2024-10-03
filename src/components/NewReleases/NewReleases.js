@@ -86,76 +86,33 @@ function NewReleases() {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
-        <GridSystem gridClass={cx("grid-child")} wideClass={cx("wide-child")}>
-          <div className={cx("actions")}>
-            <h2 className={cx("title")}>New Releases</h2>
+        <div className={cx("actions")}>
+          <h2 className={cx("title")}>New Releases</h2>
 
-            <div className={cx("actions-btn")}>
-              <FontAwesomeIcon
-                className={cx("move")}
-                icon={faCircleChevronLeft}
-                onClick={() => handleScroll("prev")}
-                style={{
-                  transition: "transition: transform 0.1s ease-in-out",
-                  transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
-                }}
-              />
-              <FontAwesomeIcon
-                className={cx("move")}
-                icon={faCircleChevronRight}
-                onClick={() => handleScroll("next")}
-                style={{
-                  transition: "transition: transform 0.1s ease-in-out",
-                  transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
-                }}
-              />
-              <Navigation id={cx("new-releases-viewAll")} />
-            </div>
-          </div>
-
-          <GridSystem rowClass={cx("row")}>
-            <div
-              className={cx("frame")}
+          <div className={cx("actions-btn")}>
+            <FontAwesomeIcon
+              className={cx("move")}
+              icon={faCircleChevronLeft}
+              onClick={() => handleScroll("prev")}
               style={{
-                transition: "transform 0.3s ease-in-out",
-                transform: transformValue(),
+                transition: "transition: transform 0.1s ease-in-out",
+                transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
               }}
-            >
-              {newReleases.map((track, index) => (
-                <GridSystem
-                  key={index}
-                  colClass={cx("col")}
-                  colL={cx("l-3")}
-                  colML={cx("ml-4")}
-                  colM={cx("m-6")}
-                  colSM={cx("sm-12")}
-                  colS={cx("s-12")}
-                  colMo={cx("mo-12")}
-                >
-                  <div className={cx("boxes")}>
-                    <Link
-                      className={cx("link")}
-                      to={routesConfig.track.replace(
-                        ":trackTitle",
-                        track.trackTitle
-                      )}
-                    />
-                    <div className={cx("song-box")}>
-                      <NewReleasesBox
-                        trackId={track.id}
-                        trackLink={track.trackLink}
-                        trackAvatar={track.trackAvatar}
-                        trackTitle={track.trackTitle}
-                        trackPerformer={track.trackPerformer}
-                        trackType={track.trackType}
-                      />
-                    </div>
-                  </div>
-                </GridSystem>
-              ))}
-            </div>
-          </GridSystem>
-        </GridSystem>
+            />
+            <FontAwesomeIcon
+              className={cx("move")}
+              icon={faCircleChevronRight}
+              onClick={() => handleScroll("next")}
+              style={{
+                transition: "transition: transform 0.1s ease-in-out",
+                transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
+              }}
+            />
+            <Navigation id={cx("new-releases-viewAll")} />
+          </div>
+        </div>
+
+        <div className={cx("track-box")}></div>
       </div>
     </div>
   );

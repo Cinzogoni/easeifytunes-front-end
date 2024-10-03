@@ -4,43 +4,55 @@
 }
 
 .container {
-  width: 100%;
-  height: 304px;
+  max-width: 1630px;
+  height: 100vh;
+  max-height: calc(100vh - 224px);
+  margin: 0 auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.speaker {
+.frame {
   width: 100%;
-  height: 304px;
   border: var(--main-border);
   border-radius: var(--main-border-radius);
   background-image: var(--parent-background-color);
 }
 
-.box {
-  display: flex;
-  justify-content: center;
-}
-
-.frame {
-  position: fixed;
-  top: 112px;
-  max-width: 1630px;
-  z-index: 10;
-}
-
 .lyric-box {
-  max-width: 1630px;
-  margin: 12px auto 0 auto;
+  width: 100%;
+  height: 8000px;
+  margin-top: 12px;
   border: var(--main-border);
   border-radius: var(--main-border-radius);
   background-image: var(--parent-background-color);
   text-align: center;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--main-background-color);
+    border-radius: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(235, 235, 235, 1);
+    border-radius: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 1);
+  }
 }
 
 .lyric {
   width: 100%;
-  max-height: 80%;
 }
 
 .lyric-line {
@@ -49,10 +61,6 @@
 }
 
 @media (min-width: 893px) and (max-width: 1037px) {
-  .speaker {
-    height: 230px;
-  }
-
   .frame {
     height: 230px;
   }
@@ -63,10 +71,6 @@
 }
 
 @media (min-width: 850px) and (max-width: 892px) {
-  .speaker {
-    height: 230px;
-  }
-
   .frame {
     height: 230px;
   }
