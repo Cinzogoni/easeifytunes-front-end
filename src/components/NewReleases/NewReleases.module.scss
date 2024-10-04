@@ -1,7 +1,4 @@
 .wrapper {
-  // width: 100%;
-  height: 374px;
-
   border: var(--main-border);
   border-radius: var(--main-border-radius);
   background-image: var(--parent-background-color);
@@ -12,7 +9,7 @@
 }
 
 .actions {
-  margin: 12px 24px;
+  margin: 12px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,54 +32,44 @@
   color: var(--main-move-color);
 }
 
-.track-box {
-  // width: 100%;
-  margin-bottom: 12px;
-
-  background-color: rgba(128, 128, 128, 0.253);
-}
-
 .frame {
-  // width: 100%;
-  // height: 100%;
-  // display: flex;
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
 .boxes {
-  // width: 100%;
-  // height: 100%;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // position: relative;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
 .link {
-  // position: absolute;
-  // top: 0;
-  // width: 280px;
-  // height: 238px;
+  width: 280px;
+  height: 238px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .song-box {
-  // width: 280px;
-  // height: 300px;
-  // background-image: var(--child-background-color);
-  // border: var(--main-border);
-  // border-radius: var(--main-border-radius);
-  // display: flex;
-  // justify-content: center;
-  // cursor: pointer;
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
 }
 
-@media (min-width: 828px) and (max-width: 939px) {
+@media (min-width: 784px) and (max-width: 892px) {
   .title {
     font-size: 1.4rem;
   }
 }
 
-@media (max-width: 827px) {
+@media (max-width: 783px) {
   .title {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 }

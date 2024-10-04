@@ -10,7 +10,7 @@ audio {
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 50%;
+  top: 118px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -21,7 +21,7 @@ audio {
   align-items: center;
   justify-content: space-between;
   position: absolute;
-  bottom: 0;
+  bottom: 12px;
 }
 
 .waveform-box {
@@ -266,11 +266,13 @@ audio {
 .frameFooterResize {
   width: 100%;
   height: 100%;
+  top: 50%;
 }
 
 .playerFooterResize {
   width: 100%;
   height: 52px;
+  bottom: 0;
 }
 
 .playerFooterBtn {

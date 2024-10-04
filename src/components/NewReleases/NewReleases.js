@@ -26,10 +26,10 @@ function NewReleases() {
   const [activeMove, setActiveMove] = useState(null);
 
   const calculateBoxesPerSlide = () => {
-    if (width >= 1600) {
+    if (width >= 1920) {
       return 4;
     }
-    if (width >= 1220 && width < 1599) {
+    if (width >= 1221 && width < 1599) {
       return 3;
     }
     if (width >= 900 && width < 1220) {
@@ -42,13 +42,13 @@ function NewReleases() {
     const totalBoxes = newReleases.length;
 
     const scrollIndex = () => {
-      if (width >= 1600) {
+      if (width >= 1920) {
         return totalBoxes - 4;
       }
-      if (width >= 1220 && width < 1599) {
+      if (width >= 1221 && width < 1599) {
         return totalBoxes - 3;
       }
-      if (width >= 900 && width < 1220) {
+      if (width >= 900 && width < 1515) {
         return totalBoxes - 2;
       }
       if (width >= 307 && width < 900) {
@@ -112,7 +112,48 @@ function NewReleases() {
           </div>
         </div>
 
-        <div className={cx("track-box")}></div>
+        <GridSystem rowClass={cx("row")}>
+          <div
+            className={cx("frame")}
+            style={{
+              transition: "transform 0.3s ease-in-out",
+              transform: transformValue(),
+            }}
+          >
+            {newReleases.map((track, index) => (
+              <GridSystem
+                key={index}
+                colClass={cx("col")}
+                colL={cx("l-3")}
+                colML={cx("ml-4")}
+                colM={cx("m-6")}
+                colSM={cx("sm-12")}
+                colS={cx("s-12")}
+                colMo={cx("mo-12")}
+              >
+                <div className={cx("boxes")}>
+                  <Link
+                    className={cx("link")}
+                    to={routesConfig.track.replace(
+                      `:trackTitle`,
+                      track.trackTitle
+                    )}
+                  />
+                  <div className={cx("song-box")}>
+                    <NewReleasesBox
+                      trackId={track.id}
+                      trackLink={track.trackLink}
+                      trackAvatar={track.trackAvatar}
+                      trackTitle={track.trackTitle}
+                      trackPerformer={track.trackPerformer}
+                      trackType={track.trackType}
+                    />
+                  </div>
+                </div>
+              </GridSystem>
+            ))}
+          </div>
+        </GridSystem>
       </div>
     </div>
   );

@@ -28,7 +28,7 @@ function NewReleasesBox({
 
   return (
     <div className={cx("container")}>
-      <div className={cx("frame")}>
+      <div className={cx("player")}>
         <img className={cx("avatar")} src={trackAvatar} alt={trackTitle} />
 
         <Player

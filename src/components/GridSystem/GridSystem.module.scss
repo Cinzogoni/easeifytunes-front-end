@@ -39,16 +39,13 @@
 
 .row {
   display: flex;
-  align-items: center;
-  justify-content: start;
-  // flex-wrap: nowrap;
-  // overflow: hidden;
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 
 .row-1 {
   display: flex;
   align-items: center;
-  justify-content: start;
   flex-wrap: wrap;
 }
 
