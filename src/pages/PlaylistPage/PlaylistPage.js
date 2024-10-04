@@ -6,7 +6,9 @@ const cx = classNames.bind(styles);
 function PlaylistPage() {
   return (
     <div className={cx("wrapper")}>
-      <div className={cx("container")}></div>
+      <div className={cx("container")}>
+        <h1>Playlist Page</h1>
+      </div>
     </div>
   );
 }

@@ -46,20 +46,10 @@
   position: relative;
 }
 
-.link {
-  width: 280px;
-  height: 238px;
-  position: absolute;
-  cursor: pointer;
-  z-index: 1;
-}
-
 .song-box {
-  width: 100%;
+  width: 280px;
   height: 300px;
   position: absolute;
-  display: flex;
-  justify-content: center;
 }
 
 @media (min-width: 784px) and (max-width: 892px) {

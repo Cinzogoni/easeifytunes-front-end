@@ -1,11 +1,19 @@
 import classNames from "classnames/bind";
 import styles from "./PodcastBox.module.scss";
 
+import routesConfig from "~/config/routes";
+import { Link } from "react-router-dom";
+
 const cx = classNames.bind(styles);
 
-function Podcast({ podcastId, podcastAvatar, podcastTopic }) {
+function Podcast({ podcastAvatar, podcastTopic }) {
   return (
     <div className={cx("container")}>
+      <Link
+        className={cx("link")}
+        to={routesConfig.podcastPage.replace(`:podcastTopic`, podcastTopic)}
+      />
+
       <div className={cx("frame")}>
         <img className={cx("avatar")} src={podcastAvatar} alt={podcastTopic} />
       </div>

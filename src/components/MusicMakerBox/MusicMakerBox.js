@@ -1,11 +1,19 @@
 import classNames from "classnames/bind";
 import styles from "./MusicMakerBox.module.scss";
 
+import routesConfig from "~/config/routes";
+import { Link } from "react-router-dom";
+
 const cx = classNames.bind(styles);
 
 function MusicMakerBox({ avatar, stageName, role }) {
   return (
     <div className={cx("container")}>
+      <Link
+        className={cx("link")}
+        to={routesConfig.playlistPage.replace(`:stageName`, stageName)}
+      />
+
       <div className={cx("frame")}>
         <img className={cx("avatar")} src={avatar} alt={stageName} />
       </div>

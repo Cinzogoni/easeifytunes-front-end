@@ -14,8 +14,6 @@ import GridSystem from "../GridSystem";
 import AlbumBox from "../AlbumBox";
 
 import { useTrackInfo } from "../TrackInfoProvider";
-import routesConfig from "~/config/routes";
-import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 function Album() {
@@ -86,83 +84,72 @@ function Album() {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
-        <GridSystem gridClass={cx("grid-child")} wideClass={cx("wide-child")}>
-          <div className={cx("actions")}>
-            <h2 className={cx("title")}>Album</h2>
+        <div className={cx("actions")}>
+          <h2 className={cx("title")}>Album</h2>
 
-            <div className={cx("actions-btn")}>
-              <FontAwesomeIcon
-                className={cx("move")}
-                icon={faCircleChevronLeft}
-                onClick={() => handleScroll("prev")}
-                style={{
-                  transition: "transition: transform 0.1s ease-in-out",
-                  transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
-                }}
-              />
-              <FontAwesomeIcon
-                className={cx("move")}
-                icon={faCircleChevronRight}
-                onClick={() => handleScroll("next")}
-                style={{
-                  transition: "transition: transform 0.1s ease-in-out",
-                  transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
-                }}
-              />
-              <Navigation id={cx("album-viewAll")} />
-            </div>
-          </div>
-
-          <GridSystem rowClass={cx("row")}>
-            <div
-              className={cx("frame")}
+          <div className={cx("actions-btn")}>
+            <FontAwesomeIcon
+              className={cx("move")}
+              icon={faCircleChevronLeft}
+              onClick={() => handleScroll("prev")}
               style={{
-                transition: "transform 0.3s ease-in-out",
-                transform: transformValue(),
+                transition: "transition: transform 0.1s ease-in-out",
+                transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
               }}
-            >
-              {musicMaker
-                .filter(
-                  (album) =>
-                    Array.isArray(album.tracks) && album.tracks.length > 0
-                )
-                .map((album, index) => (
-                  <GridSystem
-                    key={index}
-                    colClass={cx("col")}
-                    colL={cx("l-3")}
-                    colML={cx("ml-4")}
-                    colM={cx("m-6")}
-                    colSM={cx("sm-12")}
-                    colS={cx("s-12")}
-                    colMo={cx("mo-12")}
-                  >
-                    <div className={cx("boxes")}>
-                      <div className={cx("song-box")}>
-                        {album.tracks.map((track) => (
-                          <Link
-                            key={track.id}
-                            className={cx("link")}
-                            to={routesConfig.albumPage.replace(
-                              `:albumName`,
-                              track.trackType
-                            )}
-                          >
-                            <AlbumBox
-                              key={track.id}
-                              albumId={`album_${track.id}`}
-                              albumAvatar={track.trackAvatar}
-                              albumName={track.trackType}
-                              albumPerformer={track.trackPerformer}
-                            />
-                          </Link>
-                        ))}
-                      </div>
+            />
+            <FontAwesomeIcon
+              className={cx("move")}
+              icon={faCircleChevronRight}
+              onClick={() => handleScroll("next")}
+              style={{
+                transition: "transition: transform 0.1s ease-in-out",
+                transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
+              }}
+            />
+            <Navigation id={cx("album-viewAll")} />
+          </div>
+        </div>
+
+        <GridSystem rowClass={cx("row")}>
+          <div
+            className={cx("frame")}
+            style={{
+              transition: "transform 0.3s ease-in-out",
+              transform: transformValue(),
+            }}
+          >
+            {musicMaker
+              .filter(
+                (album) =>
+                  Array.isArray(album.tracks) && album.tracks.length > 0
+              )
+              .map((album, index) => (
+                <GridSystem
+                  key={index}
+                  colClass={cx("col")}
+                  colL={cx("l-3")}
+                  colML={cx("ml-4")}
+                  colM={cx("m-6")}
+                  colSM={cx("sm-12")}
+                  colS={cx("s-12")}
+                  colMo={cx("mo-12")}
+                >
+                  <div className={cx("boxes")}>
+                    <div className={cx("album-box")}>
+                      {album.tracks.map((track) => (
+                        <AlbumBox
+                          key={track.id}
+                          albumId={`album_${track.id}`}
+                          albumAvatar={track.trackAvatar}
+                          albumName={track.trackType}
+                          albumPerformer={track.trackPerformer}
+                        />
+                      ))}
                     </div>
-                  </GridSystem>
-                ))}
-            </div>
-          </GridSystem>
+                  </div>
+                </GridSystem>
+              ))}
+          </div>
         </GridSystem>
       </div>
     </div>

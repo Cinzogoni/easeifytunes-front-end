@@ -1,11 +1,19 @@
 import classNames from "classnames/bind";
 import styles from "./AlbumBox.module.scss";
 
+import routesConfig from "~/config/routes";
+import { Link } from "react-router-dom";
+
 const cx = classNames.bind(styles);
 
-function AlbumBox({ albumId, albumAvatar, albumName, albumPerformer }) {
+function AlbumBox({ albumAvatar, albumName, albumPerformer }) {
   return (
     <div className={cx("container")}>
+      <Link
+        className={cx("link")}
+        to={routesConfig.albumPage.replace(`:albumName`, albumName)}
+      />
+
       <div className={cx("frame")}>
         <img className={cx("avatar")} src={albumAvatar} alt={albumName} />
       </div>

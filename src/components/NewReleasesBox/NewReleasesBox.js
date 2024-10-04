@@ -13,6 +13,9 @@ import {
 import Player from "../Player";
 import TrackPopper from "~/layouts/MainLayout/Popper/TrackPopper";
 
+import routesConfig from "~/config/routes";
+import { Link } from "react-router-dom";
+
 const cx = classNames.bind(styles);
 
 function NewReleasesBox({
@@ -28,6 +31,11 @@ function NewReleasesBox({
 
   return (
     <div className={cx("container")}>
+      <Link
+        className={cx("link")}
+        to={routesConfig.track.replace(`:trackTitle`, trackTitle)}
+      />
+
       <div className={cx("player")}>
         <img className={cx("avatar")} src={trackAvatar} alt={trackTitle} />
 

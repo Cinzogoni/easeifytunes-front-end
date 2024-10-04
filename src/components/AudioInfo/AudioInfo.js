@@ -19,13 +19,13 @@ function AudioInfo() {
       <div className={cx("separate")} />
       {/* <TrendingSongs /> */}
       <div className={cx("separate")} />
-      {/* <MusicMaker /> */}
+      <MusicMaker />
       <div className={cx("separate")} />
-      {/* <Album /> */}
+      <Album />
       <div className={cx("separate")} />
-      {/* <Podcast /> */}
+      <Podcast />
       <div className={cx("separate")} />
-      {/* <Moment /> */}
+      <Moment />
     </div>
   );
 }

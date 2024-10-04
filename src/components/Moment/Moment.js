@@ -89,68 +89,66 @@ function Moment() {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
-        <GridSystem gridClass={cx("grid-child")} wideClass={cx("wide-child")}>
-          <div className={cx("actions")}>
-            <h2 className={cx("title")}>Moment</h2>
+        <div className={cx("actions")}>
+          <h2 className={cx("title")}>Moment</h2>
 
-            <div className={cx("actions-btn")}>
-              <FontAwesomeIcon
-                className={cx("move")}
-                icon={faCircleChevronLeft}
-                onClick={() => handleScroll("prev")}
-                style={{
-                  transition: "transition: transform 0.1s ease-in-out",
-                  transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
-                }}
-              />
-              <FontAwesomeIcon
-                className={cx("move")}
-                icon={faCircleChevronRight}
-                onClick={() => handleScroll("next")}
-                style={{
-                  transition: "transition: transform 0.1s ease-in-out",
-                  transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
-                }}
-              />
-              <Navigation id={cx("moment-viewAll")} />
-            </div>
-          </div>
-
-          <GridSystem rowClass={cx("row")}>
-            <div
-              className={cx("frame")}
+          <div className={cx("actions-btn")}>
+            <FontAwesomeIcon
+              className={cx("move")}
+              icon={faCircleChevronLeft}
+              onClick={() => handleScroll("prev")}
               style={{
-                transition: "transform 0.3s ease-in-out",
-                transform: transformValue(),
+                transition: "transition: transform 0.1s ease-in-out",
+                transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
               }}
-            >
-              {moment.map((video, index) => (
-                <GridSystem
-                  key={index}
-                  colClass={cx("col")}
-                  colL={cx("l-4")}
-                  colML={cx("ml-6")}
-                  colM={cx("m-12")}
-                  colSM={cx("sm-12")}
-                  colS={cx("s-12")}
-                  colMo={cx("mo-12")}
-                >
-                  <div className={cx("boxes")}>
-                    <div className={cx("song-box")}>
-                      <MomentBox
-                        id={video.id}
-                        link={video.link}
-                        date={video.date}
-                        name={video.name}
-                        isPlaying={activeVideoId === video.id}
-                        onPlay={() => handleVideoPlay(video.id)}
-                      />
-                    </div>
+            />
+            <FontAwesomeIcon
+              className={cx("move")}
+              icon={faCircleChevronRight}
+              onClick={() => handleScroll("next")}
+              style={{
+                transition: "transition: transform 0.1s ease-in-out",
+                transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
+              }}
+            />
+            <Navigation id={cx("moment-viewAll")} />
+          </div>
+        </div>
+
+        <GridSystem rowClass={cx("row")}>
+          <div
+            className={cx("frame")}
+            style={{
+              transition: "transform 0.3s ease-in-out",
+              transform: transformValue(),
+            }}
+          >
+            {moment.map((video, index) => (
+              <GridSystem
+                key={index}
+                colClass={cx("col")}
+                colL={cx("l-4")}
+                colML={cx("ml-6")}
+                colM={cx("m-12")}
+                colSM={cx("sm-12")}
+                colS={cx("s-12")}
+                colMo={cx("mo-12")}
+              >
+                <div className={cx("boxes")}>
+                  <div className={cx("moment-box")}>
+                    <MomentBox
+                      id={video.id}
+                      link={video.link}
+                      date={video.date}
+                      name={video.name}
+                      isPlaying={activeVideoId === video.id}
+                      onPlay={() => handleVideoPlay(video.id)}
+                    />
                   </div>
-                </GridSystem>
-              ))}
-            </div>
-          </GridSystem>
+                </div>
+              </GridSystem>
+            ))}
+          </div>
         </GridSystem>
       </div>
     </div>

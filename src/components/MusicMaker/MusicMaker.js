@@ -14,8 +14,6 @@ import GridSystem from "../GridSystem";
 import MusicMakerBox from "../MusicMakerBox";
 
 import { useTrackInfo } from "../TrackInfoProvider";
-import routesConfig from "~/config/routes";
-import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 function MusicMaker() {
@@ -86,73 +84,64 @@ function MusicMaker() {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
-        <GridSystem gridClass={cx("grid-child")} wideClass={cx("wide-child")}>
-          <div className={cx("actions")}>
-            <h2 className={cx("title")}>Music Maker</h2>
+        <div className={cx("actions")}>
+          <h2 className={cx("title")}>Music Maker</h2>
 
-            <div className={cx("actions-btn")}>
-              <FontAwesomeIcon
-                className={cx("move")}
-                icon={faCircleChevronLeft}
-                onClick={() => handleScroll("prev")}
-                style={{
-                  transition: "transition: transform 0.1s ease-in-out",
-                  transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
-                }}
-              />
-              <FontAwesomeIcon
-                className={cx("move")}
-                icon={faCircleChevronRight}
-                onClick={() => handleScroll("next")}
-                style={{
-                  transition: "transition: transform 0.1s ease-in-out",
-                  transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
-                }}
-              />
-              <Navigation id={cx("music-maker-viewAll")} />
-            </div>
-          </div>
-
-          <GridSystem rowClass={cx("row")}>
-            <div
-              className={cx("frame")}
+          <div className={cx("actions-btn")}>
+            <FontAwesomeIcon
+              className={cx("move")}
+              icon={faCircleChevronLeft}
+              onClick={() => handleScroll("prev")}
               style={{
-                transition: "transform 0.3s ease-in-out",
-                transform: transformValue(),
+                transition: "transition: transform 0.1s ease-in-out",
+                transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
               }}
-            >
-              {musicMaker.map((artist, index) => (
-                <GridSystem
-                  key={index}
-                  colClass={cx("col")}
-                  colL={cx("l-3")}
-                  colML={cx("ml-4")}
-                  colM={cx("m-6")}
-                  colSM={cx("sm-12")}
-                  colS={cx("s-12")}
-                  colMo={cx("mo-12")}
-                >
-                  <div className={cx("boxes")}>
-                    <Link
-                      to={routesConfig.playlistPage.replace(
-                        `:musicMakerStageName`,
-                        artist.stageName
-                      )}
-                    >
-                      <div className={cx("song-box")}>
-                        <MusicMakerBox
-                          Id={`musicMaker_${artist.id}`}
-                          avatar={artist.avatar}
-                          stageName={artist.stageName}
-                          role={artist.role}
-                        />
-                      </div>
-                    </Link>
+            />
+            <FontAwesomeIcon
+              className={cx("move")}
+              icon={faCircleChevronRight}
+              onClick={() => handleScroll("next")}
+              style={{
+                transition: "transition: transform 0.1s ease-in-out",
+                transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
+              }}
+            />
+            <Navigation id={cx("music-maker-viewAll")} />
+          </div>
+        </div>
+
+        <GridSystem rowClass={cx("row")}>
+          <div
+            className={cx("frame")}
+            style={{
+              transition: "transform 0.3s ease-in-out",
+              transform: transformValue(),
+            }}
+          >
+            {musicMaker.map((artist, index) => (
+              <GridSystem
+                key={index}
+                colClass={cx("col")}
+                colL={cx("l-3")}
+                colML={cx("ml-4")}
+                colM={cx("m-6")}
+                colSM={cx("sm-12")}
+                colS={cx("s-12")}
+                colMo={cx("mo-12")}
+              >
+                <div className={cx("boxes")}>
+                  <div className={cx("artist-box")}>
+                    <MusicMakerBox
+                      Id={`musicMaker_${artist.id}`}
+                      avatar={artist.avatar}
+                      stageName={artist.stageName}
+                      role={artist.role}
+                    />
                   </div>
-                </GridSystem>
-              ))}
-            </div>
-          </GridSystem>
+                </div>
+              </GridSystem>
+            ))}
+          </div>
         </GridSystem>
       </div>
     </div>
