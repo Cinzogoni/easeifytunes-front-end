@@ -11,7 +11,7 @@ function MusicMakerBox({ avatar, stageName, role }) {
     <div className={cx("container")}>
       <Link
         className={cx("link")}
-        to={routesConfig.playlistPage.replace(`:stageName`, stageName)}
+        to={routesConfig.musicMakerPage.replace(`:stageName`, stageName)}
       />
 
       <div className={cx("frame")}>
