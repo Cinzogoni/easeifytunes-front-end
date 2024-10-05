@@ -5,6 +5,10 @@
   overflow-y: auto;
   overflow-x: auto;
 
+  border: var(--main-border);
+  border-radius: var(--main-border-radius);
+  background-image: var(--parent-background-color);
+
   &::-webkit-scrollbar {
     width: 3px;
   }
@@ -33,9 +37,26 @@
 
 .video-box {
   width: 100%;
+}
+
+.back-home {
+  width: 40px;
+  height: 40px;
+  margin: 15px;
+  background-color: var(--main-move-color);
   border: var(--main-border);
-  border-radius: var(--main-border-radius);
-  background-image: var(--parent-background-color);
+  border-radius: 999px;
+  position: relative;
+}
+
+.arrow-left {
+  width: 25px;
+  height: 25px;
+  color: rgba(0, 0, 0, 1);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .frame {
@@ -48,7 +69,6 @@
 .boxes {
   width: 400px;
   height: 243px;
-  margin: 15px 0;
   display: flex;
   justify-content: center;
   align-items: center;

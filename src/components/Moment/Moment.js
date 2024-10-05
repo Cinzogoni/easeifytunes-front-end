@@ -111,7 +111,9 @@ function Moment() {
                 transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
               }}
             />
-            <Navigation id={cx("moment-viewAll")} />
+            <Navigation id={cx("moment-viewAll")}>
+              <h3 className={cx("link-route")}>View all</h3>
+            </Navigation>
           </div>
         </div>
 

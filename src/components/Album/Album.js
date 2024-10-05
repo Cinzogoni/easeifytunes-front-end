@@ -106,7 +106,9 @@ function Album() {
                 transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
               }}
             />
-            <Navigation id={cx("album-viewAll")} />
+            <Navigation id={cx("album-viewAll")}>
+              <h3 className={cx("link-route")}>View all</h3>
+            </Navigation>
           </div>
         </div>
 

@@ -7,7 +7,7 @@ import config from "~/config";
 
 const cx = classNames.bind(styles);
 
-function Navigation({ id }) {
+function Navigation({ id, children }) {
   let linkTo;
 
   switch (id) {
@@ -27,15 +27,13 @@ function Navigation({ id }) {
       linkTo = config.routes.momentViewAll;
       break;
     default:
-      linkTo = "/";
+      linkTo = config.routes.home;
       break;
   }
 
   return (
     <Link to={linkTo} key={id}>
-      <button className={cx("link")}>
-        <h3 className={cx("link-route")}>View all</h3>
-      </button>
+      <button className={cx("link")}>{children}</button>
     </Link>
   );
 }

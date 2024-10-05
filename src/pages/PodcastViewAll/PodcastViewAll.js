@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./PodcastViewAll.module.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { useState, useEffect, useRef } from "react";
 import { useDebounce } from "~/hooks";
@@ -13,6 +13,7 @@ import GridSystem from "~/components/GridSystem";
 import WrapperPopper from "~/layouts/MainLayout/Popper/WrapperPopper";
 import PodcastBox from "~/components/PodcastBox";
 import PodcastItem from "~/components/PodcastItem";
+import Navigation from "~/components/Navigation";
 
 import apiPodcast from "~/Api/API_01";
 
@@ -59,52 +60,59 @@ function PodcastViewAll() {
   };
   return (
     <div className={cx("wrapper")}>
-      <div className={cx("container")}>
-        <div className={cx("search-bar")}>
-          <div className={cx("search-frame")}>
-            <Tippy
-              placement="bottom"
-              interactive
-              appendTo={document.body}
-              visible={showResult && searchResult.length > 0}
-              onClickOutside={handleHideResult}
-              render={(attrs) => (
-                <div className={cx("search-result")} tabIndex={-1} {...attrs}>
-                  <WrapperPopper>
-                    {searchResult
-                      .filter((item) => item.topic)
-                      .map((item) => (
-                        <PodcastItem
-                          key={item.id}
-                          podcastAvatar={item.avatar}
-                          podcastTopic={item.topic}
-                        />
-                      ))}
-                  </WrapperPopper>
-                </div>
-              )}
-            >
-              <div className={cx("input")}>
-                <input
-                  ref={inputRef}
-                  className={cx("search-input")}
-                  placeholder="podcast topic..."
-                  spellCheck={false}
-                  value={searchValue}
-                  onChange={(e) => setSearchValue(e.target.value)}
-                  onFocus={() => setShowResult(true)}
-                />
-                {!!searchValue && (
-                  <FontAwesomeIcon
-                    className={cx("icon")}
-                    icon={faXmark}
-                    onClick={handleClear}
-                  />
-                )}
+      <div className={cx("search-bar")}>
+        <div className={cx("search-frame")}>
+          <Tippy
+            placement="bottom"
+            interactive
+            appendTo={document.body}
+            visible={showResult && searchResult.length > 0}
+            onClickOutside={handleHideResult}
+            render={(attrs) => (
+              <div className={cx("search-result")} tabIndex={-1} {...attrs}>
+                <WrapperPopper>
+                  {searchResult
+                    .filter((item) => item.topic)
+                    .map((item) => (
+                      <PodcastItem
+                        key={item.id}
+                        podcastAvatar={item.avatar}
+                        podcastTopic={item.topic}
+                      />
+                    ))}
+                </WrapperPopper>
               </div>
-            </Tippy>
-          </div>
+            )}
+          >
+            <div className={cx("input")}>
+              <input
+                ref={inputRef}
+                className={cx("search-input")}
+                placeholder="podcast topic..."
+                spellCheck={false}
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                onFocus={() => setShowResult(true)}
+              />
+              {!!searchValue && (
+                <FontAwesomeIcon
+                  className={cx("icon")}
+                  icon={faXmark}
+                  onClick={handleClear}
+                />
+              )}
+            </div>
+          </Tippy>
         </div>
+      </div>
+
+      <div className={cx("container")}>
+        <Navigation>
+          <div className={cx("back-home")}>
+            <FontAwesomeIcon className={cx("arrow-left")} icon={faArrowLeft} />
+          </div>
+        </Navigation>
+
         <div className={cx("podcast-box")}>
           <GridSystem rowClass={cx("row-1")}>
             {podcast.map((podcast, index) => (

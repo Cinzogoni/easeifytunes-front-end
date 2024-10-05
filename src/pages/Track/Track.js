@@ -1,6 +1,8 @@
 import classNames from "classnames/bind";
 import styles from "./Track.module.scss";
+
 import TrackInfo from "~/components/TrackInfo";
+import Navigation from "~/components/Navigation";
 
 import { useParams } from "react-router-dom";
 import { useTrackInfo } from "~/components/TrackInfoProvider";

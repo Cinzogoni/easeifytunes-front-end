@@ -5,11 +5,7 @@ import AudioInfo from "~/components/AudioInfo";
 
 const cx = classNames.bind(styles);
 function Home() {
-  return (
-    <div className={cx("wrapper")}>
-      <AudioInfo />
-    </div>
-  );
+  return <AudioInfo />;
 }
 
 export default Home;

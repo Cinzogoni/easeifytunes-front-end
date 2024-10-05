@@ -88,55 +88,57 @@ function TrendingSongs() {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
-        <GridSystem gridClass={cx("grid-child")} wideClass={cx("wide-child")}>
-          <div className={cx("actions")}>
-            <h6 className={cx("title")}>Trending Songs</h6>
-            <div className={cx("action-btn")}>
-              <FontAwesomeIcon
-                className={cx("move")}
-                icon={faCircleChevronLeft}
-                onClick={() => handleScroll("prev")}
-                style={{
-                  transition: "transition: transform 0.1s ease-in-out",
-                  transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
-                }}
-              />
-              <FontAwesomeIcon
-                className={cx("move")}
-                icon={faCircleChevronRight}
-                onClick={() => handleScroll("next")}
-                style={{
-                  transition: "transition: transform 0.1s ease-in-out",
-                  transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
-                }}
-              />
-            </div>
-          </div>
-
-          <GridSystem rowClass={cx("row")}>
-            <div
-              className={cx("frame")}
+        <div className={cx("actions")}>
+          <h6 className={cx("title")}>Trending Songs</h6>
+          <div className={cx("action-btn")}>
+            <FontAwesomeIcon
+              className={cx("move")}
+              icon={faCircleChevronLeft}
+              onClick={() => handleScroll("prev")}
               style={{
-                transition: "transform 0.3s ease-in-out",
-                transform: transformValue(),
+                transition: "transition: transform 0.1s ease-in-out",
+                transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
               }}
-            >
-              {songGroups.map((group, index) => (
-                <GridSystem
-                  key={index}
-                  colClass={cx("col")}
-                  colL={cx("l-4")}
-                  colML={cx("ml-6")}
-                  colM={cx("m-12")}
-                  colSM={cx("sm-12")}
-                  colS={cx("s-12")}
-                  colMo={cx("mo-12")}
-                >
-                  <TrendingSongsBox tracks={group} />
-                </GridSystem>
-              ))}
-            </div>
-          </GridSystem>
+            />
+            <FontAwesomeIcon
+              className={cx("move")}
+              icon={faCircleChevronRight}
+              onClick={() => handleScroll("next")}
+              style={{
+                transition: "transition: transform 0.1s ease-in-out",
+                transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
+              }}
+            />
+          </div>
+        </div>
+
+        <GridSystem rowClass={cx("row")}>
+          <div
+            className={cx("frame")}
+            style={{
+              transition: "transform 0.3s ease-in-out",
+              transform: transformValue(),
+            }}
+          >
+            {songGroups.map((group, index) => (
+              <GridSystem
+                key={index}
+                colClass={cx("col")}
+                colL={cx("l-4")}
+                colML={cx("ml-6")}
+                colM={cx("m-12")}
+                colSM={cx("sm-12")}
+                colS={cx("s-12")}
+                colMo={cx("mo-12")}
+              >
+                <div className={cx("boxes")}>
+                  <div className={cx("track-box")}>
+                    <TrendingSongsBox tracks={group} />
+                  </div>
+                </div>
+              </GridSystem>
+            ))}
+          </div>
         </GridSystem>
       </div>
     </div>

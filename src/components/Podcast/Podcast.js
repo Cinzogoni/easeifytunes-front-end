@@ -106,7 +106,9 @@ function Podcast() {
                 transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
               }}
             />
-            <Navigation id={cx("podcast-viewAll")} />
+            <Navigation id={cx("podcast-viewAll")}>
+              <h3 className={cx("link-route")}>View all</h3>
+            </Navigation>
           </div>
         </div>
 

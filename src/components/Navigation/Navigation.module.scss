@@ -2,24 +2,3 @@
   display: flex;
   align-items: center;
 }
-
-.link-route {
-  font-size: 1.3rem;
-  transition: transform 0.1s ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-}
-
-@media (max-width: 939px) {
-  .link-route {
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 827px) {
-  .link-route {
-    font-size: 0.7rem;
-  }
-}

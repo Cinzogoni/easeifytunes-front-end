@@ -3,13 +3,16 @@ import styles from "./TrackInfo.module.scss";
 
 import { useAudioPlayer } from "../AudioPlayerProvider";
 
-import Player from "../Player";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeadphones,
   faLink,
   faPlus,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
+
+import Player from "../Player";
+import Navigation from "../Navigation";
 
 const cx = classNames.bind(styles);
 
@@ -18,6 +21,12 @@ function TrackInfo({ track }) {
 
   return (
     <div className={cx("wrapper")}>
+      <div className={cx("back-home")}>
+        <Navigation>
+          <FontAwesomeIcon className={cx("arrow-left")} icon={faArrowLeft} />
+        </Navigation>
+      </div>
+
       <div className={cx("container")}>
         <img
           className={cx("avatar")}
@@ -25,10 +34,10 @@ function TrackInfo({ track }) {
           alt={track.trackTitle}
         />
         <div className={cx("info")}>
-          <h2 className={cx("title")}>{track.trackTitle}</h2>
-          <h3 className={cx("performer")}>{track.trackPerformer}</h3>
-          <h4 className={cx("type")}>{track.trackType}</h4>
-          <h4 className={cx("genre")}>{track.trackGenre}</h4>
+          <h3 className={cx("title")}>{track.trackTitle}</h3>
+          <h4 className={cx("performer")}>{track.trackPerformer}</h4>
+          <h5 className={cx("type")}>{track.trackType}</h5>
+          <h5 className={cx("genre")}>{track.trackGenre}</h5>
 
           <div className={cx("more")}>
             <div className={cx("streams")}>

@@ -1,10 +1,13 @@
 import classNames from "classnames/bind";
 import styles from "./MomentViewAll.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { useState } from "react";
 
 import GridSystem from "~/components/GridSystem";
 import MomentBox from "~/components/MomentBox";
+import Navigation from "~/components/Navigation";
 
 import { useTrackInfo } from "~/components/TrackInfoProvider";
 const cx = classNames.bind(styles);
@@ -20,6 +23,12 @@ function MomentViewAll() {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
+        <Navigation>
+          <div className={cx("back-home")}>
+            <FontAwesomeIcon className={cx("arrow-left")} icon={faArrowLeft} />
+          </div>
+        </Navigation>
+
         <div className={cx("video-box")}>
           <GridSystem rowClass={cx("row-1")}>
             {moment.map((video, index) => (

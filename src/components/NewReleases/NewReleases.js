@@ -106,7 +106,9 @@ function NewReleases() {
                 transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
               }}
             />
-            <Navigation id={cx("new-releases-viewAll")} />
+            <Navigation id={cx("new-releases-viewAll")}>
+              <h3 className={cx("link-route")}>View all</h3>
+            </Navigation>
           </div>
         </div>
 

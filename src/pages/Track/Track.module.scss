@@ -27,7 +27,6 @@
   border: var(--main-border);
   border-radius: var(--main-border-radius);
   background-image: var(--parent-background-color);
-  text-align: center;
 
   overflow-y: auto;
   overflow-x: hidden;
@@ -53,6 +52,7 @@
 
 .lyric {
   width: 100%;
+  margin-left: 72px;
 }
 
 .lyric-line {
@@ -60,9 +60,9 @@
   font-size: 1.3rem;
 }
 
-@media (min-width: 893px) and (max-width: 1037px) {
+@media (min-width: 1038px) and (max-width: 1186px) {
   .frame {
-    height: 230px;
+    height: 250px;
   }
 
   .lyric-line {
@@ -70,9 +70,9 @@
   }
 }
 
-@media (min-width: 850px) and (max-width: 892px) {
+@media (min-width: 887px) and (max-width: 1037px) {
   .frame {
-    height: 230px;
+    height: 200px;
   }
 
   .lyric-line {
@@ -80,8 +80,8 @@
   }
 }
 
-@media (max-width: 849px) {
+@media (max-width: 886px) {
   .lyric-line {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
 }

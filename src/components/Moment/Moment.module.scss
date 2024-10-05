@@ -9,7 +9,7 @@
 }
 
 .actions {
-  margin: 12px 0;
+  margin: 12px 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,12 +17,10 @@
 
 .title {
   font-size: 1.8rem;
-  margin: 0 12px;
   color: var(--main--text-color);
 }
 
 .actions-btn {
-  margin: 0 12px;
   display: flex;
   align-items: center;
 }
@@ -30,6 +28,15 @@
 .move {
   margin-right: 12px;
   color: var(--main-move-color);
+}
+
+.link-route {
+  font-size: 1.3rem;
+  transition: transform 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .frame {
@@ -61,5 +68,17 @@
 @media (max-width: 783px) {
   .title {
     font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 939px) {
+  .link-route {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 827px) {
+  .link-route {
+    font-size: 0.7rem;
   }
 }

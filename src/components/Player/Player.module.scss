@@ -588,7 +588,7 @@ audio {
   position: static;
   width: 255px;
   height: 58px;
-  transform: translate(0px, 13px);
+  transform: translate(0px, 6px);
   background-image: var(--child-background-color);
   border: var(--main-border);
   border-radius: var(--main-border-radius);
@@ -655,10 +655,18 @@ audio {
   }
 }
 
-@media (min-width: 850px) and (max-width: 892px) {
+@media (min-width: 887px) and (max-width: 892px) {
   .frameTrackInfoResize {
     width: 265px;
     height: 66px;
     transform: translate(0px, 4px);
+  }
+}
+
+@media (max-width: 886px) {
+  .frameTrackInfoResize {
+    width: 250px;
+    height: 52px;
+    transform: translate(0px, 0px);
   }
 }
