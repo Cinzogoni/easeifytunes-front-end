@@ -162,6 +162,8 @@ function MusicMakerList({ musicAlbums }) {
             </div>
           </GridSystem>
         </div>
+
+        <div className={cx("single-list")}></div>
       </div>
     </div>
   );
