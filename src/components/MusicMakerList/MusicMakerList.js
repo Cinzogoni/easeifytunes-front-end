@@ -83,82 +83,85 @@ function MusicMakerList({ musicAlbums }) {
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
-        <div className={cx("actions")}>
-          <h2 className={cx("title")}>Albums</h2>
+        <div className={cx("album-list")}>
+          <div className={cx("actions")}>
+            <h2 className={cx("title")}>Albums</h2>
 
-          <div className={cx("actions-btn")}>
-            <FontAwesomeIcon
-              className={cx("move")}
-              icon={faCircleChevronLeft}
-              onClick={() => handleScroll("prev")}
-              style={{
-                transition: "transition: transform 0.1s ease-in-out",
-                transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
-              }}
-            />
-            <FontAwesomeIcon
-              className={cx("move")}
-              icon={faCircleChevronRight}
-              onClick={() => handleScroll("next")}
-              style={{
-                transition: "transition: transform 0.1s ease-in-out",
-                transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
-              }}
-            />
+            <div className={cx("actions-btn")}>
+              <FontAwesomeIcon
+                className={cx("move")}
+                icon={faCircleChevronLeft}
+                onClick={() => handleScroll("prev")}
+                style={{
+                  transition: "transition: transform 0.1s ease-in-out",
+                  transform: activeMove === "prev" ? "scale(1.1)" : "scale(1)",
+                }}
+              />
+              <FontAwesomeIcon
+                className={cx("move")}
+                icon={faCircleChevronRight}
+                onClick={() => handleScroll("next")}
+                style={{
+                  transition: "transition: transform 0.1s ease-in-out",
+                  transform: activeMove === "next" ? "scale(1.1)" : "scale(1)",
+                }}
+              />
+            </div>
           </div>
-        </div>
-
-        <GridSystem rowClass={cx("row")}>
-          <div
-            className={cx("frame")}
-            style={{
-              transition: "transform 0.3s ease-in-out",
-              transform: transformValue(),
-            }}
-          >
-            {musicAlbums.map((album) => (
-              <GridSystem
-                key={album.id}
-                colClass={cx("col")}
-                colL={cx("l-2-5")}
-                colML={cx("ml-3")}
-                colM={cx("m-6")}
-                colSM={cx("sm-4")}
-                colS={cx("s-6")}
-                colMo={cx("mo-12")}
-              >
-                <div className={cx("boxes")}>
-                  <div className={cx("album-box")}>
-                    <div className={cx("album-frame")}>
-                      <Link
-                        className={cx("link")}
-                        to={routesConfig.albumPage.replace(
-                          `:albumName`,
-                          album.albumName
-                        )}
-                      />
-
-                      <div className={cx("avatar-frame")}>
-                        <img
-                          className={cx("avatar")}
-                          src={album.albumAvatar}
-                          alt={album.albumName}
+          <GridSystem rowClass={cx("row")}>
+            <div
+              className={cx("frame")}
+              style={{
+                transition: "transform 0.3s ease-in-out",
+                transform: transformValue(),
+              }}
+            >
+              {musicAlbums.map((album) => (
+                <GridSystem
+                  key={album.id}
+                  colClass={cx("col")}
+                  colL={cx("l-2-5")}
+                  colML={cx("ml-3")}
+                  colM={cx("m-6")}
+                  colSM={cx("sm-4")}
+                  colS={cx("s-6")}
+                  colMo={cx("mo-12")}
+                >
+                  <div className={cx("boxes")}>
+                    <div className={cx("album-box")}>
+                      <div className={cx("album-frame")}>
+                        <Link
+                          className={cx("link")}
+                          to={routesConfig.albumPage.replace(
+                            `:albumName`,
+                            album.albumName
+                          )}
                         />
-                      </div>
 
-                      <div className={cx("desc")}>
-                        <h5 className={cx("album-name")}>{album.albumName}</h5>
-                        <h6 className={cx("album-performer")}>
-                          {album.albumPerformer}
-                        </h6>
+                        <div className={cx("avatar-frame")}>
+                          <img
+                            className={cx("avatar")}
+                            src={album.albumAvatar}
+                            alt={album.albumName}
+                          />
+                        </div>
+
+                        <div className={cx("desc")}>
+                          <h5 className={cx("album-name")}>
+                            {album.albumName}
+                          </h5>
+                          <h6 className={cx("album-performer")}>
+                            {album.albumPerformer}
+                          </h6>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </GridSystem>
-            ))}
-          </div>
-        </GridSystem>
+                </GridSystem>
+              ))}
+            </div>
+          </GridSystem>
+        </div>
       </div>
     </div>
   );
