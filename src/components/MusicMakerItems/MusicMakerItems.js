@@ -13,8 +13,8 @@ function MusicMakerItems({
   return (
     <div className={cx("wrapper")}>
       <Link
-        to={routesConfig.playlistPage.replace(
-          `:musicMakerStageName`,
+        to={routesConfig.musicMakerPage.replace(
+          `:stageName`,
           musicMakerStageName
         )}
       >

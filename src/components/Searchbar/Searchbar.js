@@ -58,8 +58,8 @@ function Searchbar() {
         );
       }
 
-      if (item.tracks && item.tracks.length > 0) {
-        return item.tracks.some((track) =>
+      if (item.albums && item.albums.length > 0) {
+        return item.albums.some((track) =>
           track.trackType.toLowerCase().includes(searchValue.toLowerCase())
         );
       }
@@ -168,14 +168,14 @@ function Searchbar() {
                 {activeTitle === `Albums` && (
                   <div className={cx("album")}>
                     {searchResult
-                      .filter((item) => item.tracks && item.tracks.length > 0)
+                      .filter((item) => item.albums && item.albums.length > 0)
                       .map((albumItem) =>
-                        albumItem.tracks.map((track) => (
+                        albumItem.albums.map((track) => (
                           <AlbumItem
                             key={`album_${track.id}`}
-                            albumAvatar={track.trackAvatar}
-                            albumName={track.trackType}
-                            albumPerformer={track.trackPerformer}
+                            albumAvatar={track.albumAvatar}
+                            albumName={track.albumName}
+                            albumPerformer={track.albumPerformer}
                           />
                         ))
                       )}

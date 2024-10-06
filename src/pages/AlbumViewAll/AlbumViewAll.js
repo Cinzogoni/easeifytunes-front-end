@@ -38,8 +38,8 @@ function AlbumViewAll() {
     const apiResults = [...apiMusicMaker.getMusicMaker()];
 
     const filteredResults = apiResults.filter((item) => {
-      if (item.tracks && item.tracks.length > 0) {
-        return item.tracks.some((track) =>
+      if (item.albums && item.albums.length > 0) {
+        return item.albums.some((track) =>
           track.trackType.toLowerCase().includes(searchValue.toLowerCase())
         );
       }
@@ -74,9 +74,9 @@ function AlbumViewAll() {
               <div className={cx("search-result")} tabIndex={-1} {...attrs}>
                 <WrapperPopper>
                   {searchResult
-                    .filter((item) => item.tracks && item.tracks.length > 0)
+                    .filter((item) => item.albums && item.albums.length > 0)
                     .map((albumItem) =>
-                      albumItem.tracks.map((track) => (
+                      albumItem.albums.map((track) => (
                         <AlbumItem
                           key={track.id}
                           albumAvatar={track.trackAvatar}
@@ -123,7 +123,7 @@ function AlbumViewAll() {
             {musicMaker
               .filter(
                 (album) =>
-                  Array.isArray(album.tracks) && album.tracks.length > 0
+                  Array.isArray(album.albums) && album.albums.length > 0
               )
               .map((album, index) => (
                 <GridSystem
@@ -138,7 +138,7 @@ function AlbumViewAll() {
                 >
                   <div className={cx("frame")}>
                     <div className={cx("boxes")}>
-                      {album.tracks.map((track) => (
+                      {album.albums.map((track) => (
                         <AlbumBox
                           key={track.id}
                           albumId={`album_${track.id}`}
