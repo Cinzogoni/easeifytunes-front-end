@@ -39,14 +39,12 @@ function NewReleasesViewAll() {
     const apiResults = [...apiTest.getNewReleases()];
 
     const filteredResults = apiResults.filter((item) => {
-      if (item.title && item.stageName) {
-        return (
-          item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-          item.stageName.toLowerCase().includes(searchValue.toLowerCase())
-        );
-      }
-
-      return false;
+      const searchLowerCase = debounced.toLowerCase();
+      return (
+        (item.title && item.title.toLowerCase().includes(searchLowerCase)) ||
+        (item.stageName &&
+          item.stageName.toLowerCase().includes(searchLowerCase))
+      );
     });
 
     setSearchResult(filteredResults);

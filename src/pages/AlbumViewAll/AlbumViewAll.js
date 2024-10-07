@@ -34,13 +34,11 @@ function AlbumViewAll() {
     }
 
     const filteredResults = musicMaker.filter((item) => {
-      if (item.albums && item.albums.length > 0) {
-        return item.albums.some((track) =>
-          track.albumName.toLowerCase().includes(searchValue.toLowerCase())
-        );
-      }
+      const searchLowerCase = debounced.toLowerCase();
 
-      return false;
+      return item.albums.some((track) =>
+        track.albumName.toLowerCase().includes(searchLowerCase)
+      );
     });
 
     setSearchResult(filteredResults);

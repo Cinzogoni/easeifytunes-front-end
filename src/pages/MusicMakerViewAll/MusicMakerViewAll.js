@@ -38,14 +38,12 @@ function MusicMakerViewAll() {
     const apiResults = [...apiMusicMaker.getMusicMaker()];
 
     const filteredResults = apiResults.filter((item) => {
-      if (item.stageName && item.role) {
-        return (
-          item.stageName.toLowerCase().includes(searchValue.toLowerCase()) ||
-          item.role.toLowerCase().includes(searchValue.toLowerCase())
-        );
-      }
-
-      return false;
+      const searchLowerCase = debounced.toLowerCase();
+      return (
+        (item.stageName &&
+          item.stageName.toLowerCase().includes(searchLowerCase)) ||
+        (item.role && item.role.toLowerCase().includes(searchLowerCase))
+      );
     });
 
     setSearchResult(filteredResults);

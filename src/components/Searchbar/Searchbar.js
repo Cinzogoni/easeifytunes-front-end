@@ -44,35 +44,27 @@ function Searchbar() {
     ];
 
     const filteredResults = apiResults.filter((item) => {
-      if (item.title && item.stageName) {
-        return (
-          item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-          item.stageName.toLowerCase().includes(searchValue.toLowerCase())
-        );
-      }
+      const searchLowerCase = searchValue.toLowerCase();
 
-      if (item.stageName && item.role) {
-        return (
-          item.stageName.toLowerCase().includes(searchValue.toLowerCase()) ||
-          item.role.toLowerCase().includes(searchValue.toLowerCase())
-        );
-      }
-
-      if (item.albums && item.albums.length > 0) {
-        return item.albums.some((track) =>
-          track.trackType.toLowerCase().includes(searchValue.toLowerCase())
-        );
-      }
-
-      if (item.audios && item.topic && item.audios.length > 0) {
-        return item.audios.some(
-          (audio) =>
-            audio.performer.toLowerCase().includes(searchValue.toLowerCase()) ||
-            audio.title.toLowerCase().includes(searchValue.toLowerCase())
-        );
-      }
-
-      return false;
+      return (
+        (item.title && item.title.toLowerCase().includes(searchLowerCase)) ||
+        (item.stageName &&
+          item.stageName.toLowerCase().includes(searchLowerCase)) ||
+        (item.role && item.role.toLowerCase().includes(searchLowerCase)) ||
+        (item.audios &&
+          item.audios.some(
+            (audio) =>
+              audio.performer.toLowerCase().includes(searchLowerCase) ||
+              audio.title.toLowerCase().includes(searchLowerCase)
+          )) ||
+        (item.albums &&
+          item.albums.some(
+            (album) =>
+              album.albumName.toLowerCase().includes(searchLowerCase) ||
+              album.albumPerformer.toLowerCase().includes(searchLowerCase)
+          )) ||
+        (item.topic && item.topic.toLowerCase().includes(searchLowerCase))
+      );
     });
 
     setSearchResult(filteredResults);

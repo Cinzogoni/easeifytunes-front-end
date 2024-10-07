@@ -39,11 +39,9 @@ function PodcastViewAll() {
     const apiResults = [...apiPodcast.getPodcast()];
 
     const filteredResults = apiResults.filter((item) => {
-      if (item.topic) {
-        return item.topic.toLowerCase().includes(searchValue.toLowerCase());
-      }
+      const searchLowerCase = debounced.toLowerCase();
 
-      return false;
+      return item.topic.toLowerCase().includes(searchLowerCase);
     });
 
     setSearchResult(filteredResults);
