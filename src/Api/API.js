@@ -10,34 +10,40 @@ const apiMusicMaker = {
         singles: [
           {
             id: "su_troiCho",
-            trackAvatar:
+            avatar:
               "https://photo-resize-zmp3.zmdcdn.me/w256_r1x1_jpeg/avatars/1/5/a/e/15ae72f637fd1d941a934b3edcf1ac39.jpg",
-            trackTitle: "Trời Cho",
-            trackGenre: "Rap/HipHop",
+            title: "Trời Cho",
+            stageName: "Suboi",
+            type: "Single",
+            genre: "Rap/HipHop",
             releaseDay: "",
-            streamed: "",
+            streamed: "2500",
             link: "",
             lyric: "",
           },
           {
             id: "su_doi",
-            trackAvatar:
-              "hhttps://static.tuoitre.vn/tto/i/s626/2016/03/10/suboi-doi-mv-1457581497.jpg",
-            trackTitle: "Đời",
-            trackGenre: "Rap/HipHop",
+            avatar:
+              "https://static.tuoitre.vn/tto/i/s626/2016/03/10/suboi-doi-mv-1457581497.jpg",
+            title: "Đời",
+            stageName: "Suboi",
+            type: "Single",
+            genre: "Rap/HipHop",
             releaseDay: "",
-            streamed: "",
+            streamed: "3522",
             link: "",
             lyric: "",
           },
           {
             id: "su_dauThienHa",
-            trackAvatar:
+            avatar:
               "https://bloganchoi.com/wp-content/uploads/2024/03/loi-bai-hat-dau-thien-ha-lyric-suboi-1-696x696.jpg",
-            trackTitle: "Dâu Thiên Hạ",
-            trackGenre: "Rap/HipHop",
+            title: "Dâu Thiên Hạ",
+            stageName: "Suboi",
+            type: "Single",
+            genre: "Rap/HipHop",
             releaseDay: "",
-            streamed: "",
+            streamed: "2862",
             link: "",
             lyric: "",
           },
@@ -54,6 +60,8 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe01",
                 title: "Công",
+                stageName: "Suboi",
+                type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
@@ -63,6 +71,8 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe02",
                 title: "Cho Không",
+                stageName: "Suboi",
+                type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
@@ -72,6 +82,8 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe03",
                 title: "N-Sap?",
+                stageName: "Suboi",
+                type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
@@ -81,6 +93,8 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe04",
                 title: "Sickerrr",
+                stageName: "Suboi",
+                type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
@@ -90,6 +104,8 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe05",
                 title: "Best Friend",
+                stageName: "Suboi",
+                type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
@@ -99,6 +115,8 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe06",
                 title: "Bet On Me",
+                stageName: "Suboi",
+                type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
@@ -108,6 +126,8 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe07",
                 title: "Lava",
+                stageName: "Suboi",
+                type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
@@ -117,6 +137,8 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe08",
                 title: "Ngày Lại Ngày",
+                stageName: "Suboi",
+                type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
@@ -126,6 +148,8 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe09",
                 title: "Diều",
+                stageName: "Suboi",
+                type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
@@ -135,6 +159,8 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe10",
                 title: "Công (Dance Remix)",
+                stageName: "Suboi",
+                type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
@@ -154,10 +180,12 @@ const apiMusicMaker = {
         singles: [
           {
             id: "rhym_Lac",
-            trackAvatar:
+            avatar:
               "https://avatar-ex-swe.nixcdn.com/song/2022/06/22/2/2/2/d/1655865432491_640.jpg",
-            trackTitle: "Lạc",
-            trackGenre: "RapHipHop",
+            title: "Lạc",
+            stageName: "Rhymastic",
+            type: "Single",
+            genre: "RapHipHop",
             releaseDay: "",
             streamed: "",
             link: "",
@@ -165,10 +193,12 @@ const apiMusicMaker = {
           },
           {
             id: "rhym_Treasure",
-            trackAvatar:
-              "hhttps://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/covers/6/d/6d9bfab656c9be37b3ef972b8c9dd291_1503659621.jpg",
-            trackTitle: "Treasure",
-            trackGenre: "Pop",
+            avatar:
+              "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/covers/6/d/6d9bfab656c9be37b3ef972b8c9dd291_1503659621.jpg",
+            title: "Treasure",
+            stageName: "Rhymastic",
+            type: "Single",
+            genre: "Pop",
             releaseDay: "",
             streamed: "",
             link: "",
@@ -187,6 +217,8 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov601",
                 title: "Y6U",
+                stageName: "Rhymastic",
+                type: "Album - LOV6",
                 genre: "RnB",
                 releaseDay: "",
                 streamed: "",
@@ -196,6 +228,8 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov602",
                 title: "Lía La Lía Lo",
+                stageName: "Rhymastic",
+                type: "Album - LOV6",
                 genre: "Pop",
                 releaseDay: "",
                 streamed: "",
@@ -205,6 +239,8 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov603",
                 title: "Side Effects",
+                stageName: "Rhymastic",
+                type: "Album - LOV6",
                 genre: "RnB/HipHop",
                 releaseDay: "",
                 streamed: "",
@@ -214,6 +250,8 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov604",
                 title: "Ngổn Ngang",
+                stageName: "Rhymastic",
+                type: "Album - LOV6",
                 genre: "RnB",
                 releaseDay: "",
                 streamed: "",
@@ -223,6 +261,8 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov605",
                 title: "Vẫn Yêu",
+                stageName: "Rhymastic",
+                type: "Album - LOV6",
                 genre: "RnB",
                 releaseDay: "",
                 streamed: "",
@@ -232,6 +272,8 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov606",
                 title: "Thêm Đứa Nữa",
+                stageName: "Rhymastic",
+                type: "Album - LOV6",
                 genre: "Electro-disco",
                 releaseDay: "",
                 streamed: "",
@@ -250,12 +292,15 @@ const apiMusicMaker = {
         role: "Singer",
         singles: [
           {
-            id: "",
-            trackAvatar: "",
-            trackTitle: "",
-            trackGenre: "",
+            id: "min_Ghen",
+            avatar:
+              "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/covers/d/0/d05f9b3c87cf7ccda468174b28757489_1495770525.jpg",
+            stageName: "KHẮC HƯNG x MIN x ERIK",
+            title: "Ghen",
+            type: "Single",
+            genre: "Pop",
             releaseDay: "",
-            streamed: "",
+            streamed: "1500",
             link: "",
             lyric: "",
           },
@@ -272,6 +317,8 @@ const apiMusicMaker = {
               {
                 id: "min_505001",
                 title: "",
+                stageName: "",
+                type: "",
                 genre: "",
                 releaseDay: "",
                 streamed: "",
@@ -289,17 +336,20 @@ const apiMusicMaker = {
         role: "Dj/ Music Producer",
         singles: [
           {
-            id: "",
-            trackAvatar: "",
-            trackTitle: "",
-            trackGenre: "",
+            id: "tou_GetIt",
+            avatar:
+              "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/1/4/1/b/141b9f990d714085e3a23fd8a42be625.jpg",
+            title: "Get It",
+            stageName: "Touliver x Nimbia",
+            type: "Single",
+            genre: "Dance",
             releaseDay: "",
             streamed: "",
             link: "",
             lyric: "",
           },
         ],
-        albums: "",
+        albums: [],
       },
       {
         id: 4,
@@ -309,10 +359,12 @@ const apiMusicMaker = {
         role: "Singer",
         singles: [
           {
-            id: "",
-            trackAvatar: "",
-            trackTitle: "",
-            trackGenre: "",
+            id: "jshe_DontAsk",
+            avatar: "https://i.ytimg.com/vi/tRa3fOlnN7k/maxresdefault.jpg",
+            title: "Don't Ask (別問很可怕)",
+            stageName: "J.Sheon",
+            type: "Single",
+            genre: "RnB Soul",
             releaseDay: "",
             streamed: "",
             link: "",
@@ -329,10 +381,13 @@ const apiMusicMaker = {
         role: "Band",
         singles: [
           {
-            id: "",
-            trackAvatar: "",
-            trackTitle: "",
-            trackGenre: "",
+            id: "per_SpinningWorld",
+            avatar:
+              "https://i.scdn.co/image/ab67616d0000b273de342f1d1fc6c3de3f6e5d1e",
+            title: "Spinning World",
+            stageName: "Perfume",
+            type: "Single",
+            genre: "Electronic",
             releaseDay: "",
             streamed: "",
             link: "",
@@ -351,6 +406,8 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
+                stageName: "",
+                type: "",
                 genre: "",
                 releaseDay: "",
                 streamed: "",
@@ -369,11 +426,15 @@ const apiMusicMaker = {
         role: "Singer",
         singles: [
           {
-            id: "",
-            trackAvatar: "",
-            trackTitle: "",
-            trackGenre: "",
-            ReleaseDay: "",
+            id: "bi_AnimalFarm",
+            avatar:
+              "https://images.genius.com/ea9cd6fef54ecdc755d6b10be33fda43.1000x1000x1.png",
+            title: "Animal Farm (가면무도회)",
+            stageName: "BIBI",
+            type: "Single",
+            genre: "Pop",
+            releaseDay: "",
+            streamed: "",
             link: "",
             lyric: "",
           },
@@ -390,6 +451,8 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
+                stageName: "",
+                type: "",
                 genre: "",
                 releaseDay: "",
                 streamed: "",
@@ -408,16 +471,168 @@ const apiMusicMaker = {
         role: "Musician/ Singer",
         singles: [
           {
-            id: "",
-            trackAvatar: "",
-            trackTitle: "",
-            trackGenre: "",
-            ReleaseDay: "",
+            id: "pmq_SauLoiTuKhuoc",
+            avatar:
+              "https://photo-resize-zmp3.zmdcdn.me/w256_r1x1_jpeg/cover/e/d/0/7/ed0741228ad36870e13624120474e50a.jpg",
+            title: "Sau lời từ khước",
+            stageName: "Phan Mạnh Quỳnh",
+            type: "Single",
+            genre: "Pop/Ballad",
+            releaseDay: "",
+            streamed: "",
             link: "",
             lyric: "",
           },
         ],
         albums: "",
+      },
+      {
+        id: 8,
+        avatar: "https://avatarfiles.alphacoders.com/174/174632.jpg",
+        stageName: "Eminem",
+        role: "Rapper",
+        singles: [
+          {
+            id: "em_KillShot",
+            avatar:
+              "https://upload.wikimedia.org/wikipedia/en/1/15/Eminem_Killshot.jpg",
+            title: "KILLSHOT",
+            stageName: "Eminem",
+            type: "Single",
+            genre: "Rap/HipHop",
+            releaseDay: "",
+            streamed: "",
+            link: "",
+            lyric: "",
+          },
+        ],
+        albums: [
+          {
+            id: 5,
+            albumAvatar:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwcAqv_T5ey2mfFEyLcXe3o7VASzb7K825OQ&s",
+            albumPerformer: "Eminem",
+            albumName: "Infinite",
+            releaseDay: "",
+            tracks: [
+              {
+                id: "",
+                title: "",
+                performer: "",
+                genre: "",
+                releaseDay: "",
+                streamed: "",
+                link: "",
+                lyric: "",
+              },
+            ],
+          },
+          {
+            id: 6,
+            albumAvatar:
+              "https://upload.wikimedia.org/wikipedia/en/b/b4/Encore_%28Eminem_album%29_coverart.jpg",
+            albumPerformer: "Eminem",
+            albumName: "Encore",
+            releaseDay: "",
+            tracks: [
+              {
+                id: "",
+                title: "",
+                stageName: "",
+                type: "",
+                genre: "",
+                releaseDay: "",
+                streamed: "",
+                link: "",
+                lyric: "",
+              },
+            ],
+          },
+          {
+            id: 7,
+            albumAvatar:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvzhz649VDzgSfhxy-x5KfU4JjggfTe_tEJz0bIbhd3-paHNprUKcJI3Fe6ud-7lx0PJk&usqp=CAU",
+            albumPerformer: "Eminem",
+            albumName: "The Eminem Show",
+            releaseDay: "",
+            tracks: [
+              {
+                id: "",
+                title: "",
+                stageName: "",
+                type: "",
+                genre: "",
+                releaseDay: "",
+                streamed: "",
+                link: "",
+                lyric: "",
+              },
+            ],
+          },
+          {
+            id: 8,
+            albumAvatar:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmZ08XRYRtFkYAF1Cl9h8PqjEi67SfPBY7dA&s",
+            albumPerformer: "Eminem",
+            albumName: "Relapse",
+            releaseDay: "",
+            tracks: [
+              {
+                id: "",
+                title: "",
+                stageName: "",
+                type: "",
+                genre: "",
+                releaseDay: "",
+                streamed: "",
+                link: "",
+                lyric: "",
+              },
+            ],
+          },
+          {
+            id: 9,
+            albumAvatar:
+              "https://upload.wikimedia.org/wikipedia/en/6/60/Recovery_Album_Cover.jpg",
+            albumPerformer: "Eminem",
+            albumName: "Recovery",
+            releaseDay: "",
+            tracks: [
+              {
+                id: "",
+                title: "",
+                stageName: "",
+                type: "",
+                genre: "",
+                releaseDay: "",
+                streamed: "",
+                link: "",
+                lyric: "",
+              },
+            ],
+          },
+          {
+            id: 10,
+            albumAvatar:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrpMJozqst-MyDuXtBcQ6TYH3f_JrztdwTIIMfuw65eOdmnQhEv7hB3Dv4z743qk1rdyc&usqp=CAU",
+            albumPerformer: "Eminem",
+            albumName: "Revival",
+            releaseDay: "",
+            tracks: [
+              {
+                id: "",
+                title: "",
+                stageName: "",
+                type: "",
+                genre: "",
+                releaseDay: "",
+                streamed: "",
+                link: "",
+                lyric: "",
+              },
+            ],
+          },
+        ],
       },
     ];
   },

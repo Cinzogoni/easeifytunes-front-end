@@ -135,11 +135,11 @@ function NewReleases() {
                   <div className={cx("song-box")}>
                     <NewReleasesBox
                       trackId={track.id}
-                      trackLink={track.trackLink}
-                      trackAvatar={track.trackAvatar}
-                      trackTitle={track.trackTitle}
-                      trackPerformer={track.trackPerformer}
-                      trackType={track.trackType}
+                      trackLink={track.link}
+                      trackAvatar={track.avatar}
+                      trackTitle={track.title}
+                      trackPerformer={track.stageName}
+                      trackType={track.type}
                     />
                   </div>
                 </div>

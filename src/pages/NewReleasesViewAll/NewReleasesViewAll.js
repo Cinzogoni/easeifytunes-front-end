@@ -39,10 +39,10 @@ function NewReleasesViewAll() {
     const apiResults = [...apiTest.getNewReleases()];
 
     const filteredResults = apiResults.filter((item) => {
-      if (item.trackTitle && item.trackPerformer) {
+      if (item.title && item.stageName) {
         return (
-          item.trackTitle.toLowerCase().includes(searchValue.toLowerCase()) ||
-          item.trackPerformer.toLowerCase().includes(searchValue.toLowerCase())
+          item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.stageName.toLowerCase().includes(searchValue.toLowerCase())
         );
       }
 
@@ -76,13 +76,13 @@ function NewReleasesViewAll() {
               <div className={cx("search-result")} tabIndex={-1} {...attrs}>
                 <WrapperPopper>
                   {searchResult
-                    .filter((item) => item.trackTitle && item.trackPerformer)
+                    .filter((item) => item.title && item.stageName)
                     .map((item) => (
                       <MusicTrackItem
                         key={item.id}
-                        trackAvatar={item.trackAvatar}
-                        trackPerformer={item.trackPerformer}
-                        trackTitle={item.trackTitle}
+                        trackAvatar={item.avatar}
+                        trackPerformer={item.stageName}
+                        trackTitle={item.title}
                       />
                     ))}
                 </WrapperPopper>
@@ -133,12 +133,12 @@ function NewReleasesViewAll() {
                 <div className={cx("frame")}>
                   <div className={cx("boxes")}>
                     <NewReleasesBox
-                      trackId={`new_${track.id}`}
-                      trackLink={track.trackLink}
-                      trackAvatar={track.trackAvatar}
-                      trackTitle={track.trackTitle}
-                      trackPerformer={track.trackPerformer}
-                      trackType={track.trackType}
+                      trackId={track.id}
+                      trackLink={track.link}
+                      trackAvatar={track.avatar}
+                      trackTitle={track.title}
+                      trackPerformer={track.stageName}
+                      trackType={track.type}
                     />
                   </div>
                 </div>

@@ -15,8 +15,6 @@ import AlbumBox from "~/components/AlbumBox";
 import AlbumItem from "~/components/AlbumItem";
 import Navigation from "~/components/Navigation";
 
-import apiMusicMaker from "~/Api/API";
-
 const cx = classNames.bind(styles);
 function AlbumViewAll() {
   const { musicMaker } = useTrackInfo();
@@ -35,12 +33,10 @@ function AlbumViewAll() {
       return;
     }
 
-    const apiResults = [...apiMusicMaker.getMusicMaker()];
-
-    const filteredResults = apiResults.filter((item) => {
+    const filteredResults = musicMaker.filter((item) => {
       if (item.albums && item.albums.length > 0) {
         return item.albums.some((track) =>
-          track.trackType.toLowerCase().includes(searchValue.toLowerCase())
+          track.albumName.toLowerCase().includes(searchValue.toLowerCase())
         );
       }
 
@@ -79,9 +75,9 @@ function AlbumViewAll() {
                       albumItem.albums.map((track) => (
                         <AlbumItem
                           key={track.id}
-                          albumAvatar={track.trackAvatar}
-                          albumName={track.trackType}
-                          albumPerformer={track.trackPerformer}
+                          albumAvatar={track.albumAvatar}
+                          albumName={track.albumName}
+                          albumPerformer={track.albumPerformer}
                         />
                       ))
                     )}
@@ -125,32 +121,31 @@ function AlbumViewAll() {
                 (album) =>
                   Array.isArray(album.albums) && album.albums.length > 0
               )
-              .map((album, index) => (
-                <GridSystem
-                  key={index}
-                  colClass={cx("col")}
-                  colL={cx("l-3")}
-                  colML={cx("ml-4")}
-                  colM={cx("m-6")}
-                  colSM={cx("sm-12")}
-                  colS={cx("s-12")}
-                  colMo={cx("mo-12")}
-                >
-                  <div className={cx("frame")}>
-                    <div className={cx("boxes")}>
-                      {album.albums.map((track) => (
+              .map((album) =>
+                album.albums.map((track) => (
+                  <GridSystem
+                    key={track.id}
+                    colClass={cx("col")}
+                    colL={cx("l-3")}
+                    colML={cx("ml-4")}
+                    colM={cx("m-6")}
+                    colSM={cx("sm-12")}
+                    colS={cx("s-12")}
+                    colMo={cx("mo-12")}
+                  >
+                    <div className={cx("frame")}>
+                      <div className={cx("boxes")}>
                         <AlbumBox
-                          key={track.id}
-                          albumId={`album_${track.id}`}
-                          albumAvatar={track.trackAvatar}
-                          albumName={track.trackType}
-                          albumPerformer={track.trackPerformer}
+                          albumId={track.id}
+                          albumAvatar={track.albumAvatar}
+                          albumName={track.albumName}
+                          albumPerformer={track.albumPerformer}
                         />
-                      ))}
+                      </div>
                     </div>
-                  </div>
-                </GridSystem>
-              ))}
+                  </GridSystem>
+                ))
+              )}
           </GridSystem>
         </div>
       </div>

@@ -24,8 +24,8 @@ function TrendingSongsBox({ tracks }) {
         <div className={cx("image")}>
           <img
             className={cx("avatar")}
-            src={track.trackAvatar}
-            alt={track.trackPerformer}
+            src={track.avatar}
+            alt={track.stageName}
           />
         </div>
 
@@ -39,33 +39,32 @@ function TrendingSongsBox({ tracks }) {
           waveformBox
           //
           trackId={track.id}
-          trackLink={track.trackLink}
-          trackAvatar={track.trackAvatar}
-          trackTitle={track.trackTitle}
-          trackPerformer={track.trackPerformer}
-          trackType={track.trackType}
+          trackLink={track.link}
+          trackTitle={track.title}
+          trackPerformer={track.stageName}
+          trackType={track.type}
           //
           isStatus={track.id === currentTrackId}
           onPlay={() =>
             handlePlay(
               track.id,
               {
-                trackTitle: track.trackTitle,
-                trackPerformer: track.trackPerformer,
+                trackTitle: track.title,
+                trackPerformer: track.stageName,
               },
               track.trackLink
             )
           }
-          onPause={() => handlePause(`trend_${track.id}`)}
+          onPause={() => handlePause(track.id)}
         />
 
         <div className={cx("info")}>
-          <h4 className={cx("title")}>{track.trackTitle}</h4>
-          <h5 className={cx("performer")}>{track.trackPerformer}</h5>
+          <h4 className={cx("title")}>{track.title}</h4>
+          <h5 className={cx("performer")}>{track.stageName}</h5>
 
           <Link
             className={cx("link")}
-            to={routesConfig.track.replace(":trackTitle", track.trackTitle)}
+            to={routesConfig.track.replace(":trackTitle", track.title)}
           />
         </div>
 
@@ -74,9 +73,7 @@ function TrendingSongsBox({ tracks }) {
             <FontAwesomeIcon className={cx("headphone")} icon={faHeadphones} />
 
             <div className={cx("listens")}>
-              <h6 className={cx("listeners")}>
-                {listeners[`trend_${track.id}`] || 0}
-              </h6>
+              <h6 className={cx("listeners")}>{listeners[track.id] || 0}</h6>
             </div>
           </div>
 

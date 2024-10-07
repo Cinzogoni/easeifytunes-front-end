@@ -141,7 +141,7 @@ function Album() {
                       {album.albums.map((track) => (
                         <AlbumBox
                           key={track.id}
-                          albumId={`album_${track.id}`}
+                          albumId={track.id}
                           albumAvatar={track.albumAvatar}
                           albumName={track.albumName}
                           albumPerformer={track.albumPerformer}

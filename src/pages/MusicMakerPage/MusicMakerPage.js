@@ -20,10 +20,14 @@ function MusicMakerPage() {
   const musicAlbums =
     musicMakerName && musicMakerName.albums ? musicMakerName.albums : [];
 
+  const musicSingles =
+    musicMakerName && musicMakerName.singles ? musicMakerName.singles : [];
   return (
     <Track
       info={<MusicMakerInfo musicMakerName={musicMakerName} />}
-      list={<MusicMakerList musicAlbums={musicAlbums} />}
+      list={
+        <MusicMakerList musicAlbums={musicAlbums} musicSingles={musicSingles} />
+      }
     />
   );
 }

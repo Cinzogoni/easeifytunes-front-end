@@ -10,25 +10,57 @@ import Track from "~/components/Track";
 const cx = classNames.bind(styles);
 
 function TrackPage() {
-  const { newReleases, trendingSongs } = useTrackInfo();
+  const { newReleases, trendingSongs, musicMaker } = useTrackInfo();
   const { trackTitle } = useParams();
 
-  const allTrack = [...newReleases, ...trendingSongs];
+  const allTrack = [
+    ...newReleases,
+    ...trendingSongs,
+    ...musicMaker.flatMap((maker) => [
+      ...(maker.singles || []),
+      ...maker.albums.flatMap((album) => album.tracks || []),
+    ]),
+  ];
+  const track = allTrack.find((t) => t.title === trackTitle);
 
-  const track = allTrack.find((t) => t.trackTitle === trackTitle);
+  const id = track && track.id ? track.id : [];
+  const link = track && track.link ? track.link : [];
+  const avatar = track && track.avatar ? track.avatar : [];
+  const title = track && track.title ? track.title : [];
+  const stageName = track && track.stageName ? track.stageName : [];
+  const type = track && track.type ? track.type : [];
+  const genre = track && track.genre ? track.genre : [];
+  const streamed = track && track.streamed ? track.streamed : [];
 
-  const lyrics = track.trackLyric ? track.trackLyric.split("\n") : [];
+  const lyrics = track && track.lyric ? track.lyric.split("\n") : [];
 
   return (
     <Track
-      info={<TrackInfo track={track} />}
+      info={
+        <TrackInfo
+          id={id}
+          link={link}
+          avatar={avatar}
+          title={title}
+          stageName={stageName}
+          type={type}
+          genre={genre}
+          streamed={streamed}
+        />
+      }
       list={
         <div className={cx("lyric")}>
-          {lyrics.map((line, index) => (
-            <h4 key={index} className={cx("lyric-line")}>
-              {line}
+          {lyrics.length > 0 ? (
+            lyrics.map((line, index) => (
+              <h4 key={index} className={cx("lyric-line")}>
+                {line}
+              </h4>
+            ))
+          ) : (
+            <h4 className={cx("lyric-line")}>
+              The lyrics are currently being updated
             </h4>
-          ))}
+          )}
         </div>
       }
     />

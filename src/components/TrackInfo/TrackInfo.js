@@ -16,7 +16,16 @@ import Navigation from "../Navigation";
 
 const cx = classNames.bind(styles);
 
-function TrackInfo({ track }) {
+function TrackInfo({
+  id,
+  link,
+  avatar,
+  title,
+  stageName,
+  type,
+  genre,
+  streamed,
+}) {
   const { currentTrackId, handlePlay, handlePause } = useAudioPlayer();
 
   return (
@@ -28,16 +37,12 @@ function TrackInfo({ track }) {
       </div>
 
       <div className={cx("container")}>
-        <img
-          className={cx("avatar")}
-          src={track.trackAvatar}
-          alt={track.trackTitle}
-        />
+        <img className={cx("avatar")} src={avatar} alt={title} />
         <div className={cx("info")}>
-          <h3 className={cx("title")}>{track.trackTitle}</h3>
-          <h4 className={cx("performer")}>{track.trackPerformer}</h4>
-          <h5 className={cx("type")}>{track.trackType}</h5>
-          <h5 className={cx("genre")}>{track.trackGenre}</h5>
+          <h3 className={cx("title")}>{title}</h3>
+          <h4 className={cx("performer")}>{stageName}</h4>
+          <h5 className={cx("type")}>{type}</h5>
+          <h5 className={cx("genre")}>{genre}</h5>
 
           <div className={cx("more")}>
             <div className={cx("streams")}>
@@ -46,7 +51,7 @@ function TrackInfo({ track }) {
                 icon={faHeadphones}
               />
               <h6 className={cx("streamed")}>
-                {new Intl.NumberFormat().format(track.trackStreamed || 0)}
+                {new Intl.NumberFormat().format(streamed || 0)}
               </h6>
             </div>
             <div className={cx("share")}>
@@ -58,23 +63,23 @@ function TrackInfo({ track }) {
           </div>
 
           <Player
-            trackId={track.id}
-            trackLink={track.trackLink}
-            trackTitle={track.trackTitle}
-            trackPerformer={track.trackPerformer}
+            trackId={id}
+            trackLink={link}
+            trackTitle={title}
+            trackPerformer={stageName}
             //
-            isStatus={track.id === currentTrackId}
+            isStatus={id === currentTrackId}
             onPlay={() =>
               handlePlay(
-                track.id,
+                id,
                 {
-                  trackTitle: track.trackTitle,
-                  trackPerformer: track.trackPerformer,
+                  trackTitle: title,
+                  trackPerformer: stageName,
                 },
-                track.trackLink
+                link
               )
             }
-            onPause={() => handlePause(track.id)}
+            onPause={() => handlePause(id)}
             //
             waveformBoxFooter
             frameTrackInfoResize

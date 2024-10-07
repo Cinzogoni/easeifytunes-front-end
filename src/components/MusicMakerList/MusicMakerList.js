@@ -7,9 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleChevronLeft,
   faCircleChevronRight,
+  faHeadphones,
+  faLink,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
-import Navigation from "../Navigation";
 import GridSystem from "../GridSystem";
 
 import { Link } from "react-router-dom";
@@ -17,14 +19,14 @@ import routesConfig from "~/config/routes";
 
 const cx = classNames.bind(styles);
 
-function MusicMakerList({ musicAlbums }) {
+function MusicMakerList({ musicAlbums, musicSingles }) {
   const [width, setWidth] = useState(window.innerWidth);
   const [scrollIndex, setScrollIndex] = useState(0);
   const [activeMove, setActiveMove] = useState(null);
 
   const calculateBoxesPerSlide = () => {
     if (width >= 1600) {
-      return 4;
+      return 5;
     }
     if (width >= 1220 && width < 1599) {
       return 3;
@@ -32,7 +34,9 @@ function MusicMakerList({ musicAlbums }) {
     if (width >= 900 && width < 1220) {
       return 2;
     }
-    return 1;
+    if (width >= 768 && width < 900) {
+      return 2;
+    }
   };
 
   const handleScroll = (move) => {
@@ -40,7 +44,7 @@ function MusicMakerList({ musicAlbums }) {
 
     const scrollIndex = () => {
       if (width >= 1600) {
-        return totalBoxes - 4;
+        return totalBoxes - 5;
       }
       if (width >= 1220 && width < 1599) {
         return totalBoxes - 3;
@@ -48,8 +52,8 @@ function MusicMakerList({ musicAlbums }) {
       if (width >= 900 && width < 1220) {
         return totalBoxes - 2;
       }
-      if (width >= 307 && width < 900) {
-        return totalBoxes - 1;
+      if (width >= 768 && width < 900) {
+        return totalBoxes - 2;
       }
     };
 
@@ -108,6 +112,7 @@ function MusicMakerList({ musicAlbums }) {
               />
             </div>
           </div>
+
           <GridSystem rowClass={cx("row")}>
             <div
               className={cx("frame")}
@@ -121,9 +126,9 @@ function MusicMakerList({ musicAlbums }) {
                   key={album.id}
                   colClass={cx("col")}
                   colL={cx("l-2-5")}
-                  colML={cx("ml-3")}
+                  colML={cx("ml-4")}
                   colM={cx("m-6")}
-                  colSM={cx("sm-4")}
+                  colSM={cx("sm-6")}
                   colS={cx("s-6")}
                   colMo={cx("mo-12")}
                 >
@@ -131,7 +136,7 @@ function MusicMakerList({ musicAlbums }) {
                     <div className={cx("album-box")}>
                       <div className={cx("album-frame")}>
                         <Link
-                          className={cx("link")}
+                          className={cx("album-link")}
                           to={routesConfig.albumPage.replace(
                             `:albumName`,
                             album.albumName
@@ -163,7 +168,46 @@ function MusicMakerList({ musicAlbums }) {
           </GridSystem>
         </div>
 
-        <div className={cx("single-list")}></div>
+        <div className={cx("single-tracks")}>
+          <h2 className={cx("title")}>Single Tracks</h2>
+          {musicSingles.map((single) => (
+            <div className={cx("track-box")} key={single.id}>
+              <img
+                className={cx("track-avatar")}
+                src={single.avatar}
+                alt={single.title}
+              />
+
+              <div className={cx("track-info")}>
+                <Link
+                  className={cx("single-link")}
+                  to={routesConfig.track.replace(`:trackTitle`, single.title)}
+                />
+
+                <h4 className={cx("track-title")}>{single.title}</h4>
+                <h5 className={cx("track-performer")}>{single.stageName}</h5>
+              </div>
+
+              <div className={cx("more-func")}>
+                <div className={cx("streams")}>
+                  <FontAwesomeIcon
+                    className={cx("listeners")}
+                    icon={faHeadphones}
+                  />
+                  <h5 className={cx("streamed")}>
+                    {new Intl.NumberFormat().format(single.streamed || 0)}
+                  </h5>
+                </div>
+                <div className={cx("share")}>
+                  <FontAwesomeIcon className={cx("share-link")} icon={faLink} />
+                </div>
+                <div className={cx("add")}>
+                  <FontAwesomeIcon className={cx("plus")} icon={faPlus} />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

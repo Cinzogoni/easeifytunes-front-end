@@ -5,24 +5,27 @@ const apiTest = {
     return [
       {
         id: `new_1`,
-        trackAvatar:
+        avatar:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnieVqXzgRDxD2DZcmXQjnDAI7cETRYD2hdA&s",
-        trackPerformer: "Kenny Price",
-        trackTitle: "The HeavyWeight",
-        trackType: "Single",
-        trackGenre: "Country",
-        trackLyric: "",
-        trackLink: mp3Type[`NewReleases/TheHeavyWeight-Kenny Price`],
+        stageName: "Kenny Price",
+        title: "The HeavyWeight",
+        type: "Single",
+        genre: "Country",
+        streamed: "",
+        link: mp3Type[`NewReleases/TheHeavyWeight-Kenny Price`],
+        lyric: "",
       },
       {
         id: `new_2`,
-        trackAvatar:
+        avatar:
           "https://navicdn.com/loibaihat.co/wp-content/uploads/2020/10/loi-boi-vi-la-khi-yeu.png",
-        trackPerformer: "LyLy",
-        trackTitle: "Bởi Vì Là Khi Yêu",
-        trackType: "Single",
-        trackGenre: "Pop/Ballad",
-        trackLyric: `Verse 1\n
+        stageName: "LyLy",
+        title: "Bởi Vì Là Khi Yêu",
+        type: "Single",
+        genre: "Pop/Ballad",
+        streamed: "5022",
+        link: mp3Type[`NewReleases/BoiViLaKhiYeu-LyLy`],
+        lyric: `Verse 1\n
         Nói cho em đi\n
         Liệu yêu một người bằng hết con tin là đúng hay đang sai\n
         Mà sao anh ơi em cứ buồn hoài như thế\n
@@ -73,18 +76,20 @@ const apiTest = {
         Nên đôi khi vô tâm với cảm xúc chính mình trao hết bao nhiêu chân tình\n
         Để rồi nhận lấy những nước mắt khi yêu\n
         Em khóc oh uhm\n`,
-        trackStreamed: `5000`,
-        trackLink: mp3Type[`NewReleases/BoiViLaKhiYeu-LyLy`],
       },
       {
         id: `new_3`,
-        trackAvatar:
+        avatar:
           "https://cdn-images.vtv.vn/thumb_w/640/2019/7/26/suni-1-1564110056335604663063.jpg",
-        trackPerformer: "Suni Hạ Linh ft. Lou Hoàng",
-        trackTitle: "Không Sao Mà Em Đây Rồi",
-        trackType: "Single",
-        trackGenre: "Pop/Ballad",
-        trackLyric: `Verse 1\n
+        stageName: "Suni Hạ Linh ft. Lou Hoàng",
+        title: "Không Sao Mà Em Đây Rồi",
+        type: "Single",
+        genre: "Pop/Ballad",
+        streamed: "6874",
+        link: mp3Type[
+          `NewReleases/KHÔNG SAO MÀ EM ĐÂY RỒI - SUNI HẠ LINH ft Lou Hoàng`
+        ],
+        lyric: `Verse 1\n
         Hình như anh đang say hình như anh không vui\n
         Kể cho em nghe đi vì sao anh buồn thế\n
         Nếu muốn khóc hãy cứ khóc trên vai em này\n
@@ -147,52 +152,56 @@ const apiTest = {
         Nếu muốn cứ khóc đi anh\n
         Rồi ngày mai tất cả mọi thứ sẽ qua anh à\n
         `,
-        trackStreamed: `6800`,
-        trackLink:
-          mp3Type[
-            `NewReleases/KHÔNG SAO MÀ EM ĐÂY RỒI - SUNI HẠ LINH ft Lou Hoàng`
-          ],
       },
       {
         id: `new_4`,
-        trackAvatar:
+        avatar:
           "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/1/d/6/a/1d6a1fa9aaf8b3be17dd64f396fe7ed6.jpg",
-        trackPerformer: "Soobin Hoàng Sơn",
-        trackTitle: "Giá Như",
-        trackType: "Single",
-        trackGenre: "Pop/Ballad",
-        trackLink: mp3Type[`NewReleases/GIA NHU - Soobin`],
+        stageName: "Soobin Hoàng Sơn",
+        title: "Giá Như",
+        type: "Single",
+        genre: "Pop/Ballad",
+        streamed: "",
+        link: mp3Type[`NewReleases/GIA NHU - Soobin`],
+        lyric: "",
       },
       {
         id: `new_5`,
-        trackAvatar:
+        avatar:
           "https://i.scdn.co/image/ab67616d00001e02e75f76ad00f94ccc944a8bb7",
-        trackPerformer: "Vũ Phụng Tiên",
-        trackTitle: "Lệ Lưu Ly",
-        trackType: "Single",
-        trackGenre: "Pop",
-        trackLink:
-          mp3Type[`NewReleases/LỆ LƯU LY - VŨ PHỤNG TIÊN x DT TẬP RAP x DRUM7`],
+        stageName: "Vũ Phụng Tiên",
+        title: "Lệ Lưu Ly",
+        type: "Single",
+        genre: "Pop",
+        streamed: "",
+        link: mp3Type[
+          `NewReleases/LỆ LƯU LY - VŨ PHỤNG TIÊN x DT TẬP RAP x DRUM7`
+        ],
+        lyric: "",
       },
       {
         id: `new_6`,
-        trackAvatar:
+        avatar:
           "https://i.scdn.co/image/ab67616d0000b273838698485511bd9108fadadc",
-        trackPerformer: "Dua Lipa",
-        trackTitle: "New Rules",
-        trackType: "Single",
-        trackGenre: "Pop",
-        trackLink: mp3Type["NewReleases/NEW RULES - Dua Lipa"],
+        stageName: "Dua Lipa",
+        title: "New Rules",
+        type: "Single",
+        genre: "Pop",
+        streamed: "",
+        link: mp3Type["NewReleases/NEW RULES - Dua Lipa"],
+        lyric: "",
       },
       {
         id: `new_7`,
-        trackAvatar:
+        avatar:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsumY3LsuMpJX74-1mLf73QdeVgyFwrsDs8g&s",
-        trackPerformer: "Eminem",
-        trackTitle: "Rap God",
-        trackType: "Single",
-        trackGenre: "Rap/HipHop",
-        trackLink: mp3Type[`NewReleases/RAP GOD - Eminem (Explicit)`],
+        stageName: "Eminem",
+        title: "Rap God",
+        type: "Single",
+        genre: "Rap/HipHop",
+        streamed: "",
+        link: mp3Type[`NewReleases/RAP GOD - Eminem (Explicit)`],
+        lyric: "",
       },
     ];
   },
