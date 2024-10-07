@@ -52,7 +52,7 @@ function TrendingSongsBox({ tracks }) {
                 trackTitle: track.title,
                 trackPerformer: track.stageName,
               },
-              track.trackLink
+              track.link
             )
           }
           onPause={() => handlePause(track.id)}

@@ -44,10 +44,10 @@ function Searchbar() {
     ];
 
     const filteredResults = apiResults.filter((item) => {
-      if (item.trackTitle && item.trackPerformer) {
+      if (item.title && item.stageName) {
         return (
-          item.trackTitle.toLowerCase().includes(searchValue.toLowerCase()) ||
-          item.trackPerformer.toLowerCase().includes(searchValue.toLowerCase())
+          item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.stageName.toLowerCase().includes(searchValue.toLowerCase())
         );
       }
 
@@ -138,13 +138,13 @@ function Searchbar() {
                 {activeTitle === `Tracks` && (
                   <div className={cx("music-track")}>
                     {searchResult
-                      .filter((item) => item.trackTitle && item.trackPerformer)
+                      .filter((item) => item.title && item.stageName)
                       .map((item) => (
                         <MusicTrackItem
                           key={`track_${item.id}`}
-                          trackAvatar={item.trackAvatar}
-                          trackPerformer={item.trackPerformer}
-                          trackTitle={item.trackTitle}
+                          trackAvatar={item.avatar}
+                          trackPerformer={item.stageName}
+                          trackTitle={item.title}
                         />
                       ))}
                   </div>

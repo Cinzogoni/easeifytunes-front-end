@@ -371,7 +371,7 @@ const apiMusicMaker = {
             lyric: "",
           },
         ],
-        albums: "",
+        albums: [],
       },
       {
         id: 5,
@@ -484,7 +484,7 @@ const apiMusicMaker = {
             lyric: "",
           },
         ],
-        albums: "",
+        albums: [],
       },
       {
         id: 8,
