@@ -139,7 +139,7 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
                           className={cx("album-link")}
                           to={routesConfig.albumPage.replace(
                             `:albumName`,
-                            album.albumName
+                            album.albumName.replace(/\//g, "-")
                           )}
                         />
 

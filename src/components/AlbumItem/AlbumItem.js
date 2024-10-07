@@ -8,7 +8,12 @@ const cx = classNames.bind(styles);
 function AlbumItem({ albumAvatar, albumName, albumPerformer }) {
   return (
     <div className={cx("wrapper")}>
-      <Link to={routesConfig.albumPage.replace(`:albumName`, albumName)}>
+      <Link
+        to={routesConfig.albumPage.replace(
+          `:albumName`,
+          albumName.replace(/\//g, "-")
+        )}
+      >
         <div className={cx("info-box")}>
           <img className={cx("avatar")} src={albumAvatar} alt={albumName} />
           <div>

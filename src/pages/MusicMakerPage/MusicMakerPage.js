@@ -1,14 +1,9 @@
-import classNames from "classnames/bind";
-import styles from "./MusicMakerPage.module.scss";
-
 import { useParams } from "react-router-dom";
 import { useTrackInfo } from "~/components/TrackInfoProvider";
 
 import Track from "~/components/Track";
 import MusicMakerInfo from "~/components/MusicMakerInfo";
 import MusicMakerList from "~/components/MusicMakerList";
-
-const cx = classNames.bind(styles);
 
 function MusicMakerPage() {
   const { musicMaker } = useTrackInfo();
