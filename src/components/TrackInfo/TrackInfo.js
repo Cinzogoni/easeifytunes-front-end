@@ -22,12 +22,12 @@ function TrackInfo({
   link,
   avatar,
   title,
-  childStageName,
+  stageName,
   type,
   genre,
   releaseDay,
   streamed,
-  mainStageName,
+  mainMusicMaker,
 }) {
   const { currentTrackId, handlePlay, handlePause } = useAudioPlayer();
 
@@ -37,7 +37,7 @@ function TrackInfo({
         <Link
           to={routesConfig.musicMakerPage.replace(
             `:stageName`,
-            mainStageName.replace(/,/g, "-")
+            mainMusicMaker.replace(/,/g, "-")
           )}
         >
           <FontAwesomeIcon className={cx("arrow-left")} icon={faArrowLeft} />
@@ -48,7 +48,7 @@ function TrackInfo({
         <img className={cx("avatar")} src={avatar} alt={title} />
         <div className={cx("info")}>
           <h3 className={cx("title")}>{title}</h3>
-          <h4 className={cx("performer")}>{childStageName}</h4>
+          <h4 className={cx("performer")}>{stageName}</h4>
           <h5 className={cx("type")}>{type}</h5>
           <h5 className={cx("genre")}>{genre}</h5>
           <h5 className={cx("release-day")}>Release day: {releaseDay}</h5>
@@ -75,7 +75,7 @@ function TrackInfo({
             trackId={id}
             trackLink={link}
             trackTitle={title}
-            trackPerformer={childStageName}
+            trackPerformer={stageName}
             //
             isStatus={id === currentTrackId}
             onPlay={() =>
@@ -83,7 +83,7 @@ function TrackInfo({
                 id,
                 {
                   trackTitle: title,
-                  trackPerformer: childStageName,
+                  trackPerformer: stageName,
                 },
                 link
               )

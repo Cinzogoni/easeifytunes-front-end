@@ -13,6 +13,7 @@ const apiMusicMaker = {
             avatar:
               "https://photo-resize-zmp3.zmdcdn.me/w256_r1x1_jpeg/avatars/1/5/a/e/15ae72f637fd1d941a934b3edcf1ac39.jpg",
             title: "Trời Cho",
+            mainMusicMaker: "Suboi",
             stageName: "Suboi",
             type: "Single",
             genre: "Rap/HipHop",
@@ -26,6 +27,7 @@ const apiMusicMaker = {
             avatar:
               "https://static.tuoitre.vn/tto/i/s626/2016/03/10/suboi-doi-mv-1457581497.jpg",
             title: "Đời",
+            mainMusicMaker: "Suboi",
             stageName: "Suboi",
             type: "Single",
             genre: "Rap/HipHop",
@@ -39,6 +41,7 @@ const apiMusicMaker = {
             avatar:
               "https://bloganchoi.com/wp-content/uploads/2024/03/loi-bai-hat-dau-thien-ha-lyric-suboi-1-696x696.jpg",
             title: "Dâu Thiên Hạ",
+            mainMusicMaker: "Suboi",
             stageName: "Suboi",
             type: "Single",
             genre: "Rap/HipHop",
@@ -60,6 +63,7 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe01",
                 title: "Công",
+                mainMusicMaker: "Suboi",
                 stageName: "Suboi",
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
@@ -71,6 +75,7 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe02",
                 title: "Cho Không",
+                mainMusicMaker: "Suboi",
                 stageName: "Suboi",
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
@@ -82,6 +87,7 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe03",
                 title: "N-Sap?",
+                mainMusicMaker: "Suboi",
                 stageName: "Suboi",
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
@@ -93,6 +99,7 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe04",
                 title: "Sickerrr",
+                mainMusicMaker: "Suboi",
                 stageName: "Suboi",
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
@@ -104,6 +111,7 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe05",
                 title: "Best Friend",
+                mainMusicMaker: "Suboi",
                 stageName: "Suboi",
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
@@ -115,6 +123,7 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe06",
                 title: "Bet On Me",
+                mainMusicMaker: "Suboi",
                 stageName: "Suboi",
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
@@ -126,6 +135,7 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe07",
                 title: "Lava",
+                mainMusicMaker: "Suboi",
                 stageName: "Suboi",
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
@@ -137,6 +147,7 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe08",
                 title: "Ngày Lại Ngày",
+                mainMusicMaker: "Suboi",
                 stageName: "Suboi",
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
@@ -148,6 +159,7 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe09",
                 title: "Diều",
+                mainMusicMaker: "Suboi",
                 stageName: "Suboi",
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
@@ -159,6 +171,7 @@ const apiMusicMaker = {
               {
                 id: "su_NoNe10",
                 title: "Công (Dance Remix)",
+                mainMusicMaker: "Suboi",
                 stageName: "Suboi",
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
@@ -183,6 +196,7 @@ const apiMusicMaker = {
             avatar:
               "https://avatar-ex-swe.nixcdn.com/song/2022/06/22/2/2/2/d/1655865432491_640.jpg",
             title: "Lạc",
+            mainMusicMaker: "Rhymastic",
             stageName: "Rhymastic",
             type: "Single",
             genre: "RapHipHop",
@@ -196,6 +210,7 @@ const apiMusicMaker = {
             avatar:
               "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/covers/6/d/6d9bfab656c9be37b3ef972b8c9dd291_1503659621.jpg",
             title: "Treasure",
+            mainMusicMaker: "Rhymastic",
             stageName: "Rhymastic",
             type: "Single",
             genre: "Pop",
@@ -217,6 +232,7 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov601",
                 title: "Y6U",
+                mainMusicMaker: "Rhymastic",
                 stageName: "Rhymastic",
                 type: "Album - LOV6",
                 genre: "RnB",
@@ -228,6 +244,7 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov602",
                 title: "Lía La Lía Lo",
+                mainMusicMaker: "Rhymastic",
                 stageName: "Rhymastic",
                 type: "Album - LOV6",
                 genre: "Pop",
@@ -239,6 +256,7 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov603",
                 title: "Side Effects",
+                mainMusicMaker: "Rhymastic",
                 stageName: "Rhymastic",
                 type: "Album - LOV6",
                 genre: "RnB/HipHop",
@@ -250,6 +268,7 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov604",
                 title: "Ngổn Ngang",
+                mainMusicMaker: "Rhymastic",
                 stageName: "Rhymastic",
                 type: "Album - LOV6",
                 genre: "RnB",
@@ -261,6 +280,7 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov605",
                 title: "Vẫn Yêu",
+                mainMusicMaker: "Rhymastic",
                 stageName: "Rhymastic",
                 type: "Album - LOV6",
                 genre: "RnB",
@@ -272,6 +292,7 @@ const apiMusicMaker = {
               {
                 id: "rhym_Lov606",
                 title: "Thêm Đứa Nữa",
+                mainMusicMaker: "Rhymastic",
                 stageName: "Rhymastic",
                 type: "Album - LOV6",
                 genre: "Electro-disco",
@@ -295,6 +316,7 @@ const apiMusicMaker = {
             id: "min_Ghen",
             avatar:
               "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/covers/d/0/d05f9b3c87cf7ccda468174b28757489_1495770525.jpg",
+            mainMusicMaker: "MIN",
             stageName: "KHẮC HƯNG x MIN x ERIK",
             title: "Ghen",
             type: "Single",
@@ -317,6 +339,7 @@ const apiMusicMaker = {
               {
                 id: "min_505001",
                 title: "",
+                mainMusicMaker: "MIN",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -340,6 +363,7 @@ const apiMusicMaker = {
             avatar:
               "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/1/4/1/b/141b9f990d714085e3a23fd8a42be625.jpg",
             title: "Get It",
+            mainMusicMaker: "Touliver",
             stageName: "Touliver x Nimbia",
             type: "Single",
             genre: "Dance",
@@ -362,6 +386,7 @@ const apiMusicMaker = {
             id: "jshe_DontAsk",
             avatar: "https://i.ytimg.com/vi/tRa3fOlnN7k/maxresdefault.jpg",
             title: "Don't Ask (別問很可怕)",
+            mainMusicMaker: "J.Sheon",
             stageName: "J.Sheon",
             type: "Single",
             genre: "RnB Soul",
@@ -385,6 +410,7 @@ const apiMusicMaker = {
             avatar:
               "https://i.scdn.co/image/ab67616d0000b273de342f1d1fc6c3de3f6e5d1e",
             title: "Spinning World",
+            mainMusicMaker: "Perfume",
             stageName: "Perfume",
             type: "Single",
             genre: "Electronic",
@@ -406,6 +432,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
+                mainMusicMaker: "Perfume",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -430,6 +457,7 @@ const apiMusicMaker = {
             avatar:
               "https://images.genius.com/ea9cd6fef54ecdc755d6b10be33fda43.1000x1000x1.png",
             title: "Animal Farm (가면무도회)",
+            mainMusicMaker: "BIBI",
             stageName: "BIBI",
             type: "Single",
             genre: "Pop",
@@ -451,6 +479,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
+                mainMusicMaker: "BIBI",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -475,6 +504,7 @@ const apiMusicMaker = {
             avatar:
               "https://photo-resize-zmp3.zmdcdn.me/w256_r1x1_jpeg/cover/e/d/0/7/ed0741228ad36870e13624120474e50a.jpg",
             title: "Sau lời từ khước",
+            mainMusicMaker: "Phan Mạnh Quỳnh",
             stageName: "Phan Mạnh Quỳnh",
             type: "Single",
             genre: "Pop/Ballad",
@@ -497,6 +527,7 @@ const apiMusicMaker = {
             avatar:
               "https://upload.wikimedia.org/wikipedia/en/1/15/Eminem_Killshot.jpg",
             title: "KILLSHOT",
+            mainMusicMaker: "Eminem",
             stageName: "Eminem",
             type: "Single",
             genre: "Rap/HipHop",
@@ -538,6 +569,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
+                mainMusicMaker: "Eminem",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -559,6 +591,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
+                mainMusicMaker: "Eminem",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -580,6 +613,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
+                mainMusicMaker: "Eminem",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -601,6 +635,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
+                mainMusicMaker: "Eminem",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -622,6 +657,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
+                mainMusicMaker: "Eminem",
                 stageName: "",
                 type: "",
                 genre: "",

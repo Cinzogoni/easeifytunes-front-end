@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 function TrackPage() {
   const { newReleases, trendingSongs, musicMaker } = useTrackInfo();
-  const { trackTitle, stageName } = useParams();
+  const { trackTitle } = useParams();
 
   const allTrack = [
     ...newReleases,
@@ -27,18 +27,15 @@ function TrackPage() {
   const link = track && track.link ? track.link : "";
   const avatar = track && track.avatar ? track.avatar : "";
   const title = track && track.title ? track.title : "";
-  const childStageName = track && track.stageName ? track.stageName : "";
+  const stageName = track && track.stageName ? track.stageName : "";
+  const mainMusicMaker =
+    track && track.mainMusicMaker ? track.mainMusicMaker : "";
   const type = track && track.type ? track.type : "";
   const genre = track && track.genre ? track.genre : "";
   const releaseDay = track && track.releaseDay ? track.releaseDay : "";
   const streamed = track && track.streamed ? track.streamed : "";
 
   const lyrics = track && track.lyric ? track.lyric.split("\n") : "";
-
-  const allStageName = [...musicMaker];
-  const musicMakerName = allStageName.find((t) => t.stageName === stageName);
-  const mainStageName =
-    musicMakerName && musicMakerName.stageName ? musicMakerName.stageName : "";
 
   return (
     <Track
@@ -48,12 +45,12 @@ function TrackPage() {
           link={link}
           avatar={avatar}
           title={title}
-          childStageName={childStageName}
+          stageName={stageName}
           type={type}
           genre={genre}
           releaseDay={releaseDay}
           streamed={streamed}
-          mainStageName={mainStageName}
+          mainMusicMaker={mainMusicMaker}
         />
       }
       list={
