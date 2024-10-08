@@ -177,21 +177,15 @@ function Searchbar() {
                 {activeTitle === `Podcast` && (
                   <div className={cx("podcast")}>
                     {searchResult
-                      .filter(
-                        (item) =>
-                          item.audios && item.topic && item.audios.length > 0
-                      )
-                      .map((podcastItem) =>
-                        podcastItem.audios.map((audio) => (
-                          <PodcastItem
-                            key={`podcast_${audio.id}`}
-                            podcastAvatar={audio.avatar}
-                            podcastPerformer={audio.performer}
-                            podcastTitle={audio.title}
-                            podcastTopic={podcastItem.topic}
-                          />
-                        ))
-                      )}
+                      .filter((item) => item.topic && item.description)
+                      .map((item) => (
+                        <PodcastItem
+                          key={`podcast_${item.id}`}
+                          podcastAvatar={item.avatar}
+                          podcastTopic={item.topic}
+                          podcastDescription={item.description}
+                        />
+                      ))}
                   </div>
                 )}
               </WrapperPopper>

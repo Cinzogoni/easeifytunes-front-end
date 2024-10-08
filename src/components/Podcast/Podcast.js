@@ -137,6 +137,7 @@ function Podcast() {
                       podcastId={`podcast_${podcast.id}`}
                       podcastAvatar={podcast.avatar}
                       podcastTopic={podcast.topic}
+                      podcastDescription={podcast.description}
                     />
                   </div>
                 </div>

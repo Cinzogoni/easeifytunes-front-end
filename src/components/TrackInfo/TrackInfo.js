@@ -2,6 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./TrackInfo.module.scss";
 
 import { useAudioPlayer } from "../AudioPlayerProvider";
+import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,7 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import Player from "../Player";
-import Navigation from "../Navigation";
+import routesConfig from "~/config/routes";
 
 const cx = classNames.bind(styles);
 
@@ -21,28 +22,36 @@ function TrackInfo({
   link,
   avatar,
   title,
-  stageName,
+  childStageName,
   type,
   genre,
+  releaseDay,
   streamed,
+  mainStageName,
 }) {
   const { currentTrackId, handlePlay, handlePause } = useAudioPlayer();
 
   return (
     <div className={cx("wrapper")}>
-      <div className={cx("back-home")}>
-        <Navigation>
+      <div className={cx("back")}>
+        <Link
+          to={routesConfig.musicMakerPage.replace(
+            `:stageName`,
+            mainStageName.replace(/,/g, "-")
+          )}
+        >
           <FontAwesomeIcon className={cx("arrow-left")} icon={faArrowLeft} />
-        </Navigation>
+        </Link>
       </div>
 
       <div className={cx("container")}>
         <img className={cx("avatar")} src={avatar} alt={title} />
         <div className={cx("info")}>
           <h3 className={cx("title")}>{title}</h3>
-          <h4 className={cx("performer")}>{stageName}</h4>
+          <h4 className={cx("performer")}>{childStageName}</h4>
           <h5 className={cx("type")}>{type}</h5>
           <h5 className={cx("genre")}>{genre}</h5>
+          <h5 className={cx("release-day")}>Release day: {releaseDay}</h5>
 
           <div className={cx("more")}>
             <div className={cx("streams")}>
@@ -66,7 +75,7 @@ function TrackInfo({
             trackId={id}
             trackLink={link}
             trackTitle={title}
-            trackPerformer={stageName}
+            trackPerformer={childStageName}
             //
             isStatus={id === currentTrackId}
             onPlay={() =>
@@ -74,7 +83,7 @@ function TrackInfo({
                 id,
                 {
                   trackTitle: title,
-                  trackPerformer: stageName,
+                  trackPerformer: childStageName,
                 },
                 link
               )
@@ -84,9 +93,15 @@ function TrackInfo({
             waveformBoxFooter
             frameTrackInfoResize
             playerTrackInfoResize
+            loopTrackInfo
+            loopBGTrackInfo
+            pauseTrackInfo
+            pauseBGTrackInfo
             playerTrackInfo
+            playIconTrackInfo
             playFooterIcon
             stopperTrackInfo
+            stopIconTrackInfo
             stopFooterIcon
             playtimeTrackInfo
             actionTrackInfoLeft
@@ -96,6 +111,7 @@ function TrackInfo({
             nextTrackInfo
             volumeBarTrackInfo
             volumeBGTrackInfo
+            volumeIconTrackInfo
           />
         </div>
       </div>

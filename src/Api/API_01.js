@@ -6,6 +6,7 @@ const apiPodcast = {
         avatar:
           "https://png.pngtree.com/background/20240411/original/pngtree-bumper-stickers-and-graffiti-on-the-street-art-harajuku-district-social-picture-image_8455571.jpg",
         topic: "Social Issues",
+        description: "Multiple Authors",
         audios: [
           {
             id: 0,
@@ -20,8 +21,74 @@ const apiPodcast = {
       {
         id: 1,
         avatar:
+          "https://5minuteenglish.com/wp-content/uploads/2024/03/Popular-Culture.webp",
+        topic: "Pop Culture",
+        description: "Multiple Authors",
+        audios: [
+          {
+            id: 0,
+            avatar: "",
+            performer: "",
+            title: "",
+            link: "",
+          },
+        ],
+      },
+      {
+        id: 2,
+        avatar:
+          "https://jobsgo.vn/blog/wp-content/uploads/2023/11/business-la-gi.jpg",
+        topic: "Business",
+        description: "Multiple Authors",
+        audios: [
+          {
+            id: 0,
+            avatar: "",
+            performer: "",
+            title: "",
+            link: "",
+          },
+        ],
+      },
+      {
+        id: 3,
+        avatar:
+          "https://www.catholicnewsagency.com/storage/image/religions.png?jpg",
+        topic: "Religion",
+        description: "Multiple Authors",
+        audios: [
+          {
+            id: 0,
+            avatar: "",
+            performer: "",
+            title: "",
+            link: "",
+          },
+        ],
+      },
+      {
+        id: 4,
+        avatar:
+          "https://i.ytimg.com/vi/pP21uLrTOd4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBlcDcBiUgvDxZt0DDZycc28388RQ",
+        topic: "Psychology",
+        description: "Multiple Authors",
+        audios: [
+          {
+            id: 0,
+            avatar: "",
+            performer: "",
+            title: "",
+            link: "",
+          },
+        ],
+      },
+
+      {
+        id: 5,
+        avatar:
           "https://img.freepik.com/free-photo/concept-audiobook-books-table-with-headphones-put-them_1423-146.jpg",
         topic: "AudioBook",
+        description: "Multiple Authors",
         audios: [
           {
             id: 0,
@@ -34,10 +101,11 @@ const apiPodcast = {
         ],
       },
       {
-        id: 2,
+        id: 6,
         avatar:
           "https://live365.com/blog/content/images/2021/10/Audio-drama-graphic.jpeg",
         topic: "AudioDrama",
+        description: "Multiple Authors",
         audios: [
           {
             id: 0,
@@ -49,10 +117,11 @@ const apiPodcast = {
         ],
       },
       {
-        id: 2,
+        id: 7,
         avatar:
           "https://thumbs.dreamstime.com/b/storytelling-word-cloud-old-slate-blackboard-scratches-white-chalk-smudges-70732212.jpg",
         topic: "Narrative Storytelling",
+        description: "Multiple Authors",
         audios: [
           {
             id: 0,

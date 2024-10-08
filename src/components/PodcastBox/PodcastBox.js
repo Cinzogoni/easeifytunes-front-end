@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
-function Podcast({ podcastAvatar, podcastTopic }) {
+function Podcast({ podcastAvatar, podcastTopic, podcastDescription }) {
   return (
     <div className={cx("container")}>
       <Link
@@ -20,6 +20,7 @@ function Podcast({ podcastAvatar, podcastTopic }) {
 
       <div className={cx("desc")}>
         <h5 className={cx("podcast-name")}>{podcastTopic}</h5>
+        <h6 className={cx("podcast-desc")}>{podcastDescription}</h6>
       </div>
     </div>
   );

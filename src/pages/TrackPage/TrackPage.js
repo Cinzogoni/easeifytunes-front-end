@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 
 function TrackPage() {
   const { newReleases, trendingSongs, musicMaker } = useTrackInfo();
-  const { trackTitle } = useParams();
+  const { trackTitle, stageName } = useParams();
 
   const allTrack = [
     ...newReleases,
@@ -23,16 +23,22 @@ function TrackPage() {
   ];
   const track = allTrack.find((t) => t.title === trackTitle);
 
-  const id = track && track.id ? track.id : [];
-  const link = track && track.link ? track.link : [];
-  const avatar = track && track.avatar ? track.avatar : [];
-  const title = track && track.title ? track.title : [];
-  const stageName = track && track.stageName ? track.stageName : [];
-  const type = track && track.type ? track.type : [];
-  const genre = track && track.genre ? track.genre : [];
-  const streamed = track && track.streamed ? track.streamed : [];
+  const id = track && track.id ? track.id : "";
+  const link = track && track.link ? track.link : "";
+  const avatar = track && track.avatar ? track.avatar : "";
+  const title = track && track.title ? track.title : "";
+  const childStageName = track && track.stageName ? track.stageName : "";
+  const type = track && track.type ? track.type : "";
+  const genre = track && track.genre ? track.genre : "";
+  const releaseDay = track && track.releaseDay ? track.releaseDay : "";
+  const streamed = track && track.streamed ? track.streamed : "";
 
-  const lyrics = track && track.lyric ? track.lyric.split("\n") : [];
+  const lyrics = track && track.lyric ? track.lyric.split("\n") : "";
+
+  const allStageName = [...musicMaker];
+  const musicMakerName = allStageName.find((t) => t.stageName === stageName);
+  const mainStageName =
+    musicMakerName && musicMakerName.stageName ? musicMakerName.stageName : "";
 
   return (
     <Track
@@ -42,10 +48,12 @@ function TrackPage() {
           link={link}
           avatar={avatar}
           title={title}
-          stageName={stageName}
+          childStageName={childStageName}
           type={type}
           genre={genre}
+          releaseDay={releaseDay}
           streamed={streamed}
+          mainStageName={mainStageName}
         />
       }
       list={

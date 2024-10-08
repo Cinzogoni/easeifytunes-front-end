@@ -60,10 +60,17 @@ function Player({
   actionTrackInfoRight,
   prevTrackInfo,
   nextTrackInfo,
+  loopTrackInfo,
+  loopBGTrackInfo,
+  pauseTrackInfo,
+  pauseBGTrackInfo,
   playerTrackInfo,
+  playIconTrackInfo,
   stopperTrackInfo,
+  stopIconTrackInfo,
   volumeBarTrackInfo,
   volumeBGTrackInfo,
+  volumeIconTrackInfo,
 }) {
   const {
     playerRefs,
@@ -333,7 +340,7 @@ function Player({
           </div>
 
           <div
-            className={cx("loopTrack-bg")}
+            className={cx("loopTrack-bg", { loopBGTrackInfo })}
             onClick={handleLoopClick}
             style={{
               backgroundColor:
@@ -351,11 +358,14 @@ function Player({
                   : "rotate(0deg)",
             }}
           >
-            <FontAwesomeIcon className={cx("actions-footer")} icon={faRotate} />
+            <FontAwesomeIcon
+              className={cx("actions-footer", { loopTrackInfo })}
+              icon={faRotate}
+            />
           </div>
 
           <div
-            className={cx("stopClick-bg")}
+            className={cx("stopClick-bg", { pauseBGTrackInfo })}
             onClick={handleStopClick}
             style={{
               backgroundColor:
@@ -368,7 +378,10 @@ function Player({
                   : "1px solid transparent",
             }}
           >
-            <FontAwesomeIcon className={cx("actions-footer")} icon={faPause} />
+            <FontAwesomeIcon
+              className={cx("actions-footer", { pauseTrackInfo })}
+              icon={faPause}
+            />
           </div>
 
           <div className={cx("prevTrack-bg", { prevTrackInfo })}>
@@ -391,7 +404,12 @@ function Player({
           >
             <div className={cx("play-box")}>
               <FontAwesomeIcon
-                className={cx("play", { playIcon }, { playFooterIcon })}
+                className={cx(
+                  "play",
+                  { playIcon },
+                  { playFooterIcon },
+                  { playIconTrackInfo }
+                )}
                 icon={faPlay}
               />
             </div>
@@ -410,7 +428,12 @@ function Player({
           >
             <div className={cx("stop-box")}>
               <FontAwesomeIcon
-                className={cx("stop", { stopIcon }, { stopFooterIcon })}
+                className={cx(
+                  "stop",
+                  { stopIcon },
+                  { stopFooterIcon },
+                  { stopIconTrackInfo }
+                )}
                 icon={faStop}
               />
             </div>
@@ -434,7 +457,7 @@ function Player({
 
           <div className={cx("volume-bg", { volumeBGTrackInfo })}>
             <FontAwesomeIcon
-              className={cx("actions-footer")}
+              className={cx("actions-footer", { volumeIconTrackInfo })}
               icon={faVolumeHigh}
             />
           </div>
