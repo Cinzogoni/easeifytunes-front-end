@@ -70,12 +70,13 @@ function PodcastViewAll() {
               <div className={cx("search-result")} tabIndex={-1} {...attrs}>
                 <WrapperPopper>
                   {searchResult
-                    .filter((item) => item.topic)
+                    .filter((item) => item.topic && item.description)
                     .map((item) => (
                       <PodcastItem
-                        key={item.id}
+                        key={`podcast_${item.id}`}
                         podcastAvatar={item.avatar}
                         podcastTopic={item.topic}
+                        podcastDescription={item.description}
                       />
                     ))}
                 </WrapperPopper>
@@ -105,11 +106,11 @@ function PodcastViewAll() {
       </div>
 
       <div className={cx("container")}>
-        <Navigation>
-          <div className={cx("back-home")}>
+        <div className={cx("back-home")}>
+          <Navigation>
             <FontAwesomeIcon className={cx("arrow-left")} icon={faArrowLeft} />
-          </div>
-        </Navigation>
+          </Navigation>
+        </div>
 
         <div className={cx("podcast-box")}>
           <GridSystem rowClass={cx("row-1")}>
@@ -130,6 +131,7 @@ function PodcastViewAll() {
                       podcastId={`podcast_${podcast.id}`}
                       podcastAvatar={podcast.avatar}
                       podcastTopic={podcast.topic}
+                      podcastDescription={podcast.description}
                     />
                   </div>
                 </div>

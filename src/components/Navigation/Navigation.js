@@ -33,7 +33,7 @@ function Navigation({ id, children }) {
 
   return (
     <Link to={linkTo} key={id}>
-      <button className={cx("link")}>{children}</button>
+      {children}
     </Link>
   );
 }

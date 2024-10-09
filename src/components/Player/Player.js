@@ -71,6 +71,9 @@ function Player({
   volumeBarTrackInfo,
   volumeBGTrackInfo,
   volumeIconTrackInfo,
+  //Single Tracks
+  frameSingleTracks,
+  playerSingleTracks,
 }) {
   const {
     playerRefs,
@@ -245,7 +248,8 @@ function Player({
         },
         { frameResize },
         { frameFooterResize },
-        { frameTrackInfoResize }
+        { frameTrackInfoResize },
+        { frameSingleTracks }
       )}
     >
       {/* AudioPlayer Footer */}
@@ -302,7 +306,8 @@ function Player({
           "player",
           { playerResize },
           { playerFooterResize },
-          { playerTrackInfoResize }
+          { playerTrackInfoResize },
+          { playerSingleTracks }
         )}
       >
         {isStatus && !isTrackEnded && (

@@ -2,6 +2,8 @@ import classNames from "classnames/bind";
 import styles from "./MusicMakerList.module.scss";
 
 import { useState, useEffect } from "react";
+import { useAudioPlayer } from "../AudioPlayerProvider";
+import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,13 +15,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import GridSystem from "../GridSystem";
+import Player from "../Player";
 
-import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
 
 const cx = classNames.bind(styles);
 
 function MusicMakerList({ musicAlbums, musicSingles }) {
+  const { currentTrackId, handlePlay, handlePause, listeners } =
+    useAudioPlayer();
+
   const [width, setWidth] = useState(window.innerWidth);
   const [scrollIndex, setScrollIndex] = useState(0);
   const [activeMove, setActiveMove] = useState(null);
@@ -170,13 +175,40 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
 
         <div className={cx("single-tracks")}>
           <h2 className={cx("title")}>Single Tracks</h2>
+
           {musicSingles.map((single) => (
             <div className={cx("track-box")} key={single.id}>
-              <img
-                className={cx("track-avatar")}
-                src={single.avatar}
-                alt={single.title}
-              />
+              <div className={cx("player")}>
+                <img
+                  className={cx("track-avatar")}
+                  src={single.avatar}
+                  alt={single.title}
+                />
+                <Player
+                  trackId={single.id}
+                  trackLink={single.link}
+                  trackAvatar={single.avatar}
+                  trackTitle={single.title}
+                  trackPerformer={single.stageName}
+                  trackType={single.type}
+                  //
+                  isStatus={single.id === currentTrackId}
+                  onPlay={() =>
+                    handlePlay(
+                      single.id,
+                      {
+                        trackTitle: single.title,
+                        trackPerformer: single.stageName,
+                      },
+                      single.link
+                    )
+                  }
+                  onPause={() => handlePause(single.id)}
+                  //
+                  frameSingleTracks
+                  playerSingleTracks
+                />
+              </div>
 
               <div className={cx("track-info")}>
                 <Link

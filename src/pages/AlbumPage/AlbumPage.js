@@ -1,13 +1,12 @@
 import classNames from "classnames/bind";
 import styles from "./AlbumPage.module.scss";
+import Track from "~/components/Track";
+import AlbumInfo from "~/components/AlbumInfo";
+import AlbumList from "~/components/AlbumList";
 
 const cx = classNames.bind(styles);
 function AlbumPage() {
-  return (
-    <div className={cx("wrapper")}>
-      <h1>Album Page</h1>
-    </div>
-  );
+  return <Track info={<AlbumInfo />} list={<AlbumList />} />;
 }
 
 export default AlbumPage;

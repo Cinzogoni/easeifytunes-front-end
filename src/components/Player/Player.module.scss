@@ -196,17 +196,23 @@ audio {
 
 // Trending Songs
 .frameResize {
-  width: 381px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
+  top: 25px;
+  left: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: translate(-191px, -119px);
 }
 
 .playerResize {
   width: 50px;
-  left: 8px;
+  height: 50px;
+  top: 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .playBtn {
@@ -229,12 +235,10 @@ audio {
   margin: 0 auto;
   width: 36px;
   height: 36px;
+  left: -11px;
   border: var(--main-border);
   border-radius: 999px;
   background-color: var(--main-move-color);
-  top: 100%;
-  left: -22%;
-  transform: translate(50%, -100%);
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
@@ -690,4 +694,21 @@ audio {
     height: 50px;
     transform: translate(0px, 2px);
   }
+}
+
+//Single Tracks
+.frameSingleTracks {
+  position: absolute;
+  top: 34px;
+  left: 36px;
+  width: 60px;
+  height: 60px;
+}
+
+.playerSingleTracks {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 60px;
+  height: 60px;
 }

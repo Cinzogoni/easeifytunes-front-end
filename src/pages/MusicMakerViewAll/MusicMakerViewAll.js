@@ -109,11 +109,11 @@ function MusicMakerViewAll() {
       </div>
 
       <div className={cx("container")}>
-        <Navigation>
-          <div className={cx("back-home")}>
+        <div className={cx("back-home")}>
+          <Navigation>
             <FontAwesomeIcon className={cx("arrow-left")} icon={faArrowLeft} />
-          </div>
-        </Navigation>
+          </Navigation>
+        </div>
 
         <div className={cx("musicMaker-box")}>
           <GridSystem rowClass={cx("row-1")}>

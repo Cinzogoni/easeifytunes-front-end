@@ -27,36 +27,36 @@ function TrendingSongsBox({ tracks }) {
             src={track.avatar}
             alt={track.stageName}
           />
-        </div>
 
-        <Player
-          frameResize
-          playerResize
-          playBtn
-          playIcon
-          stopBtn
-          stopIcon
-          waveformBox
-          //
-          trackId={track.id}
-          trackLink={track.link}
-          trackTitle={track.title}
-          trackPerformer={track.stageName}
-          trackType={track.type}
-          //
-          isStatus={track.id === currentTrackId}
-          onPlay={() =>
-            handlePlay(
-              track.id,
-              {
-                trackTitle: track.title,
-                trackPerformer: track.stageName,
-              },
-              track.link
-            )
-          }
-          onPause={() => handlePause(track.id)}
-        />
+          <Player
+            frameResize
+            playerResize
+            playBtn
+            playIcon
+            stopBtn
+            stopIcon
+            waveformBox
+            //
+            trackId={track.id}
+            trackLink={track.link}
+            trackTitle={track.title}
+            trackPerformer={track.stageName}
+            trackType={track.type}
+            //
+            isStatus={track.id === currentTrackId}
+            onPlay={() =>
+              handlePlay(
+                track.id,
+                {
+                  trackTitle: track.title,
+                  trackPerformer: track.stageName,
+                },
+                track.link
+              )
+            }
+            onPause={() => handlePause(track.id)}
+          />
+        </div>
 
         <div className={cx("info")}>
           <h4 className={cx("title")}>{track.title}</h4>

@@ -5,10 +5,6 @@
   overflow-y: auto;
   overflow-x: auto;
 
-  border: var(--main-border);
-  border-radius: var(--main-border-radius);
-  background-image: var(--parent-background-color);
-
   &::-webkit-scrollbar {
     width: 3px;
   }
@@ -33,6 +29,10 @@
   height: 100vh;
   max-height: calc(100vh - 224px);
   margin: 0 auto;
+
+  border: var(--main-border);
+  border-radius: var(--main-border-radius);
+  background-image: var(--parent-background-color);
 }
 
 .video-box {
