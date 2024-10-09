@@ -58,7 +58,7 @@ const apiMusicMaker = {
               "https://www.elle.vn/wp-content/uploads/2021/07/23/443917/suboi-va-album-no-ne-2.jpg",
             albumPerformer: "Suboi",
             albumName: "No Nê",
-            releaseDay: "",
+            releaseDay: "2023-10-25",
             tracks: [
               {
                 id: "su_NoNe01",
@@ -527,7 +527,7 @@ const apiMusicMaker = {
             avatar:
               "https://upload.wikimedia.org/wikipedia/en/1/15/Eminem_Killshot.jpg",
             title: "KILLSHOT",
-            mainMusicMaker: "Eminem",
+            mainMusicMaker: "",
             stageName: "Eminem",
             type: "Single",
             genre: "Rap/HipHop",
@@ -569,7 +569,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
-                mainMusicMaker: "Eminem",
+                mainMusicMaker: "",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -591,7 +591,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
-                mainMusicMaker: "Eminem",
+                mainMusicMaker: "",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -613,7 +613,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
-                mainMusicMaker: "Eminem",
+                mainMusicMaker: "",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -635,7 +635,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
-                mainMusicMaker: "Eminem",
+                mainMusicMaker: "",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -657,7 +657,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
-                mainMusicMaker: "Eminem",
+                mainMusicMaker: "",
                 stageName: "",
                 type: "",
                 genre: "",

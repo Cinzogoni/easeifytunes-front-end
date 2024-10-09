@@ -77,8 +77,7 @@ const apiTest01 = {
       },
       {
         id: `trend_6`,
-        avatar:
-          "https://i.ytimg.com/vi/AI_-afRgwv0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDHO_ybMzpdU-EZM9RJMTQuYMHs1Q",
+        avatar: "https://i.ytimg.com/vi/ZR_91hXUR1s/maxresdefault.jpg",
         stageName: "Alexia",
         title: "Oh, This Love",
         type: "Single",

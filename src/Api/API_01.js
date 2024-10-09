@@ -53,7 +53,7 @@ const apiPodcast = {
       {
         id: 3,
         avatar:
-          "https://www.catholicnewsagency.com/storage/image/religions.png?jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMBRQpC4IK2F5gZ1HgGmo5NtScnUpvpLqNd8fxSetBmGqs2-G5h1uSzQapkB6FtD4TQ38&usqp=CAU",
         topic: "Religion",
         description: "Multiple Authors",
         audios: [
