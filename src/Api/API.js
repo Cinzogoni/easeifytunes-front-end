@@ -57,7 +57,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://www.elle.vn/wp-content/uploads/2021/07/23/443917/suboi-va-album-no-ne-2.jpg",
             albumPerformer: "Suboi",
-            albumName: "No Nê",
+            albumName: "Album - No Nê",
             releaseDay: "2023-10-25",
             tracks: [
               {
@@ -226,7 +226,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://i.scdn.co/image/ab67616d0000b273d98135e509a6271e6d1605a7",
             albumPerformer: "Rhymastic",
-            albumName: "LOV6 (EP)",
+            albumName: "Album - LOV6 (EP)",
             releaseDay: "",
             tracks: [
               {
@@ -333,7 +333,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://product.hstatic.net/1000304920/product/img_8111_fd368c181e0b461eba5c1b09c6626f84_master.jpg",
             albumPerformer: "MIN",
-            albumName: "50/50",
+            albumName: "Album - 50/50",
             releaseDay: "",
             tracks: [
               {
@@ -426,7 +426,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://draw.acharts.net/cover/80760-54d08c7965c19-l.jpg",
             albumPerformer: "Perfume",
-            albumName: "Level 3",
+            albumName: "Album - Level 3",
             releaseDay: "",
             tracks: [
               {
@@ -473,7 +473,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://cdns-images.dzcdn.net/images/cover/e237cedbbecf26c383d6a3e240408644/0x1900-000000-80-0-0.jpg",
             albumPerformer: "BIBI",
-            albumName: "Life is a Bi…",
+            albumName: "Album - Life is a Bi…",
             releaseDay: "",
             tracks: [
               {
@@ -543,7 +543,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwcAqv_T5ey2mfFEyLcXe3o7VASzb7K825OQ&s",
             albumPerformer: "Eminem",
-            albumName: "Infinite",
+            albumName: "Album - Infinite",
             releaseDay: "",
             tracks: [
               {
@@ -563,7 +563,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://upload.wikimedia.org/wikipedia/en/b/b4/Encore_%28Eminem_album%29_coverart.jpg",
             albumPerformer: "Eminem",
-            albumName: "Encore",
+            albumName: "Album - Encore",
             releaseDay: "",
             tracks: [
               {
@@ -585,7 +585,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvzhz649VDzgSfhxy-x5KfU4JjggfTe_tEJz0bIbhd3-paHNprUKcJI3Fe6ud-7lx0PJk&usqp=CAU",
             albumPerformer: "Eminem",
-            albumName: "The Eminem Show",
+            albumName: "Album - The Eminem Show",
             releaseDay: "",
             tracks: [
               {
@@ -607,7 +607,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmZ08XRYRtFkYAF1Cl9h8PqjEi67SfPBY7dA&s",
             albumPerformer: "Eminem",
-            albumName: "Relapse",
+            albumName: "Album - Relapse",
             releaseDay: "",
             tracks: [
               {
@@ -629,7 +629,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://upload.wikimedia.org/wikipedia/en/6/60/Recovery_Album_Cover.jpg",
             albumPerformer: "Eminem",
-            albumName: "Recovery",
+            albumName: "Album - Recovery",
             releaseDay: "",
             tracks: [
               {
@@ -651,7 +651,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrpMJozqst-MyDuXtBcQ6TYH3f_JrztdwTIIMfuw65eOdmnQhEv7hB3Dv4z743qk1rdyc&usqp=CAU",
             albumPerformer: "Eminem",
-            albumName: "Revival",
+            albumName: "Album - Revival",
             releaseDay: "",
             tracks: [
               {
