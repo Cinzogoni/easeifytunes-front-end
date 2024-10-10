@@ -14,15 +14,16 @@ function AlbumPage() {
   ];
 
   const findAlbum = allPerformer.find(
-    (t) => t.albumName === albumName || t.albumPerformer === albumPerformer
+    (t) => t.albumName === albumName && t.albumPerformer === albumPerformer
   );
 
-  const albumList = findAlbum ? findAlbum.tracks || [] : [];
+  const trackList = findAlbum ? findAlbum.tracks || [] : [];
+  const avatar = findAlbum ? findAlbum.albumAvatar || "" : "";
 
   return (
     <Track
       info={<AlbumInfo albumInfo={findAlbum} />}
-      list={<AlbumList trackList={albumList} />}
+      list={<AlbumList trackList={trackList} avatar={avatar} />}
     />
   );
 }

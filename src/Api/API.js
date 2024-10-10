@@ -1,3 +1,5 @@
+import mp3Type from "~/assets/audio/mp3Type";
+
 const apiMusicMaker = {
   getMusicMaker: () => {
     return [
@@ -14,12 +16,14 @@ const apiMusicMaker = {
               "https://photo-resize-zmp3.zmdcdn.me/w256_r1x1_jpeg/avatars/1/5/a/e/15ae72f637fd1d941a934b3edcf1ac39.jpg",
             title: "Trời Cho",
             mainMusicMaker: "Suboi",
-            stageName: "Suboi",
+            stageName: "Suboi ft. Touliver",
             type: "Single",
             genre: "Rap/HipHop",
             releaseDay: "",
             streamed: "2500",
-            link: "",
+            link: mp3Type[
+              `MusicMaker/Suboi/singletracks/Trời Cho feat Hoàng Touliver`
+            ],
             lyric: "",
           },
           {
@@ -33,7 +37,7 @@ const apiMusicMaker = {
             genre: "Rap/HipHop",
             releaseDay: "",
             streamed: "3522",
-            link: "",
+            link: mp3Type[`MusicMaker/Suboi/singletracks/Suboi  Đời`],
             lyric: "",
           },
           {
@@ -47,7 +51,7 @@ const apiMusicMaker = {
             genre: "Rap/HipHop",
             releaseDay: "",
             streamed: "2862",
-            link: "",
+            link: mp3Type[`MusicMaker/Suboi/singletracks/Suboi  Dâu Thiên Hạ`],
             lyric: "",
           },
         ],
@@ -69,7 +73,7 @@ const apiMusicMaker = {
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  CÔNG`],
                 lyric: "",
               },
               {
@@ -81,19 +85,19 @@ const apiMusicMaker = {
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi CHO KHÔNG`],
                 lyric: "",
               },
               {
                 id: "su_NoNe03",
-                title: "N-Sap?",
+                title: "N-Sao?",
                 mainMusicMaker: "Suboi",
                 stageName: "Suboi",
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  NSAO`],
                 lyric: "",
               },
               {
@@ -105,7 +109,7 @@ const apiMusicMaker = {
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  SICKERRR`],
                 lyric: "",
               },
               {
@@ -117,7 +121,9 @@ const apiMusicMaker = {
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Suboi/albums/NoNe/Suboi  Best Friend`
+                ],
                 lyric: "",
               },
               {
@@ -129,7 +135,7 @@ const apiMusicMaker = {
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  BET ON ME`],
                 lyric: "",
               },
               {
@@ -141,7 +147,7 @@ const apiMusicMaker = {
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  LAVA`],
                 lyric: "",
               },
               {
@@ -153,7 +159,9 @@ const apiMusicMaker = {
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Suboi/albums/NoNe/Suboi  NGÀY LẠI NGÀY`
+                ],
                 lyric: "",
               },
               {
@@ -165,7 +173,7 @@ const apiMusicMaker = {
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  DIỀU`],
                 lyric: "",
               },
               {
@@ -177,7 +185,9 @@ const apiMusicMaker = {
                 genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Suboi/albums/NoNe/Suboi CÔNG Dance Remix`
+                ],
                 lyric: "",
               },
             ],
@@ -296,53 +306,6 @@ const apiMusicMaker = {
                 stageName: "Rhymastic",
                 type: "Album - LOV6",
                 genre: "Electro-disco",
-                releaseDay: "",
-                streamed: "",
-                link: "",
-                lyric: "",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: 2,
-        avatar:
-          "https://pm1.aminoapps.com/6721/133a1fc95821719a9903e8188e872378217b1e63_hq.jpg",
-        stageName: "MIN",
-        role: "Singer",
-        singles: [
-          {
-            id: "min_Ghen",
-            avatar:
-              "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/covers/d/0/d05f9b3c87cf7ccda468174b28757489_1495770525.jpg",
-            mainMusicMaker: "MIN",
-            stageName: "KHẮC HƯNG x MIN x ERIK",
-            title: "Ghen",
-            type: "Single",
-            genre: "Pop",
-            releaseDay: "",
-            streamed: "1500",
-            link: "",
-            lyric: "",
-          },
-        ],
-        albums: [
-          {
-            id: 2,
-            albumAvatar:
-              "https://product.hstatic.net/1000304920/product/img_8111_fd368c181e0b461eba5c1b09c6626f84_master.jpg",
-            albumPerformer: "MIN",
-            albumName: "Album - 50/50",
-            releaseDay: "",
-            tracks: [
-              {
-                id: "min_505001",
-                title: "",
-                mainMusicMaker: "MIN",
-                stageName: "",
-                type: "",
-                genre: "",
                 releaseDay: "",
                 streamed: "",
                 link: "",
@@ -527,7 +490,7 @@ const apiMusicMaker = {
             avatar:
               "https://upload.wikimedia.org/wikipedia/en/1/15/Eminem_Killshot.jpg",
             title: "KILLSHOT",
-            mainMusicMaker: "",
+            mainMusicMaker: "Eminem",
             stageName: "Eminem",
             type: "Single",
             genre: "Rap/HipHop",
@@ -549,7 +512,9 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
-                performer: "",
+                mainMusicMaker: "Eminem",
+                stageName: "",
+                type: "",
                 genre: "",
                 releaseDay: "",
                 streamed: "",
@@ -569,7 +534,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
-                mainMusicMaker: "",
+                mainMusicMaker: "Eminem",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -591,7 +556,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
-                mainMusicMaker: "",
+                mainMusicMaker: "Eminem",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -613,7 +578,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
-                mainMusicMaker: "",
+                mainMusicMaker: "Eminem",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -635,7 +600,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
-                mainMusicMaker: "",
+                mainMusicMaker: "Eminem",
                 stageName: "",
                 type: "",
                 genre: "",
@@ -657,7 +622,7 @@ const apiMusicMaker = {
               {
                 id: "",
                 title: "",
-                mainMusicMaker: "",
+                mainMusicMaker: "Eminem",
                 stageName: "",
                 type: "",
                 genre: "",

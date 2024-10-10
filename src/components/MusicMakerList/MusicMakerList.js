@@ -22,8 +22,7 @@ import routesConfig from "~/config/routes";
 const cx = classNames.bind(styles);
 
 function MusicMakerList({ musicAlbums, musicSingles }) {
-  const { currentTrackId, handlePlay, handlePause, listeners } =
-    useAudioPlayer();
+  const { currentTrackId, handlePlay, handlePause } = useAudioPlayer();
 
   const [width, setWidth] = useState(window.innerWidth);
   const [scrollIndex, setScrollIndex] = useState(0);
@@ -142,10 +141,15 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
                       <div className={cx("album-frame")}>
                         <Link
                           className={cx("album-link")}
-                          to={routesConfig.albumPage.replace(
-                            `:albumName`,
-                            album.albumName.replace(/\//g, "-")
-                          )}
+                          to={routesConfig.albumPage
+                            .replace(
+                              `:albumPerformer`,
+                              album.albumPerformer.replace(/\//g, "-")
+                            )
+                            .replace(
+                              `:albumName`,
+                              album.albumName.replace(/\//g, "-")
+                            )}
                         />
 
                         <div className={cx("avatar-frame")}>
@@ -207,13 +211,17 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
                   //
                   frameSingleTracks
                   playerSingleTracks
+                  waveformBoxSingleTracks
+                  stopperSingleTracks
                 />
               </div>
 
               <div className={cx("track-info")}>
                 <Link
                   className={cx("single-link")}
-                  to={routesConfig.track.replace(`:trackTitle`, single.title)}
+                  to={routesConfig.track
+                    .replace(`:stageName`, single.stageName.replace(/\//g, "-"))
+                    .replace(`:trackTitle`, single.title.replace(/\//g, "-"))}
                 />
 
                 <h4 className={cx("track-title")}>{single.title}</h4>

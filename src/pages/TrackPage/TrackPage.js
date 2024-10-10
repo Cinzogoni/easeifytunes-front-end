@@ -11,23 +11,32 @@ const cx = classNames.bind(styles);
 
 function TrackPage() {
   const { newReleases, trendingSongs, musicMaker } = useTrackInfo();
-  const { trackTitle } = useParams();
+  const { stageName, trackTitle } = useParams();
 
   const allTrack = [
     ...newReleases,
     ...trendingSongs,
     ...musicMaker.flatMap((maker) => [
       ...(maker.singles || []),
-      ...maker.albums.flatMap((album) => album.tracks || []),
+      ...maker.albums.flatMap((album) =>
+        album.tracks.map((track) => ({
+          ...track,
+          albumAvatar: album.albumAvatar,
+        }))
+      ),
     ]),
   ];
-  const track = allTrack.find((t) => t.title === trackTitle);
+
+  const track = allTrack.find(
+    (t) => t.stageName === stageName && t.title === trackTitle
+  );
 
   const id = track && track.id ? track.id : "";
   const link = track && track.link ? track.link : "";
-  const avatar = track && track.avatar ? track.avatar : "";
+  const avatar =
+    track && track.albumAvatar ? track.albumAvatar : track.avatar || "";
   const title = track && track.title ? track.title : "";
-  const stageName = track && track.stageName ? track.stageName : "";
+  const musicMakerName = track && track.stageName ? track.stageName : "";
   const mainMusicMaker =
     track && track.mainMusicMaker ? track.mainMusicMaker : "";
   const type = track && track.type ? track.type : "";
@@ -45,7 +54,7 @@ function TrackPage() {
           link={link}
           avatar={avatar}
           title={title}
-          stageName={stageName}
+          stageName={musicMakerName}
           type={type}
           genre={genre}
           releaseDay={releaseDay}

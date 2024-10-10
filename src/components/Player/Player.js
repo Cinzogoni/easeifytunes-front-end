@@ -74,6 +74,11 @@ function Player({
   //Single Tracks
   frameSingleTracks,
   playerSingleTracks,
+  waveformBoxSingleTracks,
+  stopperSingleTracks,
+  //AlbumList
+  playerAlbumList,
+  stopperAlbumList,
 }) {
   const {
     playerRefs,
@@ -315,7 +320,8 @@ function Player({
             className={cx(
               "waveform-box",
               { waveformBox },
-              { waveformBoxFooter }
+              { waveformBoxFooter },
+              { waveformBoxSingleTracks }
             )}
           >
             <div className={cx("waveform")}>
@@ -403,7 +409,8 @@ function Player({
               "player-btn",
               { playBtn },
               { playerFooterBtn },
-              { playerTrackInfo }
+              { playerTrackInfo },
+              { playerAlbumList }
             )}
             onClick={handlePlayClick}
           >
@@ -427,7 +434,11 @@ function Player({
               "stopper-btn",
               { stopBtn },
               { stopperFooterBtn },
-              { stopperTrackInfo }
+              { stopperTrackInfo },
+              {
+                stopperSingleTracks,
+              },
+              { stopperAlbumList }
             )}
             onClick={handlePauseClick}
           >
@@ -496,7 +507,8 @@ function Player({
             className={cx(
               "waveform-box",
               { waveformBox },
-              { waveformBoxFooter }
+              { waveformBoxFooter },
+              { waveformBoxSingleTracks }
             )}
           >
             <div className={cx("waveform")}>

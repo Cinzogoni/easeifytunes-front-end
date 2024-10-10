@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 function MusicMakerInfo({ musicMakerName }) {
   return (
     <div className={cx("wrapper")}>
-      <div className={cx("back-home")}>
+      <div className={cx("back")}>
         <Navigation id="music-maker-viewAll">
           <FontAwesomeIcon className={cx("arrow-left")} icon={faArrowLeft} />
         </Navigation>

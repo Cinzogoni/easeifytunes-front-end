@@ -11,10 +11,9 @@ function AlbumBox({ albumAvatar, albumName, albumPerformer }) {
     <div className={cx("container")}>
       <Link
         className={cx("link")}
-        to={routesConfig.albumPage.replace(
-          `:albumName`,
-          albumName.replace(/\//g, "-")
-        )}
+        to={routesConfig.albumPage
+          .replace(`:albumPerformer`, albumPerformer.replace(/\//g, "-"))
+          .replace(`:albumName`, albumName.replace(/\//g, "-"))}
       />
 
       <div className={cx("frame")}>
