@@ -212,7 +212,7 @@ const apiMusicMaker = {
             genre: "RapHipHop",
             releaseDay: "",
             streamed: "",
-            link: "",
+            link: mp3Type[`MusicMaker/Rhymastic/singletracks/LẠC  Rhymastic`],
             lyric: "",
           },
           {
@@ -226,7 +226,9 @@ const apiMusicMaker = {
             genre: "Pop",
             releaseDay: "",
             streamed: "",
-            link: "",
+            link: mp3Type[
+              `MusicMaker/Rhymastic/singletracks/Rhymastic  Treasure Official Lyric Video`
+            ],
             lyric: "",
           },
         ],
@@ -248,7 +250,9 @@ const apiMusicMaker = {
                 genre: "RnB",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Y6U`
+                ],
                 lyric: "",
               },
               {
@@ -260,7 +264,9 @@ const apiMusicMaker = {
                 genre: "Pop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Líu La Líu Lo`
+                ],
                 lyric: "",
               },
               {
@@ -272,7 +278,9 @@ const apiMusicMaker = {
                 genre: "RnB/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Side Effects feat Touliver  BWine`
+                ],
                 lyric: "",
               },
               {
@@ -284,7 +292,9 @@ const apiMusicMaker = {
                 genre: "RnB",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Ngổn Ngang`
+                ],
                 lyric: "",
               },
               {
@@ -296,7 +306,9 @@ const apiMusicMaker = {
                 genre: "RnB",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Vẫn Yêu`
+                ],
                 lyric: "",
               },
               {
@@ -308,7 +320,9 @@ const apiMusicMaker = {
                 genre: "Electro-disco",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Thêm Đứa Nữa`
+                ],
                 lyric: "",
               },
             ],
@@ -332,7 +346,9 @@ const apiMusicMaker = {
             genre: "Dance",
             releaseDay: "",
             streamed: "",
-            link: "",
+            link: mp3Type[
+              `MusicMaker/Touliver/singletracks/Touliver x Nimbia  Get It`
+            ],
             lyric: "",
           },
         ],
@@ -355,7 +371,9 @@ const apiMusicMaker = {
             genre: "RnB Soul",
             releaseDay: "",
             streamed: "",
-            link: "",
+            link: mp3Type[
+              `MusicMaker/J.Sheon/singletracks/JSheon  Dont Ask 別問很可怕`
+            ],
             lyric: "",
           },
         ],
@@ -379,7 +397,9 @@ const apiMusicMaker = {
             genre: "Electronic",
             releaseDay: "",
             streamed: "",
-            link: "",
+            link: mp3Type[
+              `MusicMaker/Perfume/singletracks/Perfume Spinning World`
+            ],
             lyric: "",
           },
         ],
@@ -393,15 +413,55 @@ const apiMusicMaker = {
             releaseDay: "",
             tracks: [
               {
-                id: "",
-                title: "",
+                id: "per_lev301",
+                title: "Enter The Sphere",
                 mainMusicMaker: "Perfume",
-                stageName: "",
-                type: "",
-                genre: "",
+                stageName: "Perfume",
+                genre: "Electro Pop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Perfume/albums/LEVEL3/Enter the sphere`
+                ],
+                lyric: "",
+              },
+              {
+                id: "per_lev302",
+                title: "Spring of life (Album Mix)",
+                mainMusicMaker: "Perfume",
+                stageName: "Perfume",
+                genre: "Electro Pop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Perfume/albums/LEVEL3/Spring of life Albummix`
+                ],
+                lyric: "",
+              },
+              {
+                id: "per_lev303",
+                title: "Magic of love (Album Mix)",
+                mainMusicMaker: "Perfume",
+                stageName: "Perfume",
+                genre: "Electro Pop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Perfume/albums/LEVEL3/Magic of love Albummix`
+                ],
+                lyric: "",
+              },
+              {
+                id: "per_lev304",
+                title: "Clockwork",
+                mainMusicMaker: "Perfume",
+                stageName: "Perfume",
+                genre: "Electro Pop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Perfume/albums/LEVEL3/LEVEL 3  Clockwork`
+                ],
                 lyric: "",
               },
             ],
@@ -426,7 +486,9 @@ const apiMusicMaker = {
             genre: "Pop",
             releaseDay: "",
             streamed: "",
-            link: "",
+            link: mp3Type[
+              `MusicMaker/BIBI/singletracks/비비 BIBI  가면무도회 Animal Farm`
+            ],
             lyric: "",
           },
         ],
@@ -440,15 +502,68 @@ const apiMusicMaker = {
             releaseDay: "",
             tracks: [
               {
-                id: "",
-                title: "",
+                id: "bibi_LIAB01",
+                title: "Umm…Life",
                 mainMusicMaker: "BIBI",
-                stageName: "",
-                type: "",
-                genre: "",
+                stageName: "BIBI",
+                genre: "Pop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/BIBI/albums/Life is a Bi…/BIBI비비  Umm Life`
+                ],
+                lyric: "",
+              },
+              {
+                id: "bibi_LIAB02",
+                title: "BAD SAD AND MAD",
+                mainMusicMaker: "BIBI",
+                stageName: "BIBI",
+                genre: "RnB",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/BIBI/albums/Life is a Bi…/BIBI비비  BAD SAD AND MAD`
+                ],
+                lyric: "",
+              },
+              {
+                id: "bibi_LIAB03",
+                title: "PIRI The Dog",
+                mainMusicMaker: "BIBI",
+                stageName: "BIBI",
+                genre: "RnB",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/BIBI/albums/Life is a Bi…/PIRI the dog 피리 PIRI the dog`
+                ],
+                lyric: "",
+              },
+              {
+                id: "bibi_LIAB04",
+                title: "Birthday Cake",
+                mainMusicMaker: "BIBI",
+                stageName: "BIBI",
+                genre: "RnB",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/BIBI/albums/Life is a Bi…/Birthday Cake Birthday Cake`
+                ],
+                lyric: "",
+              },
+              {
+                id: "bibi_LIAB05",
+                title: "Life is a Bi...",
+                mainMusicMaker: "BIBI",
+                stageName: "BIBI",
+                genre: "RnB",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/BIBI/albums/Life is a Bi…/BIBI 비비  인생은 나쁜X Life is a Bi`
+                ],
                 lyric: "",
               },
             ],
@@ -473,7 +588,9 @@ const apiMusicMaker = {
             genre: "Pop/Ballad",
             releaseDay: "",
             streamed: "",
-            link: "",
+            link: mp3Type[
+              `MusicMaker/Phan Manh Quynh/singletracks/Sau lời từ khước OST MAI  Phan Mạnh Quỳnh`
+            ],
             lyric: "",
           },
         ],
@@ -496,7 +613,7 @@ const apiMusicMaker = {
             genre: "Rap/HipHop",
             releaseDay: "",
             streamed: "",
-            link: "",
+            link: mp3Type[`MusicMaker/Eminem/singletracks/Eminem - KILLSHOT`],
             lyric: "",
           },
         ],
@@ -510,15 +627,29 @@ const apiMusicMaker = {
             releaseDay: "",
             tracks: [
               {
-                id: "",
-                title: "",
+                id: "em_inf01",
+                title: "Infinite",
                 mainMusicMaker: "Eminem",
-                stageName: "",
-                type: "",
-                genre: "",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Infinite/Eminem  Infinite`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_inf02",
+                title: "Infinite (FBT Remix)",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Infinite/Eminem  Infinite FBT Remix`
+                ],
                 lyric: "",
               },
             ],
@@ -532,15 +663,55 @@ const apiMusicMaker = {
             releaseDay: "",
             tracks: [
               {
-                id: "",
-                title: "",
+                id: "em_encore01",
+                title: "Like Toy Soldiers",
                 mainMusicMaker: "Eminem",
-                stageName: "",
-                type: "",
-                genre: "",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Encore/Eminem  Like Toy Soldiers`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_encore02",
+                title: "Just Lose It",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Encore/Eminem  Just Lose It`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_encore03",
+                title: "A Like That Super",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Encore/Eminem  A Like That Super`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_encore04",
+                title: "Mockingbird",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Encore/Eminem  Mockingbird`
+                ],
                 lyric: "",
               },
             ],
@@ -554,15 +725,81 @@ const apiMusicMaker = {
             releaseDay: "",
             tracks: [
               {
-                id: "",
-                title: "",
+                id: "em_temshow01",
+                title: "White America",
                 mainMusicMaker: "Eminem",
-                stageName: "",
-                type: "",
-                genre: "",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/TheEminemShow/Eminem  White America`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_temshow02",
+                title: "Cleanin' Out My Closet",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/TheEminemShow/Eminem  Cleanin Out My Closet`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_temshow03",
+                title: "Without Me",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/TheEminemShow/Eminem  Without Me`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_temshow04",
+                title: "Sing for the Moment",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/TheEminemShow/Eminem  Sing for the Moment`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_temshow05",
+                title: "Hailie's Song",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/TheEminemShow/Eminem  Hailies Song`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_temshow06",
+                title: "Till I Collapse",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem ft. Nate Dogg",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/TheEminemShow/Eminem  Till I Collapse feat Nate Dogg`
+                ],
                 lyric: "",
               },
             ],
@@ -576,15 +813,66 @@ const apiMusicMaker = {
             releaseDay: "",
             tracks: [
               {
-                id: "",
-                title: "",
+                id: "em_repl01",
+                title: "3 am",
                 mainMusicMaker: "Eminem",
-                stageName: "",
-                type: "",
-                genre: "",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[`MusicMaker/Eminem/albums/Relapse/Eminem  3 am`],
+                lyric: "",
+              },
+              {
+                id: "em_repl02",
+                title: "We Made You",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Relapse/Eminem  We Made You`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_repl03",
+                title: "Beautiful",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Relapse/Eminem  Beautiful`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_repl04",
+                title: "Crack a Bottle",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem ft. 50 Cent, Dr Dre",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Relapse/Eminem  Crack a Bottle feat 50 Cent  Dr Dre`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_repl05",
+                title: "My Darling",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Relapse/Eminem  My Darling`
+                ],
                 lyric: "",
               },
             ],
@@ -598,15 +886,55 @@ const apiMusicMaker = {
             releaseDay: "",
             tracks: [
               {
-                id: "",
-                title: "",
+                id: "em_reco01",
+                title: "Not Afraid",
                 mainMusicMaker: "Eminem",
-                stageName: "",
-                type: "",
-                genre: "",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Recovery/Eminem  Not Afraid`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_reco02",
+                title: "Space Bound",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Recovery/Eminem  Space Bound`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_reco03",
+                title: "No Love",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem ft. Lil Wayne",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Recovery/Eminem  No Love feat Lil Wayne`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_reco04",
+                title: "Love the Way You Lie",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem ft. Rihanna",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Recovery/Eminem  Love the Way You Lie feat Rihanna`
+                ],
                 lyric: "",
               },
             ],
@@ -620,15 +948,55 @@ const apiMusicMaker = {
             releaseDay: "",
             tracks: [
               {
-                id: "",
-                title: "",
+                id: "em_revi01",
+                title: "Walk On Water",
                 mainMusicMaker: "Eminem",
-                stageName: "",
-                type: "",
-                genre: "",
+                stageName: "Eminem ft. Beyoncé",
+                genre: "Rap/HipHop",
                 releaseDay: "",
                 streamed: "",
-                link: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Revival/Eminem  Walk On Water ft Beyoncé`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_revi02",
+                title: "Believe",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Revival/Eminem  Believe`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_revi03",
+                title: "River",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem ft. Ed Sheeran",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Revival/Eminem  River ft Ed Sheeran`
+                ],
+                lyric: "",
+              },
+              {
+                id: "em_revi04",
+                title: "Nowhere Fast",
+                mainMusicMaker: "Eminem",
+                stageName: "Eminem ft. Kehlani",
+                genre: "Rap/HipHop",
+                releaseDay: "",
+                streamed: "",
+                link: mp3Type[
+                  `MusicMaker/Eminem/albums/Revival/Eminem  Nowhere Fast ft Kehlani`
+                ],
                 lyric: "",
               },
             ],
