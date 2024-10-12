@@ -1,0 +1,97 @@
+import classNames from "classnames/bind";
+import styles from "./TrendingSongsBox.module.scss";
+
+import { useAudioPlayer } from "../AudioPlayerProvider";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEllipsisVertical,
+  faHeadphones,
+} from "@fortawesome/free-solid-svg-icons";
+
+import Player from "../Player";
+import { Link } from "react-router-dom";
+import routesConfig from "~/config/routes";
+
+const cx = classNames.bind(styles);
+function TrendingSongsBox({ tracks }) {
+  const { currentTrackId, handlePlay, handlePause, listeners } =
+    useAudioPlayer();
+
+  const renderSongItem = (track) => {
+    return (
+      <div key={track.id} className={cx("song-item")}>
+        <div className={cx("image")}>
+          <img
+            className={cx("avatar")}
+            src={track.avatar}
+            alt={track.stageName}
+          />
+
+          <Player
+            frameResize
+            playerResize
+            playBtn
+            playIcon
+            stopBtn
+            stopIcon
+            waveformBox
+            //
+            trackId={track.id}
+            trackLink={track.link}
+            trackTitle={track.title}
+            trackPerformer={track.stageName}
+            trackType={track.type}
+            //
+            isStatus={track.id === currentTrackId}
+            onPlay={() =>
+              handlePlay(
+                track.id,
+                {
+                  trackTitle: track.title,
+                  trackPerformer: track.stageName,
+                },
+                track.link
+              )
+            }
+            onPause={() => handlePause(track.id)}
+          />
+        </div>
+
+        <div className={cx("info")}>
+          <h4 className={cx("title")}>{track.title}</h4>
+          <h5 className={cx("performer")}>{track.stageName}</h5>
+
+          <Link
+            className={cx("link")}
+            to={routesConfig.track
+              .replace(":stageName", track.stageName)
+              .replace(":trackTitle", track.title)}
+          />
+        </div>
+
+        <div className={cx("menu")}>
+          <div className={cx("streams")}>
+            <FontAwesomeIcon className={cx("headphone")} icon={faHeadphones} />
+
+            <div className={cx("listens")}>
+              <h6 className={cx("listeners")}>{listeners[track.id] || 0}</h6>
+            </div>
+          </div>
+
+          <div className={cx("more-function")}>
+            <FontAwesomeIcon className={cx("more")} icon={faEllipsisVertical} />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className={cx("song-box")}>
+      <div className={cx("song-list")}>{tracks.map(renderSongItem)}</div>
+    </div>
+  );
+}
+
+export default TrendingSongsBox;
