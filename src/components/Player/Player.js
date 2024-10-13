@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, memo } from "react";
 
 import classNames from "classnames/bind";
 import styles from "./Player.module.scss";
@@ -26,11 +26,13 @@ function Player({
   trackLink,
   trackTitle,
   trackPerformer,
+  trackList,
   //
   isStatus,
   onPlay,
   onPause,
-  setListeners,
+  onPrevTrack,
+  onNextTrack,
   // Trending Songs
   frameResize,
   playerResize,
@@ -79,6 +81,8 @@ function Player({
   //AlbumList
   playerAlbumList,
   stopperAlbumList,
+  actionsAlbumList,
+  hideAlbumList,
 }) {
   const {
     playerRefs,
@@ -98,7 +102,7 @@ function Player({
   } = useAudioPlayer();
 
   const [show, setShow] = useState(false);
-  const [activeStopClick, setActiveStopClick] = useState(null);
+  const [activeClick, setActiveClick] = useState(null);
   const [activeLoopClick, setActiveLoopClick] = useState(null);
 
   const timeStartRef = useRef(null);
@@ -159,6 +163,10 @@ function Player({
     };
   }, []);
 
+  useEffect(() => {
+    console.log("Track List Updated");
+  }, [trackList]);
+
   const handlePlayClick = () => {
     onPlay();
     setTimeout(() => {
@@ -180,13 +188,13 @@ function Player({
 
   const handleStopClick = () => {
     handleStop();
-    setActiveStopClick("stopClick-bg");
+    setActiveClick("stopClick-bg");
     setTimeout(() => {
       setIsTrackEnded(true);
       setShow(false);
     }, 100);
     setTimeout(() => {
-      setActiveStopClick(null);
+      setActiveClick(null);
     }, 250);
     console.log("The track has stopped and reset!");
   };
@@ -201,6 +209,32 @@ function Player({
       setActiveLoopClick("loopTrack-bg");
       console.log("Track looping mode on!");
     }
+  };
+
+  const handleNextClick = () => {
+    onNextTrack();
+    setActiveClick("nextTrack-bg");
+    setTimeout(() => {
+      setIsTrackEnded(true);
+      setShow(false);
+    }, 100);
+    setTimeout(() => {
+      setActiveClick(null);
+    }, 250);
+    console.log("Next Track");
+  };
+
+  const handlePrevClick = () => {
+    onPrevTrack();
+    setActiveClick("prevTrack-bg");
+    setTimeout(() => {
+      setIsTrackEnded(true);
+      setShow(false);
+    }, 100);
+    setTimeout(() => {
+      setActiveClick(null);
+    }, 250);
+    console.log("Next Track");
   };
 
   const handleVolumeChange = (e) => {
@@ -243,6 +277,9 @@ function Player({
     document.removeEventListener("mousemove", handleTimingChange);
     document.removeEventListener("mouseup", handleMouseUpTiming);
   };
+
+  console.log(typeof onNextTrack);
+  console.log(typeof onPrevTrack);
 
   return (
     <div
@@ -340,10 +377,17 @@ function Player({
           className={cx(
             "actions",
             { actionsFooterLeft },
-            { actionTrackInfoLeft }
+            { actionTrackInfoLeft },
+            { actionsAlbumList }
           )}
         >
-          <div className={cx("randomTrack-bg", { randomTrackInfo })}>
+          <div
+            className={cx(
+              "randomTrack-bg",
+              { randomTrackInfo },
+              { hideAlbumList }
+            )}
+          >
             <FontAwesomeIcon
               className={cx("actions-footer")}
               icon={faShuffle}
@@ -351,7 +395,11 @@ function Player({
           </div>
 
           <div
-            className={cx("loopTrack-bg", { loopBGTrackInfo })}
+            className={cx(
+              "loopTrack-bg",
+              { loopBGTrackInfo },
+              { hideAlbumList }
+            )}
             onClick={handleLoopClick}
             style={{
               backgroundColor:
@@ -376,15 +424,19 @@ function Player({
           </div>
 
           <div
-            className={cx("stopClick-bg", { pauseBGTrackInfo })}
+            className={cx(
+              "stopClick-bg",
+              { pauseBGTrackInfo },
+              { hideAlbumList }
+            )}
             onClick={handleStopClick}
             style={{
               backgroundColor:
-                activeStopClick === "stopClick-bg"
+                activeClick === "stopClick-bg"
                   ? "rgba(255, 255, 255, 0.2"
                   : "transparent",
               border:
-                activeStopClick === "stopClick-bg"
+                activeClick === "stopClick-bg"
                   ? "1px solid rgba(255, 255, 255,0.2)"
                   : "1px solid transparent",
             }}
@@ -395,7 +447,20 @@ function Player({
             />
           </div>
 
-          <div className={cx("prevTrack-bg", { prevTrackInfo })}>
+          <div
+            className={cx("prevTrack-bg", { prevTrackInfo })}
+            onClick={handlePrevClick}
+            style={{
+              backgroundColor:
+                activeClick === "prevTrack-bg"
+                  ? "rgba(255, 255, 255, 0.2"
+                  : "transparent",
+              border:
+                activeClick === "prevTrack-bg"
+                  ? "1px solid rgba(255, 255, 255,0.2)"
+                  : "1px solid transparent",
+            }}
+          >
             <FontAwesomeIcon
               className={cx("actions-footer")}
               icon={faBackwardFast}
@@ -461,17 +526,37 @@ function Player({
           className={cx(
             "actions",
             { actionsFooterRight },
-            { actionTrackInfoRight }
+            { actionTrackInfoRight },
+            { actionsAlbumList }
           )}
         >
-          <div className={cx("nextTrack-bg", { nextTrackInfo })}>
+          <div
+            className={cx("nextTrack-bg", { nextTrackInfo })}
+            onClick={handleNextClick}
+            style={{
+              backgroundColor:
+                activeClick === "nextTrack-bg"
+                  ? "rgba(255, 255, 255, 0.2"
+                  : "transparent",
+              border:
+                activeClick === "nextTrack-bg"
+                  ? "1px solid rgba(255, 255, 255,0.2)"
+                  : "1px solid transparent",
+            }}
+          >
             <FontAwesomeIcon
               className={cx("actions-footer")}
               icon={faForwardFast}
             />
           </div>
 
-          <div className={cx("volume-bg", { volumeBGTrackInfo })}>
+          <div
+            className={cx(
+              "volume-bg",
+              { volumeBGTrackInfo },
+              { hideAlbumList }
+            )}
+          >
             <FontAwesomeIcon
               className={cx("actions-footer", { volumeIconTrackInfo })}
               icon={faVolumeHigh}
@@ -479,7 +564,11 @@ function Player({
           </div>
 
           <div
-            className={cx("volume-bar", { volumeBarTrackInfo })}
+            className={cx(
+              "volume-bar",
+              { volumeBarTrackInfo },
+              { hideAlbumList }
+            )}
             ref={volumeBarRef}
             onMouseDown={handleMouseDownVolume}
           >
@@ -526,4 +615,4 @@ function Player({
   );
 }
 
-export default Player;
+export default memo(Player);

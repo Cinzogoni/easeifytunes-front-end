@@ -14,7 +14,21 @@
   margin-top: 16px;
   display: flex;
   align-items: center;
+  background-color: transparent;
   border-radius: var(--main-border-radius);
+
+  &.playing {
+    background-color: rgba(128, 128, 128, 0.2);
+  }
+}
+
+.track-box.transparent {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.track-box:hover {
+  background-color: rgba(128, 128, 128, 0.2);
 }
 
 .track-avatar {
@@ -31,10 +45,6 @@
   align-items: center;
   justify-content: center;
   position: relative;
-}
-
-.track-box:hover {
-  background-color: rgba(128, 128, 128, 0.2);
 }
 
 .track-info {
