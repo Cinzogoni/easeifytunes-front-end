@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, memo } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 
 import classNames from "classnames/bind";
 import styles from "./Player.module.scss";
@@ -26,13 +26,12 @@ function Player({
   trackLink,
   trackTitle,
   trackPerformer,
-  trackList,
   //
   isStatus,
   onPlay,
   onPause,
-  onPrevTrack,
-  onNextTrack,
+  onNext,
+  onPrev,
   // Trending Songs
   frameResize,
   playerResize,
@@ -89,6 +88,7 @@ function Player({
     setCurrentTrackId,
     setCurrentTrack,
     setTrackLink,
+    handlePlay,
     handleStop,
     handleLoop,
     currentTime,
@@ -161,11 +161,7 @@ function Player({
       player.removeEventListener("loadedmetadata", loadedMetadata);
       player.removeEventListener("timeupdate", timeUpdate);
     };
-  }, []);
-
-  useEffect(() => {
-    console.log("Track List Updated");
-  }, [trackList]);
+  }, [playerRefs]);
 
   const handlePlayClick = () => {
     onPlay();
@@ -211,8 +207,8 @@ function Player({
     }
   };
 
-  const handleNextClick = () => {
-    onNextTrack();
+  const handleNextClick = useCallback(() => {
+    // onNext();
     setActiveClick("nextTrack-bg");
     setTimeout(() => {
       setIsTrackEnded(true);
@@ -222,10 +218,10 @@ function Player({
       setActiveClick(null);
     }, 250);
     console.log("Next Track");
-  };
+  }, [onNext, handlePlay]);
 
-  const handlePrevClick = () => {
-    onPrevTrack();
+  const handlePrevClick = useCallback(() => {
+    // onPrev();
     setActiveClick("prevTrack-bg");
     setTimeout(() => {
       setIsTrackEnded(true);
@@ -235,7 +231,7 @@ function Player({
       setActiveClick(null);
     }, 250);
     console.log("Next Track");
-  };
+  }, [onPrev, handlePlay]);
 
   const handleVolumeChange = (e) => {
     const bar = volumeBarRef.current;
@@ -278,8 +274,8 @@ function Player({
     document.removeEventListener("mouseup", handleMouseUpTiming);
   };
 
-  console.log(typeof onNextTrack);
-  console.log(typeof onPrevTrack);
+  console.log("Player - onNext type:", typeof onNext);
+  console.log("Player - onPrev type:", typeof onPrev);
 
   return (
     <div
@@ -447,7 +443,7 @@ function Player({
             />
           </div>
 
-          <div
+          <button
             className={cx("prevTrack-bg", { prevTrackInfo })}
             onClick={handlePrevClick}
             style={{
@@ -465,7 +461,7 @@ function Player({
               className={cx("actions-footer")}
               icon={faBackwardFast}
             />
-          </div>
+          </button>
         </div>
         {/* ---------------- */}
         {(!isStatus || isTrackEnded) && (
@@ -530,7 +526,7 @@ function Player({
             { actionsAlbumList }
           )}
         >
-          <div
+          <button
             className={cx("nextTrack-bg", { nextTrackInfo })}
             onClick={handleNextClick}
             style={{
@@ -548,7 +544,7 @@ function Player({
               className={cx("actions-footer")}
               icon={faForwardFast}
             />
-          </div>
+          </button>
 
           <div
             className={cx(
@@ -615,4 +611,4 @@ function Player({
   );
 }
 
-export default memo(Player);
+export default Player;

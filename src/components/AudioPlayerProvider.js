@@ -198,7 +198,6 @@ export function AudioPlayerProvider({ children }) {
         handlePause,
         handleStop,
         handleLoop,
-        handleTrackEnd,
         playerRefs,
         savedIdRef,
         currentTime,

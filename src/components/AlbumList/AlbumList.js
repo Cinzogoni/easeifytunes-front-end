@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./AlbumList.module.scss";
 
-import { useCallback, useState } from "react";
+import { useState, useCallback, memo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeadphones,
@@ -16,14 +16,16 @@ import routesConfig from "~/config/routes";
 import Player from "../Player";
 
 const cx = classNames.bind(styles);
-function AlbumList({ trackList, avatar }) {
-  const { currentTrackId, handlePlay, handlePause, isTrackEnded } =
-    useAudioPlayer();
+function AlbumList({ trackList, avatar, onNext, onPrev }) {
+  const {
+    currentTrackId,
+    handlePlay,
+    handlePause,
+    isTrackEnded,
+    handleNextTrack,
+    handlePrevTrack,
+  } = useAudioPlayer();
   const [isPlaying, setIsPlaying] = useState(null);
-
-  const currentTrackIndex = trackList.findIndex(
-    (track) => track.id === currentTrackId
-  );
 
   const handleTrackPlay = (track) => {
     handlePlay(
@@ -42,29 +44,8 @@ function AlbumList({ trackList, avatar }) {
     setIsPlaying(null);
   };
 
-  const handlePrevTrack = useCallback(() => {
-    if (!trackList || trackList.length === 0) {
-      console.error("trackList is undefined or empty.");
-      return;
-    }
-
-    if (currentTrackIndex > 0) {
-      const prevTrack = trackList[currentTrackIndex - 1];
-      handleTrackPlay(prevTrack);
-    }
-  }, [trackList]);
-
-  const handleNextTrack = useCallback(() => {
-    if (!trackList || trackList.length === 0) {
-      console.error("trackList is undefined or empty.");
-      return;
-    }
-
-    if (currentTrackIndex !== -1 && currentTrackIndex < trackList.length - 1) {
-      const nextTrack = trackList[currentTrackIndex + 1];
-      handleTrackPlay(nextTrack);
-    }
-  }, [trackList]);
+  // console.log("AlbumList - onNext type:", typeof onNext);
+  // console.log("AlbumList - onPrev type:", typeof onPrev);
 
   return (
     <div className={cx("wrapper")}>
@@ -95,8 +76,8 @@ function AlbumList({ trackList, avatar }) {
                   isStatus={track.id === currentTrackId}
                   onPlay={() => handleTrackPlay(track)}
                   onPause={() => handleTrackPause(track)}
-                  onPrevTrack={handlePrevTrack}
-                  onNextTrack={handleNextTrack}
+                  onNext={handleNextTrack}
+                  onPrev={handlePrevTrack}
                   //
                   frameSingleTracks
                   playerSingleTracks
@@ -145,4 +126,4 @@ function AlbumList({ trackList, avatar }) {
   );
 }
 
-export default AlbumList;
+export default memo(AlbumList);

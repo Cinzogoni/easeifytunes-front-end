@@ -7,8 +7,15 @@ import Player from "~/components/Player";
 
 const cx = classNames.bind(styles);
 function AudioPlayer() {
-  const { currentTrackId, currentTrack, trackLink, handlePlay, handlePause } =
-    useAudioPlayer();
+  const {
+    currentTrackId,
+    currentTrack,
+    trackLink,
+    handlePlay,
+    handlePause,
+    handleNextTrack,
+    handlePrevTrack,
+  } = useAudioPlayer();
 
   return (
     <div className={cx("wrapper")}>
@@ -21,6 +28,8 @@ function AudioPlayer() {
           isStatus={!!currentTrackId}
           onPlay={() => handlePlay(currentTrackId, currentTrack, trackLink)}
           onPause={handlePause}
+          onNext={handleNextTrack}
+          onPrev={handlePrevTrack}
           //
           frameFooterResize
           playerFooterResize
