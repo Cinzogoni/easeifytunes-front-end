@@ -2,7 +2,6 @@ import styles from "./AudioPlayer.module.scss";
 import classNames from "classnames/bind";
 
 import { useAudioPlayer } from "~/components/AudioPlayerProvider";
-import { useTrackInfo } from "~/components/TrackInfoProvider";
 
 import Player from "~/components/Player";
 
@@ -16,9 +15,7 @@ function AudioPlayer() {
     handlePause,
     handleNextTrack,
     handlePrevTrack,
-    setTrackList,
   } = useAudioPlayer();
-  const { musicMaker, podcast } = useTrackInfo();
 
   return (
     <div className={cx("wrapper")}>

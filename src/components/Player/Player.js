@@ -22,8 +22,8 @@ import {
 
 const cx = classNames.bind(styles);
 function Player({
-  trackId,
-  trackLink,
+  // trackId,
+  // trackLink,
   trackTitle,
   trackPerformer,
   //
@@ -85,9 +85,9 @@ function Player({
 }) {
   const {
     playerRefs,
-    setCurrentTrackId,
-    setCurrentTrack,
-    setTrackLink,
+    // setCurrentTrackId,
+    // setCurrentTrack,
+    // setTrackLink,
     handleStop,
     handleLoop,
     currentTime,
@@ -114,27 +114,6 @@ function Player({
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
-
-  const saveIsTrackListening = () => {
-    const trackData = {
-      trackId,
-      trackLink,
-      trackTitle,
-      trackPerformer,
-    };
-    localStorage.setItem("reloadPage", JSON.stringify(trackData));
-  };
-
-  useEffect(() => {
-    const savedTrack = localStorage.getItem("reloadPage");
-    if (savedTrack) {
-      const trackData = JSON.parse(savedTrack);
-      setCurrentTrackId(trackData.trackId);
-      setCurrentTrack(trackData);
-      setTrackLink(trackData.trackLink || ``);
-      handleStop();
-    }
-  }, [setCurrentTrack, setCurrentTrackId, setTrackLink]);
 
   useEffect(() => {
     const player = playerRefs.current;
@@ -173,7 +152,6 @@ function Player({
       setIsTrackEnded(false);
       setShow(true);
     }, 100);
-    saveIsTrackListening();
     // console.log("The track is playing!");
   };
 
@@ -226,7 +204,7 @@ function Player({
     setTimeout(() => {
       setActiveClick(null);
     }, 250);
-    console.log("Prev Track!");
+    // console.log("Prev Track!");
   };
 
   const handleVolumeChange = (e) => {

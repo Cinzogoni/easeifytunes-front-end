@@ -26,21 +26,6 @@ export function AudioPlayerProvider({ children }) {
   const [trackIndex, setTrackIndex] = useState(0);
 
   const playerRefs = useRef(null);
-  const savedIdRef = useRef(null);
-
-  useEffect(() => {
-    const storedTrackId = localStorage.getItem("savedTrackId");
-    if (storedTrackId) {
-      savedIdRef.current = storedTrackId;
-      handlePlay(storedTrackId, trackLink);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (savedIdRef.current) {
-      localStorage.setItem("savedTrackId", savedIdRef.current);
-    }
-  }, [savedIdRef.current]);
 
   useEffect(() => {
     const player = playerRefs.current;
@@ -92,8 +77,7 @@ export function AudioPlayerProvider({ children }) {
   const handlePlay = async (trackId, track, link) => {
     try {
       const player = playerRefs.current;
-      const replayCurrentTrackId =
-        trackId || currentTrackId || savedIdRef.current;
+      const replayCurrentTrackId = trackId || currentTrackId;
 
       if (checkListeningTime >= player.duration) {
         setListeningTime(player.currentTime);
@@ -109,7 +93,6 @@ export function AudioPlayerProvider({ children }) {
         setTrackLink(link);
         setCurrentTrack(track);
         setCurrentTrackId(replayCurrentTrackId);
-        savedIdRef.current = replayCurrentTrackId;
         // console.log("Track link is updated!");
       } else {
         // console.log("Track link awaiting update!");
@@ -256,7 +239,7 @@ export function AudioPlayerProvider({ children }) {
         setTrackIndex,
         setTrackList,
         playerRefs,
-        savedIdRef,
+
         currentTime,
         setCurrentTime,
         duration,
