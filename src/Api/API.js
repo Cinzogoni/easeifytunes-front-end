@@ -103,7 +103,7 @@ const apiMusicMaker = {
                 releaseDay: "2023-10-12",
                 streamed: "",
                 trend: false,
-                link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi CHO KHÔNG`],
+                link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  NSAO`],
                 lyric: "",
               },
               {

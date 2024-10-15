@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./AlbumList.module.scss";
 
-import { useState, useCallback, memo } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeadphones,
@@ -16,18 +16,40 @@ import routesConfig from "~/config/routes";
 import Player from "../Player";
 
 const cx = classNames.bind(styles);
-function AlbumList({ trackList, avatar, onNext, onPrev }) {
+function AlbumList({ trackList, avatar }) {
   const {
     currentTrackId,
     handlePlay,
     handlePause,
     isTrackEnded,
+    setTrackList,
     handleNextTrack,
     handlePrevTrack,
+    setTrackIndex,
   } = useAudioPlayer();
-  const [isPlaying, setIsPlaying] = useState(null);
+  const [isUI, setIsUI] = useState(null);
+
+  useEffect(() => {
+    if (trackList.length > 0) {
+      setTrackList(trackList);
+    }
+  }, [trackList, setTrackList]);
+
+  useEffect(() => {
+    const index = currentTrackId
+      ? trackList.findIndex((track) => track.id === currentTrackId)
+      : -1;
+    if (index !== -1) {
+      setTrackIndex(index);
+      setIsUI(currentTrackId);
+    }
+
+    // console.log("Current Index:", index);
+  }, [currentTrackId, trackList, setTrackIndex]);
 
   const handleTrackPlay = (track) => {
+    setTrackIndex(trackList.findIndex((t) => t.id === track.id));
+    setIsUI(track.id);
     handlePlay(
       track.id,
       {
@@ -36,17 +58,29 @@ function AlbumList({ trackList, avatar, onNext, onPrev }) {
       },
       track.link
     );
-    setIsPlaying(track.id);
   };
 
   const handleTrackPause = (track) => {
+    setTrackIndex(trackList.findIndex((t) => t.id === track.id));
+    setIsUI(null);
     handlePause(track.id);
-    setIsPlaying(null);
   };
 
-  // console.log("AlbumList - onNext type:", typeof onNext);
-  // console.log("AlbumList - onPrev type:", typeof onPrev);
+  const handleNext = () => {
+    const nextTrack = handleNextTrack();
+    if (nextTrack) {
+      handleTrackPlay(nextTrack);
+    }
+  };
 
+  const handlePrev = () => {
+    const prevTrack = handlePrevTrack();
+    if (prevTrack) {
+      handleTrackPlay(prevTrack);
+    }
+  };
+
+  // console.log("Current Track Id:", currentTrackId);
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
@@ -54,7 +88,7 @@ function AlbumList({ trackList, avatar, onNext, onPrev }) {
           {trackList.map((track) => (
             <div
               className={cx("track-box", {
-                playing: isPlaying === track.id,
+                playing: isUI === track.id && currentTrackId,
                 transparent: isTrackEnded,
               })}
               key={track.id}
@@ -76,8 +110,8 @@ function AlbumList({ trackList, avatar, onNext, onPrev }) {
                   isStatus={track.id === currentTrackId}
                   onPlay={() => handleTrackPlay(track)}
                   onPause={() => handleTrackPause(track)}
-                  onNext={handleNextTrack}
-                  onPrev={handlePrevTrack}
+                  onNext={handleNext}
+                  onPrev={handlePrev}
                   //
                   frameSingleTracks
                   playerSingleTracks
@@ -126,4 +160,4 @@ function AlbumList({ trackList, avatar, onNext, onPrev }) {
   );
 }
 
-export default memo(AlbumList);
+export default AlbumList;

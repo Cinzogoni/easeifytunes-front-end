@@ -88,7 +88,6 @@ function Player({
     setCurrentTrackId,
     setCurrentTrack,
     setTrackLink,
-    handlePlay,
     handleStop,
     handleLoop,
     currentTime,
@@ -163,6 +162,11 @@ function Player({
     };
   }, [playerRefs]);
 
+  useEffect(() => {
+    handlePlayClick();
+    console.log("Updating Now Playing!");
+  }, []);
+
   const handlePlayClick = () => {
     onPlay();
     setTimeout(() => {
@@ -170,7 +174,7 @@ function Player({
       setShow(true);
     }, 100);
     saveIsTrackListening();
-    console.log("The track is playing!");
+    // console.log("The track is playing!");
   };
 
   const handlePauseClick = () => {
@@ -207,31 +211,23 @@ function Player({
     }
   };
 
-  const handleNextClick = useCallback(() => {
-    // onNext();
+  const handleNextClick = () => {
+    onNext();
     setActiveClick("nextTrack-bg");
     setTimeout(() => {
-      setIsTrackEnded(true);
-      setShow(false);
-    }, 100);
-    setTimeout(() => {
       setActiveClick(null);
     }, 250);
-    console.log("Next Track");
-  }, [onNext, handlePlay]);
+    console.log("Next Track!");
+  };
 
-  const handlePrevClick = useCallback(() => {
-    // onPrev();
+  const handlePrevClick = () => {
+    onPrev();
     setActiveClick("prevTrack-bg");
     setTimeout(() => {
-      setIsTrackEnded(true);
-      setShow(false);
-    }, 100);
-    setTimeout(() => {
       setActiveClick(null);
     }, 250);
-    console.log("Next Track");
-  }, [onPrev, handlePlay]);
+    console.log("Prev Track!");
+  };
 
   const handleVolumeChange = (e) => {
     const bar = volumeBarRef.current;
@@ -274,8 +270,8 @@ function Player({
     document.removeEventListener("mouseup", handleMouseUpTiming);
   };
 
-  console.log("Player - onNext type:", typeof onNext);
-  console.log("Player - onPrev type:", typeof onPrev);
+  // console.log("Player - onNext type:", typeof onNext);
+  // console.log("Player - onPrev type:", typeof onPrev);
 
   return (
     <div

@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { useTrackInfo } from "~/components/TrackInfoProvider";
-import { useEffect, useState, useCallback } from "react";
 
 import Track from "~/components/Track";
 import AlbumInfo from "~/components/AlbumInfo";
@@ -21,37 +20,10 @@ function AlbumPage() {
   const avatar = findAlbum ? findAlbum.albumAvatar || "" : "";
   const trackList = findAlbum ? findAlbum.tracks || [] : [];
 
-  // Chuyển vào Provider
-  const [trackListData, setTrackListData] = useState(trackList);
-  const [val, setVal] = useState(0);
-
-  useEffect(() => {
-    setTrackListData(trackList);
-  }, [trackList]);
-
-  const handleNextTrack = useCallback(() => {
-    let index = (val + 1) % trackListData.length;
-    setVal(index);
-    setTrackListData(trackListData[index]);
-  }, [val, trackListData]);
-
-  const handlePrevTrack = useCallback(() => {
-    let index = (val - 1 + trackList.length) % trackList.length;
-    setVal(index);
-    setTrackListData(trackList[index]);
-  }, [val, trackListData]);
-
   return (
     <Track
       info={<AlbumInfo albumInfo={findAlbum} />}
-      list={
-        <AlbumList
-          trackList={trackListData}
-          avatar={avatar}
-          onNext={handleNextTrack}
-          onPrev={handlePrevTrack}
-        />
-      }
+      list={<AlbumList trackList={trackList} avatar={avatar} />}
     />
   );
 }

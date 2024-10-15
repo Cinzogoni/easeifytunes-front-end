@@ -4,6 +4,7 @@ import React, {
   useContext,
   useRef,
   useEffect,
+  useCallback,
 } from "react";
 
 const AudioPlayer = createContext();
@@ -21,6 +22,8 @@ export function AudioPlayerProvider({ children }) {
   const [listeningTime, setListeningTime] = useState(1);
   const [checkListeningTime, setCheckListeningTime] = useState(1);
   const [isLooping, setIsLooping] = useState(false);
+  const [trackList, setTrackList] = useState([]);
+  const [trackIndex, setTrackIndex] = useState(0);
 
   const playerRefs = useRef(null);
   const savedIdRef = useRef(null);
@@ -79,6 +82,13 @@ export function AudioPlayerProvider({ children }) {
     }
   }, [isPlaying]);
 
+  useEffect(() => {
+    if (trackList.length > 0) {
+      setTrackLink(trackList[trackIndex].link);
+      setCurrentTrack(trackList[trackIndex]);
+    }
+  }, [trackIndex, trackList]);
+
   const handlePlay = async (trackId, track, link) => {
     try {
       const player = playerRefs.current;
@@ -100,12 +110,12 @@ export function AudioPlayerProvider({ children }) {
         setCurrentTrack(track);
         setCurrentTrackId(replayCurrentTrackId);
         savedIdRef.current = replayCurrentTrackId;
-        console.log("Track link is updated!");
+        // console.log("Track link is updated!");
       } else {
-        console.log("Track link awaiting update!");
+        // console.log("Track link awaiting update!");
       }
     } catch (stt) {
-      console.log(stt);
+      console.log();
     }
   };
 
@@ -185,6 +195,48 @@ export function AudioPlayerProvider({ children }) {
     console.log(`Looping is now ${!isLooping ? "enabled" : "disabled"}.`);
   };
 
+  const handleNextTrack = () => {
+    if (trackList.length > 0) {
+      const nextIndex = (trackIndex + 1) % trackList.length;
+      const nextTrack = trackList[nextIndex];
+
+      handlePlay(
+        nextTrack.id,
+        {
+          trackTitle: nextTrack.title,
+          trackPerformer: nextTrack.stageName || nextIndex.performer,
+        },
+        nextTrack.link
+      );
+
+      setTrackIndex(nextIndex);
+      setCurrentTrackId(nextTrack.id);
+
+      // console.log("Next Track!", nextTrack);
+    }
+  };
+
+  const handlePrevTrack = () => {
+    if (trackList.length > 0) {
+      const prevIndex = (trackIndex - 1 + trackList.length) % trackList.length;
+      const prevTrack = trackList[prevIndex];
+
+      handlePlay(
+        prevTrack.id,
+        {
+          trackTitle: prevTrack.title,
+          trackPerformer: prevTrack.stageName || prevTrack.performer,
+        },
+        prevTrack.link
+      );
+
+      setTrackIndex(prevIndex);
+      setCurrentTrackId(prevTrack.id);
+
+      // console.log("Prev Track!", prevTrack);
+    }
+  };
+
   return (
     <AudioPlayer.Provider
       value={{
@@ -198,6 +250,11 @@ export function AudioPlayerProvider({ children }) {
         handlePause,
         handleStop,
         handleLoop,
+        handleNextTrack,
+        handlePrevTrack,
+        trackIndex,
+        setTrackIndex,
+        setTrackList,
         playerRefs,
         savedIdRef,
         currentTime,
@@ -207,6 +264,7 @@ export function AudioPlayerProvider({ children }) {
         volume,
         setVolume,
         isPlaying,
+        setIsPlaying,
         isTrackEnded,
         setIsTrackEnded,
         listeners,
