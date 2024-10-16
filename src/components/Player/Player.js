@@ -3,6 +3,7 @@ import { useRef, useEffect, useState, useCallback } from "react";
 import classNames from "classnames/bind";
 import styles from "./Player.module.scss";
 
+import { useLocation } from "react-router-dom";
 import { useAudioPlayer } from "../AudioPlayerProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,8 +23,8 @@ import {
 
 const cx = classNames.bind(styles);
 function Player({
-  // trackId,
-  // trackLink,
+  trackId,
+  trackLink,
   trackTitle,
   trackPerformer,
   //
@@ -86,7 +87,9 @@ function Player({
   const {
     playerRefs,
     // setCurrentTrackId,
+    currentTrackId,
     // setCurrentTrack,
+    currentTrack,
     // setTrackLink,
     handleStop,
     handleLoop,
@@ -108,6 +111,10 @@ function Player({
   const timeEndRef = useRef(null);
   const timingBarRef = useRef(null);
   const volumeBarRef = useRef(null);
+
+  const location = useLocation();
+  const isAlbumPage = location.pathname.startsWith(`/albumPage`);
+  const isPlayListPage = location.pathname.startsWith(`/playListPage`);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
@@ -143,7 +150,7 @@ function Player({
 
   useEffect(() => {
     handlePlayClick();
-    console.log("Updating Now Playing!");
+    // console.log("Updating Now Playing!");
   }, []);
 
   const handlePlayClick = () => {
@@ -190,21 +197,43 @@ function Player({
   };
 
   const handleNextClick = () => {
-    onNext();
-    setActiveClick("nextTrack-bg");
-    setTimeout(() => {
-      setActiveClick(null);
-    }, 250);
-    console.log("Next Track!");
+    if (isAlbumPage) {
+      onNext();
+      setActiveClick("nextTrack-bg");
+      setTimeout(() => {
+        setActiveClick(null);
+      }, 250);
+      // console.log("Next Track!");
+    }
+
+    if (isPlayListPage) {
+      onNext();
+      setActiveClick("nextTrack-bg");
+      setTimeout(() => {
+        setActiveClick(null);
+      }, 250);
+      // console.log("Next Track!");
+    }
   };
 
   const handlePrevClick = () => {
-    onPrev();
-    setActiveClick("prevTrack-bg");
-    setTimeout(() => {
-      setActiveClick(null);
-    }, 250);
-    // console.log("Prev Track!");
+    if (isAlbumPage) {
+      onPrev();
+      setActiveClick("prevTrack-bg");
+      setTimeout(() => {
+        setActiveClick(null);
+      }, 250);
+      // console.log("Prev Track!");
+    }
+
+    if (isPlayListPage) {
+      onPrev();
+      setActiveClick("prevTrack-bg");
+      setTimeout(() => {
+        setActiveClick(null);
+      }, 250);
+      // console.log("Prev Track!");
+    }
   };
 
   const handleVolumeChange = (e) => {

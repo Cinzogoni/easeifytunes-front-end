@@ -28,8 +28,28 @@ function NewReleasesBox({
   trackGenre,
   releaseDay,
 }) {
-  const { currentTrackId, handlePlay, handlePause, listeners } =
+  const { currentTrackId, handlePlay, handlePause, listeners, setTrackList } =
     useAudioPlayer();
+
+  const handlePlayTrack = () => {
+    setTrackList((prevTrackList) => {
+      const isTrackExists = prevTrackList.some((track) => track.id === trackId);
+      if (!isTrackExists) {
+        return [
+          ...prevTrackList,
+          {
+            id: trackId,
+            title: trackTitle,
+            performer: trackPerformer,
+            link: trackLink,
+          },
+        ];
+      }
+      return prevTrackList;
+    });
+
+    handlePlay(trackId, { trackTitle, trackPerformer }, trackLink);
+  };
 
   return (
     <div className={cx("container")}>
@@ -50,9 +70,7 @@ function NewReleasesBox({
           trackPerformer={trackPerformer}
           //
           isStatus={trackId === currentTrackId}
-          onPlay={() =>
-            handlePlay(trackId, { trackTitle, trackPerformer }, trackLink)
-          }
+          onPlay={handlePlayTrack}
           onPause={() => handlePause(trackId)}
         />
       </div>

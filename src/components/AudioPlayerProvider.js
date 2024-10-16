@@ -69,7 +69,8 @@ export function AudioPlayerProvider({ children }) {
 
   useEffect(() => {
     if (trackList.length > 0) {
-      setTrackLink(trackList[trackIndex].link);
+      const track = trackList[trackIndex];
+      setTrackLink(track.link);
       setCurrentTrack(trackList[trackIndex]);
     }
   }, [trackIndex, trackList]);
@@ -131,7 +132,7 @@ export function AudioPlayerProvider({ children }) {
 
   const handleTrackEnd = async (trackId) => {
     const player = playerRefs.current;
-    const totalDuration = player ? player.duration : 0;
+    // const totalDuration = player ? player.duration : 0;
 
     try {
       if (isLooping && player) {
@@ -148,26 +149,30 @@ export function AudioPlayerProvider({ children }) {
         await player.pause();
         setIsTrackEnded(true);
         console.log("Track has ended!");
+
+        if (trackIndex < trackList.length - 1) {
+          handleNextTrack();
+        }
       }
     } catch (stt) {
-      console.log("");
+      console.log();
     }
 
-    const percentDuration = totalDuration * 0.97;
+    // const percentDuration = totalDuration * 0.97;
 
-    if (
-      listeningTime >= percentDuration &&
-      checkListeningTime >= percentDuration
-    ) {
-      setListeners((prevListeners) => {
-        const newListeners = (prevListeners[trackId] || 0) + 1;
-        return { ...prevListeners, [trackId]: newListeners };
-      });
-    } else {
-      console.log(
-        "The stream isn't recorded because the song wasn't played fully!"
-      );
-    }
+    // if (
+    //   listeningTime >= percentDuration &&
+    //   checkListeningTime >= percentDuration
+    // ) {
+    //   setListeners((prevListeners) => {
+    //     const newListeners = (prevListeners[trackId] || 0) + 1;
+    //     return { ...prevListeners, [trackId]: newListeners };
+    //   });
+    // } else {
+    //   console.log(
+    //     "The stream isn't recorded because the song wasn't played fully!"
+    //   );
+    // }
     // console.log("Duration time:", percentDuration);
     // console.log("Listen time:", listeningTime);
     // console.log("Check time:", checkListeningTime);
@@ -183,6 +188,9 @@ export function AudioPlayerProvider({ children }) {
       const nextIndex = (trackIndex + 1) % trackList.length;
       const nextTrack = trackList[nextIndex];
 
+      setTrackIndex(nextIndex);
+      setCurrentTrackId(nextTrack.id);
+      setIsPlaying(true);
       handlePlay(
         nextTrack.id,
         {
@@ -191,9 +199,6 @@ export function AudioPlayerProvider({ children }) {
         },
         nextTrack.link
       );
-
-      setTrackIndex(nextIndex);
-      setCurrentTrackId(nextTrack.id);
 
       // console.log("Next Track!", nextTrack);
     }
@@ -204,6 +209,9 @@ export function AudioPlayerProvider({ children }) {
       const prevIndex = (trackIndex - 1 + trackList.length) % trackList.length;
       const prevTrack = trackList[prevIndex];
 
+      setTrackIndex(prevIndex);
+      setCurrentTrackId(prevTrack.id);
+      setIsPlaying(true);
       handlePlay(
         prevTrack.id,
         {
@@ -212,9 +220,6 @@ export function AudioPlayerProvider({ children }) {
         },
         prevTrack.link
       );
-
-      setTrackIndex(prevIndex);
-      setCurrentTrackId(prevTrack.id);
 
       // console.log("Prev Track!", prevTrack);
     }
