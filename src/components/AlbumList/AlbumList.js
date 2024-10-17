@@ -21,13 +21,12 @@ function AlbumList({ trackList, avatar }) {
     currentTrackId,
     handlePlay,
     handlePause,
-    isTrackEnded,
     setTrackList,
     handleNextTrack,
     handlePrevTrack,
     setTrackIndex,
   } = useAudioPlayer();
-  const [isUI, setIsUI] = useState(null);
+  // const [isUI, setIsUI] = useState(null);
 
   useEffect(() => {
     if (trackList.length > 0) {
@@ -41,15 +40,13 @@ function AlbumList({ trackList, avatar }) {
       : -1;
     if (index !== -1) {
       setTrackIndex(index);
-      setIsUI(currentTrackId);
     }
-
     // console.log("Current Index:", index);
+    // console.log("Current Track Id:", currentTrackId);
   }, [currentTrackId, trackList, setTrackIndex]);
 
   const handleTrackPlay = (track) => {
     setTrackIndex(trackList.findIndex((t) => t.id === track.id));
-    setIsUI(track.id);
     handlePlay(
       track.id,
       {
@@ -62,7 +59,6 @@ function AlbumList({ trackList, avatar }) {
 
   const handleTrackPause = (track) => {
     setTrackIndex(trackList.findIndex((t) => t.id === track.id));
-    setIsUI(null);
     handlePause(track.id);
   };
 
@@ -80,7 +76,6 @@ function AlbumList({ trackList, avatar }) {
     }
   };
 
-  // console.log("Current Track Id:", currentTrackId);
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
@@ -88,8 +83,7 @@ function AlbumList({ trackList, avatar }) {
           {trackList.map((track) => (
             <div
               className={cx("track-box", {
-                playing: isUI === track.id && currentTrackId,
-                transparent: isTrackEnded,
+                playing: track.id === currentTrackId,
               })}
               key={track.id}
             >

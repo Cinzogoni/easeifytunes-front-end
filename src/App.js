@@ -25,13 +25,13 @@ export const componentContext = createContext();
 
 function App() {
   return (
-    <TrackInfoProvider>
+    <Router>
       <AudioPlayerProvider>
-        <Router>
+        <TrackInfoProvider>
           <AppContent />
-        </Router>
+        </TrackInfoProvider>
       </AudioPlayerProvider>
-    </TrackInfoProvider>
+    </Router>
   );
 }
 

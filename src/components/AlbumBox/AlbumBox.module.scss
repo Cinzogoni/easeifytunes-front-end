@@ -14,7 +14,7 @@
 
 .link {
   width: 280px;
-  height: 280px;
+  height: 298px;
   position: absolute;
   cursor: pointer;
 }
@@ -38,6 +38,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  transform: translateY(-6px);
 }
 
 .album-name {
@@ -46,7 +47,7 @@
 }
 
 .album-performer {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   margin: 2px 0;
   opacity: 0.6;
 }

@@ -23,8 +23,8 @@ import {
 
 const cx = classNames.bind(styles);
 function Player({
-  trackId,
-  trackLink,
+  // trackId,
+  // trackLink,
   trackTitle,
   trackPerformer,
   //
@@ -87,9 +87,9 @@ function Player({
   const {
     playerRefs,
     // setCurrentTrackId,
-    currentTrackId,
+    // currentTrackId,
     // setCurrentTrack,
-    currentTrack,
+    // currentTrack,
     // setTrackLink,
     handleStop,
     handleLoop,
@@ -149,9 +149,9 @@ function Player({
   }, [playerRefs]);
 
   useEffect(() => {
-    handlePlayClick();
-    // console.log("Updating Now Playing!");
-  }, []);
+    console.log(`Track Title Changed: ${trackTitle}`);
+    console.log(`Track Performer Changed: ${trackPerformer}`);
+  }, [trackTitle, trackPerformer]);
 
   const handlePlayClick = () => {
     onPlay();
@@ -199,6 +199,8 @@ function Player({
   const handleNextClick = () => {
     if (isAlbumPage) {
       onNext();
+      setIsTrackEnded(false);
+      setShow(true);
       setActiveClick("nextTrack-bg");
       setTimeout(() => {
         setActiveClick(null);
@@ -208,6 +210,8 @@ function Player({
 
     if (isPlayListPage) {
       onNext();
+      setIsTrackEnded(false);
+      setShow(true);
       setActiveClick("nextTrack-bg");
       setTimeout(() => {
         setActiveClick(null);
@@ -219,6 +223,8 @@ function Player({
   const handlePrevClick = () => {
     if (isAlbumPage) {
       onPrev();
+      setIsTrackEnded(false);
+      setShow(true);
       setActiveClick("prevTrack-bg");
       setTimeout(() => {
         setActiveClick(null);
@@ -228,6 +234,8 @@ function Player({
 
     if (isPlayListPage) {
       onPrev();
+      setIsTrackEnded(false);
+      setShow(true);
       setActiveClick("prevTrack-bg");
       setTimeout(() => {
         setActiveClick(null);

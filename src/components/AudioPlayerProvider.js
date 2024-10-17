@@ -7,6 +7,8 @@ import React, {
   useCallback,
 } from "react";
 
+import { useLocation } from "react-router-dom";
+
 const AudioPlayer = createContext();
 
 export function AudioPlayerProvider({ children }) {
@@ -25,25 +27,11 @@ export function AudioPlayerProvider({ children }) {
   const [trackList, setTrackList] = useState([]);
   const [trackIndex, setTrackIndex] = useState(0);
 
+  const location = useLocation();
+  const isAlbumPage = location.pathname.startsWith(`/albumPage`);
+  const isPlayListPage = location.pathname.startsWith(`/playListPage`);
+
   const playerRefs = useRef(null);
-
-  useEffect(() => {
-    const player = playerRefs.current;
-
-    if (!player) return;
-
-    player.src = trackLink;
-    player.load();
-    if (isPlaying && player) {
-      setIsPlaying(true);
-      setIsTrackEnded(false);
-      player.play();
-    } else {
-      setIsPlaying(false);
-      setIsTrackEnded(true);
-      player.pause();
-    }
-  }, [trackLink]);
 
   useEffect(() => {
     if (playerRefs.current) {
@@ -70,34 +58,37 @@ export function AudioPlayerProvider({ children }) {
   useEffect(() => {
     if (trackList.length > 0) {
       const track = trackList[trackIndex];
-      setTrackLink(track.link);
-      setCurrentTrack(trackList[trackIndex]);
+      setCurrentTrack(track);
     }
   }, [trackIndex, trackList]);
 
   const handlePlay = async (trackId, track, link) => {
     try {
       const player = playerRefs.current;
-      const replayCurrentTrackId = trackId || currentTrackId;
+      const id = trackId || currentTrackId;
+      const audioLink = link || trackLink;
 
-      if (checkListeningTime >= player.duration) {
-        setListeningTime(player.currentTime);
-        setCheckListeningTime(player.currentTime - 1);
-      } else {
-        setListeningTime(0);
-        setCheckListeningTime(0);
+      if (!player) return;
+
+      if (audioLink !== trackLink) {
+        player.src = audioLink;
+        await player.load();
       }
 
-      if (trackLink) {
-        await player.play();
-        setIsPlaying(true);
-        setTrackLink(link);
-        setCurrentTrack(track);
-        setCurrentTrackId(replayCurrentTrackId);
-        // console.log("Track link is updated!");
-      } else {
-        // console.log("Track link awaiting update!");
-      }
+      setTrackLink(audioLink);
+      setCurrentTrack(track);
+      setCurrentTrackId(id);
+
+      setIsPlaying(true);
+      await player.play();
+
+      // if (checkListeningTime >= player.duration) {
+      //   setListeningTime(player.currentTime);
+      //   setCheckListeningTime(player.currentTime - 1);
+      // } else {
+      //   setListeningTime(0);
+      //   setCheckListeningTime(0);
+      // }
     } catch (stt) {
       console.log();
     }
@@ -124,7 +115,6 @@ export function AudioPlayerProvider({ children }) {
         await player.pause();
       }
       setIsPlaying(false);
-      setCurrentTrackId(null);
     } catch (stt) {
       console.log();
     }
@@ -142,16 +132,20 @@ export function AudioPlayerProvider({ children }) {
         setIsTrackEnded(false);
         setListeningTime(0);
         setCheckListeningTime(0);
-        console.log("Looping is active!");
+        console.log("Single track loop is active!");
       } else {
         setIsPlaying(false);
         player.currentTime = 0;
         await player.pause();
         setIsTrackEnded(true);
-        console.log("Track has ended!");
+        console.log(
+          "The track has ended or the next track is in the playlist!"
+        );
 
         if (trackIndex < trackList.length - 1) {
           handleNextTrack();
+        } else {
+          handleStop();
         }
       }
     } catch (stt) {
@@ -184,7 +178,10 @@ export function AudioPlayerProvider({ children }) {
   };
 
   const handleNextTrack = () => {
-    if (trackList.length > 0) {
+    if (
+      (isAlbumPage && trackList.length > 0) ||
+      (isPlayListPage && trackList.length > 0)
+    ) {
       const nextIndex = (trackIndex + 1) % trackList.length;
       const nextTrack = trackList[nextIndex];
 
@@ -205,7 +202,10 @@ export function AudioPlayerProvider({ children }) {
   };
 
   const handlePrevTrack = () => {
-    if (trackList.length > 0) {
+    if (
+      (isAlbumPage && trackList.length > 0) ||
+      (isPlayListPage && trackList.length > 0)
+    ) {
       const prevIndex = (trackIndex - 1 + trackList.length) % trackList.length;
       const prevTrack = trackList[prevIndex];
 
@@ -244,7 +244,6 @@ export function AudioPlayerProvider({ children }) {
         setTrackIndex,
         setTrackList,
         playerRefs,
-
         currentTime,
         setCurrentTime,
         duration,
