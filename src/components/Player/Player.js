@@ -33,6 +33,7 @@ function Player({
   onPause,
   onNext,
   onPrev,
+  onLoop,
   // Trending Songs
   frameResize,
   playerResize,
@@ -92,7 +93,6 @@ function Player({
     // currentTrack,
     // setTrackLink,
     handleStop,
-    handleLoop,
     currentTime,
     setCurrentTime,
     duration,
@@ -148,11 +148,6 @@ function Player({
     };
   }, [playerRefs]);
 
-  useEffect(() => {
-    console.log(`Track Title Changed: ${trackTitle}`);
-    console.log(`Track Performer Changed: ${trackPerformer}`);
-  }, [trackTitle, trackPerformer]);
-
   const handlePlayClick = () => {
     onPlay();
     setTimeout(() => {
@@ -186,11 +181,11 @@ function Player({
 
   const handleLoopClick = () => {
     if (activeLoopClick === "loopTrack-bg") {
-      handleLoop(false);
+      onLoop(false);
       setActiveLoopClick(null);
       console.log("Track looping mode off!");
     } else {
-      handleLoop(true);
+      onLoop(true);
       setActiveLoopClick("loopTrack-bg");
       console.log("Track looping mode on!");
     }

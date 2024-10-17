@@ -25,8 +25,8 @@ function AlbumList({ trackList, avatar }) {
     handleNextTrack,
     handlePrevTrack,
     setTrackIndex,
+    isTrackEnded,
   } = useAudioPlayer();
-  // const [isUI, setIsUI] = useState(null);
 
   useEffect(() => {
     if (trackList.length > 0) {
@@ -76,6 +76,10 @@ function AlbumList({ trackList, avatar }) {
     }
   };
 
+  const isLastTrack = (track) => {
+    return trackList[trackList.length - 1]?.id === track.id;
+  };
+
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
@@ -84,6 +88,7 @@ function AlbumList({ trackList, avatar }) {
             <div
               className={cx("track-box", {
                 playing: track.id === currentTrackId,
+                transparent: isTrackEnded && isLastTrack(track),
               })}
               key={track.id}
             >

@@ -674,6 +674,11 @@ audio {
   height: 30px;
 }
 
+.frame:not(.show) .stopperTrackInfo {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
 @media (min-width: 893px) and (max-width: 1037px) {
   .frameTrackInfoResize {
     height: 50px;

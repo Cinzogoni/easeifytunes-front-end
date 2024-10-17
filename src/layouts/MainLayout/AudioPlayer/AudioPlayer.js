@@ -15,6 +15,7 @@ function AudioPlayer() {
     handlePause,
     handleNextTrack,
     handlePrevTrack,
+    handleLoop,
   } = useAudioPlayer();
 
   return (
@@ -30,6 +31,7 @@ function AudioPlayer() {
           onPause={handlePause}
           onNext={handleNextTrack}
           onPrev={handlePrevTrack}
+          onLoop={() => handleLoop()}
           //
           frameFooterResize
           playerFooterResize

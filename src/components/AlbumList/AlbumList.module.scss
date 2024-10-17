@@ -19,12 +19,13 @@
 
   &.playing {
     background-color: rgba(128, 128, 128, 0.2);
+    transition: background-color 0.3s ease;
   }
-}
 
-.track-box.transparent {
-  background-color: transparent;
-  transition: background-color 0.3s ease;
+  &.transparent {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
 }
 
 .track-box:hover {
