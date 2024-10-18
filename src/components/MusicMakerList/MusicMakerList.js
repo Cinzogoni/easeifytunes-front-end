@@ -131,7 +131,7 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
                   colClass={cx("col")}
                   colL={cx("l-2-5")}
                   colML={cx("ml-4")}
-                  colM={cx("m-6")}
+                  colM={cx("m-4")}
                   colSM={cx("sm-6")}
                   colS={cx("s-6")}
                   colMo={cx("mo-12")}

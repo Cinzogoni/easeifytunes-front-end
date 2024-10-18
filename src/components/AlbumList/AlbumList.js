@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./AlbumList.module.scss";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeadphones,
@@ -21,11 +21,11 @@ function AlbumList({ trackList, avatar }) {
     currentTrackId,
     handlePlay,
     handlePause,
-    setTrackList,
     handleNextTrack,
     handlePrevTrack,
-    setTrackIndex,
     isTrackEnded,
+    setTrackIndex,
+    setTrackList,
   } = useAudioPlayer();
 
   useEffect(() => {

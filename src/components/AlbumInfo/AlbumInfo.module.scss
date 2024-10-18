@@ -88,7 +88,7 @@
   height: 32px;
 }
 
-@media (min-width: 893px) and (max-width: 1037px) {
+@media (min-width: 893px) and (max-width: 1124px) {
   .back {
     margin: 10px;
     transform: translateY(-66px);
@@ -102,36 +102,45 @@
     width: 170px;
     height: 170px;
   }
-}
 
-@media (min-width: 887px) and (max-width: 892px) {
-  .back {
-    margin: 10px;
-    transform: translateY(-66px);
+  .album-name {
+    font-size: 1.6rem;
   }
 
-  .info {
-    position: relative;
-  }
-
-  .avatar {
-    width: 170px;
-    height: 170px;
+  .performer,
+  .release-day {
+    font-size: 1rem;
   }
 }
 
-@media (max-width: 886px) {
-  .back {
-    margin: 10px;
-    transform: translateY(-56px);
-  }
+// @media (min-width: 887px) and (max-width: 892px) {
+//   .back {
+//     margin: 10px;
+//     transform: translateY(-66px);
+//   }
 
-  .info {
-    position: relative;
-  }
+//   .info {
+//     position: relative;
+//   }
 
-  .avatar {
-    width: 138px;
-    height: 138px;
-  }
-}
+//   .avatar {
+//     width: 170px;
+//     height: 170px;
+//   }
+// }
+
+// @media (max-width: 886px) {
+//   .back {
+//     margin: 10px;
+//     transform: translateY(-56px);
+//   }
+
+//   .info {
+//     position: relative;
+//   }
+
+//   .avatar {
+//     width: 170px;
+//     height: 170px;
+//   }
+// }

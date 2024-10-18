@@ -736,6 +736,10 @@ audio {
   top: 8px;
 }
 
+.frame:not(.show) .stopperAlbumList {
+  opacity: 1;
+}
+
 //AlbumPage
 .actionsAlbumList {
   display: flex;

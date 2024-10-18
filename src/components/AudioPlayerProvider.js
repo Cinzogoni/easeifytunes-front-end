@@ -58,7 +58,12 @@ export function AudioPlayerProvider({ children }) {
   useEffect(() => {
     if (trackList.length > 0) {
       const track = trackList[trackIndex];
-      setCurrentTrack(track);
+      const updatedTrack = {
+        ...track,
+        trackTitle: track.title,
+        trackPerformer: track.stageName || track.performer,
+      };
+      setCurrentTrack(updatedTrack);
     }
   }, [trackIndex, trackList]);
 
@@ -137,15 +142,17 @@ export function AudioPlayerProvider({ children }) {
         setIsPlaying(false);
         player.currentTime = 0;
         await player.pause();
-        setIsTrackEnded(true);
-        console.log(
-          "The track has ended or the next track is in the playlist!"
-        );
 
-        if (trackIndex < trackList.length - 1) {
+        if (
+          (isAlbumPage && trackIndex < trackList.length - 1) ||
+          (isPlayListPage && trackIndex < trackList.length - 1)
+        ) {
           handleNextTrack();
+          setIsTrackEnded(false);
+          console.log("The track has ended in the playlist!");
         } else {
-          handleStop();
+          setIsTrackEnded(true);
+          console.log("The track has ended!");
         }
       }
     } catch (stt) {
@@ -187,16 +194,19 @@ export function AudioPlayerProvider({ children }) {
 
       setTrackIndex(nextIndex);
       setCurrentTrackId(nextTrack.id);
+      setCurrentTrack({
+        trackTitle: nextTrack.title,
+        trackPerformer: nextTrack.stageName || nextTrack.performer,
+      });
       setIsPlaying(true);
       handlePlay(
         nextTrack.id,
         {
           trackTitle: nextTrack.title,
-          trackPerformer: nextTrack.stageName || nextIndex.performer,
+          trackPerformer: nextTrack.stageName || nextTrack.performer,
         },
         nextTrack.link
       );
-
       // console.log("Next Track!", nextTrack);
     }
   };
@@ -211,6 +221,10 @@ export function AudioPlayerProvider({ children }) {
 
       setTrackIndex(prevIndex);
       setCurrentTrackId(prevTrack.id);
+      setCurrentTrack({
+        trackTitle: prevTrack.title,
+        trackPerformer: prevTrack.stageName || prevTrack.performer,
+      });
       setIsPlaying(true);
       handlePlay(
         prevTrack.id,
@@ -220,7 +234,6 @@ export function AudioPlayerProvider({ children }) {
         },
         prevTrack.link
       );
-
       // console.log("Prev Track!", prevTrack);
     }
   };
@@ -243,6 +256,7 @@ export function AudioPlayerProvider({ children }) {
         trackIndex,
         setTrackIndex,
         setTrackList,
+        trackList,
         playerRefs,
         currentTime,
         setCurrentTime,

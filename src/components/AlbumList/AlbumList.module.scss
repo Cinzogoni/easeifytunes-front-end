@@ -128,30 +128,38 @@
   .track-title {
     font-size: 0.9rem;
   }
-}
 
-@media (min-width: 1007px) and (max-width: 1050px) {
-  .track-title {
+  .track-performer {
     font-size: 0.8rem;
   }
-
-  .track-performer {
-    font-size: 0.6;
-  }
 }
 
-@media (min-width: 987px) and (max-width: 1006px) {
+@media (min-width: 1037px) and (max-width: 1050px) {
   .track-title {
-    font-size: 0.68rem;
-  }
-}
-
-@media (min-width: 899px) and (max-width: 986px) {
-  .track-title {
-    font-size: 0.55rem;
+    font-size: 0.9rem;
   }
 
   .track-performer {
-    font-size: 0.45;
+    font-size: 0.8;
+  }
+}
+
+@media (min-width: 1010px) and (max-width: 1036px) {
+  .track-title {
+    font-size: 0.75rem;
+  }
+
+  .track-performer {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 1009px) {
+  .track-title {
+    font-size: 0.65rem;
+  }
+
+  .track-performer {
+    font-size: 0.55;
   }
 }

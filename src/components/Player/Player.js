@@ -23,8 +23,7 @@ import {
 
 const cx = classNames.bind(styles);
 function Player({
-  // trackId,
-  // trackLink,
+  trackId,
   trackTitle,
   trackPerformer,
   //
@@ -87,11 +86,10 @@ function Player({
 }) {
   const {
     playerRefs,
-    // setCurrentTrackId,
-    // currentTrackId,
-    // setCurrentTrack,
-    // currentTrack,
-    // setTrackLink,
+    setCurrentTrackId,
+    setCurrentTrack,
+    currentTrack,
+    currentTrackId,
     handleStop,
     currentTime,
     setCurrentTime,
@@ -100,6 +98,8 @@ function Player({
     volume,
     setVolume,
     isTrackEnded,
+    trackIndex,
+    trackList,
     setIsTrackEnded,
   } = useAudioPlayer();
 
@@ -148,7 +148,11 @@ function Player({
     };
   }, [playerRefs]);
 
-  const handlePlayClick = () => {
+  const handlePlayClick = (id) => {
+    if (id) {
+      setCurrentTrackId(id);
+      setCurrentTrack(trackList[trackIndex]);
+    }
     onPlay();
     setTimeout(() => {
       setIsTrackEnded(false);
@@ -192,23 +196,29 @@ function Player({
   };
 
   const handleNextClick = () => {
-    if (isAlbumPage) {
+    const nextIndex = (trackIndex + 1) % trackList.length;
+    const nextTrack = trackList[nextIndex];
+
+    if (isAlbumPage && trackList.length > 0) {
+      handlePlayClick(nextTrack.id);
       onNext();
-      setIsTrackEnded(false);
-      setShow(true);
       setActiveClick("nextTrack-bg");
       setTimeout(() => {
+        setShow(true);
+        setIsTrackEnded(false);
         setActiveClick(null);
       }, 250);
       // console.log("Next Track!");
     }
 
-    if (isPlayListPage) {
+    if (isPlayListPage && trackList.length > 0) {
+      handlePlayClick(nextTrack.id);
       onNext();
       setIsTrackEnded(false);
-      setShow(true);
       setActiveClick("nextTrack-bg");
       setTimeout(() => {
+        setShow(true);
+        setIsTrackEnded(false);
         setActiveClick(null);
       }, 250);
       // console.log("Next Track!");
@@ -216,23 +226,30 @@ function Player({
   };
 
   const handlePrevClick = () => {
-    if (isAlbumPage) {
+    const prevIndex = (trackIndex - 1 + trackList.length) % trackList.length;
+    const prevTrack = trackList[prevIndex];
+
+    if (isAlbumPage && trackList.length > 0) {
+      handlePlayClick(prevTrack.id);
       onPrev();
       setIsTrackEnded(false);
-      setShow(true);
       setActiveClick("prevTrack-bg");
       setTimeout(() => {
+        setShow(true);
+        setIsTrackEnded(false);
         setActiveClick(null);
       }, 250);
       // console.log("Prev Track!");
     }
 
-    if (isPlayListPage) {
+    if (isPlayListPage && trackList.length > 0) {
+      handlePlayClick(prevTrack.id);
       onPrev();
       setIsTrackEnded(false);
-      setShow(true);
       setActiveClick("prevTrack-bg");
       setTimeout(() => {
+        setShow(true);
+        setIsTrackEnded(false);
         setActiveClick(null);
       }, 250);
       // console.log("Prev Track!");
@@ -279,9 +296,6 @@ function Player({
     document.removeEventListener("mousemove", handleTimingChange);
     document.removeEventListener("mouseup", handleMouseUpTiming);
   };
-
-  // console.log("Player - onNext type:", typeof onNext);
-  // console.log("Player - onPrev type:", typeof onPrev);
 
   return (
     <div
@@ -479,7 +493,7 @@ function Player({
               { playerTrackInfo },
               { playerAlbumList }
             )}
-            onClick={handlePlayClick}
+            onClick={() => handlePlayClick(trackId)}
           >
             <div className={cx("play-box")}>
               <FontAwesomeIcon
