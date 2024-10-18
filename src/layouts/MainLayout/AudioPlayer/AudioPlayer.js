@@ -27,7 +27,7 @@ function AudioPlayer() {
   const isPlayListPage = location.pathname.startsWith(`/playListPage`);
 
   useEffect(() => {
-    console.log("AudioPlayer - Current Track:", currentTrack);
+    // console.log("AudioPlayer - Current Track:", currentTrack);
   }, [currentTrack]);
 
   useEffect(() => {

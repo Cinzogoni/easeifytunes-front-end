@@ -13,7 +13,7 @@ const AudioPlayer = createContext();
 
 export function AudioPlayerProvider({ children }) {
   const [currentTrackId, setCurrentTrackId] = useState(null);
-  const [currentTrack, setCurrentTrack] = useState(null);
+  const [currentTrack, setCurrentTrack] = useState({});
   const [trackLink, setTrackLink] = useState(``);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -149,10 +149,10 @@ export function AudioPlayerProvider({ children }) {
         ) {
           handleNextTrack();
           setIsTrackEnded(false);
-          console.log("The track has ended in the playlist!");
+          // console.log("The track has ended in the playlist!");
         } else {
           setIsTrackEnded(true);
-          console.log("The track has ended!");
+          // console.log("The track has ended!");
         }
       }
     } catch (stt) {
