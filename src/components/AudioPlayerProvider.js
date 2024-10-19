@@ -4,14 +4,17 @@ import React, {
   useContext,
   useRef,
   useEffect,
-  useCallback,
+  // useCallback,
 } from "react";
 
 import { useLocation } from "react-router-dom";
+import { useTrackInfo } from "./TrackInfoProvider";
 
 const AudioPlayer = createContext();
 
 export function AudioPlayerProvider({ children }) {
+  const { musicMaker } = useTrackInfo();
+
   const [currentTrackId, setCurrentTrackId] = useState(null);
   const [currentTrack, setCurrentTrack] = useState({});
   const [trackLink, setTrackLink] = useState(``);
@@ -113,7 +116,7 @@ export function AudioPlayerProvider({ children }) {
     }
   };
 
-  const handleTrackEnd = async (trackId) => {
+  const handleTrackEnd = async () => {
     const player = playerRefs.current;
     // const totalDuration = player ? player.duration : 0;
 
@@ -125,22 +128,21 @@ export function AudioPlayerProvider({ children }) {
         setIsTrackEnded(false);
         setListeningTime(0);
         setCheckListeningTime(0);
-        console.log("Single track loop is active!");
+        // console.log("Single track loop is active!");
       } else {
         setIsPlaying(false);
         player.currentTime = 0;
         await player.pause();
 
         if (
-          (isAlbumPage && trackIndex < trackList.length - 1) ||
-          (isPlayListPage && trackIndex < trackList.length - 1)
+          (isAlbumPage || isPlayListPage) &&
+          trackIndex < trackList.length - 1
         ) {
           handleNextTrack();
           setIsTrackEnded(false);
           // console.log("The track has ended in the playlist!");
         } else {
           setIsTrackEnded(true);
-          // console.log("The track has ended!");
         }
       }
     } catch (stt) {
@@ -168,8 +170,11 @@ export function AudioPlayerProvider({ children }) {
   };
 
   const handleLoop = () => {
-    setIsLooping((prevIsLooping) => !prevIsLooping);
-    console.log(`Looping is now ${!isLooping ? "enabled" : "disabled"}.`);
+    setIsLooping((prevIsLooping) => {
+      const newIsLooping = !prevIsLooping;
+      console.log(`Looping is now ${newIsLooping ? "enabled" : "disabled"}.`);
+      return newIsLooping;
+    });
   };
 
   const handleNextTrack = () => {

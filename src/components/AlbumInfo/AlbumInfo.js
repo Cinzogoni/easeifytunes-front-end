@@ -2,17 +2,17 @@ import classNames from "classnames/bind";
 import styles from "./AlbumInfo.module.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowLeft,
-  faRotate,
-  faShuffle,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
+import { useAudioPlayer } from "../AudioPlayerProvider";
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
+import Player from "../Player";
 
 const cx = classNames.bind(styles);
 function AlbumInfo({ albumInfo }) {
+  const { handleLoop } = useAudioPlayer();
+
   const stageName =
     albumInfo && albumInfo.albumPerformer ? albumInfo.albumPerformer : "";
   const avatar =
@@ -41,12 +41,15 @@ function AlbumInfo({ albumInfo }) {
           <h4 className={cx("performer")}>{stageName}</h4>
           <h4 className={cx("release-day")}>Release day: {releaseDay}</h4>
           <div className={cx("player-func")}>
-            <div className={cx("random-bg")}>
-              <FontAwesomeIcon className={cx("random")} icon={faShuffle} />
-            </div>
-            <div className={cx("loop-bg")}>
-              <FontAwesomeIcon className={cx("loop")} icon={faRotate} />
-            </div>
+            <Player
+              onLoop={handleLoop}
+              frameAlbumInfo
+              playerAlbumInfoResize
+              playerAlbumInfo
+              actionsAlbumInfo
+              hideAlbumInfo
+              spaceAlbumInfo
+            />
           </div>
         </div>
       </div>

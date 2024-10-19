@@ -83,6 +83,13 @@ function Player({
   stopperAlbumList,
   actionsAlbumList,
   hideAlbumList,
+  //AlbumInfo
+  playerAlbumInfo,
+  playerAlbumInfoResize,
+  actionsAlbumInfo,
+  hideAlbumInfo,
+  frameAlbumInfo,
+  spaceAlbumInfo,
 }) {
   const {
     playerRefs,
@@ -307,7 +314,8 @@ function Player({
         { frameResize },
         { frameFooterResize },
         { frameTrackInfoResize },
-        { frameSingleTracks }
+        { frameSingleTracks },
+        { frameAlbumInfo }
       )}
     >
       {/* AudioPlayer Footer */}
@@ -365,7 +373,8 @@ function Player({
           { playerResize },
           { playerFooterResize },
           { playerTrackInfoResize },
-          { playerSingleTracks }
+          { playerSingleTracks },
+          { playerAlbumInfoResize }
         )}
       >
         {isStatus && !isTrackEnded && (
@@ -394,14 +403,16 @@ function Player({
             "actions",
             { actionsFooterLeft },
             { actionTrackInfoLeft },
-            { actionsAlbumList }
+            { actionsAlbumList },
+            { actionsAlbumInfo }
           )}
         >
           <div
             className={cx(
               "randomTrack-bg",
               { randomTrackInfo },
-              { hideAlbumList }
+              { hideAlbumList },
+              { spaceAlbumInfo }
             )}
           >
             <FontAwesomeIcon
@@ -414,7 +425,8 @@ function Player({
             className={cx(
               "loopTrack-bg",
               { loopBGTrackInfo },
-              { hideAlbumList }
+              { hideAlbumList },
+              { spaceAlbumInfo }
             )}
             onClick={handleLoopClick}
             style={{
@@ -434,7 +446,11 @@ function Player({
             }}
           >
             <FontAwesomeIcon
-              className={cx("actions-footer", { loopTrackInfo })}
+              className={cx(
+                "actions-footer",
+                { loopTrackInfo },
+                { spaceAlbumInfo }
+              )}
               icon={faRotate}
             />
           </div>
@@ -443,7 +459,8 @@ function Player({
             className={cx(
               "stopClick-bg",
               { pauseBGTrackInfo },
-              { hideAlbumList }
+              { hideAlbumList },
+              { hideAlbumInfo }
             )}
             onClick={handleStopClick}
             style={{
@@ -458,13 +475,17 @@ function Player({
             }}
           >
             <FontAwesomeIcon
-              className={cx("actions-footer", { pauseTrackInfo })}
+              className={cx(
+                "actions-footer",
+                { pauseTrackInfo },
+                { hideAlbumInfo }
+              )}
               icon={faPause}
             />
           </div>
 
           <button
-            className={cx("prevTrack-bg", { prevTrackInfo })}
+            className={cx("prevTrack-bg", { prevTrackInfo }, { hideAlbumInfo })}
             onClick={handlePrevClick}
             style={{
               backgroundColor:
@@ -491,7 +512,8 @@ function Player({
               { playBtn },
               { playerFooterBtn },
               { playerTrackInfo },
-              { playerAlbumList }
+              { playerAlbumList },
+              { playerAlbumInfo }
             )}
             onClick={() => handlePlayClick(trackId)}
           >

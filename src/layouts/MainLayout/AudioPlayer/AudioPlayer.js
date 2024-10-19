@@ -1,6 +1,7 @@
 import styles from "./AudioPlayer.module.scss";
 import classNames from "classnames/bind";
 
+// import { useLocation } from "react-router-dom";
 import { useAudioPlayer } from "~/components/AudioPlayerProvider";
 
 import Player from "~/components/Player";
@@ -10,7 +11,6 @@ function AudioPlayer() {
   const {
     currentTrackId,
     currentTrack,
-
     trackLink,
     handlePlay,
     handlePause,
@@ -18,6 +18,10 @@ function AudioPlayer() {
     handlePrevTrack,
     handleLoop,
   } = useAudioPlayer();
+
+  // const location = useLocation();
+  // const isAlbumPage = location.pathname.startsWith(`/albumPage`);
+  // const isPlayListPage = location.pathname.startsWith(`/playListPage`);
 
   return (
     <div className={cx("wrapper")}>
@@ -32,7 +36,7 @@ function AudioPlayer() {
           onPause={handlePause}
           onNext={handleNextTrack}
           onPrev={handlePrevTrack}
-          onLoop={() => handleLoop()}
+          onLoop={handleLoop}
           //
           frameFooterResize
           playerFooterResize
