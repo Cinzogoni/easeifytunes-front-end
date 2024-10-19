@@ -37,20 +37,23 @@ function Album() {
   };
 
   const handleScroll = (move) => {
-    const totalBoxes = musicMaker.length;
+    const totalBoxes = musicMaker.reduce(
+      (total, albumGroup) => total + (albumGroup.albums?.length || 0),
+      0
+    );
 
     const scrollIndex = () => {
       if (width >= 1600) {
-        return totalBoxes - 2;
+        return totalBoxes - 4;
       }
       if (width >= 1220 && width < 1599) {
-        return totalBoxes - 1;
+        return totalBoxes - 3;
       }
       if (width >= 900 && width < 1220) {
-        return totalBoxes;
+        return totalBoxes - 2;
       }
       if (width >= 307 && width < 900) {
-        return totalBoxes + 1;
+        return totalBoxes - 1;
       }
     };
 

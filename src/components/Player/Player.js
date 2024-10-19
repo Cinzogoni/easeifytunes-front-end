@@ -88,8 +88,8 @@ function Player({
     playerRefs,
     setCurrentTrackId,
     setCurrentTrack,
-    currentTrack,
-    currentTrackId,
+    // currentTrack,
+    // currentTrackId,
     handleStop,
     currentTime,
     setCurrentTime,
@@ -167,7 +167,7 @@ function Player({
       setIsTrackEnded(true);
       setShow(false);
     }, 100);
-    console.log("The track has paused!");
+    // console.log("The track has paused!");
   };
 
   const handleStopClick = () => {
@@ -180,18 +180,18 @@ function Player({
     setTimeout(() => {
       setActiveClick(null);
     }, 250);
-    console.log("The track has stopped and reset!");
+    // console.log("The track has stopped and reset!");
   };
 
   const handleLoopClick = () => {
     if (activeLoopClick === "loopTrack-bg") {
       onLoop(false);
       setActiveLoopClick(null);
-      console.log("Track looping mode off!");
+      // console.log("Track looping mode off!");
     } else {
       onLoop(true);
       setActiveLoopClick("loopTrack-bg");
-      console.log("Track looping mode on!");
+      // console.log("Track looping mode on!");
     }
   };
 

@@ -55,18 +55,6 @@ export function AudioPlayerProvider({ children }) {
     }
   }, [isPlaying]);
 
-  useEffect(() => {
-    if (trackList.length > 0) {
-      const track = trackList[trackIndex];
-      const updatedTrack = {
-        ...track,
-        trackTitle: track.title,
-        trackPerformer: track.stageName || track.performer,
-      };
-      setCurrentTrack(updatedTrack);
-    }
-  }, [trackIndex, trackList]);
-
   const handlePlay = async (trackId, track, link) => {
     try {
       const player = playerRefs.current;

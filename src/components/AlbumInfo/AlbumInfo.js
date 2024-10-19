@@ -27,7 +27,7 @@ function AlbumInfo({ albumInfo }) {
         <Link
           to={routesConfig.musicMakerPage.replace(
             `:stageName`,
-            stageName.replace(/,/g, "-")
+            stageName.replace(/\//g, "-")
           )}
         >
           <FontAwesomeIcon className={cx("arrow-left")} icon={faArrowLeft} />

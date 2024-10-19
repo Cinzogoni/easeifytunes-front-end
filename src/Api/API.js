@@ -442,7 +442,7 @@ const apiMusicMaker = {
                 mainMusicMaker: "Perfume",
                 stageName: "Perfume",
                 genre: "Electro Pop",
-                releaseDay: "2023-12-182023-12-18",
+                releaseDay: "2023-12-18",
                 streamed: "3320",
                 trend: false,
                 link: mp3Type[
@@ -1144,6 +1144,138 @@ const apiMusicMaker = {
           },
         ],
         albums: [],
+      },
+      {
+        id: "MIN",
+        avatar:
+          "https://vcdn1-giaitri.vnecdn.net/2022/03/05/MIN2-1646448104-6583-1646449221.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=HpgQwfSaYVU6yRDg_emSZw",
+        stageName: "MIN",
+        role: "Singer",
+        singles: [
+          {
+            id: "min_Ghen",
+            avatar:
+              "https://i.scdn.co/image/ab67616d0000b273a29c93370755f839ace4c877",
+            title: "GHEN",
+            mainMusicMaker: "MIN",
+            stageName: "KHẮC HƯNG x ERIK x MIN",
+            type: "Single",
+            genre: "Pop",
+            releaseDay: "2024-10-12",
+            streamed: "58522",
+            trend: true,
+            link: mp3Type[
+              `MusicMaker/MIN/singletracks/KHẮC HƯNG x MIN x ERIK  Ghen`
+            ],
+            lyric: "",
+          },
+        ],
+        albums: [
+          {
+            id: "50/50",
+            albumAvatar:
+              "https://i.scdn.co/image/ab67616d0000b273221013fb2e16046539cfbdd8",
+            albumPerformer: "MIN",
+            albumName: `Album - 50|50`,
+            releaseDay: "2022-05-20",
+            tracks: [
+              {
+                id: "min_505001",
+                title: "Cà Phê",
+                mainMusicMaker: "MIN",
+                stageName: "MIN",
+                genre: "Pop",
+                releaseDay: "2022-05-20",
+                streamed: "2315",
+                trend: true,
+                link: mp3Type[`MusicMaker/MIN/albums/5050/MIN  CÀ PHÊ`],
+                lyric: "",
+              },
+              {
+                id: "min_505002",
+                title: "Trên Tình Bạn Dưới Tình Yêu",
+                mainMusicMaker: "MIN",
+                stageName: "MIN",
+                genre: "Pop",
+                releaseDay: "2022-05-20",
+                streamed: "3678",
+                trend: true,
+                link: mp3Type[
+                  `MusicMaker/MIN/albums/5050/MIN  TRÊN TÌNH BẠN DƯỚI TÌNH YÊU`
+                ],
+                lyric: "",
+              },
+              {
+                id: "min_505003",
+                title: "Anh Qua Đây Đi",
+                mainMusicMaker: "MIN",
+                stageName: "MIN",
+                genre: "Pop",
+                releaseDay: "2022-05-20",
+                streamed: "1035",
+                trend: false,
+                link: mp3Type[
+                  `MusicMaker/MIN/albums/5050/MIN  ANH QUA ĐÂY ĐI OFFICIAL AUDIO`
+                ],
+                lyric: "",
+              },
+              {
+                id: "min_505004",
+                title: "Phải Lòng Anh",
+                mainMusicMaker: "MIN",
+                stageName: "MIN",
+                genre: "Pop",
+                releaseDay: "2022-05-20",
+                streamed: "1285",
+                trend: false,
+                link: mp3Type[`MusicMaker/MIN/albums/5050/MIN  PHẢI LÒNG ANH`],
+                lyric: "",
+              },
+              {
+                id: "min_505005",
+                title: "Ngắm Sao (Dear Mintacs)",
+                mainMusicMaker: "MIN",
+                stageName: "MIN",
+                genre: "Pop",
+                releaseDay: "2022-05-20",
+                streamed: "935",
+                trend: false,
+                link: mp3Type[
+                  `MusicMaker/MIN/albums/5050/MIN  NGẮM SAO DEAR MINIACS`
+                ],
+                lyric: "",
+              },
+              {
+                id: "min_505006",
+                title: "Watching The Stars",
+                mainMusicMaker: "MIN",
+                stageName: "MIN",
+                genre: "Pop",
+                releaseDay: "2022-05-20",
+                streamed: "935",
+                trend: false,
+                link: mp3Type[
+                  `MusicMaker/MIN/albums/5050/MIN  WATCHING THE STARS`
+                ],
+                lyric: "",
+              },
+              {
+                id: "min_505007",
+                title: "Phải Lòng Anh (Dream Ver)",
+                mainMusicMaker: "MIN",
+                stageName: "MIN",
+                genre: "Pop",
+                releaseDay: "2022-05-20",
+                streamed: "825",
+                trend: false,
+                link: mp3Type[
+                  `MusicMaker/MIN/albums/5050/MIN  PHẢI LÒNG ANH DREAM VER`
+                ],
+                lyric: "",
+              },
+            ],
+          },
+        ],
       },
     ];
   },
