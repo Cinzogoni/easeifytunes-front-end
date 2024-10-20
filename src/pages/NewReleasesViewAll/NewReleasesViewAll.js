@@ -152,6 +152,7 @@ function NewReleasesViewAll() {
                       trackType={track.type}
                       trackGenre={track.genre}
                       releaseDay={track.releaseDay}
+                      streamed={track.streamed}
                     />
                   </div>
                 </div>

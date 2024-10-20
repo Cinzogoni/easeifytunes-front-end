@@ -6,8 +6,6 @@ import React, {
   useMemo,
 } from "react";
 
-import { useParams } from "react-router-dom";
-
 import apiMusicMaker from "~/Api/API";
 import apiPodcast from "~/Api/API_01";
 import apiMoment from "~/Api/API_02";
@@ -19,8 +17,6 @@ export function TrackInfoProvider({ children }) {
   const [podcast, setPodcast] = useState([]);
   const [moment, setMoment] = useState([]);
   const [error, setError] = useState(null);
-
-  const { albumName, albumPerformer, podcastTopic } = useParams();
 
   useEffect(() => {
     const fetchData = () => {

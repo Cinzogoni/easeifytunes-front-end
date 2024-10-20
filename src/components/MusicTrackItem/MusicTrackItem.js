@@ -10,10 +10,9 @@ function MusicTrackItem({ trackAvatar, trackTitle, trackPerformer }) {
   return (
     <div className={cx("wrapper")}>
       <Link
-        to={routesConfig.track.replace(
-          ":trackTitle",
-          encodeURIComponent(trackTitle)
-        )}
+        to={routesConfig.track
+          .replace(`:stageName`, trackPerformer)
+          .replace(`:trackTitle`, trackTitle)}
       >
         <div className={cx("info-box")}>
           <img className={cx("avatar")} src={trackAvatar} alt={trackTitle} />

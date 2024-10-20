@@ -5,6 +5,7 @@ import Tippy from "@tippyjs/react/headless";
 
 import { useEffect, useState, useRef } from "react";
 import { useDebounce } from "~/hooks";
+import { useTrackInfo } from "../TrackInfoProvider";
 
 import WrapperPopper from "~/layouts/MainLayout/Popper/WrapperPopper";
 import MusicTrackItem from "../MusicTrackItem";
@@ -19,6 +20,8 @@ import apiPodcast from "~/Api/API_01";
 
 const cx = classNames.bind(styles);
 function Searchbar() {
+  const { musicMaker, podcast } = useTrackInfo();
+
   const [searchValue, setSearchValue] = useState(``);
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(true);
@@ -34,10 +37,7 @@ function Searchbar() {
       return;
     }
 
-    const apiResults = [
-      ...apiMusicMaker.getMusicMaker(),
-      ...apiPodcast.getPodcast(),
-    ];
+    const apiResults = [...podcast, ...musicMaker];
 
     const filteredResults = apiResults.filter((item) => {
       const searchLowerCase = searchValue.toLowerCase();
@@ -126,6 +126,26 @@ function Searchbar() {
                 {activeTitle === `Tracks` && (
                   <div className={cx("music-track")}>
                     {searchResult
+                      .flatMap((maker) => [
+                        ...(maker.albums
+                          ? maker.albums.flatMap((album) =>
+                              album.tracks.map((track) => ({
+                                id: track.id,
+                                avatar: album.albumAvatar || maker.avatar,
+                                stageName: maker.stageName,
+                                title: track.title,
+                              }))
+                            )
+                          : []),
+                        ...(maker.singles
+                          ? maker.singles.map((single) => ({
+                              id: single.id,
+                              avatar: maker.avatar,
+                              stageName: maker.stageName,
+                              title: single.title,
+                            }))
+                          : []),
+                      ])
                       .filter((item) => item.title && item.stageName)
                       .map((item) => (
                         <MusicTrackItem

@@ -9,10 +9,9 @@ function AlbumItem({ albumAvatar, albumName, albumPerformer }) {
   return (
     <div className={cx("wrapper")}>
       <Link
-        to={routesConfig.albumPage.replace(
-          `:albumName`,
-          albumName.replace(/\//g, "-")
-        )}
+        to={routesConfig.albumPage
+          .replace(`:albumPerformer`, albumPerformer.replace(/\//g, "-"))
+          .replace(`:albumName`, albumName.replace(/\//g, "-"))}
       >
         <div className={cx("info-box")}>
           <img className={cx("avatar")} src={albumAvatar} alt={albumName} />
