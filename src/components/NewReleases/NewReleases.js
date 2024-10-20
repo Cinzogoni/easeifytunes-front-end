@@ -34,10 +34,16 @@ function NewReleases() {
 
   const minimumReleaseDate = new Date("2024-10-01");
 
-  const filteredTracks = allTracks.filter((track) => {
-    const releaseDate = new Date(track.releaseDay);
-    return releaseDate >= minimumReleaseDate;
-  });
+  const filteredTracks = allTracks
+    .filter((track) => {
+      const releaseDate = new Date(track.releaseDay);
+      return releaseDate >= minimumReleaseDate;
+    })
+    .sort((a, b) => {
+      const dateA = new Date(a.releaseDay);
+      const dateB = new Date(b.releaseDay);
+      return dateB - dateA;
+    });
 
   const [width, setWidth] = useState(window.innerWidth);
   const [scrollIndex, setScrollIndex] = useState(0);
@@ -57,8 +63,7 @@ function NewReleases() {
   };
 
   const handleScroll = (move) => {
-    const validTracks = filteredTracks;
-    const totalBoxes = validTracks.length;
+    const totalBoxes = filteredTracks.length;
 
     const maxScrollIndex = () => {
       if (width >= 1600) {
@@ -161,6 +166,7 @@ function NewReleases() {
                       trackType={track.type}
                       trackGenre={track.genre}
                       releaseDay={track.releaseDay}
+                      streamed={track.streamed}
                     />
                   </div>
                 </div>

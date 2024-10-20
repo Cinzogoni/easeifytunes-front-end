@@ -16,16 +16,48 @@ import { useTrackInfo } from "../TrackInfoProvider";
 
 const cx = classNames.bind(styles);
 function TrendingSongs() {
-  const { trendingSongs } = useTrackInfo();
+  const { musicMaker } = useTrackInfo();
 
   const [width, setWidth] = useState(window.innerWidth);
   const [scrollIndex, setScrollIndex] = useState(0);
   const [activeMove, setActiveMove] = useState(null);
 
+  const allTracks = musicMaker.flatMap((maker) => [
+    ...maker.singles,
+    ...maker.albums.flatMap((album) =>
+      album.tracks.map((track) => ({
+        id: track.id,
+        avatar: album.albumAvatar,
+        type: track.type,
+        genre: track.genre,
+        releaseDay: track.releaseDay,
+        trend: track.trend,
+        title: track.title,
+        stageName: track.stageName,
+        streamed: track.streamed,
+      }))
+    ),
+  ]);
+
+  const minimumReleaseDate = new Date("2022-01-01");
+
+  const filteredTracks = allTracks
+    .filter((track) => {
+      const releaseDate = new Date(track.releaseDay);
+      return releaseDate >= minimumReleaseDate && track.trend === true;
+    })
+    .sort((a, b) => {
+      const dateA = new Date(a.releaseDay);
+      const dateB = new Date(b.releaseDay);
+      return dateB - dateA;
+    });
+
   const songGroups = [];
-  for (let i = 0; i < trendingSongs.length; i += 2) {
-    songGroups.push(trendingSongs.slice(i, i + 2));
+  for (let i = 0; i < filteredTracks.length; i += 2) {
+    songGroups.push(filteredTracks.slice(i, i + 2));
   }
+
+  console.log(filteredTracks);
 
   const calculateBoxesPerSlide = () => {
     if (width >= 1600) {

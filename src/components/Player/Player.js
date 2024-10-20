@@ -3,8 +3,10 @@ import { useRef, useEffect, useState, useCallback } from "react";
 import classNames from "classnames/bind";
 import styles from "./Player.module.scss";
 
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAudioPlayer } from "../AudioPlayerProvider";
+
+import routesConfig from "~/config/routes";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -33,6 +35,8 @@ function Player({
   onNext,
   onPrev,
   onLoop,
+  activeLoopClick,
+  setActiveLoopClick,
   // Trending Songs
   frameResize,
   playerResize,
@@ -108,11 +112,11 @@ function Player({
     trackIndex,
     trackList,
     setIsTrackEnded,
+    isPlaying,
   } = useAudioPlayer();
 
   const [show, setShow] = useState(false);
   const [activeClick, setActiveClick] = useState(null);
-  const [activeLoopClick, setActiveLoopClick] = useState(null);
 
   const timeStartRef = useRef(null);
   const timeEndRef = useRef(null);
@@ -155,6 +159,10 @@ function Player({
     };
   }, [playerRefs]);
 
+  useEffect(() => {
+    // console.log(trackTitle, trackPerformer);
+  }, [trackTitle, trackPerformer]);
+
   const handlePlayClick = (id) => {
     if (id) {
       setCurrentTrackId(id);
@@ -191,15 +199,9 @@ function Player({
   };
 
   const handleLoopClick = () => {
-    if (activeLoopClick === "loopTrack-bg") {
-      onLoop(false);
-      setActiveLoopClick(null);
-      // console.log("Track looping mode off!");
-    } else {
-      onLoop(true);
-      setActiveLoopClick("loopTrack-bg");
-      // console.log("Track looping mode on!");
-    }
+    const newActiveState = !activeLoopClick;
+    setActiveLoopClick(newActiveState);
+    onLoop(newActiveState);
   };
 
   const handleNextClick = () => {
@@ -325,7 +327,19 @@ function Player({
         </div>
 
         <div className={cx("sign")}>
-          <h6 className={cx("title")}>{`${trackTitle} - ${trackPerformer}`}</h6>
+          {trackTitle && trackPerformer && isPlaying ? (
+            <Link
+              to={routesConfig.track
+                .replace(`:stageName`, trackPerformer)
+                .replace(`:trackTitle`, trackTitle)}
+            >
+              <h6 className={cx("title")}>
+                {`${trackTitle} - ${trackPerformer}`}
+              </h6>
+            </Link>
+          ) : (
+            <h6 className={cx("title")}>Currently not playing any track!</h6>
+          )}
         </div>
 
         <div className={cx("add")}>
@@ -428,22 +442,17 @@ function Player({
               { hideAlbumList },
               { spaceAlbumInfo }
             )}
-            onClick={handleLoopClick}
             style={{
-              backgroundColor:
-                activeLoopClick === "loopTrack-bg"
-                  ? "rgba(255, 255, 255, 0.2"
-                  : "transparent",
-              border:
-                activeLoopClick === "loopTrack-bg"
-                  ? "1px solid rgba(255, 255, 255,0.2)"
-                  : "1px solid transparent",
+              backgroundColor: activeLoopClick
+                ? "transparent"
+                : " rgba(255, 255, 255, 0.2)",
+              border: activeLoopClick
+                ? "1px solid transparent"
+                : "1px solid rgba(255, 255, 255, 0.2)",
               transition: "transform 0.5s linear",
-              transform:
-                activeLoopClick === "loopTrack-bg"
-                  ? "rotate(360deg)"
-                  : "rotate(0deg)",
+              transform: activeLoopClick ? "rotate(0deg)" : "rotate(360deg)",
             }}
+            onClick={handleLoopClick}
           >
             <FontAwesomeIcon
               className={cx(
@@ -565,7 +574,9 @@ function Player({
             "actions",
             { actionsFooterRight },
             { actionTrackInfoRight },
-            { actionsAlbumList }
+            { actionsAlbumList },
+            { actionsAlbumInfo },
+            { hideAlbumInfo }
           )}
         >
           <button

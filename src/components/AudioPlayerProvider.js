@@ -29,6 +29,8 @@ export function AudioPlayerProvider({ children }) {
   const [isLooping, setIsLooping] = useState(false);
   const [trackList, setTrackList] = useState([]);
   const [trackIndex, setTrackIndex] = useState(0);
+  const [isAlbum, setIsAlbum] = useState(false);
+  const [activeLoopClick, setActiveLoopClick] = useState(true);
 
   const location = useLocation();
   const isAlbumPage = location.pathname.startsWith(`/albumPage`);
@@ -58,7 +60,7 @@ export function AudioPlayerProvider({ children }) {
     }
   }, [isPlaying]);
 
-  const handlePlay = async (trackId, track, link) => {
+  const handlePlay = async (trackId, track, link, trackInAlbum = false) => {
     try {
       const player = playerRefs.current;
       const id = trackId || currentTrackId;
@@ -71,9 +73,16 @@ export function AudioPlayerProvider({ children }) {
         await player.load();
       }
 
+      if (trackInAlbum) {
+        handleNextTrack();
+        return;
+      }
+
       setTrackLink(audioLink);
       setCurrentTrack(track);
       setCurrentTrackId(id);
+      setIsTrackEnded(false);
+      setIsAlbum(trackInAlbum);
 
       setIsPlaying(true);
       await player.play();
@@ -120,15 +129,30 @@ export function AudioPlayerProvider({ children }) {
     const player = playerRefs.current;
     // const totalDuration = player ? player.duration : 0;
 
+    const trackInAlbum =
+      musicMaker?.albums?.flatMap((album) => album.tracks) || [];
+
+    const trackIndexInAlbum = trackInAlbum.findIndex(
+      (track) => track.id === currentTrackId
+    );
+
     try {
       if (isLooping && player) {
-        player.currentTime = 0;
-        await player.play();
-        setIsPlaying(true);
-        setIsTrackEnded(false);
-        setListeningTime(0);
-        setCheckListeningTime(0);
-        // console.log("Single track loop is active!");
+        if (isAlbum || trackIndexInAlbum === trackInAlbum.length - 1) {
+          handleNextTrack();
+          setIsPlaying(true);
+          setIsTrackEnded(false);
+          await player.play();
+          // console.log("Playlist loop is active!");
+        } else {
+          player.currentTime = 0;
+          setIsPlaying(true);
+          setIsTrackEnded(false);
+          setListeningTime(0);
+          setCheckListeningTime(0);
+          await player.play();
+          // console.log("Single track loop is active!");
+        }
       } else {
         setIsPlaying(false);
         player.currentTime = 0;
@@ -172,7 +196,7 @@ export function AudioPlayerProvider({ children }) {
   const handleLoop = () => {
     setIsLooping((prevIsLooping) => {
       const newIsLooping = !prevIsLooping;
-      console.log(`Looping is now ${newIsLooping ? "enabled" : "disabled"}.`);
+      // console.log(`Looping is now ${newIsLooping ? "enabled" : "disabled"}.`);
       return newIsLooping;
     });
   };
@@ -264,6 +288,8 @@ export function AudioPlayerProvider({ children }) {
         listeners,
         setListeners,
         listeningTime,
+        activeLoopClick,
+        setActiveLoopClick,
       }}
     >
       {children}

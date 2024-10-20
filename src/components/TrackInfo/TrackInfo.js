@@ -28,8 +28,14 @@ function TrackInfo({
   streamed,
   linkTo,
 }) {
-  const { currentTrackId, handlePlay, handlePause, handleLoop } =
-    useAudioPlayer();
+  const {
+    currentTrackId,
+    handlePlay,
+    handlePause,
+    handleLoop,
+    activeLoopClick,
+    setActiveLoopClick,
+  } = useAudioPlayer();
 
   return (
     <div className={cx("wrapper")}>
@@ -83,6 +89,8 @@ function TrackInfo({
             }
             onPause={() => handlePause(id)}
             onLoop={() => handleLoop()}
+            activeLoopClick={activeLoopClick}
+            setActiveLoopClick={setActiveLoopClick}
             //
             waveformBoxFooter
             frameTrackInfoResize

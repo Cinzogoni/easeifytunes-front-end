@@ -20,8 +20,8 @@ function AudioInfo() {
       <div className={cx("container")}>
         <NewReleases />
         <div className={cx("separate")} />
-        {/* <TrendingSongs />
-        <div className={cx("separate")} /> */}
+        <TrendingSongs />
+        <div className={cx("separate")} />
         <MusicMaker />
         <div className={cx("separate")} />
         <Album />

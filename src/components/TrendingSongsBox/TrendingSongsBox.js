@@ -18,6 +18,26 @@ function TrendingSongsBox({ tracks }) {
   const { currentTrackId, handlePlay, handlePause, listeners } =
     useAudioPlayer();
 
+  const formatStreamed = (streamed) => {
+    if (streamed < 1000) {
+      return streamed.toString();
+    } else if (streamed >= 1000 && streamed < 1000000) {
+      const thousands = Math.floor(streamed / 1000);
+      const hundreds = Math.floor((streamed % 1000) / 100);
+
+      if (thousands < 1000) {
+        if (hundreds > 0) {
+          return `≈ ${thousands}K${hundreds}`;
+        } else {
+          return `${thousands}K`;
+        }
+      }
+    } else if (streamed >= 1000000) {
+      const millions = Math.floor(streamed / 1000000);
+      return `≈ ${millions}M`;
+    }
+  };
+
   const renderSongItem = (track) => {
     return (
       <div key={track.id} className={cx("song-item")}>
@@ -75,7 +95,9 @@ function TrendingSongsBox({ tracks }) {
             <FontAwesomeIcon className={cx("headphone")} icon={faHeadphones} />
 
             <div className={cx("listens")}>
-              <h6 className={cx("listeners")}>{listeners[track.id] || 0}</h6>
+              <h6 className={cx("listeners")}>
+                {formatStreamed(track.streamed || 0)}
+              </h6>
             </div>
           </div>
 

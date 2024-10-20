@@ -5,13 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { useAudioPlayer } from "../AudioPlayerProvider";
+
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
 import Player from "../Player";
 
 const cx = classNames.bind(styles);
 function AlbumInfo({ albumInfo }) {
-  const { handleLoop } = useAudioPlayer();
+  const { handleLoop, activeLoopClick, setActiveLoopClick } = useAudioPlayer();
 
   const stageName =
     albumInfo && albumInfo.albumPerformer ? albumInfo.albumPerformer : "";
@@ -43,6 +44,8 @@ function AlbumInfo({ albumInfo }) {
           <div className={cx("player-func")}>
             <Player
               onLoop={handleLoop}
+              activeLoopClick={activeLoopClick}
+              setActiveLoopClick={setActiveLoopClick}
               frameAlbumInfo
               playerAlbumInfoResize
               playerAlbumInfo

@@ -1081,7 +1081,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Country",
             releaseDay: "2024-10-12",
-            streamed: "",
+            streamed: "666",
             trend: false,
             link: mp3Type[
               `MusicMaker/Kenny Price/singletracks/TheHeavyWeight-Kenny Price`
@@ -1108,7 +1108,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Country",
             releaseDay: "2024-10-03",
-            streamed: "",
+            streamed: "325",
             trend: true,
             link: mp3Type[
               `MusicMaker/The Southern RamBlers/singletracks/Country Roads - The Southern RamBlers`
@@ -1135,7 +1135,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "HipHop",
             releaseDay: "2024-02-12",
-            streamed: "",
+            streamed: "128523",
             trend: true,
             link: mp3Type[
               `MusicMaker/Jack Harlow/singletracks/Jack Harlow  Lovin On Me`
@@ -1276,6 +1276,59 @@ const apiMusicMaker = {
             ],
           },
         ],
+      },
+      {
+        id: "IDs",
+        avatar:
+          "https://www.coca-cola.com/content/dam/onexp/global/central/offerings/coke-studio/artists/2_Imagine_Dragons_by_Eric_Ray_Davidson_GREEN_04_1-1.jpg",
+        stageName: "Imagine Dragons",
+        role: "Band",
+        singles: [
+          {
+            id: "IMGDG_Bones",
+            avatar: "https://i.ytimg.com/vi/DYed5whEf4g/maxresdefault.jpg",
+            title: "Bones",
+            mainMusicMaker: "Imagine Dragons",
+            stageName: "Imagine Dragons",
+            type: "Single",
+            genre: "Pop",
+            releaseDay: "2022-04-06",
+            streamed: "335684",
+            trend: true,
+            link: mp3Type[
+              `MusicMaker/Imagine Dragons/singletracks/Imagine Dragons  Bones`
+            ],
+            lyric: "",
+          },
+        ],
+        albums: [],
+      },
+      {
+        id: "SHw",
+        avatar:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTuY4CVBBHNls0TTOtiGxAtdKSiFHj1Xecaw&s",
+        stageName: "Sleepy Hallow",
+        role: "Band",
+        singles: [
+          {
+            id: "SHw_Marie",
+            avatar:
+              "https://i1.sndcdn.com/artworks-shwzMchg0r4r-0-t500x500.jpg",
+            title: "Marie",
+            mainMusicMaker: "Sleepy Hallow",
+            stageName: "Sleepy Hallow",
+            type: "Single",
+            genre: "Pop",
+            releaseDay: "2022-11-02",
+            streamed: "235584",
+            trend: true,
+            link: mp3Type[
+              `MusicMaker/Sleepy Hallow/singletracks/Imagine Dragons  Bones`
+            ],
+            lyric: "",
+          },
+        ],
+        albums: [],
       },
     ];
   },

@@ -1,8 +1,8 @@
 import styles from "./AudioPlayer.module.scss";
 import classNames from "classnames/bind";
 
-// import { useLocation } from "react-router-dom";
 import { useAudioPlayer } from "~/components/AudioPlayerProvider";
+import { useTrackInfo } from "~/components/TrackInfoProvider";
 
 import Player from "~/components/Player";
 
@@ -17,11 +17,17 @@ function AudioPlayer() {
     handleNextTrack,
     handlePrevTrack,
     handleLoop,
+    activeLoopClick,
+    setActiveLoopClick,
   } = useAudioPlayer();
+  const { musicMaker } = useTrackInfo();
 
-  // const location = useLocation();
-  // const isAlbumPage = location.pathname.startsWith(`/albumPage`);
-  // const isPlayListPage = location.pathname.startsWith(`/playListPage`);
+  const allTracksInAlbum =
+    musicMaker?.albums?.flatMap((album) => album.tracks) || [];
+  const trackInAlbum = allTracksInAlbum.find(
+    (track) => track.id === currentTrackId
+  );
+  const isAlbum = !!trackInAlbum;
 
   return (
     <div className={cx("wrapper")}>
@@ -32,11 +38,15 @@ function AudioPlayer() {
           trackPerformer={currentTrack?.trackPerformer || "Unknown Performer"}
           trackLink={trackLink}
           isStatus={!!currentTrackId}
-          onPlay={() => handlePlay(currentTrackId, currentTrack, trackLink)}
+          onPlay={() =>
+            handlePlay(currentTrackId, currentTrack, trackLink, isAlbum)
+          }
           onPause={handlePause}
           onNext={handleNextTrack}
           onPrev={handlePrevTrack}
           onLoop={handleLoop}
+          activeLoopClick={activeLoopClick}
+          setActiveLoopClick={setActiveLoopClick}
           //
           frameFooterResize
           playerFooterResize
