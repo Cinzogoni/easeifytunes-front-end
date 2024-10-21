@@ -15,8 +15,7 @@ import routesConfig from "~/config/routes";
 
 const cx = classNames.bind(styles);
 function TrendingSongsBox({ tracks }) {
-  const { currentTrackId, handlePlay, handlePause, listeners } =
-    useAudioPlayer();
+  const { currentTrackId, handlePlay, handlePause } = useAudioPlayer();
 
   const formatStreamed = (streamed) => {
     if (streamed < 1000) {

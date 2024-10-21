@@ -35,6 +35,7 @@ function TrendingSongs() {
         title: track.title,
         stageName: track.stageName,
         streamed: track.streamed,
+        link: track.link,
       }))
     ),
   ]);
