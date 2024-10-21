@@ -264,28 +264,9 @@ export function AudioPlayerProvider({ children }) {
     }
   };
 
-  function shuffleArray(array) {
-    const shuffledArray = [...array];
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[j]] = [
-        shuffledArray[j],
-        shuffledArray[i],
-      ];
-    }
-
-    return shuffledArray;
-  }
-
   const handleRandomTrack = () => {
     const newRandomState = !isRandom;
     setIsRandom(newRandomState);
-    if (newRandomState) {
-      const shuffledList = shuffleArray(trackList);
-      setShuffledTrackList(shuffledList);
-    } else {
-      setShuffledTrackList(trackList);
-    }
   };
 
   return (
@@ -304,6 +285,7 @@ export function AudioPlayerProvider({ children }) {
         handleNextTrack,
         handlePrevTrack,
         handleRandomTrack,
+        setShuffledTrackList,
         isRandom,
         trackIndex,
         setTrackIndex,

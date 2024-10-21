@@ -24,21 +24,35 @@ function AlbumList({ trackList, avatar }) {
     isTrackEnded,
     setTrackIndex,
     setTrackList,
+    setShuffledTrackList,
     shuffledTrackList,
     isRandom,
   } = useAudioPlayer();
 
-  const displayTrackList = isRandom ? shuffledTrackList : trackList;
+  function shuffleArray(array) {
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [
+        shuffledArray[j],
+        shuffledArray[i],
+      ];
+    }
 
-  useEffect(() => {
-    // console.log("shuffle list:", shuffledTrackList);
-  }, [shuffledTrackList]);
+    return shuffledArray;
+  }
 
   useEffect(() => {
     if (trackList.length > 0) {
       setTrackList(trackList);
+      if (isRandom) {
+        const shuffledList = shuffleArray(trackList);
+        setShuffledTrackList(shuffledList);
+      }
     }
-  }, [trackList, setTrackList]);
+  }, [trackList, isRandom, setTrackList, setShuffledTrackList]);
+
+  const displayTrackList = isRandom ? shuffledTrackList : trackList;
 
   useEffect(() => {
     const index = currentTrackId

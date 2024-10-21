@@ -36,6 +36,7 @@ function Player({
   onPrev,
   onLoop,
   onRandom,
+  isRandom,
   activeLoopClick,
   setActiveLoopClick,
   activeRandomClick,
@@ -169,8 +170,8 @@ function Player({
   useEffect(() => {
     const resetStyles = () => {
       if (randomTrackBgRef.current) {
-        randomTrackBgRef.current.style.background = "transparent";
-        randomTrackBgRef.current.style.border = "1px solid transparent";
+        randomTrackBgRef.current.style.background = activeRandomClick;
+        randomTrackBgRef.current.style.border = activeRandomClick;
       }
     };
 
@@ -219,10 +220,7 @@ function Player({
   };
 
   const handleRandomClick = () => {
-    if (
-      (isAlbumPage || isPlayListPage || isPodcastPage) &&
-      trackList.length > 0
-    ) {
+    if (isAlbumPage || isPlayListPage || isPodcastPage) {
       const newActiveClick = !activeRandomClick;
       setActiveRandomClick(newActiveClick);
       onRandom(newActiveClick);

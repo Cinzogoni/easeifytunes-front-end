@@ -28,9 +28,10 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
   const [scrollIndex, setScrollIndex] = useState(0);
   const [activeMove, setActiveMove] = useState(null);
 
-  const sortedMusicAlbums = [...musicAlbums].sort(
-    (a, b) => new Date(b.releaseDay) - new Date(a.releaseDay)
-  );
+  const sortedMusicAlbums = [...musicAlbums]
+    .sort((a, b) => new Date(b.releaseDay) - new Date(a.releaseDay))
+    .slice(0, musicAlbums.length);
+
   const sortedMusicSingles = [...musicSingles].sort(
     (a, b) => new Date(b.releaseDay) - new Date(a.releaseDay)
   );
