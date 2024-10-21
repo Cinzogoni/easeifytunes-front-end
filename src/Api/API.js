@@ -256,7 +256,7 @@ const apiMusicMaker = {
               "https://i.scdn.co/image/ab67616d0000b273d98135e509a6271e6d1605a7",
             albumPerformer: "Rhymastic",
             albumName: "Album - LOV6 (EP)",
-            releaseDay: "",
+            releaseDay: "2022-09-15",
             tracks: [
               {
                 id: "rhym_Lov601",
@@ -439,7 +439,7 @@ const apiMusicMaker = {
               "https://draw.acharts.net/cover/80760-54d08c7965c19-l.jpg",
             albumPerformer: "Perfume",
             albumName: "Album - Level 3",
-            releaseDay: "",
+            releaseDay: "2013-10-01",
             tracks: [
               {
                 id: "per_lev301",
@@ -534,7 +534,7 @@ const apiMusicMaker = {
               "https://cdns-images.dzcdn.net/images/cover/e237cedbbecf26c383d6a3e240408644/0x1900-000000-80-0-0.jpg",
             albumPerformer: "BIBI",
             albumName: "Album - Life is a Bi…",
-            releaseDay: "",
+            releaseDay: "2021-05-21",
             tracks: [
               {
                 id: "bibi_LIAB01",

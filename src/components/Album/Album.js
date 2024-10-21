@@ -23,6 +23,12 @@ function Album() {
   const [scrollIndex, setScrollIndex] = useState(0);
   const [activeMove, setActiveMove] = useState(null);
 
+  const allAlbums = musicMaker.flatMap((album) => album.albums || []);
+
+  const sortedAlbums = allAlbums.sort(
+    (a, b) => new Date(b.releaseDay) - new Date(a.releaseDay)
+  );
+
   const calculateBoxesPerSlide = () => {
     if (width >= 1600) {
       return 4;
@@ -37,10 +43,7 @@ function Album() {
   };
 
   const handleScroll = (move) => {
-    const totalBoxes = musicMaker.reduce(
-      (total, albumGroup) => total + (albumGroup.albums?.length || 0),
-      0
-    );
+    const totalBoxes = sortedAlbums.length;
 
     const scrollIndex = () => {
       if (width >= 1600) {
@@ -123,37 +126,30 @@ function Album() {
               transform: transformValue(),
             }}
           >
-            {musicMaker
-              .filter(
-                (album) =>
-                  Array.isArray(album.albums) && album.albums.length > 0
-              )
-              .map((album) =>
-                album.albums.map((track) => (
-                  <GridSystem
-                    key={track.id}
-                    colClass={cx("col")}
-                    colL={cx("l-3")}
-                    colML={cx("ml-4")}
-                    colM={cx("m-6")}
-                    colSM={cx("sm-12")}
-                    colS={cx("s-12")}
-                    colMo={cx("mo-12")}
-                  >
-                    <div className={cx("boxes")}>
-                      <div className={cx("album-box")}>
-                        <AlbumBox
-                          key={track.id}
-                          albumId={track.id}
-                          albumAvatar={track.albumAvatar}
-                          albumName={track.albumName}
-                          albumPerformer={track.albumPerformer}
-                        />
-                      </div>
-                    </div>
-                  </GridSystem>
-                ))
-              )}
+            {sortedAlbums.map((track) => (
+              <GridSystem
+                key={track.id}
+                colClass={cx("col")}
+                colL={cx("l-3")}
+                colML={cx("ml-4")}
+                colM={cx("m-6")}
+                colSM={cx("sm-12")}
+                colS={cx("s-12")}
+                colMo={cx("mo-12")}
+              >
+                <div className={cx("boxes")}>
+                  <div className={cx("album-box")}>
+                    <AlbumBox
+                      key={track.id}
+                      albumId={track.id}
+                      albumAvatar={track.albumAvatar}
+                      albumName={track.albumName}
+                      albumPerformer={track.albumPerformer}
+                    />
+                  </div>
+                </div>
+              </GridSystem>
+            ))}
           </div>
         </GridSystem>
       </div>

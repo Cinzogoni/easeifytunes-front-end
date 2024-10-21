@@ -17,11 +17,15 @@ import Player from "../Player";
 const cx = classNames.bind(styles);
 function PodcastAudioList({ audioList }) {
   const { currentTrackId, handlePlay, handlePause } = useAudioPlayer();
+
+  const sortedPodcast = audioList.sort(
+    (a, b) => new Date(b.releaseDay) - new Date(a.releaseDay)
+  );
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <div className={cx("audios")}>
-          {audioList.map((audio) => (
+          {sortedPodcast.map((audio) => (
             <div className={cx("audio-box")} key={audio.id}>
               <div className={cx("player")}>
                 <img
