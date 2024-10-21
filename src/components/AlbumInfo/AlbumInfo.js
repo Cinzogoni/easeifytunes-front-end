@@ -12,7 +12,15 @@ import Player from "../Player";
 
 const cx = classNames.bind(styles);
 function AlbumInfo({ albumInfo }) {
-  const { handleLoop, activeLoopClick, setActiveLoopClick } = useAudioPlayer();
+  const {
+    handleLoop,
+    handleRandomTrack,
+    activeLoopClick,
+    setActiveLoopClick,
+    activeRandomClick,
+    setActiveRandomClick,
+    isRandom,
+  } = useAudioPlayer();
 
   const stageName =
     albumInfo && albumInfo.albumPerformer ? albumInfo.albumPerformer : "";
@@ -44,8 +52,12 @@ function AlbumInfo({ albumInfo }) {
           <div className={cx("player-func")}>
             <Player
               onLoop={handleLoop}
+              onRandom={handleRandomTrack}
+              isRandom={isRandom}
               activeLoopClick={activeLoopClick}
               setActiveLoopClick={setActiveLoopClick}
+              activeRandomClick={activeRandomClick}
+              setActiveRandomClick={setActiveRandomClick}
               frameAlbumInfo
               playerAlbumInfoResize
               playerAlbumInfo

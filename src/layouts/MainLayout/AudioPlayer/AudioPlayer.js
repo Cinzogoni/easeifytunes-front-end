@@ -17,8 +17,12 @@ function AudioPlayer() {
     handleNextTrack,
     handlePrevTrack,
     handleLoop,
+    handleRandomTrack,
     activeLoopClick,
     setActiveLoopClick,
+    activeRandomClick,
+    setActiveRandomClick,
+    isRandom,
   } = useAudioPlayer();
   const { musicMaker } = useTrackInfo();
 
@@ -27,7 +31,6 @@ function AudioPlayer() {
   const trackInAlbum = allTracksInAlbum.find(
     (track) => track.id === currentTrackId
   );
-  const isAlbum = !!trackInAlbum;
 
   return (
     <div className={cx("wrapper")}>
@@ -38,15 +41,17 @@ function AudioPlayer() {
           trackPerformer={currentTrack?.trackPerformer || "Unknown Performer"}
           trackLink={trackLink}
           isStatus={!!currentTrackId}
-          onPlay={() =>
-            handlePlay(currentTrackId, currentTrack, trackLink, isAlbum)
-          }
+          onPlay={() => handlePlay(currentTrackId, currentTrack, trackLink)}
           onPause={handlePause}
           onNext={handleNextTrack}
           onPrev={handlePrevTrack}
           onLoop={handleLoop}
+          onRandom={handleRandomTrack}
+          isRandom={isRandom}
           activeLoopClick={activeLoopClick}
           setActiveLoopClick={setActiveLoopClick}
+          activeRandomClick={activeRandomClick}
+          setActiveRandomClick={setActiveRandomClick}
           //
           frameFooterResize
           playerFooterResize

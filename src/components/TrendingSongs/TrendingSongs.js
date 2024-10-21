@@ -57,7 +57,7 @@ function TrendingSongs() {
     songGroups.push(filteredTracks.slice(i, i + 2));
   }
 
-  console.log(filteredTracks);
+  // console.log(filteredTracks);
 
   const calculateBoxesPerSlide = () => {
     if (width >= 1600) {

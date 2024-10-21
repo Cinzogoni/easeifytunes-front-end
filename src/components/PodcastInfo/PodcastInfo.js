@@ -9,7 +9,14 @@ import Navigation from "../Navigation";
 
 const cx = classNames.bind(styles);
 function PodcastInfo({ podcastInfo }) {
-  const { handleLoop, activeLoopClick, setActiveLoopClick } = useAudioPlayer();
+  const {
+    handleLoop,
+    handleRandomTrack,
+    activeLoopClick,
+    setActiveLoopClick,
+    activeRandomClick,
+    setActiveRandomClick,
+  } = useAudioPlayer();
 
   const avatar = podcastInfo && podcastInfo.avatar ? podcastInfo.avatar : "";
   const topic = podcastInfo && podcastInfo.topic ? podcastInfo.topic : "";
@@ -32,8 +39,11 @@ function PodcastInfo({ podcastInfo }) {
           <div className={cx("player-func")}>
             <Player
               onLoop={handleLoop}
+              onRandom={handleRandomTrack}
               activeLoopClick={activeLoopClick}
               setActiveLoopClick={setActiveLoopClick}
+              activeRandomClick={activeRandomClick}
+              setActiveRandomClick={setActiveRandomClick}
               frameAlbumInfo
               playerAlbumInfoResize
               playerAlbumInfo

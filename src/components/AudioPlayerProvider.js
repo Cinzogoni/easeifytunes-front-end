@@ -29,12 +29,15 @@ export function AudioPlayerProvider({ children }) {
   const [isLooping, setIsLooping] = useState(false);
   const [trackList, setTrackList] = useState([]);
   const [trackIndex, setTrackIndex] = useState(0);
-  const [isAlbum, setIsAlbum] = useState(false);
   const [activeLoopClick, setActiveLoopClick] = useState(true);
+  const [activeRandomClick, setActiveRandomClick] = useState(true);
+  const [shuffledTrackList, setShuffledTrackList] = useState([]);
+  const [isRandom, setIsRandom] = useState(false);
 
   const location = useLocation();
   const isAlbumPage = location.pathname.startsWith(`/albumPage`);
   const isPlayListPage = location.pathname.startsWith(`/playListPage`);
+  const isPodcastPage = location.pathname.startsWith(`/podcastPage`);
 
   const playerRefs = useRef(null);
 
@@ -60,7 +63,7 @@ export function AudioPlayerProvider({ children }) {
     }
   }, [isPlaying]);
 
-  const handlePlay = async (trackId, track, link, trackInAlbum = false) => {
+  const handlePlay = async (trackId, track, link) => {
     try {
       const player = playerRefs.current;
       const id = trackId || currentTrackId;
@@ -73,16 +76,10 @@ export function AudioPlayerProvider({ children }) {
         await player.load();
       }
 
-      if (trackInAlbum) {
-        handleNextTrack();
-        return;
-      }
-
       setTrackLink(audioLink);
       setCurrentTrack(track);
       setCurrentTrackId(id);
       setIsTrackEnded(false);
-      setIsAlbum(trackInAlbum);
 
       setIsPlaying(true);
       await player.play();
@@ -129,44 +126,52 @@ export function AudioPlayerProvider({ children }) {
     const player = playerRefs.current;
     // const totalDuration = player ? player.duration : 0;
 
-    const trackInAlbum =
-      musicMaker?.albums?.flatMap((album) => album.tracks) || [];
-
-    const trackIndexInAlbum = trackInAlbum.findIndex(
-      (track) => track.id === currentTrackId
-    );
-
     try {
-      if (isLooping && player) {
-        if (isAlbum || trackIndexInAlbum === trackInAlbum.length - 1) {
-          handleNextTrack();
-          setIsPlaying(true);
-          setIsTrackEnded(false);
-          await player.play();
-          // console.log("Playlist loop is active!");
+      if (player) {
+        if (isLooping) {
+          //Loop playlist và không có ngẫu nhiên
+          if (!isRandom && trackIndex === trackList.length - 1) {
+            handleNextTrack();
+            setIsPlaying(true);
+            setIsTrackEnded(false);
+            await player.play();
+            // console.log("Playlist loop is active!");
+          }
+          //Loop shuffle list và có ngẫu nhiên
+          else if (isRandom && trackIndex === shuffledTrackList.length - 1) {
+            handleNextTrack();
+            setIsPlaying(true);
+            setIsTrackEnded(false);
+            await player.play();
+            // console.log("Shuffled track list loop is active!");
+          }
+          //Loop với track đơn
+          else {
+            player.currentTime = 0;
+            setIsPlaying(true);
+            setIsTrackEnded(false);
+            setListeningTime(0);
+            setCheckListeningTime(0);
+            await player.play();
+            // console.log("Single track loop is active!");
+          }
         } else {
+          setIsPlaying(false);
           player.currentTime = 0;
-          setIsPlaying(true);
-          setIsTrackEnded(false);
-          setListeningTime(0);
-          setCheckListeningTime(0);
-          await player.play();
-          // console.log("Single track loop is active!");
-        }
-      } else {
-        setIsPlaying(false);
-        player.currentTime = 0;
-        await player.pause();
+          await player.pause();
 
-        if (
-          (isAlbumPage || isPlayListPage) &&
-          trackIndex < trackList.length - 1
-        ) {
-          handleNextTrack();
-          setIsTrackEnded(false);
-          // console.log("The track has ended in the playlist!");
-        } else {
-          setIsTrackEnded(true);
+          const listToUse = isRandom ? shuffledTrackList : trackList;
+          if (isAlbumPage || isPlayListPage || isPodcastPage) {
+            if (trackIndex < listToUse.length - 1) {
+              handleNextTrack();
+              setIsTrackEnded(false);
+              // console.log("The track has ended in the playlist!");
+            } else {
+              setIsTrackEnded(true);
+            }
+          } else {
+            setIsTrackEnded(true);
+          }
         }
       }
     } catch (stt) {
@@ -202,12 +207,14 @@ export function AudioPlayerProvider({ children }) {
   };
 
   const handleNextTrack = () => {
+    const listToUse = isRandom ? shuffledTrackList : trackList;
+
     if (
-      (isAlbumPage && trackList.length > 0) ||
-      (isPlayListPage && trackList.length > 0)
+      (isAlbumPage && listToUse.length > 0) ||
+      (isPlayListPage && listToUse.length > 0)
     ) {
-      const nextIndex = (trackIndex + 1) % trackList.length;
-      const nextTrack = trackList[nextIndex];
+      const nextIndex = (trackIndex + 1) % listToUse.length;
+      const nextTrack = listToUse[nextIndex];
 
       setTrackIndex(nextIndex);
       setCurrentTrackId(nextTrack.id);
@@ -229,12 +236,14 @@ export function AudioPlayerProvider({ children }) {
   };
 
   const handlePrevTrack = () => {
+    const listToUse = isRandom ? shuffledTrackList : trackList;
+
     if (
-      (isAlbumPage && trackList.length > 0) ||
-      (isPlayListPage && trackList.length > 0)
+      (isAlbumPage && listToUse.length > 0) ||
+      (isPlayListPage && listToUse.length > 0)
     ) {
-      const prevIndex = (trackIndex - 1 + trackList.length) % trackList.length;
-      const prevTrack = trackList[prevIndex];
+      const prevIndex = (trackIndex - 1 + listToUse.length) % listToUse.length;
+      const prevTrack = listToUse[prevIndex];
 
       setTrackIndex(prevIndex);
       setCurrentTrackId(prevTrack.id);
@@ -255,6 +264,30 @@ export function AudioPlayerProvider({ children }) {
     }
   };
 
+  function shuffleArray(array) {
+    const shuffledArray = [...array];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [
+        shuffledArray[j],
+        shuffledArray[i],
+      ];
+    }
+
+    return shuffledArray;
+  }
+
+  const handleRandomTrack = () => {
+    const newRandomState = !isRandom;
+    setIsRandom(newRandomState);
+    if (newRandomState) {
+      const shuffledList = shuffleArray(trackList);
+      setShuffledTrackList(shuffledList);
+    } else {
+      setShuffledTrackList(trackList);
+    }
+  };
+
   return (
     <AudioPlayer.Provider
       value={{
@@ -270,10 +303,13 @@ export function AudioPlayerProvider({ children }) {
         handleLoop,
         handleNextTrack,
         handlePrevTrack,
+        handleRandomTrack,
+        isRandom,
         trackIndex,
         setTrackIndex,
         setTrackList,
         trackList,
+        shuffledTrackList,
         playerRefs,
         currentTime,
         setCurrentTime,
@@ -290,6 +326,8 @@ export function AudioPlayerProvider({ children }) {
         listeningTime,
         activeLoopClick,
         setActiveLoopClick,
+        activeRandomClick,
+        setActiveRandomClick,
       }}
     >
       {children}

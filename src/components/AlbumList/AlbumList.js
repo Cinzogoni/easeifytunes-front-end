@@ -21,12 +21,18 @@ function AlbumList({ trackList, avatar }) {
     currentTrackId,
     handlePlay,
     handlePause,
-    handleNextTrack,
-    handlePrevTrack,
     isTrackEnded,
     setTrackIndex,
     setTrackList,
+    shuffledTrackList,
+    isRandom,
   } = useAudioPlayer();
+
+  const displayTrackList = isRandom ? shuffledTrackList : trackList;
+
+  useEffect(() => {
+    // console.log("shuffle list:", shuffledTrackList);
+  }, [shuffledTrackList]);
 
   useEffect(() => {
     if (trackList.length > 0) {
@@ -36,17 +42,17 @@ function AlbumList({ trackList, avatar }) {
 
   useEffect(() => {
     const index = currentTrackId
-      ? trackList.findIndex((track) => track.id === currentTrackId)
+      ? displayTrackList.findIndex((track) => track.id === currentTrackId)
       : -1;
     if (index !== -1) {
       setTrackIndex(index);
     }
     // console.log("Current Index:", index);
     // console.log("Current Track Id:", currentTrackId);
-  }, [currentTrackId, trackList, setTrackIndex]);
+  }, [currentTrackId, displayTrackList, setTrackIndex]);
 
   const handleTrackPlay = (track) => {
-    setTrackIndex(trackList.findIndex((t) => t.id === track.id));
+    setTrackIndex(displayTrackList.findIndex((t) => t.id === track.id));
     handlePlay(
       track.id,
       {
@@ -58,33 +64,19 @@ function AlbumList({ trackList, avatar }) {
   };
 
   const handleTrackPause = (track) => {
-    setTrackIndex(trackList.findIndex((t) => t.id === track.id));
+    setTrackIndex(displayTrackList.findIndex((t) => t.id === track.id));
     handlePause(track.id);
   };
 
-  const handleNext = () => {
-    const nextTrack = handleNextTrack();
-    if (nextTrack) {
-      handleTrackPlay(nextTrack);
-    }
-  };
-
-  const handlePrev = () => {
-    const prevTrack = handlePrevTrack();
-    if (prevTrack) {
-      handleTrackPlay(prevTrack);
-    }
-  };
-
   const isLastTrack = (track) => {
-    return trackList[trackList.length - 1]?.id === track.id;
+    return displayTrackList[displayTrackList.length - 1]?.id === track.id;
   };
 
   return (
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <div className={cx("tracks")}>
-          {trackList.map((track) => (
+          {displayTrackList.map((track) => (
             <div
               className={cx("track-box", {
                 playing: track.id === currentTrackId,
@@ -109,8 +101,7 @@ function AlbumList({ trackList, avatar }) {
                   isStatus={track.id === currentTrackId}
                   onPlay={() => handleTrackPlay(track)}
                   onPause={() => handleTrackPause(track)}
-                  onNext={handleNext}
-                  onPrev={handlePrev}
+                  isRandom={isRandom}
                   //
                   frameSingleTracks
                   playerSingleTracks

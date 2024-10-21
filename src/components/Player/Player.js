@@ -35,8 +35,12 @@ function Player({
   onNext,
   onPrev,
   onLoop,
+  onRandom,
+  isRandom,
   activeLoopClick,
   setActiveLoopClick,
+  activeRandomClick,
+  setActiveRandomClick,
   // Trending Songs
   frameResize,
   playerResize,
@@ -99,8 +103,6 @@ function Player({
     playerRefs,
     setCurrentTrackId,
     setCurrentTrack,
-    // currentTrack,
-    // currentTrackId,
     handleStop,
     currentTime,
     setCurrentTime,
@@ -126,6 +128,7 @@ function Player({
   const location = useLocation();
   const isAlbumPage = location.pathname.startsWith(`/albumPage`);
   const isPlayListPage = location.pathname.startsWith(`/playListPage`);
+  const isPodcastPage = location.pathname.startsWith(`/podcastPage`);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
@@ -198,6 +201,12 @@ function Player({
     // console.log("The track has stopped and reset!");
   };
 
+  const handleRandomClick = () => {
+    const newActiveClick = !activeRandomClick;
+    setActiveRandomClick(newActiveClick);
+    onRandom(newActiveClick);
+  };
+
   const handleLoopClick = () => {
     const newActiveState = !activeLoopClick;
     setActiveLoopClick(newActiveState);
@@ -232,6 +241,19 @@ function Player({
       }, 250);
       // console.log("Next Track!");
     }
+
+    if (isPodcastPage && trackList.length > 0) {
+      handlePlayClick(nextTrack.id);
+      onNext();
+      setIsTrackEnded(false);
+      setActiveClick("nextTrack-bg");
+      setTimeout(() => {
+        setShow(true);
+        setIsTrackEnded(false);
+        setActiveClick(null);
+      }, 250);
+      // console.log("Next Track!");
+    }
   };
 
   const handlePrevClick = () => {
@@ -252,6 +274,19 @@ function Player({
     }
 
     if (isPlayListPage && trackList.length > 0) {
+      handlePlayClick(prevTrack.id);
+      onPrev();
+      setIsTrackEnded(false);
+      setActiveClick("prevTrack-bg");
+      setTimeout(() => {
+        setShow(true);
+        setIsTrackEnded(false);
+        setActiveClick(null);
+      }, 250);
+      // console.log("Prev Track!");
+    }
+
+    if (isPodcastPage && trackList.length > 0) {
       handlePlayClick(prevTrack.id);
       onPrev();
       setIsTrackEnded(false);
@@ -428,6 +463,15 @@ function Player({
               { hideAlbumList },
               { spaceAlbumInfo }
             )}
+            style={{
+              backgroundColor: activeRandomClick
+                ? "transparent"
+                : " rgba(255, 255, 255, 0.2)",
+              border: activeRandomClick
+                ? "1px solid transparent"
+                : "1px solid rgba(255, 255, 255, 0.2)",
+            }}
+            onClick={handleRandomClick}
           >
             <FontAwesomeIcon
               className={cx("actions-footer")}
