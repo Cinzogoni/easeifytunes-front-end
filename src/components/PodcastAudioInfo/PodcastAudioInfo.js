@@ -14,7 +14,6 @@ import {
 
 import Player from "../Player";
 import routesConfig from "~/config/routes";
-import { useEffect } from "react";
 
 const cx = classNames.bind(styles);
 function PodcastAudioInfo({
@@ -23,7 +22,7 @@ function PodcastAudioInfo({
   topic,
   avatar,
   title,
-  performer,
+  publisher,
   type,
   releaseDay,
   streamed,
@@ -47,7 +46,7 @@ function PodcastAudioInfo({
         <img className={cx("avatar")} src={avatar} alt={title} />
         <div className={cx("info")}>
           <h3 className={cx("title")}>{title}</h3>
-          <h4 className={cx("performer")}>{performer}</h4>
+          <h4 className={cx("performer")}>{publisher}</h4>
           <h5 className={cx("type")}>{type}</h5>
           <h5 className={cx("release-day")}>Release day: {releaseDay}</h5>
 
@@ -73,7 +72,7 @@ function PodcastAudioInfo({
             trackId={id}
             trackLink={link}
             trackTitle={title}
-            trackPerformer={performer}
+            trackPerformer={publisher}
             trackType={type}
             //
             isStatus={id === currentTrackId}

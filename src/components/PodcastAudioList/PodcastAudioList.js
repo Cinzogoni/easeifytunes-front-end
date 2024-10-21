@@ -115,12 +115,12 @@ function PodcastAudioList({ audioList }) {
                 <Link
                   className={cx("audio-link")}
                   to={routesConfig.podcastAudioPage
-                    .replace(`:performer`, audio.performer.replace(/\//g, "-"))
+                    .replace(`:publisher`, audio.publisher.replace(/\//g, "-"))
                     .replace(`:title`, audio.title.replace(/\//g, "-"))}
                 />
 
                 <h4 className={cx("audio-title")}>{audio.title}</h4>
-                <h5 className={cx("audio-performer")}>{audio.performer}</h5>
+                <h5 className={cx("audio-performer")}>{audio.publisher}</h5>
               </div>
 
               <div className={cx("more-func")}>

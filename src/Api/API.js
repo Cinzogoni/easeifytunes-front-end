@@ -1198,7 +1198,7 @@ const apiMusicMaker = {
             albumAvatar:
               "https://i.scdn.co/image/ab67616d0000b273221013fb2e16046539cfbdd8",
             albumPerformer: "MIN",
-            albumName: `Album - 50|50`,
+            albumName: "Album - 50|50",
             albumType: "Album",
             releaseDay: "2022-05-20",
             tracks: [

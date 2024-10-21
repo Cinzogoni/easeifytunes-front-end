@@ -20,7 +20,7 @@ function PodcastAudioPage() {
   const podcastTopic = audio && audio.topic ? audio.topic : "";
   const avatar = audio && audio.avatar ? audio.avatar : "";
   const podcastTitle = audio && audio.title ? audio.title : "";
-  const podcastPerformer = audio && audio.performer ? audio.performer : "";
+  const publisher = audio && audio.publisher ? audio.publisher : "";
   const type = audio && audio.type ? audio.type : "";
   const releaseDay = audio && audio.releaseDay ? audio.releaseDay : "";
   const streamed = audio && audio.streamed ? audio.streamed : "";
@@ -36,7 +36,7 @@ function PodcastAudioPage() {
           topic={podcastTopic}
           avatar={avatar}
           title={podcastTitle}
-          performer={podcastPerformer}
+          publisher={publisher}
           type={type}
           releaseDay={releaseDay}
           streamed={streamed}

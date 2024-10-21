@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./PodcastPage.module.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { useState, useEffect, useRef } from "react";
 import { useDebounce } from "~/hooks";
@@ -15,7 +15,7 @@ import PodcastInfo from "~/components/PodcastInfo";
 import PodcastAudioList from "~/components/PodcastAudioList";
 
 import { useTrackInfo } from "~/components/TrackInfoProvider";
-import apiPodcast from "~/Api/API_01";
+
 import Track from "~/components/Track";
 
 const cx = classNames.bind(styles);
@@ -27,7 +27,7 @@ function PodcastPage() {
   const [searchValue, setSearchValue] = useState(``);
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(true);
-  const [activeTitle, setActiveTitle] = useState("Author");
+  const [activeTitle, setActiveTitle] = useState("Publisher");
 
   const inputRef = useRef();
 
@@ -39,7 +39,7 @@ function PodcastPage() {
       return;
     }
 
-    const apiResults = [...apiPodcast.getPodcast()];
+    const apiResults = [...podcast];
 
     const filteredResults = apiResults.filter((item) => {
       const searchLowerCase = debounced.toLowerCase();
@@ -82,6 +82,14 @@ function PodcastPage() {
                 <div className={cx("title-box")}>
                   <h5
                     className={cx("title-1", {
+                      active: activeTitle === `Publisher`,
+                    })}
+                    onClick={() => setActiveTitle(`Publisher`)}
+                  >
+                    Publisher
+                  </h5>
+                  <h5
+                    className={cx("title-2", {
                       active: activeTitle === `Author`,
                     })}
                     onClick={() => setActiveTitle(`Author`)}
@@ -89,7 +97,7 @@ function PodcastPage() {
                     Author
                   </h5>
                   <h5
-                    className={cx("title-2", {
+                    className={cx("title-3", {
                       active: activeTitle === `Audio Title`,
                     })}
                     onClick={() => setActiveTitle(`Audio Title`)}
@@ -98,6 +106,21 @@ function PodcastPage() {
                   </h5>
                 </div>
                 <WrapperPopper>
+                  {/* Author  */}
+                  {activeTitle === `Publisher` && (
+                    <div className={cx("publisher")}>
+                      {searchResult
+                        .filter((item) => item.performer && item.title)
+                        .map((item) => (
+                          <PodcastItem
+                            key={item.id}
+                            podcastAvatar={item.avatar}
+                            podcastTopic={item.title}
+                            podcastDescription={item.performer}
+                          />
+                        ))}
+                    </div>
+                  )}
                   {/* Author  */}
                   {activeTitle === `Author` && (
                     <div className={cx("author")}>
@@ -136,7 +159,7 @@ function PodcastPage() {
               <input
                 ref={inputRef}
                 className={cx("search-input")}
-                placeholder="author, audio title"
+                placeholder="publisher, author, audio title"
                 spellCheck={false}
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
