@@ -30,8 +30,8 @@ export function AudioPlayerProvider({ children }) {
   const [trackList, setTrackList] = useState([]);
   const [trackIndex, setTrackIndex] = useState(0);
   const [activeLoopClick, setActiveLoopClick] = useState(true);
-  const [activeRandomClick, setActiveRandomClick] = useState(true);
   const [shuffledTrackList, setShuffledTrackList] = useState([]);
+  const [activeRandomClick, setActiveRandomClick] = useState(true);
   const [isRandom, setIsRandom] = useState(false);
 
   const location = useLocation();

@@ -103,7 +103,6 @@ function PodcastAudioList({ audioList }) {
                   isStatus={audio.id === currentTrackId}
                   onPlay={() => handleTrackPlay(audio)}
                   onPause={() => handleTrackPause(audio)}
-                  isRandom={isRandom}
                   //
                   frameSingleTracks
                   playerSingleTracks

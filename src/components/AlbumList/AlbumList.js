@@ -101,7 +101,6 @@ function AlbumList({ trackList, avatar }) {
                   isStatus={track.id === currentTrackId}
                   onPlay={() => handleTrackPlay(track)}
                   onPause={() => handleTrackPause(track)}
-                  isRandom={isRandom}
                   //
                   frameSingleTracks
                   playerSingleTracks

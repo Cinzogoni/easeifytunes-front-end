@@ -2,7 +2,6 @@ import styles from "./AudioPlayer.module.scss";
 import classNames from "classnames/bind";
 
 import { useAudioPlayer } from "~/components/AudioPlayerProvider";
-import { useTrackInfo } from "~/components/TrackInfoProvider";
 
 import Player from "~/components/Player";
 
@@ -22,15 +21,7 @@ function AudioPlayer() {
     setActiveLoopClick,
     activeRandomClick,
     setActiveRandomClick,
-    isRandom,
   } = useAudioPlayer();
-  const { musicMaker } = useTrackInfo();
-
-  const allTracksInAlbum =
-    musicMaker?.albums?.flatMap((album) => album.tracks) || [];
-  const trackInAlbum = allTracksInAlbum.find(
-    (track) => track.id === currentTrackId
-  );
 
   return (
     <div className={cx("wrapper")}>
@@ -47,7 +38,6 @@ function AudioPlayer() {
           onPrev={handlePrevTrack}
           onLoop={handleLoop}
           onRandom={handleRandomTrack}
-          isRandom={isRandom}
           activeLoopClick={activeLoopClick}
           setActiveLoopClick={setActiveLoopClick}
           activeRandomClick={activeRandomClick}

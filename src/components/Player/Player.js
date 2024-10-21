@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState } from "react";
 
 import classNames from "classnames/bind";
 import styles from "./Player.module.scss";
@@ -36,7 +36,6 @@ function Player({
   onPrev,
   onLoop,
   onRandom,
-  isRandom,
   activeLoopClick,
   setActiveLoopClick,
   activeRandomClick,
@@ -124,6 +123,7 @@ function Player({
   const timeEndRef = useRef(null);
   const timingBarRef = useRef(null);
   const volumeBarRef = useRef(null);
+  const randomTrackBgRef = useRef(null);
 
   const location = useLocation();
   const isAlbumPage = location.pathname.startsWith(`/albumPage`);
@@ -166,6 +166,23 @@ function Player({
     // console.log(trackTitle, trackPerformer);
   }, [trackTitle, trackPerformer]);
 
+  useEffect(() => {
+    const resetStyles = () => {
+      if (randomTrackBgRef.current) {
+        randomTrackBgRef.current.style.background = "transparent";
+        randomTrackBgRef.current.style.border = "1px solid transparent";
+      }
+    };
+
+    if (
+      location.pathname !== isAlbumPage &&
+      location.pathname !== isPlayListPage &&
+      location.pathname !== isPodcastPage
+    ) {
+      resetStyles();
+    }
+  }, [location]);
+
   const handlePlayClick = (id) => {
     if (id) {
       setCurrentTrackId(id);
@@ -202,7 +219,10 @@ function Player({
   };
 
   const handleRandomClick = () => {
-    if (isAlbumPage || isPlayListPage || isPodcastPage) {
+    if (
+      (isAlbumPage || isPlayListPage || isPodcastPage) &&
+      trackList.length > 0
+    ) {
       const newActiveClick = !activeRandomClick;
       setActiveRandomClick(newActiveClick);
       onRandom(newActiveClick);
@@ -459,6 +479,7 @@ function Player({
           )}
         >
           <div
+            ref={randomTrackBgRef}
             className={cx(
               "randomTrack-bg",
               { randomTrackInfo },
