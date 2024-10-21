@@ -202,9 +202,11 @@ function Player({
   };
 
   const handleRandomClick = () => {
-    const newActiveClick = !activeRandomClick;
-    setActiveRandomClick(newActiveClick);
-    onRandom(newActiveClick);
+    if (isAlbumPage || isPlayListPage || isPodcastPage) {
+      const newActiveClick = !activeRandomClick;
+      setActiveRandomClick(newActiveClick);
+      onRandom(newActiveClick);
+    }
   };
 
   const handleLoopClick = () => {

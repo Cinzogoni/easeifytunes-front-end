@@ -130,7 +130,7 @@ export function AudioPlayerProvider({ children }) {
       if (player) {
         if (isLooping) {
           //Loop playlist và không có ngẫu nhiên
-          if (!isRandom && trackIndex === trackList.length - 1) {
+          if (!isRandom) {
             handleNextTrack();
             setIsPlaying(true);
             setIsTrackEnded(false);
@@ -138,7 +138,7 @@ export function AudioPlayerProvider({ children }) {
             // console.log("Playlist loop is active!");
           }
           //Loop shuffle list và có ngẫu nhiên
-          else if (isRandom && trackIndex === shuffledTrackList.length - 1) {
+          else if (isRandom) {
             handleNextTrack();
             setIsPlaying(true);
             setIsTrackEnded(false);
