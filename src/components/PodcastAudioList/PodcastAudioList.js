@@ -58,6 +58,7 @@ function PodcastAudioList({ audioList }) {
       {
         trackTitle: audio.title,
         trackPerformer: audio.performer,
+        trackType: audio.type,
       },
       audio.link
     );

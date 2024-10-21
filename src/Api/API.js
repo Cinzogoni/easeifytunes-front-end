@@ -70,10 +70,11 @@ const apiMusicMaker = {
             tracks: [
               {
                 id: "su_NoNe01",
+                type: "Album",
                 title: "Công",
                 mainMusicMaker: "Suboi",
                 stageName: "Suboi",
-                type: "Album - No Nê",
+                name: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "2023-10-12",
                 streamed: "3579",
@@ -256,6 +257,7 @@ const apiMusicMaker = {
               "https://i.scdn.co/image/ab67616d0000b273d98135e509a6271e6d1605a7",
             albumPerformer: "Rhymastic",
             albumName: "Album - LOV6 (EP)",
+            albumType: "Album",
             releaseDay: "2022-09-15",
             tracks: [
               {
@@ -439,6 +441,7 @@ const apiMusicMaker = {
               "https://draw.acharts.net/cover/80760-54d08c7965c19-l.jpg",
             albumPerformer: "Perfume",
             albumName: "Album - Level 3",
+            albumType: "Album",
             releaseDay: "2013-10-01",
             tracks: [
               {
@@ -534,6 +537,7 @@ const apiMusicMaker = {
               "https://cdns-images.dzcdn.net/images/cover/e237cedbbecf26c383d6a3e240408644/0x1900-000000-80-0-0.jpg",
             albumPerformer: "BIBI",
             albumName: "Album - Life is a Bi…",
+            albumType: "Album",
             releaseDay: "2021-05-21",
             tracks: [
               {
@@ -668,6 +672,7 @@ const apiMusicMaker = {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwcAqv_T5ey2mfFEyLcXe3o7VASzb7K825OQ&s",
             albumPerformer: "Eminem",
             albumName: "Album - Infinite",
+            albumType: "Album",
             releaseDay: "1996-11-12",
             tracks: [
               {
@@ -706,6 +711,7 @@ const apiMusicMaker = {
               "https://upload.wikimedia.org/wikipedia/en/b/b4/Encore_%28Eminem_album%29_coverart.jpg",
             albumPerformer: "Eminem",
             albumName: "Album - Encore",
+            albumType: "Album",
             releaseDay: "2004-12-24",
             tracks: [
               {
@@ -772,6 +778,7 @@ const apiMusicMaker = {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvzhz649VDzgSfhxy-x5KfU4JjggfTe_tEJz0bIbhd3-paHNprUKcJI3Fe6ud-7lx0PJk&usqp=CAU",
             albumPerformer: "Eminem",
             albumName: "Album - The Eminem Show",
+            albumType: "Album",
             releaseDay: "2002-05-21",
             tracks: [
               {
@@ -866,6 +873,7 @@ const apiMusicMaker = {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmZ08XRYRtFkYAF1Cl9h8PqjEi67SfPBY7dA&s",
             albumPerformer: "Eminem",
             albumName: "Album - Relapse",
+            albumType: "Album",
             releaseDay: "2009-09-15",
             tracks: [
               {
@@ -944,6 +952,7 @@ const apiMusicMaker = {
               "https://upload.wikimedia.org/wikipedia/en/6/60/Recovery_Album_Cover.jpg",
             albumPerformer: "Eminem",
             albumName: "Album - Recovery",
+            albumType: "Album",
             releaseDay: "2010-06-18",
             tracks: [
               {
@@ -1010,6 +1019,7 @@ const apiMusicMaker = {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrpMJozqst-MyDuXtBcQ6TYH3f_JrztdwTIIMfuw65eOdmnQhEv7hB3Dv4z743qk1rdyc&usqp=CAU",
             albumPerformer: "Eminem",
             albumName: "Album - Revival",
+            albumType: "Album",
             releaseDay: "2017-12-15",
             tracks: [
               {
@@ -1189,6 +1199,7 @@ const apiMusicMaker = {
               "https://i.scdn.co/image/ab67616d0000b273221013fb2e16046539cfbdd8",
             albumPerformer: "MIN",
             albumName: `Album - 50|50`,
+            albumType: "Album",
             releaseDay: "2022-05-20",
             tracks: [
               {

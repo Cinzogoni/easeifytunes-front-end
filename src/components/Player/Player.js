@@ -114,7 +114,6 @@ function Player({
     trackIndex,
     trackList,
     setIsTrackEnded,
-    isPlaying,
   } = useAudioPlayer();
 
   const [show, setShow] = useState(false);
@@ -145,6 +144,13 @@ function Player({
     .replace(`:performer`, trackPerformer)
     .replace(`:title`, trackTitle);
 
+  const chooseLink =
+    trackType === "Podcast"
+      ? linkToPodcast
+      : trackType === "Album" || trackType === "Single"
+      ? linkToTrack
+      : linkToTrack;
+
   useEffect(() => {
     const player = playerRefs.current;
 
@@ -172,8 +178,8 @@ function Player({
   }, [playerRefs]);
 
   useEffect(() => {
-    // console.log(trackTitle, trackPerformer);
-  }, [trackTitle, trackPerformer]);
+    // console.log(trackTitle, trackPerformer, trackType);
+  }, [trackTitle, trackPerformer, trackType, chooseLink]);
 
   useEffect(() => {
     const resetStyles = () => {
@@ -406,14 +412,10 @@ function Player({
         </div>
 
         <div className={cx("sign")}>
-          {trackTitle && trackPerformer && isPlaying ? (
-            <Link to={trackType ? linkToPodcast : linkToTrack}>
-              <h6 className={cx("title")}>
-                {`${trackTitle} - ${trackPerformer}`}
-              </h6>
-            </Link>
-          ) : (
-            <h6 className={cx("title")}>Currently not playing any track!</h6>
+          {trackTitle && trackPerformer && (
+            <h6 className={cx("title")}>
+              <Link to={chooseLink}>{`${trackTitle} - ${trackPerformer}`}</Link>
+            </h6>
           )}
         </div>
 

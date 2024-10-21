@@ -39,7 +39,8 @@ function TrackPage() {
   const musicMakerName = track && track.stageName ? track.stageName : "";
   const mainMusicMaker =
     track && track.mainMusicMaker ? track.mainMusicMaker : "";
-  const type = track && track.type ? track.type : "";
+  const name = track && track.name ? track.name : "";
+  const trackType = track && track.type ? track.type : "";
   const genre = track && track.genre ? track.genre : "";
   const releaseDay = track && track.releaseDay ? track.releaseDay : "";
   const streamed = track && track.streamed ? track.streamed : "";
@@ -92,7 +93,8 @@ function TrackPage() {
           avatar={avatar}
           title={title}
           stageName={musicMakerName}
-          type={type}
+          name={name}
+          trackType={trackType}
           genre={genre}
           releaseDay={releaseDay}
           streamed={streamed}

@@ -2,7 +2,6 @@ import classNames from "classnames/bind";
 import styles from "./TrackInfo.module.scss";
 
 import { useAudioPlayer } from "../AudioPlayerProvider";
-import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -21,8 +20,9 @@ function TrackInfo({
   link,
   avatar,
   title,
+  name,
   stageName,
-  type,
+  trackType,
   genre,
   releaseDay,
   streamed,
@@ -48,7 +48,7 @@ function TrackInfo({
         <div className={cx("info")}>
           <h3 className={cx("title")}>{title}</h3>
           <h4 className={cx("performer")}>{stageName}</h4>
-          <h5 className={cx("type")}>{type}</h5>
+          <h5 className={cx("type")}>{name}</h5>
           <h5 className={cx("genre")}>{genre}</h5>
           <h5 className={cx("release-day")}>Release day: {releaseDay}</h5>
 
@@ -75,6 +75,7 @@ function TrackInfo({
             trackLink={link}
             trackTitle={title}
             trackPerformer={stageName}
+            trackType={trackType}
             //
             isStatus={id === currentTrackId}
             onPlay={() =>

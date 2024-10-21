@@ -93,6 +93,7 @@ function NewReleasesBox({
           trackLink={trackLink}
           trackTitle={trackTitle}
           trackPerformer={trackPerformer}
+          trackType={trackType}
           //
           isStatus={trackId === currentTrackId}
           onPlay={handlePlayTrack}

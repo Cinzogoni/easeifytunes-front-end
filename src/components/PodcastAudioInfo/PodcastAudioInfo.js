@@ -14,6 +14,7 @@ import {
 
 import Player from "../Player";
 import routesConfig from "~/config/routes";
+import { useEffect } from "react";
 
 const cx = classNames.bind(styles);
 function PodcastAudioInfo({
@@ -28,8 +29,6 @@ function PodcastAudioInfo({
   streamed,
 }) {
   const { currentTrackId, handlePlay, handlePause } = useAudioPlayer();
-
-  console.log(type);
 
   return (
     <div className={cx("wrapper")}>

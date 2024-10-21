@@ -77,7 +77,7 @@ export function AudioPlayerProvider({ children }) {
       setTrackLink(audioLink);
       setCurrentTrack(track);
       setCurrentTrackId(id);
-      setTrackType(track.type || "default");
+      setTrackType(track.type || "Unknown Type");
       setIsTrackEnded(false);
 
       setIsPlaying(true);
@@ -220,6 +220,7 @@ export function AudioPlayerProvider({ children }) {
       setCurrentTrack({
         trackTitle: nextTrack.title,
         trackPerformer: nextTrack.stageName || nextTrack.performer,
+        trackType: nextTrack.type,
       });
       setIsPlaying(true);
       handlePlay(
@@ -227,6 +228,7 @@ export function AudioPlayerProvider({ children }) {
         {
           trackTitle: nextTrack.title,
           trackPerformer: nextTrack.stageName || nextTrack.performer,
+          trackType: nextTrack.type,
         },
         nextTrack.link
       );
@@ -249,6 +251,7 @@ export function AudioPlayerProvider({ children }) {
       setCurrentTrack({
         trackTitle: prevTrack.title,
         trackPerformer: prevTrack.stageName || prevTrack.performer,
+        trackType: prevTrack.type,
       });
       setIsPlaying(true);
       handlePlay(
@@ -256,6 +259,7 @@ export function AudioPlayerProvider({ children }) {
         {
           trackTitle: prevTrack.title,
           trackPerformer: prevTrack.stageName || prevTrack.performer,
+          trackType: prevTrack.type,
         },
         prevTrack.link
       );
@@ -310,6 +314,7 @@ export function AudioPlayerProvider({ children }) {
         activeRandomClick,
         setActiveRandomClick,
         trackType,
+        setTrackType,
       }}
     >
       {children}
