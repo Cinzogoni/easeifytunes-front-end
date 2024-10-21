@@ -23,7 +23,6 @@ function NewReleases() {
     ...maker.singles,
     ...maker.albums.flatMap((album) =>
       album.tracks.map((track) => ({
-        ...track,
         avatar: album.albumAvatar || track.avatar,
         type: album.type || track.type,
         genre: album.genre || track.genre,
@@ -44,6 +43,10 @@ function NewReleases() {
       const dateB = new Date(b.releaseDay);
       return dateB - dateA;
     });
+
+  // console.log(musicMaker);
+  // console.log(allTracks);
+  // console.log(filteredTracks);
 
   const [width, setWidth] = useState(window.innerWidth);
   const [scrollIndex, setScrollIndex] = useState(0);
@@ -144,9 +147,9 @@ function NewReleases() {
               transform: transformValue(),
             }}
           >
-            {filteredTracks.map((track, index) => (
+            {filteredTracks.map((track) => (
               <GridSystem
-                key={index}
+                key={track.id}
                 colClass={cx("col")}
                 colL={cx("l-3")}
                 colML={cx("ml-4")}

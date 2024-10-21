@@ -9,6 +9,7 @@ const apiMusicMaker = {
           "https://avatar-ex-swe.nixcdn.com/singer/avatar/2018/07/19/8/1/6/a/1531989394829_600.jpg",
         stageName: "Suboi",
         role: "Rapper",
+        priority: true,
         singles: [
           {
             id: "su_troiCho",
@@ -213,6 +214,7 @@ const apiMusicMaker = {
           "https://avatar-ex-swe.nixcdn.com/singer/avatar/2022/09/16/2/e/3/c/1663304448274_600.jpg",
         stageName: "Rhymastic",
         role: "Rapper/ Music Producer",
+        priority: true,
         singles: [
           {
             id: "rhym_Lac",
@@ -223,7 +225,7 @@ const apiMusicMaker = {
             stageName: "Rhymastic",
             type: "Single",
             genre: "RapHipHop",
-            releaseDay: "2024-10-09",
+            releaseDay: "2024-10-06",
             streamed: "1254",
             trend: false,
             link: mp3Type[`MusicMaker/Rhymastic/singletracks/LẠC  Rhymastic`],
@@ -238,7 +240,7 @@ const apiMusicMaker = {
             stageName: "Rhymastic",
             type: "Single",
             genre: "Pop",
-            releaseDay: "2024-10-06",
+            releaseDay: "2024-10-09",
             streamed: "6632",
             trend: false,
             link: mp3Type[
@@ -355,6 +357,7 @@ const apiMusicMaker = {
         avatar: "https://cdn-www.vinid.net/ed96bcd6-touliver-1.jpg",
         stageName: "Touliver",
         role: "Dj/ Music Producer",
+        priority: true,
         singles: [
           {
             id: "tou_GetIt",
@@ -382,6 +385,7 @@ const apiMusicMaker = {
           "https://yt3.googleusercontent.com/jd9_c5NiLJ1tXXwRpkDo1r-NqZ_IiXFJFAULwqQZrw_n4YRj0Omo4jTAMQFSm2u9PVc3AiZSgg=s900-c-k-c0x00ffffff-no-rj",
         stageName: "J.Sheon",
         role: "Singer",
+        priority: false,
         singles: [
           {
             id: "jshe_DontAsk",
@@ -408,6 +412,7 @@ const apiMusicMaker = {
           "https://i.scdn.co/image/ab6761610000e5eb3955d594fd646c2b77f2ae03",
         stageName: "Perfume",
         role: "Band",
+        priority: false,
         singles: [
           {
             id: "per_SpinningWorld",
@@ -502,6 +507,7 @@ const apiMusicMaker = {
           "https://kenh14cdn.com/203336854389633024/2024/5/15/photo-2-1715757381263983732539.jpg",
         stageName: "BIBI",
         role: "Singer",
+        priority: false,
         singles: [
           {
             id: "bi_AnimalFarm",
@@ -610,6 +616,7 @@ const apiMusicMaker = {
           "https://cdn.tuoitre.vn/zoom/700_700/471584752817336320/2023/9/30/phan-manh-quynh-2-nvcc-1647595826560676316986-205-0-976-1473-crop-1696035354773707165885.jpg",
         stageName: "Phan Mạnh Quỳnh",
         role: "Musician/ Singer",
+        priority: true,
         singles: [
           {
             id: "pmq_SauLoiTuKhuoc",
@@ -636,6 +643,7 @@ const apiMusicMaker = {
         avatar: "https://avatarfiles.alphacoders.com/174/174632.jpg",
         stageName: "Eminem",
         role: "Rapper",
+        priority: false,
         singles: [
           {
             id: "em_KillShot",
@@ -660,7 +668,7 @@ const apiMusicMaker = {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwcAqv_T5ey2mfFEyLcXe3o7VASzb7K825OQ&s",
             albumPerformer: "Eminem",
             albumName: "Album - Infinite",
-            releaseDay: "",
+            releaseDay: "1996-11-12",
             tracks: [
               {
                 id: "em_inf01",
@@ -1070,6 +1078,7 @@ const apiMusicMaker = {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYRSqEftvxjBr-a47iEWe9CPQ_pZ9Q8ocn8uy9Demjcdj1cWFw3y7nySaAgVZ8Pu8jawM&usqp=CAU",
         stageName: "Kenny Price",
         role: "Musician/ Singer",
+        priority: false,
         singles: [
           {
             id: "kp_THW",
@@ -1097,6 +1106,7 @@ const apiMusicMaker = {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6C51OUnln1YzmWxyV4ZYxCLDgnnMSZPUt3A&s",
         stageName: "The Southern RamBlers",
         role: "Musician/ Singer",
+        priority: false,
         singles: [
           {
             id: "TSR_CR",
@@ -1124,6 +1134,7 @@ const apiMusicMaker = {
           "https://resources.tidal.com/images/d66e4f3c/f107/4d0c/a740/f9a806819c8e/750x750.jpg",
         stageName: "Jack Harlow",
         role: "Rapper",
+        priority: false,
         singles: [
           {
             id: "TSR_CR",
@@ -1151,6 +1162,7 @@ const apiMusicMaker = {
           "https://vcdn1-giaitri.vnecdn.net/2022/03/05/MIN2-1646448104-6583-1646449221.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=HpgQwfSaYVU6yRDg_emSZw",
         stageName: "MIN",
         role: "Singer",
+        priority: true,
         singles: [
           {
             id: "min_Ghen",

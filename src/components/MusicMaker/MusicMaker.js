@@ -23,6 +23,14 @@ function MusicMaker() {
   const [scrollIndex, setScrollIndex] = useState(0);
   const [activeMove, setActiveMove] = useState(null);
 
+  const sortedMusicMakers = musicMaker.slice().sort((a, b) => {
+    if (a.priority !== b.priority) {
+      return a.priority ? -1 : 1;
+    }
+
+    return a.stageName.localeCompare(b.stageName);
+  });
+
   const calculateBoxesPerSlide = () => {
     if (width >= 1600) {
       return 4;
@@ -37,7 +45,7 @@ function MusicMaker() {
   };
 
   const handleScroll = (move) => {
-    const totalBoxes = musicMaker.length;
+    const totalBoxes = sortedMusicMakers.length;
 
     const scrollIndex = () => {
       if (width >= 1600) {
@@ -120,7 +128,7 @@ function MusicMaker() {
               transform: transformValue(),
             }}
           >
-            {musicMaker.map((artist, index) => (
+            {sortedMusicMakers.map((artist, index) => (
               <GridSystem
                 key={index}
                 colClass={cx("col")}

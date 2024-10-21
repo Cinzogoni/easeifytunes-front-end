@@ -28,6 +28,13 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
   const [scrollIndex, setScrollIndex] = useState(0);
   const [activeMove, setActiveMove] = useState(null);
 
+  const sortedMusicAlbums = [...musicAlbums].sort(
+    (a, b) => new Date(b.releaseDay) - new Date(a.releaseDay)
+  );
+  const sortedMusicSingles = [...musicSingles].sort(
+    (a, b) => new Date(b.releaseDay) - new Date(a.releaseDay)
+  );
+
   const calculateBoxesPerSlide = () => {
     if (width >= 1600) {
       return 5;
@@ -44,7 +51,7 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
   };
 
   const handleScroll = (move) => {
-    const totalBoxes = musicAlbums.length;
+    const totalBoxes = sortedMusicAlbums.length;
 
     const scrollIndex = () => {
       if (width >= 1600) {
@@ -125,7 +132,7 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
                 transform: transformValue(),
               }}
             >
-              {musicAlbums.map((album) => (
+              {sortedMusicAlbums.map((album) => (
                 <GridSystem
                   key={album.id}
                   colClass={cx("col")}
@@ -180,7 +187,7 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
         <div className={cx("single-tracks")}>
           <h2 className={cx("title")}>Single Tracks</h2>
 
-          {musicSingles.map((single) => (
+          {sortedMusicSingles.map((single) => (
             <div className={cx("track-box")} key={single.id}>
               <div className={cx("player")}>
                 <img

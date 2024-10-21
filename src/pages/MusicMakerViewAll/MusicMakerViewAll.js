@@ -29,6 +29,14 @@ function MusicMakerViewAll() {
 
   const debounced = useDebounce(searchValue, 500);
 
+  const sortedMusicMakers = musicMaker.slice().sort((a, b) => {
+    if (a.priority !== b.priority) {
+      return a.priority ? -1 : 1;
+    }
+
+    return a.stageName.localeCompare(b.stageName);
+  });
+
   useEffect(() => {
     if (!debounced.trim()) {
       setSearchResult([]);
@@ -117,7 +125,7 @@ function MusicMakerViewAll() {
 
         <div className={cx("musicMaker-box")}>
           <GridSystem rowClass={cx("row-1")}>
-            {musicMaker.map((artist, index) => (
+            {sortedMusicMakers.map((artist, index) => (
               <GridSystem
                 key={index}
                 colClass={cx("col")}
