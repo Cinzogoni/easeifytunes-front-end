@@ -170,19 +170,30 @@ function Player({
   useEffect(() => {
     const resetStyles = () => {
       if (randomTrackBgRef.current) {
-        randomTrackBgRef.current.style.background = activeRandomClick;
-        randomTrackBgRef.current.style.border = activeRandomClick;
+        randomTrackBgRef.current.style.background = "transparent";
+        randomTrackBgRef.current.style.border = "1px solid transparent";
       }
     };
 
-    if (
-      location.pathname !== isAlbumPage &&
-      location.pathname !== isPlayListPage &&
-      location.pathname !== isPodcastPage
-    ) {
+    const applyStyles = () => {
+      if (randomTrackBgRef.current) {
+        randomTrackBgRef.current.style.background = activeRandomClick
+          ? "transparent"
+          : "rgba(255, 255, 255, 0.2)";
+        randomTrackBgRef.current.style.border = activeRandomClick
+          ? "1px solid transparent"
+          : "1px solid rgba(255, 255, 255, 0.2)";
+      }
+    };
+
+    const isInValidPage = isAlbumPage || isPlayListPage || isPodcastPage;
+
+    if (isInValidPage) {
+      applyStyles();
+    } else {
       resetStyles();
     }
-  }, [location]);
+  }, [location, activeRandomClick]);
 
   const handlePlayClick = (id) => {
     if (id) {
@@ -224,6 +235,11 @@ function Player({
       const newActiveClick = !activeRandomClick;
       setActiveRandomClick(newActiveClick);
       onRandom(newActiveClick);
+    } else {
+      if (activeRandomClick) {
+        setActiveRandomClick(false);
+        onRandom(false);
+      }
     }
   };
 
@@ -484,14 +500,6 @@ function Player({
               { hideAlbumList },
               { spaceAlbumInfo }
             )}
-            style={{
-              backgroundColor: activeRandomClick
-                ? "transparent"
-                : " rgba(255, 255, 255, 0.2)",
-              border: activeRandomClick
-                ? "1px solid transparent"
-                : "1px solid rgba(255, 255, 255, 0.2)",
-            }}
             onClick={handleRandomClick}
           >
             <FontAwesomeIcon
