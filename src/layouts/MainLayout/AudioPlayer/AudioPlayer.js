@@ -21,6 +21,7 @@ function AudioPlayer() {
     setActiveLoopClick,
     activeRandomClick,
     setActiveRandomClick,
+    trackType,
   } = useAudioPlayer();
 
   return (
@@ -31,6 +32,7 @@ function AudioPlayer() {
           trackTitle={currentTrack?.trackTitle || "Unknown Title"}
           trackPerformer={currentTrack?.trackPerformer || "Unknown Performer"}
           trackLink={trackLink}
+          trackType={trackType}
           isStatus={!!currentTrackId}
           onPlay={() => handlePlay(currentTrackId, currentTrack, trackLink)}
           onPause={handlePause}

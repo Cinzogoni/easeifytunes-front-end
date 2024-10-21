@@ -8,16 +8,14 @@ import React, {
 } from "react";
 
 import { useLocation } from "react-router-dom";
-import { useTrackInfo } from "./TrackInfoProvider";
 
 const AudioPlayer = createContext();
 
 export function AudioPlayerProvider({ children }) {
-  const { musicMaker } = useTrackInfo();
-
   const [currentTrackId, setCurrentTrackId] = useState(null);
   const [currentTrack, setCurrentTrack] = useState({});
   const [trackLink, setTrackLink] = useState(``);
+  const [trackType, setTrackType] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -79,6 +77,7 @@ export function AudioPlayerProvider({ children }) {
       setTrackLink(audioLink);
       setCurrentTrack(track);
       setCurrentTrackId(id);
+      setTrackType(track.type || "default");
       setIsTrackEnded(false);
 
       setIsPlaying(true);
@@ -310,6 +309,7 @@ export function AudioPlayerProvider({ children }) {
         setActiveLoopClick,
         activeRandomClick,
         setActiveRandomClick,
+        trackType,
       }}
     >
       {children}

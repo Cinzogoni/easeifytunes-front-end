@@ -49,8 +49,6 @@ function PodcastAudioList({ audioList }) {
     if (index !== -1) {
       setTrackIndex(index);
     }
-    // console.log("Current Index:", index);
-    // console.log("Current Track Id:", currentTrackId);
   }, [currentTrackId, displayTrackList, setTrackIndex]);
 
   const handleTrackPlay = (audio) => {

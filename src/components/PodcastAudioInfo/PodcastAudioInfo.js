@@ -29,6 +29,8 @@ function PodcastAudioInfo({
 }) {
   const { currentTrackId, handlePlay, handlePause } = useAudioPlayer();
 
+  console.log(type);
+
   return (
     <div className={cx("wrapper")}>
       <div className={cx("back")}>
@@ -73,6 +75,7 @@ function PodcastAudioInfo({
             trackLink={link}
             trackTitle={title}
             trackPerformer={performer}
+            trackType={type}
             //
             isStatus={id === currentTrackId}
             onPlay={() =>

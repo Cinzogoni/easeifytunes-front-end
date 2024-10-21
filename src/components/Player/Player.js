@@ -28,6 +28,7 @@ function Player({
   trackId,
   trackTitle,
   trackPerformer,
+  trackType,
   //
   isStatus,
   onPlay,
@@ -36,7 +37,6 @@ function Player({
   onPrev,
   onLoop,
   onRandom,
-  isRandom,
   activeLoopClick,
   setActiveLoopClick,
   activeRandomClick,
@@ -136,6 +136,14 @@ function Player({
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
+
+  const linkToTrack = routesConfig.track
+    .replace(`:stageName`, trackPerformer)
+    .replace(`:trackTitle`, trackTitle);
+
+  const linkToPodcast = routesConfig.podcastAudioPage
+    .replace(`:performer`, trackPerformer)
+    .replace(`:title`, trackTitle);
 
   useEffect(() => {
     const player = playerRefs.current;
@@ -399,11 +407,7 @@ function Player({
 
         <div className={cx("sign")}>
           {trackTitle && trackPerformer && isPlaying ? (
-            <Link
-              to={routesConfig.track
-                .replace(`:stageName`, trackPerformer)
-                .replace(`:trackTitle`, trackTitle)}
-            >
+            <Link to={trackType ? linkToPodcast : linkToTrack}>
               <h6 className={cx("title")}>
                 {`${trackTitle} - ${trackPerformer}`}
               </h6>
