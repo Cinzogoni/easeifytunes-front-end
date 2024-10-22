@@ -26,21 +26,46 @@ function PodcastAudioList({ audioList }) {
     isTrackEnded,
     setTrackIndex,
     setTrackList,
+    setShuffledTrackList,
     shuffledTrackList,
     isRandom,
   } = useAudioPlayer();
+
+  const shuffleArray = (array) => {
+    const shuffledArray = array.filter((track) => track.id !== currentTrackId);
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [
+        shuffledArray[j],
+        shuffledArray[i],
+      ];
+    }
+
+    if (currentTrackId) {
+      const currentTrack = array.find((track) => track.id === currentTrackId);
+      if (currentTrack) {
+        shuffledArray.unshift(currentTrack);
+      }
+    }
+
+    return shuffledArray;
+  };
+
+  useEffect(() => {
+    if (audioList.length > 0) {
+      setTrackList(audioList);
+      if (isRandom) {
+        const shuffledList = shuffleArray(audioList);
+        setShuffledTrackList(shuffledList);
+      }
+    }
+  }, [audioList, isRandom, setTrackList, setShuffledTrackList]);
 
   const displayTrackList = isRandom ? shuffledTrackList : audioList;
 
   const sortedPodcast = displayTrackList.sort(
     (a, b) => new Date(b.releaseDay) - new Date(a.releaseDay)
   );
-
-  useEffect(() => {
-    if (audioList.length > 0) {
-      setTrackList(audioList);
-    }
-  }, [audioList, setTrackList]);
 
   useEffect(() => {
     const index = currentTrackId
@@ -57,7 +82,7 @@ function PodcastAudioList({ audioList }) {
       audio.id,
       {
         trackTitle: audio.title,
-        trackPerformer: audio.performer,
+        trackPerformer: audio.publisher,
         trackType: audio.type,
       },
       audio.link
@@ -96,18 +121,18 @@ function PodcastAudioList({ audioList }) {
                   trackLink={audio.link}
                   trackAvatar={audio.avatar}
                   trackTitle={audio.title}
-                  trackPerformer={audio.performer}
+                  trackPerformer={audio.publisher}
                   trackType={audio.type}
                   //
                   isStatus={audio.id === currentTrackId}
                   onPlay={() => handleTrackPlay(audio)}
                   onPause={() => handleTrackPause(audio)}
                   //
-                  frameSingleTracks
-                  playerSingleTracks
+                  framePodcastResize
+                  playerPodcastList
                   playerAlbumList
                   waveformBoxSingleTracks
-                  stopperAlbumList
+                  stopperPodcastList
                 />
               </div>
 
@@ -115,12 +140,15 @@ function PodcastAudioList({ audioList }) {
                 <Link
                   className={cx("audio-link")}
                   to={routesConfig.podcastAudioPage
+                    .replace(`:author`, audio.author.replace(/\//g, "-"))
                     .replace(`:publisher`, audio.publisher.replace(/\//g, "-"))
                     .replace(`:title`, audio.title.replace(/\//g, "-"))}
                 />
-
                 <h4 className={cx("audio-title")}>{audio.title}</h4>
-                <h5 className={cx("audio-performer")}>{audio.publisher}</h5>
+                <h5 className={cx("audio-publisher")}>
+                  Publisher: {audio.publisher}
+                </h5>
+                <h5 className={cx("audio-author")}>Author: {audio.author}</h5>
               </div>
 
               <div className={cx("more-func")}>

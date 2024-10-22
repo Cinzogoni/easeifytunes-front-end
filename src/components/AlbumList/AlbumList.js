@@ -29,8 +29,8 @@ function AlbumList({ trackList, avatar }) {
     isRandom,
   } = useAudioPlayer();
 
-  function shuffleArray(array) {
-    const shuffledArray = [...array];
+  const shuffleArray = (array) => {
+    const shuffledArray = array.filter((track) => track.id !== currentTrackId);
     for (let i = shuffledArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffledArray[i], shuffledArray[j]] = [
@@ -39,8 +39,15 @@ function AlbumList({ trackList, avatar }) {
       ];
     }
 
+    if (currentTrackId) {
+      const currentTrack = array.find((track) => track.id === currentTrackId);
+      if (currentTrack) {
+        shuffledArray.unshift(currentTrack);
+      }
+    }
+
     return shuffledArray;
-  }
+  };
 
   useEffect(() => {
     if (trackList.length > 0) {

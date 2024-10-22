@@ -22,7 +22,8 @@ import routesConfig from "~/config/routes";
 const cx = classNames.bind(styles);
 
 function MusicMakerList({ musicAlbums, musicSingles }) {
-  const { currentTrackId, handlePlay, handlePause } = useAudioPlayer();
+  const { currentTrackId, handlePlay, handlePause, isTrackEnded } =
+    useAudioPlayer();
 
   const [width, setWidth] = useState(window.innerWidth);
   const [scrollIndex, setScrollIndex] = useState(0);
@@ -189,7 +190,13 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
           <h2 className={cx("title")}>Single Tracks</h2>
 
           {sortedMusicSingles.map((single) => (
-            <div className={cx("track-box")} key={single.id}>
+            <div
+              className={cx("track-box", {
+                playing: single.id === currentTrackId,
+                transparent: isTrackEnded,
+              })}
+              key={single.id}
+            >
               <div className={cx("player")}>
                 <img
                   className={cx("track-avatar")}

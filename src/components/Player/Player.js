@@ -98,6 +98,10 @@ function Player({
   hideAlbumInfo,
   frameAlbumInfo,
   spaceAlbumInfo,
+  //
+  framePodcastResize,
+  playerPodcastList,
+  stopperPodcastList,
 }) {
   const {
     playerRefs,
@@ -144,12 +148,13 @@ function Player({
     .replace(`:performer`, trackPerformer)
     .replace(`:title`, trackTitle);
 
-  const chooseLink =
-    trackType === "Podcast"
-      ? linkToPodcast
-      : trackType === "Album" || trackType === "Single"
-      ? linkToTrack
-      : linkToTrack;
+  const chooseLink = !trackType
+    ? null
+    : trackType === "Podcast"
+    ? linkToPodcast
+    : trackType === "Album" || trackType === "Single"
+    ? linkToTrack
+    : linkToTrack;
 
   useEffect(() => {
     const player = playerRefs.current;
@@ -191,12 +196,14 @@ function Player({
 
     const applyStyles = () => {
       if (randomTrackBgRef.current) {
-        randomTrackBgRef.current.style.background = activeRandomClick
-          ? "transparent"
-          : "rgba(255, 255, 255, 0.2)";
-        randomTrackBgRef.current.style.border = activeRandomClick
-          ? "1px solid transparent"
-          : "1px solid rgba(255, 255, 255, 0.2)";
+        if (activeRandomClick) {
+          randomTrackBgRef.current.style.background =
+            "rgba(255, 255, 255, 0.2)";
+          randomTrackBgRef.current.style.border =
+            "1px solid rgba(255, 255, 255, 0.2)";
+        } else {
+          resetStyles();
+        }
       }
     };
 
@@ -402,7 +409,8 @@ function Player({
         { frameFooterResize },
         { frameTrackInfoResize },
         { frameSingleTracks },
-        { frameAlbumInfo }
+        { frameAlbumInfo },
+        { framePodcastResize }
       )}
     >
       {/* AudioPlayer Footer */}
@@ -465,7 +473,8 @@ function Player({
           { playerFooterResize },
           { playerTrackInfoResize },
           { playerSingleTracks },
-          { playerAlbumInfoResize }
+          { playerAlbumInfoResize },
+          { playerPodcastList }
         )}
       >
         {isStatus && !isTrackEnded && (
@@ -629,7 +638,8 @@ function Player({
               {
                 stopperSingleTracks,
               },
-              { stopperAlbumList }
+              { stopperAlbumList },
+              { stopperPodcastList }
             )}
             onClick={handlePauseClick}
           >

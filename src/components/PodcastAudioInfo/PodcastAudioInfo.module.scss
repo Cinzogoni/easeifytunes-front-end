@@ -44,24 +44,17 @@
 }
 
 .title {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-bottom: 3px;
 }
 
-.performer {
-  font-size: 1rem;
+.publisher {
+  font-size: 0.9rem;
   margin-bottom: 3px;
 }
 
-.type {
-  font-size: 0.7rem;
-  opacity: 0.6;
-  margin-bottom: 3px;
-}
-
-.genre {
-  font-size: 0.7rem;
-  opacity: 0.6;
+.author {
+  font-size: 0.9rem;
   margin-bottom: 3px;
 }
 
@@ -79,7 +72,7 @@
 
 .streams {
   width: 158px;
-  height: 30px;
+  height: 35px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 7px;
   display: flex;
@@ -105,7 +98,7 @@
 
 .share {
   width: 30px;
-  height: 30px;
+  height: 35px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 7px;
   display: flex;
@@ -122,7 +115,7 @@
 
 .add {
   width: 30px;
-  height: 30px;
+  height: 35px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 7px;
   display: flex;
@@ -136,7 +129,7 @@
   height: 20px;
 }
 
-@media (min-width: 980px) and (max-width: 1037px) {
+@media (min-width: 980px) and (max-width: 1256px) {
   .back-home {
     margin: 10px;
     transform: translateY(-84px);
@@ -148,21 +141,12 @@
   }
 
   .title {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
-  .performer {
-    font-size: 0.8rem;
-  }
-
-  .type {
-    font-size: 0.6rem;
-    opacity: 0.6;
-  }
-
-  .genre {
-    font-size: 0.6rem;
-    opacity: 0.6;
+  .publisher,
+  .author {
+    font-size: 0.85rem;
   }
 }
 
@@ -178,21 +162,12 @@
   }
 
   .title {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
-  .performer {
-    font-size: 0.6rem;
-  }
-
-  .type {
-    font-size: 0.6rem;
-    opacity: 0.6;
-  }
-
-  .genre {
-    font-size: 0.5rem;
-    opacity: 0.6;
+  .publisher,
+  .author {
+    font-size: 0.7rem;
   }
 
   .streams {
@@ -234,30 +209,22 @@
   }
 
   .title {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     margin: 5px 0;
   }
 
-  .performer {
-    font-size: 0.5rem;
+  .publisher,
+  .author {
+    font-size: 0.65rem;
     margin: 5px 0;
   }
-
-  .type {
-    font-size: 0.5rem;
-    opacity: 0.6;
-    margin: 5px 0;
-  }
-
-  .genre {
-    font-size: 0.4rem;
-    opacity: 0.6;
-    margin: 5px 0;
+  .release-day {
+    font-size: 0.6rem;
   }
 
   .streams {
     width: 170px;
-    height: 30px;
+    height: 33px;
   }
 
   .listeners {
@@ -274,7 +241,7 @@
 
   .share {
     width: 30px;
-    height: 30px;
+    height: 33px;
   }
 
   .link {
@@ -284,7 +251,7 @@
 
   .add {
     width: 30px;
-    height: 30px;
+    height: 33px;
   }
 
   .plus {

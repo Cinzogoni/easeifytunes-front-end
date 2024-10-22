@@ -29,7 +29,7 @@ export function AudioPlayerProvider({ children }) {
   const [trackIndex, setTrackIndex] = useState(0);
   const [activeLoopClick, setActiveLoopClick] = useState(true);
   const [shuffledTrackList, setShuffledTrackList] = useState([]);
-  const [activeRandomClick, setActiveRandomClick] = useState(true);
+  const [activeRandomClick, setActiveRandomClick] = useState(false);
   const [isRandom, setIsRandom] = useState(false);
 
   const location = useLocation();
@@ -219,7 +219,7 @@ export function AudioPlayerProvider({ children }) {
       setCurrentTrackId(nextTrack.id);
       setCurrentTrack({
         trackTitle: nextTrack.title,
-        trackPerformer: nextTrack.stageName || nextTrack.performer,
+        trackPerformer: nextTrack.stageName || nextTrack.publisher,
         trackType: nextTrack.type,
       });
       setIsPlaying(true);
@@ -227,7 +227,7 @@ export function AudioPlayerProvider({ children }) {
         nextTrack.id,
         {
           trackTitle: nextTrack.title,
-          trackPerformer: nextTrack.stageName || nextTrack.performer,
+          trackPerformer: nextTrack.stageName || nextTrack.publisher,
           trackType: nextTrack.type,
         },
         nextTrack.link
@@ -250,7 +250,7 @@ export function AudioPlayerProvider({ children }) {
       setCurrentTrackId(prevTrack.id);
       setCurrentTrack({
         trackTitle: prevTrack.title,
-        trackPerformer: prevTrack.stageName || prevTrack.performer,
+        trackPerformer: prevTrack.stageName || prevTrack.publisher,
         trackType: prevTrack.type,
       });
       setIsPlaying(true);
@@ -258,7 +258,7 @@ export function AudioPlayerProvider({ children }) {
         prevTrack.id,
         {
           trackTitle: prevTrack.title,
-          trackPerformer: prevTrack.stageName || prevTrack.performer,
+          trackPerformer: prevTrack.stageName || prevTrack.publisher,
           trackType: prevTrack.type,
         },
         prevTrack.link

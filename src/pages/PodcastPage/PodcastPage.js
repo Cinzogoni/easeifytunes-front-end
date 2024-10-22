@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 
 import Tippy from "@tippyjs/react/headless";
 import WrapperPopper from "~/layouts/MainLayout/Popper/WrapperPopper";
-import PodcastItem from "~/components/PodcastItem";
+import PodcastAudioItem from "~/components/PodcastAudioItem";
 import PodcastInfo from "~/components/PodcastInfo";
 import PodcastAudioList from "~/components/PodcastAudioList";
 
@@ -27,28 +27,27 @@ function PodcastPage() {
   const [searchValue, setSearchValue] = useState(``);
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(true);
-  const [activeTitle, setActiveTitle] = useState("Publisher");
 
   const inputRef = useRef();
-
   const debounced = useDebounce(searchValue, 500);
+  const apiResults = [...podcast];
+
+  const findAllTopic = apiResults.find((t) => t.topic === podcastTopic);
+  const audioList = findAllTopic ? findAllTopic.audios || [] : [];
 
   useEffect(() => {
     if (!debounced.trim()) {
       setSearchResult([]);
       return;
     }
+    const searchLowerCase = debounced.toLowerCase();
 
-    const apiResults = [...podcast];
-
-    const filteredResults = apiResults.filter((item) => {
-      const searchLowerCase = debounced.toLowerCase();
-      return item.audios.some(
-        (audio) =>
-          audio.performer.toLowerCase().includes(searchLowerCase) ||
-          audio.title.toLowerCase().includes(searchLowerCase)
-      );
-    });
+    const filteredResults = audioList.filter(
+      (audio) =>
+        audio.publisher.toLowerCase().includes(searchLowerCase) ||
+        audio.author.toLowerCase().includes(searchLowerCase) ||
+        audio.title.toLowerCase().includes(searchLowerCase)
+    );
 
     setSearchResult(filteredResults);
   }, [debounced]);
@@ -63,10 +62,6 @@ function PodcastPage() {
     setShowResult(false);
   };
 
-  const allTopic = [...podcast];
-  const findAllTopic = allTopic.find((t) => t.topic === podcastTopic);
-  const audioList = findAllTopic ? findAllTopic.audios || [] : [];
-
   return (
     <div className={cx("wrapper")}>
       <div className={cx("search-bar")}>
@@ -79,78 +74,18 @@ function PodcastPage() {
             onClickOutside={handleHideResult}
             render={(attrs) => (
               <div className={cx("search-result")} tabIndex={-1} {...attrs}>
-                <div className={cx("title-box")}>
-                  <h5
-                    className={cx("title-1", {
-                      active: activeTitle === `Publisher`,
-                    })}
-                    onClick={() => setActiveTitle(`Publisher`)}
-                  >
-                    Publisher
-                  </h5>
-                  <h5
-                    className={cx("title-2", {
-                      active: activeTitle === `Author`,
-                    })}
-                    onClick={() => setActiveTitle(`Author`)}
-                  >
-                    Author
-                  </h5>
-                  <h5
-                    className={cx("title-3", {
-                      active: activeTitle === `Audio Title`,
-                    })}
-                    onClick={() => setActiveTitle(`Audio Title`)}
-                  >
-                    Audio Title
-                  </h5>
-                </div>
                 <WrapperPopper>
-                  {/* Author  */}
-                  {activeTitle === `Publisher` && (
-                    <div className={cx("publisher")}>
-                      {searchResult
-                        .filter((item) => item.performer && item.title)
-                        .map((item) => (
-                          <PodcastItem
-                            key={item.id}
-                            podcastAvatar={item.avatar}
-                            podcastTopic={item.title}
-                            podcastDescription={item.performer}
-                          />
-                        ))}
-                    </div>
-                  )}
-                  {/* Author  */}
-                  {activeTitle === `Author` && (
-                    <div className={cx("author")}>
-                      {searchResult
-                        .filter((item) => item.performer && item.title)
-                        .map((item) => (
-                          <PodcastItem
-                            key={item.id}
-                            podcastAvatar={item.avatar}
-                            podcastTopic={item.title}
-                            podcastDescription={item.performer}
-                          />
-                        ))}
-                    </div>
-                  )}
-                  {/* Audio Title  */}
-                  {activeTitle === `Audio Title` && (
-                    <div className={cx("audio-title")}>
-                      {searchResult
-                        .filter((item) => item.performer && item.title)
-                        .map((item) => (
-                          <PodcastItem
-                            key={item.id}
-                            podcastAvatar={item.avatar}
-                            podcastTopic={item.title}
-                            podcastDescription={item.performer}
-                          />
-                        ))}
-                    </div>
-                  )}
+                  <div className={cx("podcast-list")}>
+                    {searchResult.map((audio) => (
+                      <PodcastAudioItem
+                        key={audio.id}
+                        podcastAvatar={audio.avatar}
+                        podcastTitle={audio.title}
+                        podcastPublisher={audio.publisher}
+                        podcastAuthor={audio.author}
+                      />
+                    ))}
+                  </div>
                 </WrapperPopper>
               </div>
             )}

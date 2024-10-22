@@ -23,11 +23,19 @@ function PodcastAudioInfo({
   avatar,
   title,
   publisher,
+  author,
   type,
   releaseDay,
   streamed,
 }) {
-  const { currentTrackId, handlePlay, handlePause } = useAudioPlayer();
+  const {
+    currentTrackId,
+    handlePlay,
+    handlePause,
+    handleLoop,
+    activeLoopClick,
+    setActiveLoopClick,
+  } = useAudioPlayer();
 
   return (
     <div className={cx("wrapper")}>
@@ -35,7 +43,7 @@ function PodcastAudioInfo({
         <Link
           to={routesConfig.podcastPage.replace(
             `:podcastTopic`,
-            topic.replace(/,/g, "-")
+            topic.replace(/\//g, "-")
           )}
         >
           <FontAwesomeIcon className={cx("arrow-left")} icon={faArrowLeft} />
@@ -46,8 +54,8 @@ function PodcastAudioInfo({
         <img className={cx("avatar")} src={avatar} alt={title} />
         <div className={cx("info")}>
           <h3 className={cx("title")}>{title}</h3>
-          <h4 className={cx("performer")}>{publisher}</h4>
-          <h5 className={cx("type")}>{type}</h5>
+          <h4 className={cx("publisher")}>Publisher: {publisher}</h4>
+          <h4 className={cx("author")}>Author: {author}</h4>
           <h5 className={cx("release-day")}>Release day: {releaseDay}</h5>
 
           <div className={cx("more")}>
@@ -81,12 +89,15 @@ function PodcastAudioInfo({
                 id,
                 {
                   trackTitle: title,
-                  trackPerformer: performer,
+                  trackPerformer: publisher,
                 },
                 link
               )
             }
             onPause={() => handlePause(id)}
+            onLoop={() => handleLoop()}
+            activeLoopClick={activeLoopClick}
+            setActiveLoopClick={setActiveLoopClick}
             //
             waveformBoxFooter
             frameTrackInfoResize

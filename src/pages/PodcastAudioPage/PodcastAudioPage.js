@@ -10,17 +10,20 @@ const cx = classNames.bind(styles);
 
 function PodcastAudioPage() {
   const { podcast } = useTrackInfo();
-  const { performer } = useParams();
+  const { author, publisher } = useParams();
 
   const allAudio = podcast.flatMap((a) => a.audios || []);
-  const audio = allAudio.find((t) => t.performer === performer);
+  const audio = allAudio.find(
+    (t) => t.author === author && t.publisher === publisher
+  );
 
   const audioId = audio && audio.id ? audio.id : "";
   const link = audio && audio.link ? audio.link : "";
   const podcastTopic = audio && audio.topic ? audio.topic : "";
   const avatar = audio && audio.avatar ? audio.avatar : "";
   const podcastTitle = audio && audio.title ? audio.title : "";
-  const publisher = audio && audio.publisher ? audio.publisher : "";
+  const podcastPublisher = audio && audio.publisher ? audio.publisher : "";
+  const podcastAuthor = audio && audio.author ? audio.author : "";
   const type = audio && audio.type ? audio.type : "";
   const releaseDay = audio && audio.releaseDay ? audio.releaseDay : "";
   const streamed = audio && audio.streamed ? audio.streamed : "";
@@ -36,7 +39,8 @@ function PodcastAudioPage() {
           topic={podcastTopic}
           avatar={avatar}
           title={podcastTitle}
-          publisher={publisher}
+          publisher={podcastPublisher}
+          author={podcastAuthor}
           type={type}
           releaseDay={releaseDay}
           streamed={streamed}

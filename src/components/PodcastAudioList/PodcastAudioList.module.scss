@@ -28,8 +28,8 @@
 }
 
 .audio-avatar {
-  width: 60px;
-  height: 60px;
+  width: 85px;
+  height: 85px;
   margin: 6px 0 6px 6px;
   object-fit: cover;
   border: var(--main-border);
@@ -65,12 +65,15 @@
 }
 
 .audio-title {
-  font-size: 1.05rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-.audio-performer {
-  font-size: 0.9rem;
+.audio-publisher,
+.audio-author {
+  font-size: 0.85rem;
   opacity: 0.6;
+  line-height: 1.2;
 }
 
 .more-func {
@@ -134,7 +137,8 @@
     font-size: 0.8rem;
   }
 
-  .audio-performer {
+  .audio-publisher,
+  .audio-author {
     font-size: 0.6;
   }
 }
@@ -143,14 +147,20 @@
   .audio-title {
     font-size: 0.68rem;
   }
+
+  .audio-publisher,
+  .audio-author {
+    font-size: 0.45;
+  }
 }
 
 @media (min-width: 899px) and (max-width: 986px) {
   .audio-title {
-    font-size: 0.55rem;
+    font-size: 0.9rem;
   }
 
-  .audio-performer {
-    font-size: 0.45;
+  .audio-publisher,
+  .audio-author {
+    font-size: 0.5;
   }
 }

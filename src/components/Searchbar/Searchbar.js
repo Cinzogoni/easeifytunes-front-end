@@ -50,7 +50,7 @@ function Searchbar() {
         (item.audios &&
           item.audios.some(
             (audio) =>
-              audio.performer.toLowerCase().includes(searchLowerCase) ||
+              audio.publisher.toLowerCase().includes(searchLowerCase) ||
               audio.title.toLowerCase().includes(searchLowerCase)
           )) ||
         (item.albums &&
