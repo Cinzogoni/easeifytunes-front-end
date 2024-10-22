@@ -16,7 +16,6 @@ function PodcastAudioItem({
     <div className={cx("wrapper")}>
       <Link
         to={routesConfig.podcastAudioPage
-          .replace(`:author`, podcastAuthor.replace(/\//g, "-"))
           .replace(`:publisher`, podcastPublisher.replace(/\//g, "-"))
           .replace(`:title`, podcastTitle.replace(/\//g, "-"))}
       >

@@ -40,9 +40,10 @@ function NewReleasesBox({
           ...prevTrackList,
           {
             id: trackId,
-            title: trackTitle,
-            performer: trackPerformer,
-            link: trackLink,
+            trackTitle: trackTitle,
+            trackPerformer: trackPerformer,
+            trackLink: trackLink,
+            trackType: trackType,
           },
         ];
       }

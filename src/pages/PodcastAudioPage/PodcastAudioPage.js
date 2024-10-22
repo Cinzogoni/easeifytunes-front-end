@@ -10,12 +10,10 @@ const cx = classNames.bind(styles);
 
 function PodcastAudioPage() {
   const { podcast } = useTrackInfo();
-  const { author, publisher } = useParams();
+  const { publisher } = useParams();
 
   const allAudio = podcast.flatMap((a) => a.audios || []);
-  const audio = allAudio.find(
-    (t) => t.author === author && t.publisher === publisher
-  );
+  const audio = allAudio.find((t) => t.publisher === publisher);
 
   const audioId = audio && audio.id ? audio.id : "";
   const link = audio && audio.link ? audio.link : "";

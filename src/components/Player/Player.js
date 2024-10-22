@@ -145,8 +145,10 @@ function Player({
     .replace(`:trackTitle`, trackTitle);
 
   const linkToPodcast = routesConfig.podcastAudioPage
-    .replace(`:performer`, trackPerformer)
+    .replace(`:publisher`, trackPerformer)
     .replace(`:title`, trackTitle);
+
+  // console.log(trackPerformer, trackTitle, trackType);
 
   const chooseLink = !trackType
     ? null

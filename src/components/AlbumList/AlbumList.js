@@ -79,6 +79,7 @@ function AlbumList({ trackList, avatar }) {
       {
         trackTitle: track.title,
         trackPerformer: track.stageName,
+        trackType: track.type,
       },
       track.link
     );

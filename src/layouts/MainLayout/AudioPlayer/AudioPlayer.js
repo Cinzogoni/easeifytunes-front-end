@@ -31,7 +31,7 @@ function AudioPlayer() {
           trackTitle={currentTrack?.trackTitle || "Unknown Title"}
           trackPerformer={currentTrack?.trackPerformer || "Unknown Performer"}
           trackLink={trackLink}
-          trackType={currentTrack?.trackType}
+          trackType={currentTrack?.trackType || "Unknown Type"}
           isStatus={!!currentTrackId}
           onPlay={() => handlePlay(currentTrackId, currentTrack, trackLink)}
           onPause={handlePause}

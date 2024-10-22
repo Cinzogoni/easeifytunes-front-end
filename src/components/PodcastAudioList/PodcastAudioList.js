@@ -140,7 +140,6 @@ function PodcastAudioList({ audioList }) {
                 <Link
                   className={cx("audio-link")}
                   to={routesConfig.podcastAudioPage
-                    .replace(`:author`, audio.author.replace(/\//g, "-"))
                     .replace(`:publisher`, audio.publisher.replace(/\//g, "-"))
                     .replace(`:title`, audio.title.replace(/\//g, "-"))}
                 />

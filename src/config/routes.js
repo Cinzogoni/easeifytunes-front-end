@@ -5,7 +5,7 @@ const routesConfig = {
   track: `/track/:stageName/:trackTitle`,
   musicMakerPage: `/musicMakerPage/:stageName`,
   albumPage: `/albumPage/:albumPerformer/:albumName`,
-  podcastAudioPage: `/podcastAudioPage/:author/:publisher/:title`,
+  podcastAudioPage: `/podcastAudioPage/:publisher/:title`,
   podcastPage: `/podcastPage/:podcastTopic`,
   newReleasesViewAll: `/NewReleasesViewAll`,
   musicMakersViewAll: `/musicMakersViewAll`,
