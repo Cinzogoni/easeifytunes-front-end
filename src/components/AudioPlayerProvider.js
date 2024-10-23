@@ -17,6 +17,7 @@ export function AudioPlayerProvider({ children }) {
   const [trackLink, setTrackLink] = useState(``);
   const [trackType, setTrackType] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
@@ -61,6 +62,11 @@ export function AudioPlayerProvider({ children }) {
     }
   }, [isPlaying]);
 
+  const handleVideoPlay = () => {
+    setIsVideoPlaying(true);
+    setIsPlaying(false);
+  };
+
   const handlePlay = async (trackId, track, link) => {
     try {
       const player = playerRefs.current;
@@ -81,6 +87,7 @@ export function AudioPlayerProvider({ children }) {
       setIsTrackEnded(false);
 
       setIsPlaying(true);
+      setIsVideoPlaying(false);
       await player.play();
 
       // if (checkListeningTime >= player.duration) {
@@ -288,6 +295,7 @@ export function AudioPlayerProvider({ children }) {
         handleNextTrack,
         handlePrevTrack,
         handleRandomTrack,
+        handleVideoPlay,
         setShuffledTrackList,
         isRandom,
         trackIndex,
@@ -303,6 +311,7 @@ export function AudioPlayerProvider({ children }) {
         volume,
         setVolume,
         isPlaying,
+        isVideoPlaying,
         setIsPlaying,
         isTrackEnded,
         setIsTrackEnded,

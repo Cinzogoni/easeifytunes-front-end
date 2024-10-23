@@ -10,14 +10,25 @@ import MomentBox from "~/components/MomentBox";
 import Navigation from "~/components/Navigation";
 
 import { useTrackInfo } from "~/components/TrackInfoProvider";
+import { useAudioPlayer } from "~/components/AudioPlayerProvider";
+
 const cx = classNames.bind(styles);
+
 function MomentViewAll() {
+  const { handleVideoPlay, isVideoPlaying } = useAudioPlayer();
+  const { moment } = useTrackInfo();
   const [activeVideoId, setActiveVideoId] = useState(null);
 
-  const { moment } = useTrackInfo();
+  const sortedMoment = [...moment].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
 
-  const handleVideoPlay = (id) => {
-    setActiveVideoId(id);
+  const handleTheVideoPlay = (videoId) => {
+    setActiveVideoId(videoId);
+    handleVideoPlay(videoId);
+  };
+  const handleTheAudioPause = () => {
+    handleVideoPlay(false);
   };
 
   return (
@@ -31,7 +42,7 @@ function MomentViewAll() {
 
         <div className={cx("video-box")}>
           <GridSystem rowClass={cx("row-1")}>
-            {moment.map((video, index) => (
+            {sortedMoment.map((video, index) => (
               <GridSystem
                 key={index}
                 colClass={cx("col")}
@@ -49,8 +60,11 @@ function MomentViewAll() {
                       link={video.link}
                       date={video.date}
                       name={video.name}
-                      isPlaying={activeVideoId === video.id}
-                      onPlay={() => handleVideoPlay(video.id)}
+                      isVideoPlaying={
+                        activeVideoId === video.id && isVideoPlaying
+                      }
+                      onPlay={() => handleTheVideoPlay(video.id)}
+                      onPause={handleTheAudioPause}
                     />
                   </div>
                 </div>

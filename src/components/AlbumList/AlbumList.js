@@ -9,6 +9,8 @@ import {
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { useRef } from "react";
+
 import { useAudioPlayer } from "../AudioPlayerProvider";
 import { Link } from "react-router-dom";
 import routesConfig from "~/config/routes";
@@ -28,6 +30,8 @@ function AlbumList({ trackList, avatar }) {
     shuffledTrackList,
     isRandom,
   } = useAudioPlayer();
+
+  const trackRefs = useRef([]);
 
   const shuffleArray = (array) => {
     const shuffledArray = array.filter((track) => track.id !== currentTrackId);
@@ -65,11 +69,13 @@ function AlbumList({ trackList, avatar }) {
     const index = currentTrackId
       ? displayTrackList.findIndex((track) => track.id === currentTrackId)
       : -1;
-    if (index !== -1) {
-      setTrackIndex(index);
+    if (index !== -1 && trackRefs.current[index]) {
+      trackRefs.current[index].scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }
-    // console.log("Current Index:", index);
-    // console.log("Current Track Id:", currentTrackId);
+    setTrackIndex(index);
   }, [currentTrackId, displayTrackList, setTrackIndex]);
 
   const handleTrackPlay = (track) => {
@@ -98,8 +104,9 @@ function AlbumList({ trackList, avatar }) {
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <div className={cx("tracks")}>
-          {displayTrackList.map((track) => (
+          {displayTrackList.map((track, index) => (
             <div
+              ref={(el) => (trackRefs.current[index] = el)}
               className={cx("track-box", {
                 playing: track.id === currentTrackId,
                 transparent: isTrackEnded && isLastTrack(track),

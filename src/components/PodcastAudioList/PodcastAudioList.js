@@ -11,7 +11,7 @@ import {
 import { useAudioPlayer } from "../AudioPlayerProvider";
 
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import routesConfig from "~/config/routes";
 
@@ -30,6 +30,8 @@ function PodcastAudioList({ audioList }) {
     shuffledTrackList,
     isRandom,
   } = useAudioPlayer();
+
+  const audioRefs = useRef([]);
 
   const shuffleArray = (array) => {
     const shuffledArray = array.filter((track) => track.id !== currentTrackId);
@@ -69,11 +71,15 @@ function PodcastAudioList({ audioList }) {
 
   useEffect(() => {
     const index = currentTrackId
-      ? displayTrackList.findIndex((audio) => audio.id === currentTrackId)
+      ? displayTrackList.findIndex((track) => track.id === currentTrackId)
       : -1;
-    if (index !== -1) {
-      setTrackIndex(index);
+    if (index !== -1 && audioRefs.current[index]) {
+      audioRefs.current[index].scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }
+    setTrackIndex(index);
   }, [currentTrackId, displayTrackList, setTrackIndex]);
 
   const handleTrackPlay = (audio) => {
@@ -102,8 +108,9 @@ function PodcastAudioList({ audioList }) {
     <div className={cx("wrapper")}>
       <div className={cx("container")}>
         <div className={cx("audios")}>
-          {sortedPodcast.map((audio) => (
+          {sortedPodcast.map((audio, index) => (
             <div
+              ref={(el) => (audioRefs.current[index] = el)}
               className={cx("audio-box", {
                 playing: audio.id === currentTrackId,
                 transparent: isTrackEnded && isLastTrack(audio),

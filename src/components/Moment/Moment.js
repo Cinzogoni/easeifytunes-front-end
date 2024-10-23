@@ -14,15 +14,21 @@ import GridSystem from "../GridSystem";
 import MomentBox from "../MomentBox";
 
 import { useTrackInfo } from "../TrackInfoProvider";
+import { useAudioPlayer } from "../AudioPlayerProvider";
 
 const cx = classNames.bind(styles);
 function Moment() {
   const { moment } = useTrackInfo();
+  const { handleVideoPlay, isVideoPlaying } = useAudioPlayer();
 
   const [width, setWidth] = useState(window.innerWidth);
   const [scrollIndex, setScrollIndex] = useState(0);
   const [activeMove, setActiveMove] = useState(null);
   const [activeVideoId, setActiveVideoId] = useState(null);
+
+  const sortedMoment = [...moment].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
 
   const calculateBoxesPerSlide = () => {
     if (width >= 1600) {
@@ -38,7 +44,7 @@ function Moment() {
   };
 
   const handleScroll = (move) => {
-    const totalBoxes = moment.length;
+    const totalBoxes = sortedMoment.length;
 
     const scrollIndex = () => {
       if (width >= 1600) {
@@ -82,8 +88,12 @@ function Moment() {
     return `translateX(-${scrollIndex * slideWidth}%)`;
   };
 
-  const handleVideoPlay = (id) => {
-    setActiveVideoId(id);
+  const handleTheVideoPlay = (videoId) => {
+    setActiveVideoId(videoId);
+    handleVideoPlay(videoId);
+  };
+  const handleTheAudioPause = () => {
+    handleVideoPlay(false);
   };
 
   return (
@@ -125,7 +135,7 @@ function Moment() {
               transform: transformValue(),
             }}
           >
-            {moment.map((video, index) => (
+            {sortedMoment.map((video, index) => (
               <GridSystem
                 key={index}
                 colClass={cx("col")}
@@ -143,8 +153,11 @@ function Moment() {
                       link={video.link}
                       date={video.date}
                       name={video.name}
-                      isPlaying={activeVideoId === video.id}
-                      onPlay={() => handleVideoPlay(video.id)}
+                      isVideoPlaying={
+                        activeVideoId === video.id && isVideoPlaying
+                      }
+                      onPlay={() => handleTheVideoPlay(video.id)}
+                      onPause={handleTheAudioPause}
                     />
                   </div>
                 </div>

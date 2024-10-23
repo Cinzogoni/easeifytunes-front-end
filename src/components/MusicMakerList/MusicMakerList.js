@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import styles from "./MusicMakerList.module.scss";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAudioPlayer } from "../AudioPlayerProvider";
 import { Link } from "react-router-dom";
 
@@ -22,12 +22,19 @@ import routesConfig from "~/config/routes";
 const cx = classNames.bind(styles);
 
 function MusicMakerList({ musicAlbums, musicSingles }) {
-  const { currentTrackId, handlePlay, handlePause, isTrackEnded } =
-    useAudioPlayer();
+  const {
+    currentTrackId,
+    handlePlay,
+    handlePause,
+    isTrackEnded,
+    setTrackIndex,
+  } = useAudioPlayer();
 
   const [width, setWidth] = useState(window.innerWidth);
   const [scrollIndex, setScrollIndex] = useState(0);
   const [activeMove, setActiveMove] = useState(null);
+
+  const trackRefs = useRef([]);
 
   const sortedMusicAlbums = [...musicAlbums]
     .sort((a, b) => new Date(b.releaseDay) - new Date(a.releaseDay))
@@ -96,6 +103,19 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
     const slideWidth = 100 / boxesPerSlide;
     return `translateX(-${scrollIndex * slideWidth}%)`;
   };
+
+  useEffect(() => {
+    const index = currentTrackId
+      ? musicSingles.findIndex((track) => track.id === currentTrackId)
+      : -1;
+    if (index !== -1 && trackRefs.current[index]) {
+      trackRefs.current[index].scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+    setTrackIndex(index);
+  }, [currentTrackId, musicSingles, setTrackIndex]);
 
   return (
     <div className={cx("wrapper")}>
@@ -189,8 +209,9 @@ function MusicMakerList({ musicAlbums, musicSingles }) {
         <div className={cx("single-tracks")}>
           <h2 className={cx("title")}>Single Tracks</h2>
 
-          {sortedMusicSingles.map((single) => (
+          {sortedMusicSingles.map((single, index) => (
             <div
+              ref={(el) => (trackRefs.current[index] = el)}
               className={cx("track-box", {
                 playing: single.id === currentTrackId,
                 transparent: isTrackEnded,

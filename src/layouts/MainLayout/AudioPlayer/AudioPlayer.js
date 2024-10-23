@@ -1,6 +1,8 @@
 import styles from "./AudioPlayer.module.scss";
 import classNames from "classnames/bind";
 
+import { useEffect } from "react";
+
 import { useAudioPlayer } from "~/components/AudioPlayerProvider";
 
 import Player from "~/components/Player";
@@ -8,6 +10,8 @@ import Player from "~/components/Player";
 const cx = classNames.bind(styles);
 function AudioPlayer() {
   const {
+    isPlaying,
+    playerRefs,
     currentTrackId,
     currentTrack,
     trackLink,
@@ -23,6 +27,12 @@ function AudioPlayer() {
     setActiveRandomClick,
   } = useAudioPlayer();
 
+  useEffect(() => {
+    if (!isPlaying && playerRefs.current) {
+      playerRefs.current.pause();
+    }
+  }, [isPlaying]);
+
   return (
     <div className={cx("wrapper")}>
       <div className={cx("frame")}>
@@ -32,7 +42,7 @@ function AudioPlayer() {
           trackPerformer={currentTrack?.trackPerformer || "Unknown Performer"}
           trackLink={trackLink}
           trackType={currentTrack?.trackType || "Unknown Type"}
-          isStatus={!!currentTrackId}
+          isStatus={!!currentTrackId && isPlaying}
           onPlay={() => handlePlay(currentTrackId, currentTrack, trackLink)}
           onPause={handlePause}
           onNext={handleNextTrack}

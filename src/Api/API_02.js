@@ -19,14 +19,6 @@ const apiMoment = {
       },
       {
         id: 2,
-        date: `20-09-2024`,
-        name: `Quang Hùng MasterD - Chỉ Còn Một Đêm (เหลอเพยงคนเดยว - Last Dark) ft. FHERO (THAI VERSION)`,
-        link: mp4Type[
-          `Moment/Quang Hung MasterD Chi Con Mot Dem เหลอเพยงคนเดยว Last Dark ft FHERO THAI VERSION`
-        ],
-      },
-      {
-        id: 3,
         date: `10-08-2024`,
         name: `[BEAT BREAKDOWN] TRỐNG CƠM - TỰ LONG, SOOBIN, CƯỜNG SEVEN, (CÔNG DIỄN 1 ANH TRAI VƯỢT NGÀN CHÔNG GAI)`,
         link: mp4Type[
