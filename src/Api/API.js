@@ -21,7 +21,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Rap/HipHop",
             releaseDay: "2024-10-07",
-            streamed: "2500",
+            streamed: 2500,
             trend: false,
             link: mp3Type[
               `MusicMaker/Suboi/singletracks/Trời Cho feat Hoàng Touliver`
@@ -38,7 +38,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Rap/HipHop",
             releaseDay: "2024-10-10",
-            streamed: "3522",
+            streamed: 3522,
             trend: false,
             link: mp3Type[`MusicMaker/Suboi/singletracks/Suboi  Đời`],
             lyric: "",
@@ -53,7 +53,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Rap/HipHop",
             releaseDay: "2024-10-12",
-            streamed: "2862",
+            streamed: 2862,
             trend: false,
             link: mp3Type[`MusicMaker/Suboi/singletracks/Suboi  Dâu Thiên Hạ`],
             lyric: "",
@@ -66,6 +66,7 @@ const apiMusicMaker = {
               "https://www.elle.vn/wp-content/uploads/2021/07/23/443917/suboi-va-album-no-ne-2.jpg",
             albumPerformer: "Suboi",
             albumName: "Album - No Nê",
+            mode: "AlbumList",
             releaseDay: "2023-10-25",
             tracks: [
               {
@@ -77,7 +78,7 @@ const apiMusicMaker = {
                 name: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "2023-10-12",
-                streamed: "3579",
+                streamed: 3579,
                 trend: false,
                 link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  CÔNG`],
                 lyric: "",
@@ -90,7 +91,7 @@ const apiMusicMaker = {
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "2023-10-12",
-                streamed: "1325",
+                streamed: 1325,
                 trend: false,
                 link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi CHO KHÔNG`],
                 lyric: "",
@@ -103,7 +104,7 @@ const apiMusicMaker = {
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "2023-10-12",
-                streamed: "1298",
+                streamed: 1298,
                 trend: false,
                 link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  NSAO`],
                 lyric: "",
@@ -116,7 +117,7 @@ const apiMusicMaker = {
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "2023-10-12",
-                streamed: "925",
+                streamed: 925,
                 trend: false,
                 link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  SICKERRR`],
                 lyric: "",
@@ -129,7 +130,7 @@ const apiMusicMaker = {
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "2023-10-12",
-                streamed: "833",
+                streamed: 833,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Suboi/albums/NoNe/Suboi  Best Friend`
@@ -144,7 +145,7 @@ const apiMusicMaker = {
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "2023-10-12",
-                streamed: "1865",
+                streamed: 1865,
                 trend: false,
                 link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  BET ON ME`],
                 lyric: "",
@@ -157,7 +158,7 @@ const apiMusicMaker = {
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "2023-10-12",
-                streamed: "1113",
+                streamed: 1113,
                 trend: false,
                 link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  LAVA`],
                 lyric: "",
@@ -170,7 +171,7 @@ const apiMusicMaker = {
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "2023-10-12",
-                streamed: "1023",
+                streamed: 1023,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Suboi/albums/NoNe/Suboi  NGÀY LẠI NGÀY`
@@ -185,7 +186,7 @@ const apiMusicMaker = {
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "2023-10-12",
-                streamed: "935",
+                streamed: 935,
                 trend: false,
                 link: mp3Type[`MusicMaker/Suboi/albums/NoNe/Suboi  DIỀU`],
                 lyric: "",
@@ -198,7 +199,7 @@ const apiMusicMaker = {
                 type: "Album - No Nê",
                 genre: "Rap/HipHop",
                 releaseDay: "2023-10-12",
-                streamed: "5325",
+                streamed: 5325,
                 trend: true,
                 link: mp3Type[
                   `MusicMaker/Suboi/albums/NoNe/Suboi CÔNG Dance Remix`
@@ -227,7 +228,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "RapHipHop",
             releaseDay: "2024-10-06",
-            streamed: "1254",
+            streamed: 1254,
             trend: false,
             link: mp3Type[`MusicMaker/Rhymastic/singletracks/LẠC  Rhymastic`],
             lyric: "",
@@ -242,7 +243,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Pop",
             releaseDay: "2024-10-09",
-            streamed: "6632",
+            streamed: 6632,
             trend: false,
             link: mp3Type[
               `MusicMaker/Rhymastic/singletracks/Rhymastic  Treasure Official Lyric Video`
@@ -257,6 +258,7 @@ const apiMusicMaker = {
               "https://i.scdn.co/image/ab67616d0000b273d98135e509a6271e6d1605a7",
             albumPerformer: "Rhymastic",
             albumName: "Album - LOV6 (EP)",
+            mode: "AlbumList",
             albumType: "Album",
             releaseDay: "2022-09-15",
             tracks: [
@@ -268,7 +270,7 @@ const apiMusicMaker = {
                 type: "Album - LOV6",
                 genre: "RnB",
                 releaseDay: "2023-08-252023-08-25",
-                streamed: "1085",
+                streamed: 1085,
                 trend: true,
                 link: mp3Type[
                   `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Y6U`
@@ -283,7 +285,7 @@ const apiMusicMaker = {
                 type: "Album - LOV6",
                 genre: "Pop",
                 releaseDay: "2023-08-25",
-                streamed: "1102",
+                streamed: 1102,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Líu La Líu Lo`
@@ -298,7 +300,7 @@ const apiMusicMaker = {
                 type: "Album - LOV6",
                 genre: "RnB/HipHop",
                 releaseDay: "2023-08-25",
-                streamed: "1312",
+                streamed: 1312,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Side Effects feat Touliver  BWine`
@@ -313,7 +315,7 @@ const apiMusicMaker = {
                 type: "Album - LOV6",
                 genre: "RnB",
                 releaseDay: "2023-08-25",
-                streamed: "777",
+                streamed: 777,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Ngổn Ngang`
@@ -328,7 +330,7 @@ const apiMusicMaker = {
                 type: "Album - LOV6",
                 genre: "RnB",
                 releaseDay: "2023-08-25",
-                streamed: "666",
+                streamed: 666,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Vẫn Yêu`
@@ -343,7 +345,7 @@ const apiMusicMaker = {
                 type: "Album - LOV6",
                 genre: "Electro-disco",
                 releaseDay: "2023-08-25",
-                streamed: "1532",
+                streamed: 1532,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Rhymastic/albums/LOV6/Rhymastic  Thêm Đứa Nữa`
@@ -371,7 +373,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Dance",
             releaseDay: "2024-10-02",
-            streamed: "6032",
+            streamed: 6032,
             trend: true,
             link: mp3Type[
               `MusicMaker/Touliver/singletracks/Touliver x Nimbia  Get It`
@@ -398,7 +400,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "RnB Soul",
             releaseDay: "2024-10-05",
-            streamed: "5595",
+            streamed: 5595,
             trend: false,
             link: mp3Type[
               `MusicMaker/J.Sheon/singletracks/JSheon  Dont Ask 別問很可怕`
@@ -426,7 +428,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Electronic",
             releaseDay: "2024-10-12",
-            streamed: "2023",
+            streamed: 2023,
             trend: false,
             link: mp3Type[
               `MusicMaker/Perfume/singletracks/Perfume Spinning World`
@@ -441,6 +443,7 @@ const apiMusicMaker = {
               "https://draw.acharts.net/cover/80760-54d08c7965c19-l.jpg",
             albumPerformer: "Perfume",
             albumName: "Album - Level 3",
+            mode: "AlbumList",
             albumType: "Album",
             releaseDay: "2013-10-01",
             tracks: [
@@ -451,7 +454,7 @@ const apiMusicMaker = {
                 stageName: "Perfume",
                 genre: "Electro Pop",
                 releaseDay: "2023-12-18",
-                streamed: "3320",
+                streamed: 3320,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Perfume/albums/LEVEL3/Enter the sphere`
@@ -465,7 +468,7 @@ const apiMusicMaker = {
                 stageName: "Perfume",
                 genre: "Electro Pop",
                 releaseDay: "2023-12-18",
-                streamed: "2678",
+                streamed: 2678,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Perfume/albums/LEVEL3/Spring of life Albummix`
@@ -479,7 +482,7 @@ const apiMusicMaker = {
                 stageName: "Perfume",
                 genre: "Electro Pop",
                 releaseDay: "2023-12-18",
-                streamed: "1385",
+                streamed: 1385,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Perfume/albums/LEVEL3/Magic of love Albummix`
@@ -493,7 +496,7 @@ const apiMusicMaker = {
                 stageName: "Perfume",
                 genre: "Electro Pop",
                 releaseDay: "2023-12-18",
-                streamed: "2685",
+                streamed: 2685,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Perfume/albums/LEVEL3/LEVEL 3  Clockwork`
@@ -522,7 +525,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Pop",
             releaseDay: "2024-10-08",
-            streamed: "3585",
+            streamed: 3585,
             trend: false,
             link: mp3Type[
               `MusicMaker/BIBI/singletracks/비비 BIBI  가면무도회 Animal Farm`
@@ -537,6 +540,7 @@ const apiMusicMaker = {
               "https://cdns-images.dzcdn.net/images/cover/e237cedbbecf26c383d6a3e240408644/0x1900-000000-80-0-0.jpg",
             albumPerformer: "BIBI",
             albumName: "Album - Life is a Bi…",
+            mode: "AlbumList",
             albumType: "Album",
             releaseDay: "2021-05-21",
             tracks: [
@@ -547,7 +551,7 @@ const apiMusicMaker = {
                 stageName: "BIBI",
                 genre: "Pop",
                 releaseDay: "2023-11-08",
-                streamed: "2385",
+                streamed: 2385,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/BIBI/albums/Life is a Bi…/BIBI비비  Umm Life`
@@ -561,7 +565,7 @@ const apiMusicMaker = {
                 stageName: "BIBI",
                 genre: "RnB",
                 releaseDay: "2023-11-08",
-                streamed: "3325",
+                streamed: 3325,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/BIBI/albums/Life is a Bi…/BIBI비비  BAD SAD AND MAD`
@@ -575,7 +579,7 @@ const apiMusicMaker = {
                 stageName: "BIBI",
                 genre: "RnB",
                 releaseDay: "2023-11-08",
-                streamed: "3578",
+                streamed: 3578,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/BIBI/albums/Life is a Bi…/PIRI the dog 피리 PIRI the dog`
@@ -589,7 +593,7 @@ const apiMusicMaker = {
                 stageName: "BIBI",
                 genre: "RnB",
                 releaseDay: "2023-11-08",
-                streamed: "2395",
+                streamed: 2395,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/BIBI/albums/Life is a Bi…/Birthday Cake Birthday Cake`
@@ -603,7 +607,7 @@ const apiMusicMaker = {
                 stageName: "BIBI",
                 genre: "RnB",
                 releaseDay: "2023-11-08",
-                streamed: "1238",
+                streamed: 1238,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/BIBI/albums/Life is a Bi…/BIBI 비비  인생은 나쁜X Life is a Bi`
@@ -632,7 +636,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Pop/Ballad",
             releaseDay: "2024-10-03",
-            streamed: "3049",
+            streamed: 3049,
             trend: true,
             link: mp3Type[
               `MusicMaker/Phan Manh Quynh/singletracks/Sau lời từ khước OST MAI  Phan Mạnh Quỳnh`
@@ -659,7 +663,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Rap/HipHop",
             releaseDay: "2024-10-06",
-            streamed: "119935632",
+            streamed: 119935632,
             trend: false,
             link: mp3Type[`MusicMaker/Eminem/singletracks/Eminem - KILLSHOT`],
             lyric: "",
@@ -672,6 +676,7 @@ const apiMusicMaker = {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwcAqv_T5ey2mfFEyLcXe3o7VASzb7K825OQ&s",
             albumPerformer: "Eminem",
             albumName: "Album - Infinite",
+            mode: "AlbumList",
             albumType: "Album",
             releaseDay: "1996-11-12",
             tracks: [
@@ -682,7 +687,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "",
-                streamed: "6132852",
+                streamed: 6132852,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Infinite/Eminem  Infinite`
@@ -696,7 +701,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "",
-                streamed: "5321852",
+                streamed: 5321852,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Infinite/Eminem  Infinite FBT Remix`
@@ -711,6 +716,7 @@ const apiMusicMaker = {
               "https://upload.wikimedia.org/wikipedia/en/b/b4/Encore_%28Eminem_album%29_coverart.jpg",
             albumPerformer: "Eminem",
             albumName: "Album - Encore",
+            mode: "AlbumList",
             albumType: "Album",
             releaseDay: "2004-12-24",
             tracks: [
@@ -721,7 +727,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2004-12-24",
-                streamed: "4325951",
+                streamed: 4325951,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Encore/Eminem  Like Toy Soldiers`
@@ -735,7 +741,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2004-12-24",
-                streamed: "2852654",
+                streamed: 2852654,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Encore/Eminem  Just Lose It`
@@ -749,7 +755,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2004-12-24",
-                streamed: "932654",
+                streamed: 932654,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Encore/Eminem  A Like That Super`
@@ -763,7 +769,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2004-12-24",
-                streamed: "8321852",
+                streamed: 8321852,
                 trend: true,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Encore/Eminem  Mockingbird`
@@ -778,6 +784,7 @@ const apiMusicMaker = {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvzhz649VDzgSfhxy-x5KfU4JjggfTe_tEJz0bIbhd3-paHNprUKcJI3Fe6ud-7lx0PJk&usqp=CAU",
             albumPerformer: "Eminem",
             albumName: "Album - The Eminem Show",
+            mode: "AlbumList",
             albumType: "Album",
             releaseDay: "2002-05-21",
             tracks: [
@@ -788,7 +795,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2002-05-21",
-                streamed: "2753951",
+                streamed: 2753951,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/TheEminemShow/Eminem  White America`
@@ -802,7 +809,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2002-05-21",
-                streamed: "9321852",
+                streamed: 9321852,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/TheEminemShow/Eminem  Cleanin Out My Closet`
@@ -816,7 +823,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2002-05-21",
-                streamed: "10328523",
+                streamed: 10328523,
                 trend: true,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/TheEminemShow/Eminem  Without Me`
@@ -830,7 +837,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2002-05-21",
-                streamed: "2095634",
+                streamed: 2095634,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/TheEminemShow/Eminem  Sing for the Moment`
@@ -844,7 +851,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2002-05-21",
-                streamed: "654325",
+                streamed: 654325,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/TheEminemShow/Eminem  Hailies Song`
@@ -858,7 +865,7 @@ const apiMusicMaker = {
                 stageName: "Eminem ft. Nate Dogg",
                 genre: "Rap/HipHop",
                 releaseDay: "2002-05-21",
-                streamed: "3852654",
+                streamed: 3852654,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/TheEminemShow/Eminem  Till I Collapse feat Nate Dogg`
@@ -873,6 +880,7 @@ const apiMusicMaker = {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmZ08XRYRtFkYAF1Cl9h8PqjEi67SfPBY7dA&s",
             albumPerformer: "Eminem",
             albumName: "Album - Relapse",
+            mode: "AlbumList",
             albumType: "Album",
             releaseDay: "2009-09-15",
             tracks: [
@@ -883,7 +891,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2009-09-15",
-                streamed: "1085321",
+                streamed: 1085321,
                 trend: false,
                 link: mp3Type[`MusicMaker/Eminem/albums/Relapse/Eminem  3 am`],
                 lyric: "",
@@ -895,7 +903,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2009-09-15",
-                streamed: "951854",
+                streamed: 951854,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Relapse/Eminem  We Made You`
@@ -909,7 +917,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2009-09-15",
-                streamed: "1325735",
+                streamed: 1325735,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Relapse/Eminem  Beautiful`
@@ -923,7 +931,7 @@ const apiMusicMaker = {
                 stageName: "Eminem ft. 50 Cent, Dr Dre",
                 genre: "Rap/HipHop",
                 releaseDay: "2009-09-15",
-                streamed: "2058792",
+                streamed: 2058792,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Relapse/Eminem  Crack a Bottle feat 50 Cent  Dr Dre`
@@ -937,7 +945,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2009-09-15",
-                streamed: "453222",
+                streamed: 453222,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Relapse/Eminem  My Darling`
@@ -952,6 +960,7 @@ const apiMusicMaker = {
               "https://upload.wikimedia.org/wikipedia/en/6/60/Recovery_Album_Cover.jpg",
             albumPerformer: "Eminem",
             albumName: "Album - Recovery",
+            mode: "AlbumList",
             albumType: "Album",
             releaseDay: "2010-06-18",
             tracks: [
@@ -962,7 +971,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2010-06-18",
-                streamed: "12369157",
+                streamed: 12369157,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Recovery/Eminem  Not Afraid`
@@ -976,7 +985,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2010-06-18",
-                streamed: "5321852",
+                streamed: 5321852,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Recovery/Eminem  Space Bound`
@@ -990,7 +999,7 @@ const apiMusicMaker = {
                 stageName: "Eminem ft. Lil Wayne",
                 genre: "Rap/HipHop",
                 releaseDay: "2010-06-18",
-                streamed: "6321852",
+                streamed: 6321852,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Recovery/Eminem  No Love feat Lil Wayne`
@@ -1004,7 +1013,7 @@ const apiMusicMaker = {
                 stageName: "Eminem ft. Rihanna",
                 genre: "Rap/HipHop",
                 releaseDay: "2010-06-18",
-                streamed: "15321854",
+                streamed: 15321854,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Recovery/Eminem  Love the Way You Lie feat Rihanna`
@@ -1019,6 +1028,7 @@ const apiMusicMaker = {
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrpMJozqst-MyDuXtBcQ6TYH3f_JrztdwTIIMfuw65eOdmnQhEv7hB3Dv4z743qk1rdyc&usqp=CAU",
             albumPerformer: "Eminem",
             albumName: "Album - Revival",
+            mode: "AlbumList",
             albumType: "Album",
             releaseDay: "2017-12-15",
             tracks: [
@@ -1029,7 +1039,7 @@ const apiMusicMaker = {
                 stageName: "Eminem ft. Beyoncé",
                 genre: "Rap/HipHop",
                 releaseDay: "2017-12-15",
-                streamed: "321852",
+                streamed: 321852,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Revival/Eminem  Walk On Water ft Beyoncé`
@@ -1043,7 +1053,7 @@ const apiMusicMaker = {
                 stageName: "Eminem",
                 genre: "Rap/HipHop",
                 releaseDay: "2017-12-15",
-                streamed: "132854",
+                streamed: 132854,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Revival/Eminem  Believe`
@@ -1057,7 +1067,7 @@ const apiMusicMaker = {
                 stageName: "Eminem ft. Ed Sheeran",
                 genre: "Rap/HipHop",
                 releaseDay: "2017-12-15",
-                streamed: "999224",
+                streamed: 999224,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Revival/Eminem  River ft Ed Sheeran`
@@ -1071,7 +1081,7 @@ const apiMusicMaker = {
                 stageName: "Eminem ft. Kehlani",
                 genre: "Rap/HipHop",
                 releaseDay: "2017-12-15",
-                streamed: "9324",
+                streamed: 9324,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/Eminem/albums/Revival/Eminem  Nowhere Fast ft Kehlani`
@@ -1100,7 +1110,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Country",
             releaseDay: "2024-10-12",
-            streamed: "666",
+            streamed: 666,
             trend: false,
             link: mp3Type[
               `MusicMaker/Kenny Price/singletracks/TheHeavyWeight-Kenny Price`
@@ -1128,7 +1138,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Country",
             releaseDay: "2024-10-03",
-            streamed: "325",
+            streamed: 325,
             trend: true,
             link: mp3Type[
               `MusicMaker/The Southern RamBlers/singletracks/Country Roads - The Southern RamBlers`
@@ -1156,7 +1166,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "HipHop",
             releaseDay: "2024-02-12",
-            streamed: "128523",
+            streamed: 128523,
             trend: true,
             link: mp3Type[
               `MusicMaker/Jack Harlow/singletracks/Jack Harlow  Lovin On Me`
@@ -1184,7 +1194,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Pop",
             releaseDay: "2024-10-12",
-            streamed: "58522",
+            streamed: 58522,
             trend: true,
             link: mp3Type[
               `MusicMaker/MIN/singletracks/KHẮC HƯNG x MIN x ERIK  Ghen`
@@ -1199,6 +1209,7 @@ const apiMusicMaker = {
               "https://i.scdn.co/image/ab67616d0000b273221013fb2e16046539cfbdd8",
             albumPerformer: "MIN",
             albumName: "Album - 50|50",
+            mode: "AlbumList",
             albumType: "Album",
             releaseDay: "2022-05-20",
             tracks: [
@@ -1209,7 +1220,7 @@ const apiMusicMaker = {
                 stageName: "MIN",
                 genre: "Pop",
                 releaseDay: "2022-05-20",
-                streamed: "2315",
+                streamed: 2315,
                 trend: true,
                 link: mp3Type[`MusicMaker/MIN/albums/5050/MIN  CÀ PHÊ`],
                 lyric: "",
@@ -1221,7 +1232,7 @@ const apiMusicMaker = {
                 stageName: "MIN",
                 genre: "Pop",
                 releaseDay: "2022-05-20",
-                streamed: "3678",
+                streamed: 3678,
                 trend: true,
                 link: mp3Type[
                   `MusicMaker/MIN/albums/5050/MIN  TRÊN TÌNH BẠN DƯỚI TÌNH YÊU`
@@ -1235,7 +1246,7 @@ const apiMusicMaker = {
                 stageName: "MIN",
                 genre: "Pop",
                 releaseDay: "2022-05-20",
-                streamed: "1035",
+                streamed: 1035,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/MIN/albums/5050/MIN  ANH QUA ĐÂY ĐI OFFICIAL AUDIO`
@@ -1249,7 +1260,7 @@ const apiMusicMaker = {
                 stageName: "MIN",
                 genre: "Pop",
                 releaseDay: "2022-05-20",
-                streamed: "1285",
+                streamed: 1285,
                 trend: false,
                 link: mp3Type[`MusicMaker/MIN/albums/5050/MIN  PHẢI LÒNG ANH`],
                 lyric: "",
@@ -1261,7 +1272,7 @@ const apiMusicMaker = {
                 stageName: "MIN",
                 genre: "Pop",
                 releaseDay: "2022-05-20",
-                streamed: "935",
+                streamed: 935,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/MIN/albums/5050/MIN  NGẮM SAO DEAR MINIACS`
@@ -1275,7 +1286,7 @@ const apiMusicMaker = {
                 stageName: "MIN",
                 genre: "Pop",
                 releaseDay: "2022-05-20",
-                streamed: "935",
+                streamed: 935,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/MIN/albums/5050/MIN  WATCHING THE STARS`
@@ -1289,7 +1300,7 @@ const apiMusicMaker = {
                 stageName: "MIN",
                 genre: "Pop",
                 releaseDay: "2022-05-20",
-                streamed: "825",
+                streamed: 825,
                 trend: false,
                 link: mp3Type[
                   `MusicMaker/MIN/albums/5050/MIN  PHẢI LÒNG ANH DREAM VER`
@@ -1316,7 +1327,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Pop",
             releaseDay: "2022-04-06",
-            streamed: "335684",
+            streamed: 335684,
             trend: true,
             link: mp3Type[
               `MusicMaker/Imagine Dragons/singletracks/Imagine Dragons  Bones`
@@ -1343,7 +1354,7 @@ const apiMusicMaker = {
             type: "Single",
             genre: "Pop",
             releaseDay: "2022-11-02",
-            streamed: "235584",
+            streamed: 235584,
             trend: true,
             link: mp3Type[
               `MusicMaker/Sleepy Hallow/singletracks/Sleepy Hallow  Marie`

@@ -9,6 +9,7 @@ const apiPodcast = {
           "https://png.pngtree.com/background/20240411/original/pngtree-bumper-stickers-and-graffiti-on-the-street-art-harajuku-district-social-picture-image_8455571.jpg",
         topic: "Social Issues",
         description: "Multiple Authors",
+        mode: "PodcastAudioList",
         audios: [
           {
             id: "dtn_MTCMXHTDNT",
@@ -19,7 +20,7 @@ const apiPodcast = {
             author: "Duy Thành Nguyễn",
             title: "Mặt Trái Của Một Xã Hội Trọng Dụng Nhân Tài ",
             releaseDay: "2021-09-18",
-            streamed: "582000",
+            streamed: 582000,
             link: mp3Type[
               `Podcast/Social Issues/Duy Thanh Nguyen/Mặt Trái Của Một Xã Hội Trọng Dụng Nhân Tài  More Perspectives Podcast`
             ],
@@ -33,6 +34,7 @@ const apiPodcast = {
           "https://5minuteenglish.com/wp-content/uploads/2024/03/Popular-Culture.webp",
         topic: "Pop Culture",
         description: "Multiple Authors",
+        mode: "PodcastAudioList",
         audios: [
           {
             id: "st_VHDCGTHN",
@@ -43,7 +45,7 @@ const apiPodcast = {
             author: "Sóng Trẻ Radio",
             title: "VĂN HÓA ĐỌC CỦA GIỚI TRẺ HIỆN NAY",
             releaseDay: "2022-03-22",
-            streamed: "472",
+            streamed: 472,
             link: mp3Type[
               `Podcast/Pop Culture/Song Tre Radio/PODCAST HIGHLIGHTS SỐ 18 VĂN HÓA ĐỌC CỦA GIỚI TRẺ HIỆN NAY`
             ],
@@ -57,6 +59,7 @@ const apiPodcast = {
           "https://jobsgo.vn/blog/wp-content/uploads/2023/11/business-la-gi.jpg",
         topic: "Business",
         description: "Multiple Authors",
+        mode: "PodcastAudioList",
         audios: [
           {
             id: "cnr_GSPVT_MKDGHDHN",
@@ -67,7 +70,7 @@ const apiPodcast = {
             author: "GS. Phan Văn Trường",
             title: `Muốn KINH DOANH giỏi, hãy đi "HỌC NGHỀ" | GS. Phan Văn Trường`,
             releaseDay: "2021-11-29",
-            streamed: "150288",
+            streamed: 150288,
             link: mp3Type[
               `Podcast/Business/Cay Nen Radio/Muốn KINH DOANH giỏi hãy đi HỌC NGHỀ  GS Phan Văn Trường  Câu Hỏi Hôm Nay  Cấy Nền Radio`
             ],
@@ -81,6 +84,7 @@ const apiPodcast = {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMBRQpC4IK2F5gZ1HgGmo5NtScnUpvpLqNd8fxSetBmGqs2-G5h1uSzQapkB6FtD4TQ38&usqp=CAU",
         topic: "Religion",
         description: "Multiple Authors",
+        mode: "PodcastAudioList",
         audios: [
           {
             id: "vv_TCCTGTVG8P",
@@ -91,7 +95,7 @@ const apiPodcast = {
             author: "Vui Vẻ",
             title: "Tất cả các tôn giáo trong vòng gần 8 phút",
             releaseDay: "2024-01-10",
-            streamed: "942520",
+            streamed: 942520,
             link: mp3Type[
               `Podcast/Religion/Vui Ve/Tất cả các tôn giáo trong vòng gần 8 phút  Đơn giản hóa 119 Tôn giáo`
             ],
@@ -105,6 +109,7 @@ const apiPodcast = {
           "https://i.ytimg.com/vi/pP21uLrTOd4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBlcDcBiUgvDxZt0DDZycc28388RQ",
         topic: "Psychology",
         description: "Multiple Authors",
+        mode: "PodcastAudioList",
         audios: [
           {
             id: "gtlh_GDRLCN_BL",
@@ -115,7 +120,7 @@ const apiPodcast = {
             author: "Góc Tâm Lý Học",
             title: "GIA ĐÌNH RỐI LOẠN CHỨC NĂNG | BẠO LỰC",
             releaseDay: "2023-05-21",
-            streamed: "364",
+            streamed: 364,
             link: mp3Type[
               `Podcast/Psychology/Goc Tam Ly Hoc/1 GIA ĐÌNH RỐI LOẠN CHỨC NĂNG  BẠO LỰC  PODCAST TÂM LÝ HỌC`
             ],
@@ -130,6 +135,7 @@ const apiPodcast = {
           "https://img.freepik.com/free-photo/concept-audiobook-books-table-with-headphones-put-them_1423-146.jpg",
         topic: "AudioBook",
         description: "Multiple Authors",
+        mode: "PodcastAudioList",
         audios: [
           {
             id: "mn1ts_1CCYNVCSBNNMLTD",
@@ -155,6 +161,7 @@ const apiPodcast = {
           "https://live365.com/blog/content/images/2021/10/Audio-drama-graphic.jpeg",
         topic: "AudioDrama",
         description: "Multiple Authors",
+        mode: "PodcastAudioList",
         audios: [
           {
             id: "BrettLamb_IYD",
@@ -179,6 +186,7 @@ const apiPodcast = {
           "https://thumbs.dreamstime.com/b/storytelling-word-cloud-old-slate-blackboard-scratches-white-chalk-smudges-70732212.jpg",
         topic: "Narrative Storytelling",
         description: "Multiple Authors",
+        mode: "PodcastAudioList",
         audios: [
           {
             id: "tnlq_CDT",

@@ -1,6 +1,8 @@
 import classNames from "classnames/bind";
 import styles from "./NewReleasesBox.module.scss";
 
+import { useEffect, useState } from "react";
+
 import { useAudioPlayer } from "../AudioPlayerProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,8 +31,21 @@ function NewReleasesBox({
   releaseDay,
   streamed,
 }) {
-  const { currentTrackId, handlePlay, handlePause, listeners, setTrackList } =
-    useAudioPlayer();
+  const {
+    currentTrackId,
+    handlePlay,
+    handlePause,
+    setTrackList,
+    updateStreamed,
+  } = useAudioPlayer();
+
+  const [selectedTrackId, setSelectedTrackId] = useState(null);
+
+  useEffect(() => {
+    if (selectedTrackId === trackId) {
+      console.log(trackTitle, trackPerformer, streamed);
+    }
+  }, [trackId, selectedTrackId, streamed]);
 
   const handlePlayTrack = () => {
     setTrackList((prevTrackList) => {
@@ -44,6 +59,7 @@ function NewReleasesBox({
             trackPerformer: trackPerformer,
             trackLink: trackLink,
             trackType: trackType,
+            streamed: streamed,
           },
         ];
       }
@@ -51,11 +67,13 @@ function NewReleasesBox({
     });
 
     handlePlay(trackId, { trackTitle, trackPerformer }, trackLink);
+    updateStreamed(trackId, streamed);
+    setSelectedTrackId(trackId);
   };
 
   const formatStreamed = () => {
     if (streamed < 1000) {
-      return streamed.toString();
+      return streamed;
     } else if (streamed >= 1000 && streamed < 1000000) {
       const thousands = Math.floor(streamed / 1000);
       const hundreds = Math.floor((streamed % 1000) / 100);

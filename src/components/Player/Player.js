@@ -18,9 +18,9 @@ import {
   faShuffle,
   faStop,
   faVolumeHigh,
-  faPlus,
   faCircle,
-  faFolderOpen,
+  faListCheck,
+  faCompactDisc,
 } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(styles);
@@ -418,7 +418,7 @@ function Player({
       {/* AudioPlayer Footer */}
       <div className={cx("info", { footerInfo })}>
         <div className={cx("library")}>
-          <FontAwesomeIcon className={cx("folder")} icon={faFolderOpen} />
+          <FontAwesomeIcon className={cx("playlist")} icon={faCompactDisc} />
         </div>
 
         <div className={cx("sign")}>
@@ -430,7 +430,7 @@ function Player({
         </div>
 
         <div className={cx("add")}>
-          <FontAwesomeIcon className={cx("plus")} icon={faPlus} />
+          <FontAwesomeIcon className={cx("plus")} icon={faListCheck} />
         </div>
       </div>
 

@@ -22,7 +22,6 @@ export function AudioPlayerProvider({ children }) {
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
   const [isTrackEnded, setIsTrackEnded] = useState(false);
-  const [listeners, setListeners] = useState({});
   const [listeningTime, setListeningTime] = useState(1);
   const [checkListeningTime, setCheckListeningTime] = useState(1);
   const [isLooping, setIsLooping] = useState(false);
@@ -70,7 +69,6 @@ export function AudioPlayerProvider({ children }) {
   const handlePlay = async (trackId, track, link) => {
     try {
       const player = playerRefs.current;
-      const id = trackId || currentTrackId;
       const audioLink = link || trackLink;
 
       if (!player) return;
@@ -82,7 +80,7 @@ export function AudioPlayerProvider({ children }) {
 
       setTrackLink(audioLink);
       setCurrentTrack(track);
-      setCurrentTrackId(id);
+      setCurrentTrackId(trackId);
       setTrackType(track.type || "Unknown Type");
       setIsTrackEnded(false);
 
@@ -90,13 +88,13 @@ export function AudioPlayerProvider({ children }) {
       setIsVideoPlaying(false);
       await player.play();
 
-      // if (checkListeningTime >= player.duration) {
-      //   setListeningTime(player.currentTime);
-      //   setCheckListeningTime(player.currentTime - 1);
-      // } else {
-      //   setListeningTime(0);
-      //   setCheckListeningTime(0);
-      // }
+      if (checkListeningTime >= player.duration) {
+        setListeningTime(player.currentTime);
+        setCheckListeningTime(player.currentTime - 1);
+      } else {
+        setListeningTime(0);
+        setCheckListeningTime(0);
+      }
     } catch (stt) {
       console.log();
     }
@@ -128,31 +126,34 @@ export function AudioPlayerProvider({ children }) {
     }
   };
 
+  const updateStreamed = (trackId, streamed) => {
+    setTrackList((prevTrackList) =>
+      prevTrackList.map((track) =>
+        track.id === trackId ? { ...track, streamed: streamed + 1 } : track
+      )
+    );
+  };
+
   const handleTrackEnd = async () => {
     const player = playerRefs.current;
-    // const totalDuration = player ? player.duration : 0;
+    const totalDuration = player ? player.duration : 0;
 
     try {
       if (player) {
         if (isLooping) {
-          //Loop playlist và không có ngẫu nhiên
           if (!isRandom) {
             handleNextTrack();
             setIsPlaying(true);
             setIsTrackEnded(false);
             await player.play();
             // console.log("Playlist loop is active!");
-          }
-          //Loop shuffle list và có ngẫu nhiên
-          else if (isRandom) {
+          } else if (isRandom) {
             handleNextTrack();
             setIsPlaying(true);
             setIsTrackEnded(false);
             await player.play();
             // console.log("Shuffled track list loop is active!");
-          }
-          //Loop với track đơn
-          else {
+          } else {
             player.currentTime = 0;
             setIsPlaying(true);
             setIsTrackEnded(false);
@@ -184,21 +185,18 @@ export function AudioPlayerProvider({ children }) {
       console.log();
     }
 
-    // const percentDuration = totalDuration * 0.97;
+    const percentDuration = totalDuration * 0.97;
 
-    // if (
-    //   listeningTime >= percentDuration &&
-    //   checkListeningTime >= percentDuration
-    // ) {
-    //   setListeners((prevListeners) => {
-    //     const newListeners = (prevListeners[trackId] || 0) + 1;
-    //     return { ...prevListeners, [trackId]: newListeners };
-    //   });
-    // } else {
-    //   console.log(
-    //     "The stream isn't recorded because the song wasn't played fully!"
-    //   );
-    // }
+    if (
+      listeningTime >= percentDuration &&
+      checkListeningTime >= percentDuration
+    ) {
+      updateStreamed(currentTrackId, (prev) => (prev || 0) + 1);
+    } else {
+      console.log(
+        "The stream isn't recorded because the song wasn't played fully!"
+      );
+    }
     // console.log("Duration time:", percentDuration);
     // console.log("Listen time:", listeningTime);
     // console.log("Check time:", checkListeningTime);
@@ -315,8 +313,6 @@ export function AudioPlayerProvider({ children }) {
         setIsPlaying,
         isTrackEnded,
         setIsTrackEnded,
-        listeners,
-        setListeners,
         listeningTime,
         activeLoopClick,
         setActiveLoopClick,
@@ -324,6 +320,7 @@ export function AudioPlayerProvider({ children }) {
         setActiveRandomClick,
         trackType,
         setTrackType,
+        updateStreamed,
       }}
     >
       {children}

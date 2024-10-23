@@ -49,7 +49,9 @@
 
 .audio-info {
   width: 100%;
-  height: 60px;
+  max-width: 100%;
+  // height: 60px;
+  height: auto;
   margin: 6px;
   display: flex;
   flex-direction: column;
@@ -74,6 +76,14 @@
   font-size: 0.85rem;
   opacity: 0.6;
   line-height: 1.2;
+}
+
+.audio-title,
+.audio-publisher,
+.audio-author {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: width 0.3s ease;
 }
 
 .more-func {
@@ -126,41 +136,41 @@
   justify-content: center;
 }
 
-@media (min-width: 1051px) and (max-width: 1120px) {
+@media (min-width: 1050px) and (max-width: 1120px) {
   .audio-title {
     font-size: 0.9rem;
   }
 }
 
-@media (min-width: 1007px) and (max-width: 1050px) {
+@media (min-width: 1007px) and (max-width: 1049px) {
+  .audio-title {
+    font-size: 0.9rem;
+  }
+
+  .audio-publisher,
+  .audio-author {
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 987px) and (max-width: 1006px) {
   .audio-title {
     font-size: 0.8rem;
   }
 
   .audio-publisher,
   .audio-author {
-    font-size: 0.6;
+    font-size: 0.65rem;
   }
 }
 
-@media (min-width: 987px) and (max-width: 1006px) {
+@media (max-width: 986px) {
   .audio-title {
-    font-size: 0.68rem;
+    font-size: 0.7rem;
   }
 
   .audio-publisher,
   .audio-author {
-    font-size: 0.45;
-  }
-}
-
-@media (min-width: 899px) and (max-width: 986px) {
-  .audio-title {
-    font-size: 0.9rem;
-  }
-
-  .audio-publisher,
-  .audio-author {
-    font-size: 0.5;
+    font-size: 0.6rem;
   }
 }
