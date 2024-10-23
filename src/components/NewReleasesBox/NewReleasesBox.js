@@ -37,6 +37,7 @@ function NewReleasesBox({
     handlePause,
     setTrackList,
     updateStreamed,
+    isPlaying,
   } = useAudioPlayer();
 
   const [selectedTrackId, setSelectedTrackId] = useState(null);
@@ -114,7 +115,7 @@ function NewReleasesBox({
           trackPerformer={trackPerformer}
           trackType={trackType}
           //
-          isStatus={trackId === currentTrackId}
+          isStatus={trackId === currentTrackId && isPlaying}
           onPlay={handlePlayTrack}
           onPause={() => handlePause(trackId)}
         />
