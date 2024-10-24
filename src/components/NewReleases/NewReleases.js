@@ -27,6 +27,7 @@ function NewReleases() {
         type: album.type || track.type,
         genre: album.genre || track.genre,
         releaseDay: album.releaseDay || track.releaseDay,
+        streamed: track.streamed,
       }))
     ),
   ]);
@@ -43,10 +44,6 @@ function NewReleases() {
       const dateB = new Date(b.releaseDay);
       return dateB - dateA;
     });
-
-  // console.log(musicMaker);
-  // console.log(allTracks);
-  // console.log(filteredTracks);
 
   const [width, setWidth] = useState(window.innerWidth);
   const [scrollIndex, setScrollIndex] = useState(0);

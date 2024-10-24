@@ -126,19 +126,9 @@ export function AudioPlayerProvider({ children }) {
     }
   };
 
-  const updateStreamed = (trackId) => {
-    setTrackList((prevTracks) => {
-      const currentCount = prevTracks[trackId] || 0;
-      return {
-        ...prevTracks,
-        [trackId]: currentCount + 1,
-      };
-    });
-  };
-
   const handleTrackEnd = async () => {
     const player = playerRefs.current;
-    const totalDuration = player ? player.duration : 0;
+    // const totalDuration = player ? player.duration : 0;
 
     try {
       if (player) {
@@ -187,18 +177,18 @@ export function AudioPlayerProvider({ children }) {
       console.log();
     }
 
-    const percentDuration = totalDuration * 0.97;
+    // const percentDuration = totalDuration * 0.97;
 
-    if (
-      listeningTime >= percentDuration &&
-      checkListeningTime >= percentDuration
-    ) {
-      updateStreamed(currentTrackId);
-    } else {
-      console.log(
-        "The stream isn't recorded because the song wasn't played fully!"
-      );
-    }
+    // if (
+    //   listeningTime >= percentDuration &&
+    //   checkListeningTime >= percentDuration
+    // ) {
+    //   //
+    // } else {
+    //   console.log(
+    //     "The stream isn't recorded because the song wasn't played fully!"
+    //   );
+    // }
     // console.log("Duration time:", percentDuration);
     // console.log("Listen time:", listeningTime);
     // console.log("Check time:", checkListeningTime);
@@ -315,14 +305,14 @@ export function AudioPlayerProvider({ children }) {
         setIsPlaying,
         isTrackEnded,
         setIsTrackEnded,
-        listeningTime,
         activeLoopClick,
         setActiveLoopClick,
         activeRandomClick,
         setActiveRandomClick,
         trackType,
         setTrackType,
-        updateStreamed,
+        listeningTime,
+        checkListeningTime,
       }}
     >
       {children}

@@ -36,8 +36,11 @@ function NewReleasesBox({
     handlePlay,
     handlePause,
     setTrackList,
-    updateStreamed,
     isPlaying,
+    isTrackEnded,
+    playerRefs,
+    listeningTime,
+    checkListeningTime,
   } = useAudioPlayer();
 
   const [selectedTrackId, setSelectedTrackId] = useState(null);
