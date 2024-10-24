@@ -41,12 +41,13 @@ function NewReleasesBox({
   } = useAudioPlayer();
 
   const [selectedTrackId, setSelectedTrackId] = useState(null);
+  const [streamCount, setStreamCount] = useState(streamed);
 
   useEffect(() => {
     if (selectedTrackId === trackId) {
-      console.log(trackTitle, trackPerformer, streamed);
+      console.log(trackTitle, trackPerformer, streamCount);
     }
-  }, [trackId, selectedTrackId, streamed]);
+  }, [trackId, selectedTrackId, streamCount]);
 
   const handlePlayTrack = () => {
     setTrackList((prevTrackList) => {
@@ -60,7 +61,6 @@ function NewReleasesBox({
             trackPerformer: trackPerformer,
             trackLink: trackLink,
             trackType: trackType,
-            streamed: streamed,
           },
         ];
       }
@@ -68,7 +68,6 @@ function NewReleasesBox({
     });
 
     handlePlay(trackId, { trackTitle, trackPerformer }, trackLink);
-    updateStreamed(trackId, streamed);
     setSelectedTrackId(trackId);
   };
 
@@ -125,7 +124,7 @@ function NewReleasesBox({
         <div className={cx("streams")}>
           <FontAwesomeIcon className={cx("headphone")} icon={faHeadphones} />
           <div className={cx("listens")}>
-            <h6 className={cx("listener")}>{formatStreamed(streamed)}</h6>
+            <h6 className={cx("listener")}>{formatStreamed(streamCount)}</h6>
           </div>
         </div>
 
